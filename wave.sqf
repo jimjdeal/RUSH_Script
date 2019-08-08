@@ -1,5 +1,5 @@
-systemChat "wave script running";
-// this file now holds group creation, spawning and movement orders 
+// systemChat "wave script running";
+// this file holds group creation, spawning and movement orders 
 
 // spawn opfor 
 groupRed1 = createGroup east;
@@ -15,16 +15,21 @@ for "_i" from 1 to 4 do {
 	"O_V_Soldier_TL_ghex_F" createUnit [getMarkerPos "opLeftWP", groupRed3]; 
 };
 
-
 sleep 15;
-// move blu units to new WPs 
+
+
+// movement orders:
+
+// move blu units to WPs 
 groupBlu1 move getMarkerPos "rightFlankWP";
-systemChat "blu1 move orders issued";
+// systemChat "blu1 move orders issued";
 sleep 2;
 groupBlu2 move getMarkerPos "leftFlankWP";
-systemChat "blu2 move orders issued";
+// systemChat "blu2 move orders issued";
 
-// now to move red units to new WPs 
+// move red units to WPs 
 groupRed1 move getMarkerPos "rightFlankWP";
+sleep 2;
 groupRed3 move getMarkerPos "playerWP";
+sleep 2;
 groupRed2 move getMarkerPos "leftFlankWP";

@@ -3,7 +3,7 @@ execVM "missionParams.sqf";
 
 sleep 3;
 
-// spawn blufor 
+// spawn initial blufor 
 for "_i" from 1 to 5 do { 
 	"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
 	sleep 0.2;

@@ -1,4 +1,3 @@
-
 systemChat "flyby activated";
 _start = player getPos [500,001];
 _end = player getPos [5000,180];
@@ -8,6 +7,7 @@ _secondEnd = player getPos [5000,180];
 
 _third = player getPos [500,009];
 _thirdEnd = player getPos [5000,180];
+// the above is trying to get some sort of formation going here .. probably a much smarter way, but this sort of works
 
 [[_start select 0, _start select 1, 300],[_end select 0, _end select 1, 300],300,"LIMITED","B_Plane_Transport_01_infantry_F",WEST] call BIS_fnc_ambientFlyby;
 sleep 1;

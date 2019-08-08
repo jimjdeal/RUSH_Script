@@ -1,5 +1,4 @@
-// counter 
-systemChat "counter running";
+// systemChat "counter running";
 while {true} do {
 	_aliveEast = {alive _x && side _x == east} count allUnits;
 	systemChat "Enemy:";
@@ -14,13 +13,8 @@ while {true} do {
 	if (_aliveEast == 0) then {
 		execVM "markers.sqf";
 		systemChat "Here we go again ...";
-	
-		// move blu units to new WPs 
-		// groupBlu1 move getMarkerPos "rightFlankWP";
-		// groupBlu2 move getMarkerPos "leftFlankWP";
 	};
 	sleep 30;
-
 };
 
 
