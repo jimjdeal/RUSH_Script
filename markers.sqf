@@ -12,7 +12,6 @@ _AO_Marker = createMarker ["Marker1", _AO_Marker];
 "Marker1" setMarkerAlpha 0.5;
 "Marker1" setMarkerColor "ColorBlack";
 
-
 // create blufor AI group markers
 deleteMarker "leftFlank";
 _leftFlank = player getPos [100, 270];

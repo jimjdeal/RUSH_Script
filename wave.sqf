@@ -5,13 +5,13 @@ systemChat "wave script running";
 groupRed1 = createGroup east;
 groupRed2 = createGroup east;
 groupRed3 = createGroup east;
-for "_i" from 1 to 2 do { 
+for "_i" from 1 to 4 do { 
 	"O_V_Soldier_TL_ghex_F" createUnit [getMarkerPos "opRightWP", groupRed1]; 
 };
-for "_i" from 1 to 2 do { 
+for "_i" from 1 to 4 do { 
 	"O_V_Soldier_TL_ghex_F" createUnit [getMarkerPos "opCenterWP", groupRed2]; 
 };
-for "_i" from 1 to 2 do { 
+for "_i" from 1 to 4 do { 
 	"O_V_Soldier_TL_ghex_F" createUnit [getMarkerPos "opLeftWP", groupRed3]; 
 };
 
