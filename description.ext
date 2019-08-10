@@ -1,0 +1,65 @@
+class CfgSounds
+{
+	sounds[] = {};
+	
+	class radio
+	{
+		name = "radio";
+		sound[] = {"voiceActivatedArty\sound\radio.ogg", 0.3,1};
+		titles[] = {};
+	};
+
+	class dangerClose1
+	{
+		name = "dangerClose1";
+		sound[] = {"voiceActivatedArty\sound\dangerClose1.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose2
+	{
+		name = "dangerClose2";
+		sound[] = {"voiceActivatedArty\sound\dangerClose2.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose3
+	{
+		name = "dangerClose3";
+		sound[] = {"voiceActivatedArty\sound\dangerClose3.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose4
+	{
+		name = "dangerClose4";
+		sound[] = {"voiceActivatedArty\sound\dangerClose4.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose5
+	{
+		name = "dangerClose5";
+		sound[] = {"voiceActivatedArty\sound\dangerClose5.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose6
+	{
+		name = "dangerClose6";
+		sound[] = {"voiceActivatedArty\sound\dangerClose6.ogg", 100,1};
+		titles[] = {};
+	};
+
+	class dangerClose7
+	{
+		name = "dangerClose7";
+		sound[] = {"voiceActivatedArty\sound\dangerClose7.ogg", 100,1};
+		titles[] = {};
+	};
+
+
+
+};
+
+

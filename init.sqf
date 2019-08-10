@@ -1,5 +1,9 @@
 execVM "markers.sqf";
 execVM "missionParams.sqf";
+if (is3DEN) exitwith {};
+if (isDedicated) exitWith {};
+waituntil {!isNull findDisplay 46}; 
+call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
 
 sleep 3;
 
