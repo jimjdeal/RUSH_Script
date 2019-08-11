@@ -4,6 +4,7 @@ if (is3DEN) exitwith {};
 if (isDedicated) exitWith {};
 waituntil {!isNull findDisplay 46}; 
 call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
+execVM "voiceActivatedCoordFinder\VACF_init.sqf";
 
 sleep 3;
 

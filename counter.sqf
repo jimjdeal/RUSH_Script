@@ -1,13 +1,13 @@
 // systemChat "counter running";
 while {true} do {
 	_aliveEast = {alive _x && side _x == east} count allUnits;
-	systemChat "Enemy:";
-	systemChat str _aliveEast;
+	// systemChat "Enemy:";
+	// systemChat str _aliveEast;
 	sleep .8;
 
 	_aliveWest = {alive _x && side _x == west} count allUnits;
-	systemChat "Friendly:";
-	systemChat str _aliveWest;
+	// systemChat "Friendly:";
+	// systemChat str _aliveWest;
 	sleep .8;
 
 	if (_aliveEast == 0) then {
