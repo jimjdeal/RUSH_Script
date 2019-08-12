@@ -8,6 +8,39 @@ execVM "voiceActivatedCoordFinder\initialiseVACF.sqf";
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // below was just copied, I need to replace with relevanmt comments
 
 // VAA_Init.sqf 		= entry point for app

@@ -3,7 +3,7 @@ while {VACF_numericalInputbool} do {
 
 	// counts / validates the correct numbers are held in each array
 	confirmedHeading = count VACF_Heading; // should be 3
-	confirmedDistance = count VACF_Distance; // should be 3
+	confirmedDistance = count VACF_Distance; // should be 4
 	
 	// Heading
 	if (VACF_headingBool) then {

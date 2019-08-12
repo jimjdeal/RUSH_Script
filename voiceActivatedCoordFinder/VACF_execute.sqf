@@ -1,20 +1,33 @@
+
 _VACF_heading = _this select 0;
 _VACF_distance = _this select 1;
+
 execVM "voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf";
-// systemChat "VACF clearKeyDowns activated";
-// sleep 3;
 systemChat "processing data...";
 sleep 3;
 
-
-
 RGG_callVACF = {
 	_VACF_result = player getPos [_VACF_distance, _VACF_heading];
+	systemChat str _VACF_result;
+	sleep 12;
+	systemChat str _VACF_result;
+	sleep 12;
 	systemChat str _VACF_result;
 };
 [_VACF_heading, _VACF_distance] call RGG_callVACF;
 	
 execVM "voiceActivatedCoordFinder\initialiseVACF.sqf";
+
+
+
+
+
+
+
+
+
+
+
 
 
 
