@@ -21,10 +21,10 @@ sleep 15;
 // movement orders:
 
 // move blu units to WPs 
-groupBlu1 move getMarkerPos "rightFlankWP";
+// groupBlu1 move getMarkerPos "rightFlankWP";
 // systemChat "blu1 move orders issued";
-sleep 2;
-groupBlu2 move getMarkerPos "leftFlankWP";
+// sleep 2;
+// groupBlu2 move getMarkerPos "leftFlankWP";
 // systemChat "blu2 move orders issued";
 
 // move red units to WPs 

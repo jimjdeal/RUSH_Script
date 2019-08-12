@@ -10,7 +10,7 @@ _AO_Marker = createMarker ["Marker1", _AO_Marker];
 
 // create blufor AI group markers
 deleteMarker "leftFlank";
-_leftFlank = player getPos [100, 270];
+_leftFlank = player getPos [50, 270];
 _leftFlank = createMarker ["leftFlank", _leftFlank];
 // "leftFlank" setMarkerSize [10, 10];
 // "leftFlank" setMarkerShape "RECTANGLE";
@@ -18,7 +18,7 @@ _leftFlank = createMarker ["leftFlank", _leftFlank];
 // "leftFlank" setMarkerColor "ColorRed";
 
 deleteMarker "rightFlank";
-_rightFlank = player getPos [100, 90];
+_rightFlank = player getPos [50, 90];
 _rightFlank = createMarker ["rightFlank", _rightFlank];
 // "rightFlank" setMarkerSize [10, 10];
 // "rightFlank" setMarkerShape "RECTANGLE";
@@ -56,7 +56,7 @@ _playerWaypoint = createMarker ["playerWP", _playerWaypoint];
 // the following three markers are used for opfor gen, but are not needed visually 
 deleteMarker "opRightWP";
 _op1Waypoint = getMarkerPos "rightFlank";
-_op1Waypoint = _op1Waypoint getPos [500,180];
+_op1Waypoint = _op1Waypoint getPos [3000,180];
 _op1Waypoint = createMarker ["opRightWP", _op1Waypoint];
 // "opRightWP" setMarkerSize [30, 30];
 // "opRightWP" setMarkerShape "RECTANGLE";
@@ -65,7 +65,7 @@ _op1Waypoint = createMarker ["opRightWP", _op1Waypoint];
 
 deleteMarker "opCenterWP";
 _op2Waypoint = position Player;
-_op2Waypoint = _op2Waypoint getPos [500,180];
+_op2Waypoint = _op2Waypoint getPos [3000,180];
 _op2Waypoint = createMarker ["opCenterWP", _op2Waypoint];
 // "opCenterWP" setMarkerSize [30, 30];
 // "opCenterWP" setMarkerShape "RECTANGLE";
@@ -75,7 +75,7 @@ _op2Waypoint = createMarker ["opCenterWP", _op2Waypoint];
 // now create a new marker for the player to move to
 deleteMarker "opLeftWP";
 _op3Waypoint = getMarkerPos "leftFlank";
-_op3Waypoint = _op3Waypoint getPos [500,180];
+_op3Waypoint = _op3Waypoint getPos [3000,180];
 _op3Waypoint = createMarker ["opLeftWP", _op3Waypoint];
 // "opLeftWP" setMarkerSize [30, 30];
 // "opLeftWP" setMarkerShape "RECTANGLE";
