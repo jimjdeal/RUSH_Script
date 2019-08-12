@@ -11,5 +11,3 @@ _ehVACF_Remove10 = (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vac
 
 VACF_numericalInputbool = false;
 
-sleep 2;
-systemChat "VACF call closed";

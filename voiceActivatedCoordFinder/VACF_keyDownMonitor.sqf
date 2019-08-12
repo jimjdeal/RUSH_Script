@@ -32,6 +32,7 @@ while {VACF_numericalInputbool} do {
 	if (VACF_showCoords) then {
 		execVM "voiceActivatedCoordFinder\VACF_prepareCoords.sqf";
 		systemChat "called prepareCoords";
+		VACF_showCoords = false;
 	};
 		
 	sleep 0.1;

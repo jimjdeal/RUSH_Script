@@ -1,3 +1,6 @@
+#include "dialogs.hpp"
+
+
 class CfgSounds
 {
 	sounds[] = {};

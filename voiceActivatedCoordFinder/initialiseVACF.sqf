@@ -1,4 +1,3 @@
-systemChat "VACF ACTIVATED";
 
 // vars and arrays initialisation
 VACF_Heading			= [];
