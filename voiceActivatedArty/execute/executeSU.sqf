@@ -53,8 +53,12 @@ RGG_callArty1 = {
 	
 };
 
-["BombCluster_02_Ammo_F", _pos, 1, 1] call RGG_callArty1;	
+["Bo_GBU12_LGB", _pos, 1, 1] call RGG_callArty1;	
 
-//
-
+/* 
+ammo_Bomb_SDB
+BombCluster_02_Ammo_F
+Cluster_155mm_AMOS
+ammo_Missile_HARM
+Bo_GBU12_LGB
 

@@ -86,7 +86,11 @@ next phase:
 
     
 
+text on screen
 
+i want to have a vis marker on screen when a system is running
+so on activation, the curText should show instantly
+then, run a 3 second loop, and if the input bool for that module is false, set it to clear.
 
             
 
