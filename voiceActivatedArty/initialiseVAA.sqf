@@ -1,5 +1,5 @@
 
-systemChat "INITIALISE VAA ACTIVATED";
+// systemChat "INITIALISE VAA ACTIVATED";
 
 // vars and arrays initialisation
 splashArtyTypeHE		= [];

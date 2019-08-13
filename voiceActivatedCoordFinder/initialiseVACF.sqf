@@ -17,6 +17,6 @@ rgg_vacf_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_th
 	VACF_numericalInputbool = true; 
 	execVM 'voiceActivatedCoordFinder\VACF_keyDowns.sqf'; 
 	execVM 'voiceActivatedCoordFinder\VACF_keyDownMonitor.sqf'; 
-
+	
 }"];
 

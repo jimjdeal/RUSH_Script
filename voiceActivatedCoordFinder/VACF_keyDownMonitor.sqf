@@ -9,9 +9,9 @@ while {VACF_numericalInputbool} do {
 	if (VACF_headingBool) then {
 		if (confirmedHeading == 3) then {
 
-			systemChat "heading received...";
-			systemChat str VACF_Heading;
-			systemChat "now enter distance";
+			// systemChat "heading received...";
+			// systemChat str VACF_Heading;
+			// systemChat "now enter distance";
 			VACF_headingBool = false;
 			VACF_distanceBool = true;
 		};
@@ -21,8 +21,8 @@ while {VACF_numericalInputbool} do {
 	if (VACF_distanceBool) then {
 		if (confirmedDistance == 4) then {
 
-			systemChat "distance received...";
-			systemChat str VACF_Distance;
+			// systemChat "distance received...";
+			// systemChat str VACF_Distance;
 			systemChat "stand by for coords...";
 			VACF_distanceBool = false;
 			VACF_showCoords = true;
@@ -31,10 +31,10 @@ while {VACF_numericalInputbool} do {
 
 	if (VACF_showCoords) then {
 		execVM "voiceActivatedCoordFinder\VACF_prepareCoords.sqf";
-		systemChat "called prepareCoords";
+		// systemChat "called prepareCoords";
 		VACF_showCoords = false;
 	};
-		
+
 	sleep 0.1;
 };	
 	
