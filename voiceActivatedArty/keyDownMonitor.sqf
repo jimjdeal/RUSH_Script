@@ -112,7 +112,15 @@ while {numericalInputbool} do {
 			if (confirmedLonDigits == 5) then {
 				systemChat "5 digit longitude received...";
 				systemChat str splashCoordsLat;
-				
+				// next question we should ask here - confirm fire mission or adjust fire 
+				// adjustFireBool 
+				// if false, then confirmActionBool = true 
+				// if true, then adjustingFireBool = true 
+				// if adjustingFireBool = true, then inputs are..
+				// "left .2 0", or "left .8 5".
+				// this adds this amount to the heading value 
+				// incomplete - this is wrong ^^
+
 				systemChat "final confirmation needed";
 				lonCoordInputBool = false;
 				confirmActionBool = true;

@@ -41,7 +41,7 @@ RGG_callArty1 = {
 
 		private _int = selectRandom [1, 2, 4, 8];
 		private _dir = random 360;
-		private _rad = 5;
+		private _rad = 1;
 		private _prj = _shell createVehicle (_origin getPos [_rad, _dir]);		
 		sleep _int;
 	};
@@ -60,5 +60,5 @@ ammo_Bomb_SDB
 BombCluster_02_Ammo_F
 Cluster_155mm_AMOS
 ammo_Missile_HARM
-Bo_GBU12_LGB
+Bo_GBU12_LGB - big fucker
 

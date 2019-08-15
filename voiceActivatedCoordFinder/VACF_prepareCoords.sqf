@@ -3,6 +3,7 @@ _parsed_VACF_Heading	= VACF_Heading joinString "";
 _parsed_VACF_Distance 	= VACF_Distance joinString "";
 
 _parsed_VACF_Heading	= parseNumber _parsed_VACF_Heading;
+_parsed_VACF_Heading	= _parsed_VACF_Heading / 100;
 _parsed_VACF_Distance	= parseNumber _parsed_VACF_Distance;
 
 // _parsed_VACF_Heading_count = _parsed_VACF_Heading select 0;

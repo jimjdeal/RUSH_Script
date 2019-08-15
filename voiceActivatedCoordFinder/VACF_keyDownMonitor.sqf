@@ -2,12 +2,12 @@
 while {VACF_numericalInputbool} do {
 
 	// counts / validates the correct numbers are held in each array
-	confirmedHeading = count VACF_Heading; // should be 3
-	confirmedDistance = count VACF_Distance; // should be 4
+	confirmedHeading = count VACF_Heading; // should be 3 // actually this will now be 5 - i.e. adding two decimal places to the input to enhahnce accuracy
+	confirmedDistance = count VACF_Distance; // should be 4 // 
 	
 	// Heading
 	if (VACF_headingBool) then {
-		if (confirmedHeading == 3) then {
+		if (confirmedHeading == 5) then {
 
 			// systemChat "heading received...";
 			// systemChat str VACF_Heading;
@@ -17,13 +17,13 @@ while {VACF_numericalInputbool} do {
 		};
 	};
 
-	// distance 
+	// distance (previous / works)
 	if (VACF_distanceBool) then {
 		if (confirmedDistance == 4) then {
 
 			// systemChat "distance received...";
 			// systemChat str VACF_Distance;
-			systemChat "stand by for coords...";
+			systemChat "vacf processing...";
 			VACF_distanceBool = false;
 			VACF_showCoords = true;
 		};

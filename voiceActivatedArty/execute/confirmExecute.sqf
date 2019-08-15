@@ -51,6 +51,8 @@ if (confirmedTypeSU == 1) then {
 	systemChat "stand by...";
 	sleep 5;
 	[_parsedLat, _parsedLon] execVM "voiceActivatedArty\execute\executeSU.sqf";
+	// store SU coords in memory
+	[_parsedLat, _parsedLon] execVM "voiceActivatedArty\execute\coordCache.sqf";
 	systemChat "incoming...";
 };
 
