@@ -178,7 +178,7 @@ while {numericalInputbool} do {
 
 	if (confirmActionBool) then {
 
-				if (confirmedExecute == 1) then {
+		if (confirmedExecute == 1) then {
 
 			_goodToGo = splashConfirm select 0;
 			

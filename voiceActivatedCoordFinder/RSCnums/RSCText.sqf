@@ -12,15 +12,3 @@ _setText = _display displayCtrl 1001;
 _setText ctrlSetStructuredText (parseText format ["Lat: %1 / Lon: %2",_lat, _lon]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
-
-
-
-
-
-
-
-
-
-
-
-			

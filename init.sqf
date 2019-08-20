@@ -1,79 +1,37 @@
 execVM "markers.sqf";
 execVM "missionParams.sqf";
+
 if (is3DEN) exitwith {};
 if (isDedicated) exitWith {};
 waituntil {!isNull findDisplay 46}; 
+
 call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
 execVM "voiceActivatedCoordFinder\VACF_init.sqf";
 execVM "voiceActivatedHighCommandOrders\VAHCO_init.sqf";
+execVM "voiceActivatedUnitSpawner\VAUS_init.sqf";
+
+
 
 sleep 3;
 
 // spawn initial blufor 
-for "_i" from 1 to 5 do { 
-	"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-	sleep 0.2;
-};
-sleep 0.5;
-for "_i" from 1 to 10 do { 
-	"B_W_Soldier_CBRN_F" createUnit [getMarkerPos "rightFlank", groupBlu1]; 
-	sleep 0.2;
-};
-sleep 0.5;
-for "_i" from 1 to 10 do { 
-	"B_W_Soldier_CBRN_F" createUnit [getMarkerPos "leftFlank", groupBlu2]; 
-	sleep 0.2;
-};
+// for "_i" from 1 to 5 do { 
+// 	"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+// 	sleep 0.2;
+// };
+// sleep 0.5;
+// for "_i" from 1 to 10 do { 
+// 	"B_W_Soldier_CBRN_F" createUnit [getMarkerPos "rightFlank", groupBlu1]; 
+// 	sleep 0.2;
+// };
+// sleep 0.5;
+// for "_i" from 1 to 10 do { 
+// 	"B_W_Soldier_CBRN_F" createUnit [getMarkerPos "leftFlank", groupBlu2]; 
+// 	sleep 0.2;
+// };
 
-sleep 10;
-execVM "counter.sqf";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// sleep 10;
+// execVM "counter.sqf";
 
 
 
@@ -89,30 +47,5 @@ execVM "counter.sqf";
 // systemChat "Left Flank:";
 // // systemChat str _parsedGroupBlu1;
 // systemChat str _groupBlu1Count;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
