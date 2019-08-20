@@ -1,4 +1,6 @@
 
+systemChat "initialise vaus";
+
 // VAUS - Voice Activated Unit Spawner //
 
 /*
@@ -33,22 +35,25 @@ VAUS_confirmBool			= false;
 
 // ------------------------------------------------------------------ //
 
-// key = "numpad ?"
-RGG_VAUS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == ??) then {
+// key = "numpad 1 = 79"
+RGG_VAUS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
 	
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAUS_Activate];
 	systemChat 'VAUS Activated';
 	systemChat 'Question 1 - please select 1 to generate direct control units, or select 2 for HC units';
 	VAUS_numericalInputbool = true; 
 	VAUS_controlBool = true;
+	systemChat 'VAUS_keyDowns running';
 	execVM 'voiceActivatedUnitSpawner\VAUS_keyDowns.sqf'; 
+	systemChat 'VAUS_keyDownMonitor running';
 	execVM 'voiceActivatedUnitSpawner\VAUS_keyDownMonitor.sqf'; 
-	execVM 'voiceActivatedUnitSpawner\VAUS_RSCnums\VAUS_initDisplay.sqf;
+	
 
 }"];
 
 // ------------------------------------------------------------------ //
-
+/*
+execVM 'voiceActivatedUnitSpawner\VAUS_RSCnums\VAUS_initDisplay.sqf;
 
 
 

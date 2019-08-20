@@ -1,5 +1,5 @@
 // VAUS Keydowns //
-
+systemChat "keydowns activated";
 /*
 from: 	initialiseVAUS
 to:		VAUS_RSCnums\VAUS_initDisplay.sqf
@@ -42,6 +42,8 @@ if (VAUS_numericalInputbool) then {
 
 	rgg_vaus_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 
+		systemChat 'VAUS 0';
+
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 0;
 		};
@@ -53,6 +55,8 @@ if (VAUS_numericalInputbool) then {
 	}"];
 
 	rgg_vaus_kd1 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
+
+		systemChat 'VAUS 1';
 
 		if (VAUS_controlBool) then {
 			VAUS_control pushback 1;

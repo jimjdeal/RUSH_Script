@@ -185,3 +185,20 @@ You activate the entire pack by pressing one key – this can be changed in the 
 Technically you do not need VA software, and could operate the menu system with key presses (that is basically what VA does, i.e. converts your wishes into key presses). Keyboard is much less immersive, but does work if you’re not able to holler down the mic while playing (i.e. those who play in ‘shared space’).
 
 In the config you can enable systemChat feedback for even more help, if needed.
+
+
+
+keydowns
+
+0 = 82
+1 = 79
+2 = 80
+3 = 81
+4 = 75
+5 - 76
+6 - 77
+7 - 71
+8 - 72
+9 - 31
+/ - 181
+* - 55
