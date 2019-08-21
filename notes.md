@@ -186,8 +186,6 @@ Technically you do not need VA software, and could operate the menu system with 
 
 In the config you can enable systemChat feedback for even more help, if needed.
 
-
-
 keydowns
 
 0 = 82
@@ -201,4 +199,31 @@ keydowns
 8 - 72
 9 - 31
 / - 181
-* - 55
+
+- - 55
+
+when directing HC units, you should also specify area of known opfor
+this may be known, if so, a commander would share this info.
+
+if it is not known, this should also be shared
+
+move orders are what they are
+sitreps are what they are
+
+we need a 'be advised' command
+"all groups be advised..."
+"we have confirmed opfor to the south"
+"we have confirmed opfor at grid 123 456"
+"we have no confirmed opfor locations, stay frosty"
+
+we could also consider orders to change behaviour.
+"fire only when fired upon"
+"fire at will"
+"only engage hard targets with kaunchers, before small-arms"
+
+another idea - when doing movement, de-group everyone so that there is no formation
+but if any opfor is knownAbout, re-group all units into a cohesive unit
+so could you get all unit numbers, push them into an array, on creation?
+Then you have an array of units, that can be grouped/ungrouped automatically as situation dictates
+
+what are options for auto-building searches?

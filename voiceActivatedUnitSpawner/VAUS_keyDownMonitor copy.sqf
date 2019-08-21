@@ -255,7 +255,7 @@ while {VAUS_numericalInputbool} do {
 	};
 
 	sleep 1;
-	systemChat "cyclke";
+	systemChat "cycle";
 };
 
 // I realise it is pointless to send globals as params when execVMing a script - this should remind me to swap out any globals to locals when i refactor 

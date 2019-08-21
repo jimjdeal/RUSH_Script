@@ -29,114 +29,317 @@ use switch here maybe?
 
 // execVM 'voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf';
 
-// _controlType 	= _this select 0;
-// _groupType 		= _this select 1;
-// _camoType 		= _this select 2;
+// this manages the pasring of arrays from previous script into this script 
+_controlType 	= _this select 0;
+_groupType 		= _this select 1;
+_camoType 		= _this select 2;
 
-// // DC Group Creation 
-// if (_controlType == 1) then {
+// this manages the extraction of values from the above arrays 
+_control 		= _controlType select 0;
+_group 			= _groupType select 0;
+_camo 			= _camoType select 0;
 
-// 	if (_groupType == 1) then {
-// 		for "_i" from 1 to 4 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 2) then {
-// 		for "_i" from 1 to 20 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 3) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 4) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 5) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 6) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 7) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
-// 	if (_groupType == 8) then {
-// 		for "_i" from 1 to 5 do { 
-// 		"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-// 		sleep 0.2;
-// 		};
-// 	};
+// DC Group Creation 
+if (_control == 1) then {
+
+	if (_group == 1) then {
+
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+
+	};
+
+	if (_group == 2) then {
+
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 3) then {
+
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 4) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 5) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 6) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 7) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
+
+	if (_group == 8) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};		
+		if (_camo == 3) then {
+			for "_i" from 1 to 4 do { 
+			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			sleep 0.2;
+			};
+		};	
+	};
 	
-// };
+};
 
-// HC Group Creation 
+HC Group Creation 
 
-// if (_controlType == 2) then {
+if (_control == 2) then {
 
-// 	if (VAUS_activeGroups == 4) then {
-// 		for "_i" from 1 to 10 do { 
-// 			"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
-// 			sleep 0.2;
-// 		};
-// 	};
-// 	if (VAUS_activeGroups == 3) then {
-// 		for "_i" from 1 to 10 do { 
-// 			"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
-// 			sleep 0.2;
-// 		};
-// 	};
-// 	if (VAUS_activeGroups == 2) then {
-// 		for "_i" from 1 to 10 do { 
-// 			"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
-// 			sleep 0.2;
-// 		};
-// 	};
-// 	if (VAUS_activeGroups == 1) then {
-// 		for "_i" from 1 to 10 do { 
-// 			"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
-// 			sleep 0.2;
-// 		};
-// 	};
-// 	if (VAUS_activeGroups == 0) then {
-// 		for "_i" from 1 to 10 do { 
-// 			"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
-// 			sleep 0.2;
-// 		};
-// 	};
+	_activeGroups = count VAUS_activeGroups; 
 
-// };
+	if (_activeGroups == 4) then {
 
-// 8 cutRsc ["VAUS_THANKS","PLAIN"];
-// waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
-// _display = uiNameSpace getVariable "VAUS_THANKS";
-// _setText = _display displayCtrl 10008;
-// _setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
-// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+		if (_camo == 1) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 3) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
+				sleep 0.2;
+			};
+		};
+	};
 
-// sleep 2;
+	if (_activeGroups == 3) then {
 
-// 8 cutRsc ["default","PLAIN"];
+		if (_camo == 1) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 3) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
+				sleep 0.2;
+			};
+		};
+	};
 
+	if (_activeGroups == 2) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 3) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
+				sleep 0.2;
+			};
+		};
+	};
+
+	if (_activeGroups == 1) then {
+		if (_camo == 1) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 3) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
+				sleep 0.2;
+			};
+		};
+	};
+
+	if (_activeGroups == 0) then {
+
+		if (_camo == 1) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 2) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+				sleep 0.2;
+			};
+		};
+		if (_camo == 3) then {
+			for "_i" from 1 to 10 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+				sleep 0.2;
+			};
+		};
+	};
+};
+
+8 cutRsc ["VAUS_THANKS","PLAIN"];
+waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
+_display = uiNameSpace getVariable "VAUS_THANKS";
+_setText = _display displayCtrl 10008;
+_setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
+_setText ctrlSetBackgroundColor [0,0,0,0.5];
+
+sleep 2.5;
+
+8 cutRsc ["default","PLAIN"];
 
 execVM "voiceActivatedUnitSpawner\initialiseVAAS.sqf";
-
-
-

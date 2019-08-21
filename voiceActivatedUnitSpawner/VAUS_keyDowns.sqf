@@ -26,15 +26,13 @@ Build cancel button!
 
 if (VAUS_numericalInputbool) then {
 
-	// to do - this is needed!!
-	// rgg_vacf_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	// rgg_vaus_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 	
-	// 	systemChat 'VACF SYSTEM ABORTED';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf'; 
-	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vacf_cnl];
-	// 	VACF_numericalInputbool = false;
-	// 	systemChat 'in-flight / vacf abort clearDowns done .. check can re-open';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
+	// 	systemChat 'VAUS ABORTED';
+	// 	execVM 'voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf'; 
+	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vaus_cnl];
+	// 	VAUS_numericalInputbool = false;
+	// 	execVM 'voiceActivatedUnitSpawner\VAUS_Init.sqf';
 
 	// }"];
 
@@ -53,7 +51,7 @@ if (VAUS_numericalInputbool) then {
 		};
 
 	}"];
-
+	
 	rgg_vaus_kd1 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
 
 		systemChat 'VAUS 1';
@@ -167,46 +165,3 @@ if (VAUS_numericalInputbool) then {
 };
 		
 // ------------------------------------------------------------------ //
-
-
-
-
-/*
-
-		if (VAUS_typeBool) then {
-			VAUS_type pushback 0;
-		};
-
-		if (VAUS_crewedBool) then {
-			VAUS_crewed pushback 0;
-		};
-
-		if (VAUS_vicTypeBool) then {
-			VAUS_vicType pushback 0;
-		};
-
-		if (VAUS_carTypeBool) then {
-			VAUS_carType pushback 0;
-		};
-
-		if (VAUS_heliTypeBool) then {
-			VAUS_heliType pushback 0;
-		};
-
-
-
-		if (VAUS_crewedBool) then {
-			VAUS_crewed pushback 1;
-		};
-
-		if (VAUS_vicTypeBool) then {
-			VAUS_vicType pushback 1;
-		};
-
-		if (VAUS_carTypeBool) then {
-			VAUS_carType pushback 1;
-		};
-
-		if (VAUS_heliTypeBool) then {
-			VAUS_heliType pushback 1;
-		};
