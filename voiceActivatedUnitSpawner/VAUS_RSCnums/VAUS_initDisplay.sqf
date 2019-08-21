@@ -45,15 +45,15 @@ _setText ctrlSetBackgroundColor [0,0,0,0.5];
 waitUntil {!isNull (uiNameSpace getVariable "VAUS_CONTENT_n2")};
 _display = uiNameSpace getVariable "VAUS_CONTENT_n2";
 _setText = _display displayCtrl 10005;
-_setText ctrlSetStructuredText (parseText format ["PLATOON<BR/>FIRE TEAM<BR/>SNIPER TEAM<BR/>AA TEAM<BR/>AA TEAM<BR/>ENGINEERING TEAM<BR/>DEMOLITION TEAM<BR/>MEDICAL TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["PLATOON<BR />FIRE TEAM<BR />SNIPER TEAM<BR />AA TEAM<BR />AA TEAM<BR />ENGINEERING TEAM<BR />DEMOLITION TEAM<BR />MEDICAL TEAM"]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
-7 cutRsc ["VAUS_CONTENT_n3","PLAIN"];
-waitUntil {!isNull (uiNameSpace getVariable "VAUS_CONTENT_n3")};
-_display = uiNameSpace getVariable "VAUS_CONTENT_n3";
-_setText = _display displayCtrl 10006;
-_setText ctrlSetStructuredText (parseText format ["ALTIS<BR/>DESERT<BR/>WOODLAND"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
+// 7 cutRsc ["VAUS_CONTENT_n3","PLAIN"];
+// waitUntil {!isNull (uiNameSpace getVariable "VAUS_CONTENT_n3")};
+// _display = uiNameSpace getVariable "VAUS_CONTENT_n3";
+// _setText = _display displayCtrl 10006;
+// _setText ctrlSetStructuredText (parseText format ["ALTIS<BR/>DESERT<BR/>WOODLAND"]);
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
 
 // footer 
