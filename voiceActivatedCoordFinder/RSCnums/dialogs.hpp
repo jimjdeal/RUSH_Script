@@ -638,7 +638,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -660,7 +660,7 @@ B18_L5_2 x50 y80 l20 h05
 		    class structuredText {
                 access              = 0;
                 type                = 13;
-                idc                 = 180002;
+                idc                 = 18002;
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.300 * safezoneW + safezoneX;
@@ -681,7 +681,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -724,7 +724,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -738,8 +738,8 @@ B18_L5_2 x50 y80 l20 h05
         duration                    = 99999;
         fadein                      = 0.1;
         fadeout                     = 2;
-        name                        = "B18_L2_4";
-		onLoad                      = "with uiNameSpace do { B18_L2_4 = _this select 0 }";
+        name                        = "B18_L2_3";
+		onLoad                      = "with uiNameSpace do { B18_L2_3 = _this select 0 }";
 	
         class controls {
 
@@ -767,7 +767,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -810,7 +810,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -853,7 +853,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -896,7 +896,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -939,7 +939,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -982,7 +982,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1025,7 +1025,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1068,7 +1068,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1111,7 +1111,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1154,7 +1154,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1197,7 +1197,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1240,7 +1240,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1283,7 +1283,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1326,7 +1326,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};
@@ -1369,7 +1369,7 @@ B18_L5_2 x50 y80 l20 h05
 						shadow      = false;
 						shadowColor = "#000000";
 						underline   = false;
-						size        = "4";
+						size        = "2";
 				}; 
             };
 		};

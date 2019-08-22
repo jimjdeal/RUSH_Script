@@ -43,7 +43,7 @@ while {VAUS_numericalInputbool} do {
 				6 cutRsc ["B18_L4_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
 				_display = uiNameSpace getVariable "B18_L3_1";
-				_setText = _display displayCtrl 18012;
+				_setText = _display displayCtrl 18011;
 				_setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 				
@@ -76,7 +76,7 @@ while {VAUS_numericalInputbool} do {
 
 					// execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
 					// execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
-				};
+				// };
 			};
 		};
 	};
@@ -91,10 +91,10 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 1) then {
 				systemChat "you selected fire team";
 
-				7 cutRsc ["B18_L3_2","PLAIN"];
+				70 cutRsc ["B18_L3_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
 				_display = uiNameSpace getVariable "B18_L3_1";
-				_setText = _display displayCtrl 18007;
+				_setText = _display displayCtrl 18006;
 				_setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -105,7 +105,7 @@ while {VAUS_numericalInputbool} do {
 				9 cutRsc ["B18_L3_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_3")};
 				_display = uiNameSpace getVariable "B18_L3_3";
-				_setText = _display displayCtrl 18008;
+				_setText = _display displayCtrl 18007;
 				_setText ctrlSetStructuredText (parseText format ["PLATOON"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -116,7 +116,7 @@ while {VAUS_numericalInputbool} do {
 				11 cutRsc ["B18_L3_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_4")};
 				_display = uiNameSpace getVariable "B18_L3_4";
-				_setText = _display displayCtrl 18009;
+				_setText = _display displayCtrl 18008;
 				_setText ctrlSetStructuredText (parseText format ["SNIPER TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -127,7 +127,7 @@ while {VAUS_numericalInputbool} do {
 				13 cutRsc ["B18_L3_5","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_5")};
 				_display = uiNameSpace getVariable "B18_L3_5";
-				_setText = _display displayCtrl 18010;
+				_setText = _display displayCtrl 18009;
 				_setText ctrlSetStructuredText (parseText format ["AT TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -138,7 +138,7 @@ while {VAUS_numericalInputbool} do {
 				8 cutRsc ["B18_L4_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
 				_display = uiNameSpace getVariable "B18_L3_1";
-				_setText = _display displayCtrl 18013;
+				_setText = _display displayCtrl 18012;
 				_setText ctrlSetStructuredText (parseText format ["AA TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -149,7 +149,7 @@ while {VAUS_numericalInputbool} do {
 				10 cutRsc ["B18_L4_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_3")};
 				_display = uiNameSpace getVariable "B18_L4_3";
-				_setText = _display displayCtrl 18014;
+				_setText = _display displayCtrl 18013;
 				_setText ctrlSetStructuredText (parseText format ["ENG TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -160,7 +160,7 @@ while {VAUS_numericalInputbool} do {
 				12 cutRsc ["B18_L4_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_4")};
 				_display = uiNameSpace getVariable "B18_L4_4";
-				_setText = _display displayCtrl 18015;
+				_setText = _display displayCtrl 18014;
 				_setText ctrlSetStructuredText (parseText format ["DEMO TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 			};
@@ -200,10 +200,10 @@ while {VAUS_numericalInputbool} do {
 			if (_camoType == 1) then {
 				systemChat "you selected vanilla camo";
 
-				15 cutRsc ["B18_L3_5","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_5")};
-				_display = uiNameSpace getVariable "B18_L3_5";
-				_setText = _display displayCtrl 18011;
+				15 cutRsc ["B18_L3_6","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_6")};
+				_display = uiNameSpace getVariable "B18_L3_6";
+				_setText = _display displayCtrl 18010;
 				_setText ctrlSetStructuredText (parseText format ["WOODLAND"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
 
@@ -214,9 +214,9 @@ while {VAUS_numericalInputbool} do {
 			if (_camoType == 2) then {
 				systemChat "you selected RHS Desert";
 
-				16 cutRsc ["B18_L4_5","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_5")};
-				_display = uiNameSpace getVariable "B18_L4_5";
+				16 cutRsc ["B18_L4_6","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_6")};
+				_display = uiNameSpace getVariable "B18_L4_6";
 				_setText = _display displayCtrl 18016;
 				_setText ctrlSetStructuredText (parseText format ["DESERT"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];

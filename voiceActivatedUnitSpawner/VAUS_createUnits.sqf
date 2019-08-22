@@ -384,15 +384,15 @@ if (_control == 2) then {
 };
 
 systemChat "all done!!!";
-8 cutRsc ["VAUS_THANKS","PLAIN"];
-waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
-_display = uiNameSpace getVariable "VAUS_THANKS";
-_setText = _display displayCtrl 10008;
-_setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
+// 8 cutRsc ["VAUS_THANKS","PLAIN"];
+// waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
+// _display = uiNameSpace getVariable "VAUS_THANKS";
+// _setText = _display displayCtrl 10008;
+// _setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
 sleep 2.5;
 
-8 cutRsc ["default","PLAIN"];
+// 8 cutRsc ["default","PLAIN"];
 execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
 execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
