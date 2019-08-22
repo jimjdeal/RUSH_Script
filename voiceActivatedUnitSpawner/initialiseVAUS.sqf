@@ -20,6 +20,9 @@ VAUS_numericalInputbool		= false;
 VAUS_control 				= []; // 1 = direct (player) control, 2 = high command (non-direct control)
 VAUS_controlBool 			= false;
 
+// record number of HC groups 
+VAUS_activeGroups			= 0;
+
 // choose camo - vanilla, desert or woodland 
 VAUS_camo 					= []; // 1 = standard vanilla, 2 = rhs desert, 3 = livonian woodland 
 VAUS_camoBool 				= false;
@@ -31,6 +34,7 @@ VAUS_groupBool 				= false;
 // final confirmation 
 VAUS_confirm 				= []; // 1 = yes, 2 = no
 VAUS_confirmBool			= false;
+
 
 
 // ------------------------------------------------------------------ //
