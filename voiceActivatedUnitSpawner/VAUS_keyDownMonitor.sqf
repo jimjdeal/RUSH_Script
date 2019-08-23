@@ -26,7 +26,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_1";
 				_setText = _display displayCtrl 18005;
 				_setText ctrlSetStructuredText (parseText format ["DIRECT COMMAND"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 				
 				VAUS_controlBool = false;
 				VAUS_groupBool = true;
@@ -45,8 +46,9 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_1";
 				_setText = _display displayCtrl 18011;
 				_setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
-				
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 				VAUS_controlBool = false;
 				VAUS_groupBool = true;
 
@@ -84,6 +86,15 @@ while {VAUS_numericalInputbool} do {
 	// group type / DC or HC 
 	if (VAUS_groupBool) then {
 
+		// second prompt 
+		210 cutRsc ["default","PLAIN"]; // remove first prompt
+		211 cutRsc ["B18_BottomLine2","PLAIN"]; // second prompt 
+		_display = uiNameSpace getVariable "B18_BottomLine2";
+		_setText = _display displayCtrl 18023;
+		_setText ctrlSetBackgroundColor [0,1,0,0.8];
+		// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+
 		if (VAUS_confirmedGroup == 1) then {
 
 			_groupType = VAUS_group select 0;
@@ -96,7 +107,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_2";
 				_setText = _display displayCtrl 18006;
 				_setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 2) then {
@@ -107,7 +119,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_3";
 				_setText = _display displayCtrl 18007;
 				_setText ctrlSetStructuredText (parseText format ["PLATOON"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 3) then {
@@ -118,7 +131,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_4";
 				_setText = _display displayCtrl 18008;
 				_setText ctrlSetStructuredText (parseText format ["SNIPER TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 4) then {
@@ -129,7 +143,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_5";
 				_setText = _display displayCtrl 18009;
 				_setText ctrlSetStructuredText (parseText format ["AT TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 5) then {
@@ -140,7 +155,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_2";
 				_setText = _display displayCtrl 18012;
 				_setText ctrlSetStructuredText (parseText format ["AA TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 6) then {
@@ -151,7 +167,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_3";
 				_setText = _display displayCtrl 18013;
 				_setText ctrlSetStructuredText (parseText format ["ENG TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 7) then {
@@ -162,7 +179,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_4";
 				_setText = _display displayCtrl 18014;
 				_setText ctrlSetStructuredText (parseText format ["DEMO TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+								_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_groupType == 8) then {
@@ -173,7 +191,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_5";
 				_setText = _display displayCtrl 18015;
 				_setText ctrlSetStructuredText (parseText format ["MEDIC TEAM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 			
 			sleep 0.2;
@@ -191,6 +210,15 @@ while {VAUS_numericalInputbool} do {
 	// camo type / vanilla altis / rhs desert / livonian woodland
 	if (VAUS_camoBool) then {
 
+		// third prompt 
+		211 cutRsc ["default","PLAIN"]; // remove second prompt
+		212 cutRsc ["B18_BottomLine3","PLAIN"]; // third prompt 
+		_display = uiNameSpace getVariable "B18_BottomLine3";
+		_setText = _display displayCtrl 18024;
+		_setText ctrlSetBackgroundColor [0,1,0,0.8];
+		// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+
 		if (VAUS_confirmedCamo == 1) then {
 
 			_camoType = VAUS_camo select 0;
@@ -205,7 +233,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L3_6";
 				_setText = _display displayCtrl 18010;
 				_setText ctrlSetStructuredText (parseText format ["WOODLAND"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				VAUS_camoBool = false;
 				VAUS_confirmBool = true;
@@ -219,7 +248,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L4_6";
 				_setText = _display displayCtrl 18016;
 				_setText ctrlSetStructuredText (parseText format ["DESERT"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				VAUS_camoBool = false;
 				VAUS_confirmBool = true;
@@ -248,6 +278,13 @@ while {VAUS_numericalInputbool} do {
 	// confirm choice
 	if (VAUS_confirmBool) then {
 
+		212 cutRsc ["default","PLAIN"]; // remove third prompt
+		213 cutRsc ["B18_BottomLine4","PLAIN"]; // third prompt 
+		_display = uiNameSpace getVariable "B18_BottomLine4";
+		_setText = _display displayCtrl 18025;
+		_setText ctrlSetBackgroundColor [0,1,0,0.8];
+		// _setText ctrlSetTextColor [0, 1, 0, 1];
+
 		if (VAUS_confirmedConfirm == 1) then {
 
 			// 8 cutRsc ["VAUS_CONFIRMCANCEL","PLAIN"];
@@ -267,7 +304,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L5_1";
 				_setText = _display displayCtrl 18017;
 				_setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				sleep 1.5;
 				VAUS_confirmBool = false;
@@ -282,7 +320,8 @@ while {VAUS_numericalInputbool} do {
 				_display = uiNameSpace getVariable "B18_L5_2";
 				_setText = _display displayCtrl 18018;
 				_setText ctrlSetStructuredText (parseText format ["CANCEL"]);
-				_setText ctrlSetBackgroundColor [1,0,0,0.5];
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				sleep 1.5;
 				VAUS_confirmBool = false;

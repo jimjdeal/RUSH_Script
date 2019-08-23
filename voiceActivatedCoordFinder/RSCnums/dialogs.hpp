@@ -607,7 +607,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L1_1";
 		onLoad                      = "with uiNameSpace do { B18_L1_1 = _this select 0 }";
@@ -621,12 +621,12 @@ B18_L5_2 x50 y80 l20 h05
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.300 * safezoneW + safezoneX;
-				y                   = 0.600 * safezoneH + safezoneY;
+				y                   = 0.615 * safezoneH + safezoneY;
 				w                   = 0.400 * safezoneW;
-				h                   = 0.050 * safezoneH;
+				h                   = 0.025 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -650,7 +650,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L2_1";
 		onLoad                      = "with uiNameSpace do { B18_L2_1 = _this select 0 }";
@@ -669,7 +669,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -693,7 +693,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L2_2";
 		onLoad                      = "with uiNameSpace do { B18_L2_2 = _this select 0 }";
@@ -712,7 +712,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -736,7 +736,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L2_3";
 		onLoad                      = "with uiNameSpace do { B18_L2_3 = _this select 0 }";
@@ -755,7 +755,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -779,7 +779,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_1";
 		onLoad                      = "with uiNameSpace do { B18_L3_1 = _this select 0 }";
@@ -798,7 +798,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -822,7 +822,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_2";
 		onLoad                      = "with uiNameSpace do { B18_L3_2 = _this select 0 }";
@@ -841,7 +841,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -865,7 +865,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_3";
 		onLoad                      = "with uiNameSpace do { B18_L3_3 = _this select 0 }";
@@ -884,7 +884,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -908,7 +908,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_4";
 		onLoad                      = "with uiNameSpace do { B18_L3_4 = _this select 0 }";
@@ -927,7 +927,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -951,7 +951,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_5";
 		onLoad                      = "with uiNameSpace do { B18_L3_5 = _this select 0 }";
@@ -970,7 +970,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -994,7 +994,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L3_6";
 		onLoad                      = "with uiNameSpace do { B18_L3_6 = _this select 0 }";
@@ -1013,7 +1013,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1037,7 +1037,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_1";
 		onLoad                      = "with uiNameSpace do { B18_L4_1 = _this select 0 }";
@@ -1056,7 +1056,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1080,7 +1080,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_2";
 		onLoad                      = "with uiNameSpace do { B18_L4_2 = _this select 0 }";
@@ -1099,7 +1099,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1123,7 +1123,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_3";
 		onLoad                      = "with uiNameSpace do { B18_L4_3 = _this select 0 }";
@@ -1142,7 +1142,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1166,7 +1166,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_4";
 		onLoad                      = "with uiNameSpace do { B18_L4_4 = _this select 0 }";
@@ -1185,7 +1185,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1209,7 +1209,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_5";
 		onLoad                      = "with uiNameSpace do { B18_L4_5 = _this select 0 }";
@@ -1228,7 +1228,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1252,7 +1252,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L4_6";
 		onLoad                      = "with uiNameSpace do { B18_L4_6 = _this select 0 }";
@@ -1271,7 +1271,7 @@ B18_L5_2 x50 y80 l20 h05
 				h                   = 0.050 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1295,7 +1295,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L5_1";
 		onLoad                      = "with uiNameSpace do { B18_L5_1 = _this select 0 }";
@@ -1309,12 +1309,12 @@ B18_L5_2 x50 y80 l20 h05
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.300 * safezoneW + safezoneX;
-				y                   = 0.800 * safezoneH + safezoneY;
+				y                   = 0.825 * safezoneH + safezoneY;
 				w                   = 0.200 * safezoneW;
-				h                   = 0.050 * safezoneH;
+				h                   = 0.025 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					
@@ -1338,7 +1338,7 @@ B18_L5_2 x50 y80 l20 h05
         enableSimulation            = 1;
         enableDisplay               = 1;
         duration                    = 99999;
-        fadein                      = 0.1;
+        fadein                      = 0.3;
         fadeout                     = 2;
         name                        = "B18_L5_2";
 		onLoad                      = "with uiNameSpace do { B18_L5_2 = _this select 0 }";
@@ -1352,12 +1352,270 @@ B18_L5_2 x50 y80 l20 h05
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.500 * safezoneW + safezoneX;
-				y                   = 0.800 * safezoneH + safezoneY;
+				y                   = 0.825 * safezoneH + safezoneY;
 				w                   = 0.200 * safezoneW;
-				h                   = 0.050 * safezoneH;
+				h                   = 0.025 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
-                colorText[]         = {1,1,1,1};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_BG {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.1;
+        fadeout                     = 2;
+        name                        = "B18_BG";
+		onLoad                      = "with uiNameSpace do { B18_BG = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18020;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.600 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.250 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_TopLine {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.1;
+        fadeout                     = 2;
+        name                        = "B18_TopLine";
+		onLoad                      = "with uiNameSpace do { B18_TopLine = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18021;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.680 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.002 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,1,0,1};
+                colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_BottomLine1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "B18_BottomLine1";
+		onLoad                      = "with uiNameSpace do { B18_BottomLine1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18022;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.800 * safezoneH + safezoneY;
+				w                   = 0.100 * safezoneW;
+				h                   = 0.004 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,1};
+                colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_BottomLine2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "B18_BottomLine2";
+		onLoad                      = "with uiNameSpace do { B18_BottomLine2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18023;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.400 * safezoneW + safezoneX;
+				y                   = 0.800 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.004 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,1};
+                colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_BottomLine3 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "B18_BottomLine3";
+		onLoad                      = "with uiNameSpace do { B18_BottomLine3 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18024;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.600 * safezoneW + safezoneX;
+				y                   = 0.800 * safezoneH + safezoneY;
+				w                   = 0.100 * safezoneW;
+				h                   = 0.004 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,1};
+                colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class B18_BottomLine4 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "B18_BottomLine4";
+		onLoad                      = "with uiNameSpace do { B18_BottomLine4 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 18025;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.850 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.010 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,1};
+                colorText[]         = {0,0,0,0};
                 text                = "";
                 font                = "PuristaSemiBold";
 					

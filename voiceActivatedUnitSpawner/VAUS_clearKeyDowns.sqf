@@ -11,7 +11,7 @@ _ehVAUS_Remove9 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vau
 _ehVAUS_Remove10 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vaus_kd9];
 
 VAUS_numericalInputbool = false;
-
+9 cutRsc ["default","PLAIN"];
 10 cutRsc ["default","PLAIN"];
 20 cutRsc ["default","PLAIN"];
 30 cutRsc ["default","PLAIN"];
@@ -30,3 +30,8 @@ VAUS_numericalInputbool = false;
 160 cutRsc ["default","PLAIN"];
 170 cutRsc ["default","PLAIN"];
 180 cutRsc ["default","PLAIN"];
+200 cutRsc ["default","PLAIN"]; 
+213 cutRsc ["default","PLAIN"]; // remove last prompt
+
+
+

@@ -2,6 +2,9 @@ disableSerialization;
 // trying out this file as the main display for initialisation, but maybe also progression 
 
 // header 
+
+
+
 10 cutRsc ["B18_L1_1","PLAIN"]; // main title
 
 20 cutRsc ["B18_L2_1","PLAIN"]; // command type
@@ -26,131 +29,163 @@ disableSerialization;
 170 cutRsc ["B18_L5_1","PLAIN"];
 180 cutRsc ["B18_L5_2","PLAIN"];
 
-waitUntil {!isNull (uiNameSpace getVariable "B18_L1_1")};
+09 cutRsc ["B18_BG","PLAIN"]; // bg 
+200 cutRsc ["B18_TopLine","PLAIN"]; // top divider 
+210 cutRsc ["B18_BottomLine1","PLAIN"]; // bottom divider 
+// 211 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider 
+// 212 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider 
+
+
+waitUntil {!isNull (uiNameSpace getVariable "B18_BG")};
+
+
+
+// header
 
 _display = uiNameSpace getVariable "B18_L1_1";
 _setText = _display displayCtrl 18001;
 _setText ctrlSetStructuredText (parseText format ["WELCOME TO VAUS - VOICE ACTIVATED UNIT SPAWNER"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
 
+// BG 
+_display = uiNameSpace getVariable "B18_BG";
+_setText = _display displayCtrl 18020;
+// _setText ctrlSetStructuredText (parseText format ["WELCOME TO VAUS - VOICE ACTIVATED UNIT SPAWNER"]);
+_setText ctrlSetBackgroundColor [0,0,0,0.6];
+// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+// top line 
+_display = uiNameSpace getVariable "B18_TopLine";
+_setText = _display displayCtrl 18021;
+// _setText ctrlSetStructuredText (parseText format ["WELCOME TO VAUS - VOICE ACTIVATED UNIT SPAWNER"]);
+_setText ctrlSetBackgroundColor [0,0,0,0.8];
+// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+// first prompt 
+_display = uiNameSpace getVariable "B18_BottomLine1";
+_setText = _display displayCtrl 18022;
+// _setText ctrlSetStructuredText (parseText format ["WELCOME TO VAUS - VOICE ACTIVATED UNIT SPAWNER"]);
+_setText ctrlSetBackgroundColor [0,1,0,0.8];
+// _setText ctrlSetTextColor [0, 1, 0, 1];
 
 // sub headers 
 
 _display = uiNameSpace getVariable "B18_L2_1";
 _setText = _display displayCtrl 18002;
 _setText ctrlSetStructuredText (parseText format ["COMMAND TYPE"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
 
 _display = uiNameSpace getVariable "B18_L2_2";
 _setText = _display displayCtrl 18003;
 _setText ctrlSetStructuredText (parseText format ["GROUP"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
 
 _display = uiNameSpace getVariable "B18_L2_3";
 _setText = _display displayCtrl 18004;
 _setText ctrlSetStructuredText (parseText format ["DIVISION"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
 
 // body column 1
 
 _display = uiNameSpace getVariable "B18_L3_1";
 _setText = _display displayCtrl 18005;
 _setText ctrlSetStructuredText (parseText format ["DIRECT COMMAND"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_1";
 _setText = _display displayCtrl 18011;
 _setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // body column 2
 
 _display = uiNameSpace getVariable "B18_L3_2";
 _setText = _display displayCtrl 18006;
 _setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_2";
 _setText = _display displayCtrl 18012;
 _setText ctrlSetStructuredText (parseText format ["AA TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // body column 3
 
 _display = uiNameSpace getVariable "B18_L3_3";
 _setText = _display displayCtrl 18007;
 _setText ctrlSetStructuredText (parseText format ["PLATOON"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_3";
 _setText = _display displayCtrl 18013;
 _setText ctrlSetStructuredText (parseText format ["ENG TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // body column 4
 
 _display = uiNameSpace getVariable "B18_L3_4";
 _setText = _display displayCtrl 18008;
 _setText ctrlSetStructuredText (parseText format ["SNIPER TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_4";
 _setText = _display displayCtrl 18014;
 _setText ctrlSetStructuredText (parseText format ["DEMO TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // body column 5
 
 _display = uiNameSpace getVariable "B18_L3_5";
 _setText = _display displayCtrl 18009;
 _setText ctrlSetStructuredText (parseText format ["AT TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_5";
 _setText = _display displayCtrl 18015;
 _setText ctrlSetStructuredText (parseText format ["MEDIC TEAM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // body column 6
 
 _display = uiNameSpace getVariable "B18_L3_6";
 _setText = _display displayCtrl 18010;
 _setText ctrlSetStructuredText (parseText format ["WOODLAND"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_6";
 _setText = _display displayCtrl 18016;
 _setText ctrlSetStructuredText (parseText format ["DESERT"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 // // footer
 
 _display = uiNameSpace getVariable "B18_L5_1";
 _setText = _display displayCtrl 18017;
 _setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L5_2";
 _setText = _display displayCtrl 18018;
 _setText ctrlSetStructuredText (parseText format ["CANCEL"]);
-_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 
 
