@@ -21,9 +21,10 @@ roundsInputBool 		= false;
 radiusInputBool 		= false; 		 
 confirmActionBool 		= false; 
 
-// key = "/"
-rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+// key = "4"
+rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 75)) then {
 	
+	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_Activate];
 	systemChat 'VAA Activated - Please confirm type';
 	systemChat '1 = HE, 2 = SURGICAL, 3 = SMOKE, 4 = FLARES';

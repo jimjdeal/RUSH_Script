@@ -33,5 +33,5 @@ VAUS_numericalInputbool = false;
 200 cutRsc ["default","PLAIN"]; 
 213 cutRsc ["default","PLAIN"]; // remove last prompt
 
-
+vamp = false;
 

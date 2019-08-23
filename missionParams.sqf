@@ -18,6 +18,10 @@ enableDebug = true;
 
 // ------------------------------------------ //
 
+vamp = false; // indicates that there are no VAMP modules running, and helps to avoid overlapping modules running at the same time
+
+// ------------------------------------------ //
+
 
 
 // ------------------------------------------ // VA Artillery  

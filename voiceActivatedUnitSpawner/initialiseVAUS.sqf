@@ -36,11 +36,13 @@ VAUS_confirmBool			= false;
 
 
 
+
 // ------------------------------------------------------------------ //
 
 // key = "numpad 1 = 79"
-RGG_VAUS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
+RGG_VAUS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 79)) then {
 	
+	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAUS_Activate];
 	systemChat 'VAUS Activated';
 	systemChat 'Question 1 - please select 1 to generate direct control units, or select 2 for HC units';

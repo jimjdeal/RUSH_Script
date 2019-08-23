@@ -20,9 +20,11 @@ VAHCO_OscarMikeBool			= false;
 VAHCO_OscarMike				= [];	
 
 
-// key = "numpad -"
-rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 74) then {
+
+// key = "numpad 2"
+rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 80)) then {
 	
+	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_vahco_Activate];
 	systemChat 'DEBUG VAHCO ACTIVATED';
 	systemChat 'Platoon Channel Open, which team do you need to speak to?';

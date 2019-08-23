@@ -19,3 +19,5 @@ systemChat "VAA Keydowns closed";
 // sleep 2;
 // execVM "voiceActivatedArty\VAA_Init.sqf";
 
+vamp = false;
+

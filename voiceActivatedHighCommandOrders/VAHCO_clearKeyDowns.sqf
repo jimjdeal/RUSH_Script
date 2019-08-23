@@ -15,3 +15,6 @@ sleep 2;
 systemChat "DEBUG VAHCO CLOSED";
 
 // note, I need a cancel orders command here!
+
+
+vamp = false;
