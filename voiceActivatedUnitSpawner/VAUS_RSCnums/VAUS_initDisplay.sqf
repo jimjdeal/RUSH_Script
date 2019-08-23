@@ -2,29 +2,29 @@ disableSerialization;
 // trying out this file as the main display for initialisation, but maybe also progression 
 
 // header 
-1 cutRsc ["B18_L1_1","PLAIN"]; // main title
+10 cutRsc ["B18_L1_1","PLAIN"]; // main title
 
-2 cutRsc ["B18_L2_1","PLAIN"]; // command type
-3 cutRsc ["B18_L2_2","PLAIN"]; // group
-4 cutRsc ["B18_L2_3","PLAIN"]; // division
+20 cutRsc ["B18_L2_1","PLAIN"]; // command type
+30 cutRsc ["B18_L2_2","PLAIN"]; // group
+40 cutRsc ["B18_L2_3","PLAIN"]; // division
 
-5 cutRsc ["B18_L3_1","PLAIN"]; // direct command
-6 cutRsc ["B18_L4_1","PLAIN"]; // high command
+50 cutRsc ["B18_L3_1","PLAIN"]; // direct command
+60 cutRsc ["B18_L4_1","PLAIN"]; // high command
 
 70 cutRsc ["B18_L3_2","PLAIN"]; // fire team
-8 cutRsc ["B18_L4_2","PLAIN"];
-9 cutRsc ["B18_L3_3","PLAIN"]; // platoon
-10 cutRsc ["B18_L4_3","PLAIN"];
-11 cutRsc ["B18_L3_4","PLAIN"];
-12 cutRsc ["B18_L4_4","PLAIN"];
-13 cutRsc ["B18_L3_5","PLAIN"];
-14 cutRsc ["B18_L4_5","PLAIN"];
+80 cutRsc ["B18_L4_2","PLAIN"];
+90 cutRsc ["B18_L3_3","PLAIN"]; // platoon
+100 cutRsc ["B18_L4_3","PLAIN"];
+110 cutRsc ["B18_L3_4","PLAIN"];
+120 cutRsc ["B18_L4_4","PLAIN"];
+130 cutRsc ["B18_L3_5","PLAIN"];
+140 cutRsc ["B18_L4_5","PLAIN"];
 
-15 cutRsc ["B18_L3_6","PLAIN"];
-16 cutRsc ["B18_L4_6","PLAIN"];
+150 cutRsc ["B18_L3_6","PLAIN"];
+160 cutRsc ["B18_L4_6","PLAIN"];
 
-17 cutRsc ["B18_L5_1","PLAIN"];
-18 cutRsc ["B18_L5_2","PLAIN"];
+170 cutRsc ["B18_L5_1","PLAIN"];
+180 cutRsc ["B18_L5_2","PLAIN"];
 
 waitUntil {!isNull (uiNameSpace getVariable "B18_L1_1")};
 

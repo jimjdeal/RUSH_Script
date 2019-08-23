@@ -94,6 +94,8 @@ VAHC_activate = true;
 groupBlu1 = createGroup west;
 groupBlu2 = createGroup west;
 groupBlu3 = createGroup west;
+groupBlu4 = createGroup west;
+groupBlu5 = createGroup west;
 
 // maybe we can add functionality to merge two HC group into one, say to manage some bad losses in one particular group 
 // this way you can consolidate groups, freeing up slots to create new groups 

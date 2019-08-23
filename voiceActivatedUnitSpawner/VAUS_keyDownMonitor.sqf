@@ -21,7 +21,7 @@ while {VAUS_numericalInputbool} do {
 				systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
 				systemChat "7 = demo team x 2, 	8 = medic team x 4";
 				
-				5 cutRsc ["B18_L3_1","PLAIN"];
+				50 cutRsc ["B18_L3_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
 				_display = uiNameSpace getVariable "B18_L3_1";
 				_setText = _display displayCtrl 18005;
@@ -40,9 +40,9 @@ while {VAUS_numericalInputbool} do {
 				systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
 				systemChat "7 = demo team x 2, 	8 = medic team x 4";
 				
-				6 cutRsc ["B18_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
-				_display = uiNameSpace getVariable "B18_L3_1";
+				60 cutRsc ["B18_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_1")};
+				_display = uiNameSpace getVariable "B18_L4_1";
 				_setText = _display displayCtrl 18011;
 				_setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
@@ -92,8 +92,8 @@ while {VAUS_numericalInputbool} do {
 				systemChat "you selected fire team";
 
 				70 cutRsc ["B18_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
-				_display = uiNameSpace getVariable "B18_L3_1";
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_2")};
+				_display = uiNameSpace getVariable "B18_L3_2";
 				_setText = _display displayCtrl 18006;
 				_setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
@@ -102,7 +102,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 2) then {
 				systemChat "you selected full platoon";
 
-				9 cutRsc ["B18_L3_3","PLAIN"];
+				90 cutRsc ["B18_L3_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_3")};
 				_display = uiNameSpace getVariable "B18_L3_3";
 				_setText = _display displayCtrl 18007;
@@ -113,7 +113,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 3) then {
 				systemChat "you selected sniper team";
 
-				11 cutRsc ["B18_L3_4","PLAIN"];
+				110 cutRsc ["B18_L3_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_4")};
 				_display = uiNameSpace getVariable "B18_L3_4";
 				_setText = _display displayCtrl 18008;
@@ -124,7 +124,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 4) then {
 				systemChat "you selected AT team";
 
-				13 cutRsc ["B18_L3_5","PLAIN"];
+				130 cutRsc ["B18_L3_5","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_5")};
 				_display = uiNameSpace getVariable "B18_L3_5";
 				_setText = _display displayCtrl 18009;
@@ -135,9 +135,9 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 5) then {
 				systemChat "you selected AA team";
 
-				8 cutRsc ["B18_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
-				_display = uiNameSpace getVariable "B18_L3_1";
+				80 cutRsc ["B18_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_2")};
+				_display = uiNameSpace getVariable "B18_L4_2";
 				_setText = _display displayCtrl 18012;
 				_setText ctrlSetStructuredText (parseText format ["AA TEAM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
@@ -146,7 +146,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 6) then {
 				systemChat "you selected eng team";
 
-				10 cutRsc ["B18_L4_3","PLAIN"];
+				100 cutRsc ["B18_L4_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_3")};
 				_display = uiNameSpace getVariable "B18_L4_3";
 				_setText = _display displayCtrl 18013;
@@ -157,7 +157,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 7) then {
 				systemChat "you selected demo team";
 
-				12 cutRsc ["B18_L4_4","PLAIN"];
+				120 cutRsc ["B18_L4_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_4")};
 				_display = uiNameSpace getVariable "B18_L4_4";
 				_setText = _display displayCtrl 18014;
@@ -168,7 +168,7 @@ while {VAUS_numericalInputbool} do {
 			if (_groupType == 8) then {
 				systemChat "you selected medic team";
 
-				14 cutRsc ["B18_L4_5","PLAIN"];
+				140 cutRsc ["B18_L4_5","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_5")};
 				_display = uiNameSpace getVariable "B18_L4_5";
 				_setText = _display displayCtrl 18015;
@@ -179,7 +179,7 @@ while {VAUS_numericalInputbool} do {
 			sleep 0.2;
 
 			systemChat "question 3 - what camo is required?";
-			systemChat "1 = vanilla camo, 2 = RHS Desert, 3 = Livonia Woodland";
+			systemChat "1 = RHS Desert, 3 = Livonia Woodland";
 
 			// here i put the 'progression bools' outside of the ifthens, but i also put them in each ifthen .. i wonder if it actually matters?
 			// because if not, just use them once at the end.. DRY!
@@ -200,7 +200,7 @@ while {VAUS_numericalInputbool} do {
 			if (_camoType == 1) then {
 				systemChat "you selected vanilla camo";
 
-				15 cutRsc ["B18_L3_6","PLAIN"];
+				150 cutRsc ["B18_L3_6","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_6")};
 				_display = uiNameSpace getVariable "B18_L3_6";
 				_setText = _display displayCtrl 18010;
@@ -214,7 +214,7 @@ while {VAUS_numericalInputbool} do {
 			if (_camoType == 2) then {
 				systemChat "you selected RHS Desert";
 
-				16 cutRsc ["B18_L4_6","PLAIN"];
+				160 cutRsc ["B18_L4_6","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_6")};
 				_display = uiNameSpace getVariable "B18_L4_6";
 				_setText = _display displayCtrl 18016;
@@ -262,9 +262,9 @@ while {VAUS_numericalInputbool} do {
 			if (_testConfirmType == 1) then {
 				systemChat "selection has been completed - thank you";
 
-				17 cutRsc ["B18_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_5")};
-				_display = uiNameSpace getVariable "B18_L3_5";
+				170 cutRsc ["B18_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L5_1")};
+				_display = uiNameSpace getVariable "B18_L5_1";
 				_setText = _display displayCtrl 18017;
 				_setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];
@@ -277,9 +277,9 @@ while {VAUS_numericalInputbool} do {
 			if (_testConfirmType == 2) then {
 				systemChat "selection has been cancelled - standing down";
 
-				18 cutRsc ["B18_L5_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_5")};
-				_display = uiNameSpace getVariable "B18_L4_5";
+				180 cutRsc ["B18_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "B18_L5_2")};
+				_display = uiNameSpace getVariable "B18_L5_2";
 				_setText = _display displayCtrl 18018;
 				_setText ctrlSetStructuredText (parseText format ["CANCEL"]);
 				_setText ctrlSetBackgroundColor [1,0,0,0.5];

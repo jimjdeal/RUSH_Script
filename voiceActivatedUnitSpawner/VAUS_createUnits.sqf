@@ -64,13 +64,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 2) then {
@@ -88,13 +81,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 3) then {
@@ -113,13 +99,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 4) then {
@@ -137,13 +116,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 5) then {
@@ -161,13 +133,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 6) then {
@@ -185,13 +150,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 7) then {
@@ -209,13 +167,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 
 	if (_group == 8) then {
@@ -233,13 +184,6 @@ if (_control == 1) then {
 			sleep 0.2;
 			};
 		};		
-
-		if (_camo == 3) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
-			sleep 0.2;
-			};
-		};	
 	};
 };
 
@@ -251,134 +195,163 @@ if (_control == 2) then {
 
 	if (VAUS_activeGroups < 6) then {
 
-		if (_camo == 1) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
-				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+		if (VAUS_activeGroups == 0) then {
+			hc_grp = groupBlu1;
+		};
+		if (VAUS_activeGroups == 1) then {
+			hc_grp = groupBlu2;
+		};
+		if (VAUS_activeGroups == 2) then {
+			hc_grp = groupBlu3;
+		};
+		if (VAUS_activeGroups == 3) then {
+			hc_grp = groupBlu4;
+		};
+		if (VAUS_activeGroups == 4) then {
+			hc_grp = groupBlu5;
 		};
 
-		if (_camo == 2) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
+		if (_group == 1) then {
+			VAUS_activeGroups = VAUS_activeGroups +1;
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};		
 		};
 
-		if (_camo == 3) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu5]; 
-				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
-	};
+		if (_group == 2) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
 
-	if (_activeGroups == 3) then {
-
-		if (_camo == 1) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
 
-		if (_camo == 2) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+				};
+			};		
 		};
 
-		if (_camo == 3) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu4]; 
-				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
-	};
+		if (_group == 3) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
 
-	if (_activeGroups == 2) then {
-		if (_camo == 1) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
 
-		if (_camo == 2) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+				};
+			};		
 		};
 
-		if (_camo == 3) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu3]; 
-				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
-	};
+		if (_group == 4) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
 
-	if (_activeGroups == 1) then {
-		if (_camo == 1) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
 
-		if (_camo == 2) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+				};
+			};		
 		};
 
-		if (_camo == 3) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu2]; 
-				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
-	};
+		if (_group == 5) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
 
-	if (_activeGroups == 0) then {
-
-		if (_camo == 1) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
-		};
 
-		if (_camo == 2) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
-			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+				};
+			};		
 		};
 
-		if (_camo == 3) then {
-			for "_i" from 1 to 10 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, groupBlu1]; 
+		if (_group == 6) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
+
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
+				};
 			};
-			VAUS_activeGroups = VAUS_activeGroups + 1;
+
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};		
+		};
+
+		if (_group == 7) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
+
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};
+
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};		
+		};
+
+		if (_group == 8) then {
+		VAUS_activeGroups = VAUS_activeGroups +1;
+
+			if (_camo == 1) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};
+
+			if (_camo == 2) then {
+				for "_i" from 1 to 4 do { 
+				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				sleep 0.2;
+				};
+			};		
 		};
 	};
 };
