@@ -264,9 +264,37 @@ if (_control == 2) then {
 		VAUS_activeGroups = VAUS_activeGroups +1;
 
 			if (_camo == 1) then {
+				for "_i" from 1 to 1 do { 
+					"B_W_Soldier_TL_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 8 do { 
+					"B_W_Soldier_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 2 do { 
+					"B_W_Soldier_M_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
 				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
-				sleep 0.2;
+					"B_W_Soldier_AR_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 2 do { 
+					"B_W_Soldier_GL_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 4 do { 
+					"B_W_MEDIC_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 4 do { 
+					"B_W_Soldier_AT_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
+				};
+				for "_i" from 1 to 2 do { 
+					"B_W_Soldier_AA_F" createUnit [position player, hc_grp]; 
+					sleep 0.2;
 				};
 			};
 
