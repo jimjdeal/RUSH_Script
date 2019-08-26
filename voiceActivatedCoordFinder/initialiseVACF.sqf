@@ -8,8 +8,6 @@ VACF_headingBool		= false;
 VACF_distanceBool		= false;
 VACF_showCoords			= false;
 
-
-
 // key = "numpad 3"
 rgg_vacf_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 81)) then {
 	
