@@ -28,3 +28,5 @@
 // systemChat "Left Flank:";
 // // systemChat str \_parsedGroupBlu1;
 // systemChat str \_groupBlu1Count;
+
+will look at this in sept 19

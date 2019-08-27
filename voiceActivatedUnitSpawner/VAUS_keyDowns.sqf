@@ -1,23 +1,12 @@
-// VAUS Keydowns //
-systemChat "keydowns activated";
 /*
-from: 	initialiseVAUS
-to:		VAUS_RSCnums\VAUS_initDisplay.sqf
-*/
+from:	voiceActivatedUnitSpawner\initialiseVAUS.sqf
+to:		voiceActivatedUnitSpawner\VAUS_initDisplay.sqf 			/ once
 
-/*
-Managing 8 states and arrays:
-VAUS_typeBool / VAUS_type
-VAUS_controlBool / VAUS_control
-VAUS_camoBool / VAUS_camo
-VAUS_groupBool / VAUS_group
-VAUS_crewedBool / VAUS_crewed
-VAUS_vicTypeBool / VAUS_vicType
-VAUS_carTypeBool / VAUS_carType
-VAUS_heliTypeBool / VAUS_heliType
-*/
+purpose:
+listens to numpad keypresses, and sends respective values (numpad nums) into arrays 
+the array the data is pushed into is dependent on the current state (bool) - this is managed by the monitor 
+also kicks off the display UI
 
-/*
 Notes:
 Build cancel button!
 */
@@ -36,7 +25,7 @@ if (VAUS_numericalInputbool) then {
 
 	// }"];
 
-	execVM 'voiceActivatedUnitSpawner\VAUS_RSCnums\VAUS_initDisplay.sqf';
+	execVM 'voiceActivatedUnitSpawner\VAUS_initDisplay.sqf';
 
 	rgg_vaus_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 
@@ -45,7 +34,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 0;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 0;
 		};
@@ -91,7 +79,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 3;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 3;
 		};
@@ -102,7 +89,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 4;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 4;
 		};
@@ -113,7 +99,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 5;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 5;
 		};
@@ -124,7 +109,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 6;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 6;
 		};
@@ -135,7 +119,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 7;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 7;
 		};
@@ -146,7 +129,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 8;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 8;
 		};
@@ -157,7 +139,6 @@ if (VAUS_numericalInputbool) then {
 		if (VAUS_groupBool) then {
 			VAUS_group pushback 9;
 		};
-
 		if (VAUS_camoBool) then {
 			VAUS_camo pushback 9;
 		};

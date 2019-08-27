@@ -1,4 +1,6 @@
 
+// note, in order to use this stuff in a mission like Liberation, you need to copy the content below and paste within the mission's own class RscTitles { paste here }..
+
 class RscTitles {
 
     class Default {
