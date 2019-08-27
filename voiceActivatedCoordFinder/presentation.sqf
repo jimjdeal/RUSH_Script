@@ -1,3 +1,17 @@
+/*
+from:	VACF_execute.sqf 
+to:		voiceActivatedCoordFinder\RSCnums\RSCText.sqf			/ once, after processing 
+
+purpose:
+this ensures that there are aways 5 digits in lat and lon, regardless of prefixed zeros 
+depending on the location generated, there may be one or two zeros at the beginning of the data 
+this means that they will not be rendered, so this script ensures that there are always 5 digits in a lat or lon
+it then pushes the data onward for RSC presentation 
+
+notes:
+I need to change the name of this file, to have VACF prefix, but need to check for potential breakages before doing so 
+*/
+
 
 _lan = _this select 0;
 _lon = _this select 1;

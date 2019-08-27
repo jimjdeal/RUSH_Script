@@ -1,3 +1,12 @@
+/*
+from:	voiceActivatedCoordFinder\initialiseVACF.sqf
+to:		voiceActivatedCoordFinder\RSCnums\titleDisplay.sqf 		/ once 
+to:		voiceActivatedCoordFinder\RSCnums\dataEntry.sqf 		/ every keypress 
+
+purpose:
+listens to numpad keypresses, and sends respective values (numpad nums) into arrays 
+the array the data is pushed into is dependent on the current state (bool) - this is managed by the monitor 
+*/
 
 if (VACF_numericalInputbool) then {
 

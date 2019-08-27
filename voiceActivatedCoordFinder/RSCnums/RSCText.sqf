@@ -1,3 +1,15 @@
+/*
+from:	presentation.sqf 
+to:		screen render 
+
+purpose:
+RSC screen render of final/confirmed data 
+
+notes:
+I need to change the name of this file, to have VACF prefix, but need to check for potential breakages before doing so 
+It could also be moved up one level?
+*/
+
 disableSerialization;
 
 _lat = _this select 0;
@@ -6,11 +18,12 @@ _lon = _this select 1;
 1 cutRsc ["VACF","PLAIN"];
 
 waitUntil {!isNull (uiNameSpace getVariable "VACF")};
-	
+
 _display = uiNameSpace getVariable "VACF";
 _setText = _display displayCtrl 1001;
 _setText ctrlSetStructuredText (parseText format ["Lat: %1 / Lon: %2",_lat, _lon]);
 _setText ctrlSetBackgroundColor [0,0,0,0.5];
+
 
 // so I assume at this point ^^^ we have completed the VACF process, and have a confirmed coord we can play with 
 // and this is now sitting in the bottom right of the screen 
@@ -53,3 +66,18 @@ now a coord is stored in the GREENARRAY, and can be called upon when:
 ordering fire strikes, 
 move orders 
 waypoint orders 
+
+tueday 27th thoughts 
+VACF should hold three coords - none initially, and if none, nothing is rendered.
+If VACF has one result, only one coord is rendered, bottom right 
+If VACF has two results, both are shown, with the newest added to the left of the list 
+IF VACF has three results all three are shown, again with the newest on the left of the list 
+If VACF has an additional result, the oldest result is deleted, and everything moves right one 
+
+so, on confirm of coord:
+
+_Held_VACFs count RGG_Held_VACFs 
+if (_Held_VACFs == 0) then {
+	render given coord in the far rightmost slot 
+	RGG_Held_VACFs = RGG_Held_VACFs +1;
+} 

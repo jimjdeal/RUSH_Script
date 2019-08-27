@@ -1,7 +1,8 @@
-#include "voiceActivatedCoordFinder\RSCnums\dialogs.hpp"
-// #include "voiceActivatedUnitSpawner\VAUS_RSCnums\VAUS.hpp"
+#include "voiceActivatedCoordFinder\VAMP_displays\displays.hpp"
 
+// below is a placeholder for ome audio shit...
 
+/*
 class CfgSounds
 {
 	sounds[] = {};

@@ -1,3 +1,11 @@
+/*
+from:	?
+to:		voiceActivatedCoordFinder\initialiseVACF.sqf			/ once 
+
+purpose:
+possibly not needed 
+enables a pre-stage if required .. does not do much harm 
+*/
 
 sleep 2;
 execVM "voiceActivatedCoordFinder\initialiseVACF.sqf";

@@ -1,3 +1,15 @@
+/*
+from:	voiceActivatedCoordFinder\VACF_prepareCoords.sqf 
+to:		voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf 		/ once, to cancel all existing KDEHs 
+to:		voiceActivatedCoordFinder\presentation.sqf 				/ once, to send data for presentation 
+to:		voiceActivatedCoordFinder\initialiseVACF.sqf 			/ once, to restart the prcess again 
+
+purpose:	
+initiate the removal of existing keydowns for this module 
+initiate the listener for this again 
+RGG_callVACF function calcs the payload - 10-grid based on playerPos 
+this converts data back into string, for on-screen pres  
+*/
 
 _VACF_heading = _this select 0;
 _VACF_distance = _this select 1;
@@ -16,10 +28,9 @@ RGG_callVACF = {
 	_stringify = [];
 	_stringify pushback [_lan, _lon];
 	[_lan, _lon] execVM "voiceActivatedCoordFinder\presentation.sqf"
-
 };
 [_VACF_heading, _VACF_distance] call RGG_callVACF;
-	
+
 execVM "voiceActivatedCoordFinder\initialiseVACF.sqf";
 
 
