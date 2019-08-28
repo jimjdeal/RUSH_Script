@@ -1,26 +1,13 @@
-// VAUS_createUnits //
-
-// Creates units specified by player 
-
 /*
-from: 	
-to:		
-*/
+from: 	VAUS_keyDownMonitor.sqf
+to:		voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf
+to:		voiceActivatedUnitSpawner\initialiseVAUS.sqf
 
-/*
-8 states and arrays: OLD!!!
-VAUS_typeBool / VAUS_type
-VAUS_controlBool / VAUS_control
-VAUS_camoBool / VAUS_camo
-VAUS_groupBool / VAUS_group
-VAUS_crewedBool / VAUS_crewed
-VAUS_vicTypeBool / VAUS_vicType
-VAUS_carTypeBool / VAUS_carType
-VAUS_heliTypeBool / VAUS_heliType
-*/
+purpose:
+this script actually does the 'creating' of units 
+if you want to add your own group configs (arrays of units), this is the place.
 
-/*
-Notes:
+notes:
 use switch here maybe?
 another idea - have vanilla as hardcoded, have RHS as included also, but can be changed, 
 and then have another slot for user-config.
@@ -28,6 +15,11 @@ for now, just have everything to suit your own self
 AAAND 
 get lookDir so units are spawned near to player, but in direction youre looking 
 find old appear out of smoke script?
+create 15m circle around player?
+use findSafePos...
+?
+
+if I put clearKeyDowns at the beginning, the UI won't wait on screen while units are spawner, which is nicer - test this!
 */
 
 
@@ -35,6 +27,7 @@ find old appear out of smoke script?
 
 // execVM 'voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf';
 // could this happen now, or better to do later?
+// ... I think later, but leaving this question here for now, cos I'm not sure 
 
 // this manages the parsing of arrays from previous script into this script 
 _controlType 	= _this select 0;
@@ -46,7 +39,9 @@ _control 		= _controlType select 0;
 _group 			= _groupType select 0;
 _camo 			= _camoType select 0;
 
-// DC Group Creation 
+// I realise this is probably a shit way to do it, but hey, it works!
+
+// DC - Direct Control - Group Creation 
 if (_control == 1) then {
 
 	if (_group == 1) then {
@@ -219,12 +214,12 @@ if (_control == 1) then {
 	};
 };
 
-// HC Group Creation 
+// HC - High Command - Group Creation 
 
 if (_control == 2) then {
 
 	// _activeGroups = count VAUS_activeGroups; 
-
+	// this keeps groups to 5 max
 	if (VAUS_activeGroups < 6) then {
 
 		if (VAUS_activeGroups == 0) then {
@@ -416,7 +411,7 @@ if (_control == 2) then {
 	};
 };
 
-systemChat "all done!!!";
+// systemChat "all done!!!";
 // 8 cutRsc ["VAUS_THANKS","PLAIN"];
 // waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
 // _display = uiNameSpace getVariable "VAUS_THANKS";
@@ -424,7 +419,7 @@ systemChat "all done!!!";
 // _setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
-sleep 2.5;
+sleep 0.5;
 
 // 8 cutRsc ["default","PLAIN"];
 execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";

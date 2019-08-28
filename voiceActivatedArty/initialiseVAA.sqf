@@ -1,3 +1,17 @@
+/*
+from:	VAA_init.sqf
+to:		voiceActivatedArty\keyDowns.sqf
+to:		voiceActivatedArty\keyDownMonitor.sqf
+
+purpose:
+declares arrays and states for the module 
+creates initial keydownEH to trigger the module, then removes this initial trigger after being actioned
+starts off the module-specific listener that determines what happens on each key press 
+also starts off the monitor to loop-listen for changes and move states at key points in the data entry flow
+vamp is a universal bool that is used to ensure that only one module can be run at any one time  
+
+notes:
+*/
 
 // systemChat "INITIALISE VAA ACTIVATED";
 
@@ -23,7 +37,7 @@ confirmActionBool 		= false;
 
 // key = "4"
 rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 75)) then {
-	
+
 	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_Activate];
 	systemChat 'VAA Activated - Please confirm type';

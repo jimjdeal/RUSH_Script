@@ -1,3 +1,13 @@
+/*
+from:		voiceActivatedHighCommandOrders\initialiseVAHCO.sqf 
+to:			voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf
+
+purpose:
+loop-listener that validates user input, and changes state at correct times 
+
+notes:
+*/
+
 
 while {VAHCO_numericalInputbool} do {
 
@@ -37,7 +47,7 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
-	// confirm type of order to issue
+	// confirm type of order to issue (currently only one type - move)
 	if (VAHCO_orderSelectBool) then {
 		if (VAHCO_Validate_Orders == 1) then {
 			systemChat "DEBUG ORDERS CONFIRMED";
@@ -73,7 +83,7 @@ while {VAHCO_numericalInputbool} do {
 	// Oscar Mike
 	if (VAHCO_OscarMikeBool) then {
 		execVM "voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf";
-		systemChat "DEBUG CALLING OSCARMIKE.SFQ";
+		// systemChat "DEBUG CALLING OSCARMIKE.SFQ";
 	};
 		
 	sleep 0.1;

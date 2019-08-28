@@ -1,3 +1,14 @@
+/*
+from:	voiceActivatedUnitSpawner\VAUS_keyDownMonitor.sqf
+
+purpose:
+clears all currently assigned key down event handlers 
+also clears down all rendered UI 
+lastly, turns VAMP back to 'active (false)'
+
+notes:
+no cancel EH here, however you can cancel selection at the end...
+*/
 
 _ehVAUS_Remove0 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vaus_kd0];
 _ehVAUS_Remove2 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vaus_kd1];
@@ -34,4 +45,3 @@ VAUS_numericalInputbool = false;
 213 cutRsc ["default","PLAIN"]; // remove last prompt
 
 vamp = false;
-

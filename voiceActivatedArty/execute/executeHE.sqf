@@ -1,3 +1,21 @@
+/*
+from: 	voiceActivatedArty\execute\confirmExecute.sqf	
+to:		voiceActivatedArty\clearKeyDowns.sqf
+to:		voiceActivatedArty\initialiseVAA.sqf
+
+purpose:
+fnc that manages all ze booms 
+number parsing 
+marker making 
+countdown indicator 
+
+notes:
+if I activate keyDowns as I do here, it will make adjust fire impossible 
+there needs to be an active instruction to either close, repeat or adjust fire at the end here ...
+and only then should keyDowns be activated (if player closes call)
+
+numericalInput = false; -- what is this??
+*/
 
 // HE Execute 
 execVM "voiceActivatedArty\clearKeyDowns.sqf";
@@ -19,8 +37,9 @@ _marker1 setMarkerAlphaLocal 0.9;
 
 // function
 RGG_callArty1 = {
-	
+
 	numericalInput = false;
+	// this is where a delay config would go <<<
 	// sleep 15;
 	// systemChat "HE x 25 inbound, splash in 60 ...";
 	// sleep 30;
@@ -37,7 +56,7 @@ RGG_callArty1 = {
 	sleep 1;
 	systemChat ".. 2 ..";
 	sleep 2;
-	
+
 	params ["_shell", "_origin", "_radius", "_count"];
 
 	while {_count = _count - 1; _count >= 0} do {
@@ -49,10 +68,14 @@ RGG_callArty1 = {
 		sleep _int;
 	};
 	systemChat "barrage over";
+	sleep 2;
+	systemChat "what next?";
+	sleep 2;
+	systemChat "0 - close, 1 = repeat, 2 = adjust fire";
+	systemChat "be advised this aint built yet";
 
 	numericalInputBool = false;
 	deleteMarker "gun1";
-	// execVM "voiceActivatedArty\initialiseVAA.sqf";
 	systemChat "reactivating initVAA after calling strike";	
 	execVM "voiceActivatedArty\initialiseVAA.sqf";
 };

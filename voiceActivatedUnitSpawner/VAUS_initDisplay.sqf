@@ -5,15 +5,16 @@ to:		display
 purpose:
 sets out RSC layer allocation and initial display data for UI 
 
+notes:
+you can ofc change the text values here, and they will alter the text in the UI 
+I am still to change this, the camo question does not make sense here, what is in fact a better design is that have the user 
+set their own config for units, and by doing so can manage their own camo choices. 
+This was for my own personal use, but is probably better to have left up to the user
 */
 
 // ------------------------------------------------------------------ //
 
 disableSerialization;
-// trying out this file as the main display for initialisation, but maybe also progression 
-
-// header 
-
 
 
 10 cutRsc ["B18_L1_1","PLAIN"]; // main title
@@ -25,34 +26,32 @@ disableSerialization;
 50 cutRsc ["B18_L3_1","PLAIN"]; // direct command
 60 cutRsc ["B18_L4_1","PLAIN"]; // high command
 
-70 cutRsc ["B18_L3_2","PLAIN"]; // fire team
+70 cutRsc ["B18_L3_2","PLAIN"]; // eg fire team
 80 cutRsc ["B18_L4_2","PLAIN"];
-90 cutRsc ["B18_L3_3","PLAIN"]; // platoon
+90 cutRsc ["B18_L3_3","PLAIN"]; 
 100 cutRsc ["B18_L4_3","PLAIN"];
 110 cutRsc ["B18_L3_4","PLAIN"];
 120 cutRsc ["B18_L4_4","PLAIN"];
 130 cutRsc ["B18_L3_5","PLAIN"];
-140 cutRsc ["B18_L4_5","PLAIN"];
+140 cutRsc ["B18_L4_5","PLAIN"]; // eg medic team
 
-150 cutRsc ["B18_L3_6","PLAIN"];
-160 cutRsc ["B18_L4_6","PLAIN"];
+150 cutRsc ["B18_L3_6","PLAIN"]; // woodland
+160 cutRsc ["B18_L4_6","PLAIN"]; // desert
 
-170 cutRsc ["B18_L5_1","PLAIN"];
-180 cutRsc ["B18_L5_2","PLAIN"];
+170 cutRsc ["B18_L5_1","PLAIN"]; // confirm 
+180 cutRsc ["B18_L5_2","PLAIN"]; // cancel
 
 09 cutRsc ["B18_BG","PLAIN"]; // bg 
 200 cutRsc ["B18_TopLine","PLAIN"]; // top divider 
 210 cutRsc ["B18_BottomLine1","PLAIN"]; // bottom divider 
-// 211 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider 
-// 212 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider 
 
+// 211 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider - unused
+// 212 cutRsc ["B18_BottomLine2","PLAIN"]; // bottom divider - unused
 
 waitUntil {!isNull (uiNameSpace getVariable "B18_BG")};
 
 
-
 // header
-
 _display = uiNameSpace getVariable "B18_L1_1";
 _setText = _display displayCtrl 18001;
 _setText ctrlSetStructuredText (parseText format ["WELCOME TO VAUS - VOICE ACTIVATED UNIT SPAWNER"]);
@@ -63,7 +62,7 @@ _setText ctrlSetTextColor [0, 1, 0, 1];
 // BG 
 _display = uiNameSpace getVariable "B18_BG";
 _setText = _display displayCtrl 18020;
-_setText ctrlSetBackgroundColor [0,0,0,0.6];
+_setText ctrlSetBackgroundColor [0,0,0,0.6]; 
 // _setText ctrlSetTextColor [0, 1, 0, 1];
 
 
@@ -118,13 +117,13 @@ _setText ctrlSetTextColor [0, 1, 0, 0.5];
 // body column 2
 _display = uiNameSpace getVariable "B18_L3_2";
 _setText = _display displayCtrl 18006;
-_setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["FIRE TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_2";
 _setText = _display displayCtrl 18012;
-_setText ctrlSetStructuredText (parseText format ["AA TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["AA TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
@@ -132,13 +131,13 @@ _setText ctrlSetTextColor [0, 1, 0, 0.5];
 // body column 3
 _display = uiNameSpace getVariable "B18_L3_3";
 _setText = _display displayCtrl 18007;
-_setText ctrlSetStructuredText (parseText format ["PLATOON"]);
+_setText ctrlSetStructuredText (parseText format ["PLATOON"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_3";
 _setText = _display displayCtrl 18013;
-_setText ctrlSetStructuredText (parseText format ["ENG TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["ENG TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
@@ -146,13 +145,13 @@ _setText ctrlSetTextColor [0, 1, 0, 0.5];
 // body column 4
 _display = uiNameSpace getVariable "B18_L3_4";
 _setText = _display displayCtrl 18008;
-_setText ctrlSetStructuredText (parseText format ["SNIPER TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["SNIPER TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_4";
 _setText = _display displayCtrl 18014;
-_setText ctrlSetStructuredText (parseText format ["DEMO TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["DEMO TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
@@ -160,13 +159,13 @@ _setText ctrlSetTextColor [0, 1, 0, 0.5];
 // body column 5
 _display = uiNameSpace getVariable "B18_L3_5";
 _setText = _display displayCtrl 18009;
-_setText ctrlSetStructuredText (parseText format ["AT TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["AT TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_5";
 _setText = _display displayCtrl 18015;
-_setText ctrlSetStructuredText (parseText format ["MEDIC TEAM"]);
+_setText ctrlSetStructuredText (parseText format ["MEDIC TEAM"]); // change the text in quotes to whatever you want, if you want a different name in the UI
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
@@ -174,13 +173,13 @@ _setText ctrlSetTextColor [0, 1, 0, 0.5];
 // body column 6
 _display = uiNameSpace getVariable "B18_L3_6";
 _setText = _display displayCtrl 18010;
-_setText ctrlSetStructuredText (parseText format ["WOODLAND"]);
+_setText ctrlSetStructuredText (parseText format ["WOODLAND"]); // I would leave these for now ... they gonna change
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 
 _display = uiNameSpace getVariable "B18_L4_6";
 _setText = _display displayCtrl 18016;
-_setText ctrlSetStructuredText (parseText format ["DESERT"]);
+_setText ctrlSetStructuredText (parseText format ["DESERT"]); // I would leave these for now ... they gonna change
 // _setText ctrlSetBackgroundColor [0,0,0,0.5];
 _setText ctrlSetTextColor [0, 1, 0, 0.5];
 

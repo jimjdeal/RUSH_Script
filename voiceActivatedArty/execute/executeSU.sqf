@@ -1,3 +1,18 @@
+/*
+from: 	voiceActivatedArty\execute\confirmExecute.sqf	
+to:		voiceActivatedArty\clearKeyDowns.sqf
+to:		voiceActivatedArty\initialiseVAA.sqf
+
+purpose:
+fnc that manages all ze smokes
+number parsing 
+marker creation - is this even needed though?
+if so, make the marker the colour of the smoke?
+
+notes:
+numericalInput = false; -- what is this??
+make these vars LOCAL FFS!
+*/
 
 // Surgical execute
 execVM "voiceActivatedArty\clearKeyDowns.sqf";
@@ -44,6 +59,7 @@ RGG_callArty1 = {
 		private _rad = 1;
 		private _prj = _shell createVehicle (_origin getPos [_rad, _dir]);		
 		sleep _int;
+		[_origin] execVM "voiceActivatedArty\execute\damageMaker.sqf";
 	};
 
 
@@ -55,10 +71,11 @@ RGG_callArty1 = {
 
 ["Bo_GBU12_LGB", _pos, 1, 1] call RGG_callArty1;	
 
-/* 
+/* toys:
 ammo_Bomb_SDB
 BombCluster_02_Ammo_F
 Cluster_155mm_AMOS
 ammo_Missile_HARM
-Bo_GBU12_LGB - big fucker
+R_80mm_HE
+Bo_GBU12_LGB - tha big fucker
 

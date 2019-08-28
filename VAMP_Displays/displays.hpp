@@ -1,12 +1,17 @@
-
 // note, in order to use this stuff in a mission like Liberation, you need to copy the content below and paste within the mission's own class RscTitles { paste here }..
+
+/*
+I believe I can now remove some of these blocks, but do your research first!!
+
+
+*/
 
 class RscTitles {
 
     class Default {
        idd                          = -1;
        fadein                       = 0;
-       fadeout                      = 0;
+       fadeout                      = 1;
        duration                     = 0;
     };
 
@@ -138,6 +143,8 @@ class RscTitles {
             };
 		};
 	};
+
+// from here - check can delete 
 
 // copy from VAUS hpp
  class VAUS_MAINTITLE {
@@ -532,6 +539,10 @@ class RscTitles {
             };
 		};
 	};
+
+// to here - check can delete 
+
+
 
 // experimental
 // based on a lower third concept
@@ -1618,6 +1629,119 @@ B18_L5_2 x50 y80 l20 h05
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,1};
                 colorText[]         = {0,0,0,0};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+// -------------------------------------
+
+// VA - High Command UI 
+
+// -------------------------------------
+
+/*
+I need a universal UI system to avoid having to create a new UI set for each module 
+iteration / test = build a sequenced line system, lower third again 
+
+eg, HC orders 
+
+VAHC 
+all you really need is confirmation
+as the VAP will allow a few diff ways of getting data to the script, it is less formulaic that say VAAS, so just a final comf should be ok 
+if this is true, I only need two lines:
+
+HEADER
+CONFIRMATION TEXT
+
+
+*/
+
+
+    // C_L1_1 is a pure copy of B18_L1_1, with just names changed, but starting from scratch initially to keep thigs as simple as possible
+    // class Cxxx = third class system used (currently) for VAHC
+    // uses idc 19xxx
+    class C_L1_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "C_L1_1";
+		onLoad                      = "with uiNameSpace do { C_L1_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 19001;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.615 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class C_L2_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "C_L2_1";
+		onLoad                      = "with uiNameSpace do { C_L2_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 19001;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.640 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
                 text                = "";
                 font                = "PuristaSemiBold";
 					

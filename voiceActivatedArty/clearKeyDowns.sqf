@@ -1,3 +1,14 @@
+/*
+from:		voiceActivatedArty\keyDownMonitor.sqf
+
+purpose:
+clears all currently assigned key down event handlers 
+(will) also clears down all rendered UI 
+lastly, turns VAMP back to 'active (false)'
+
+notes:
+this has a cancel EH
+*/
 
 _ehRemove0 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_kd0];
 _ehRemove1 	= (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_cnl];

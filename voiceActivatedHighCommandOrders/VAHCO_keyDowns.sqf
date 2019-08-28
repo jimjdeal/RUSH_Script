@@ -1,3 +1,14 @@
+/*
+from:		voiceActivatedHighCommandOrders\initialiseVAHCO	
+to:			voiceActivatedHighCommandOrders\TBC 		
+
+purpose:
+listens to numpad keypresses, and sends respective values (numpad nums) into arrays 
+the array the data is pushed into is dependent on the current state (bool) - this is managed by the monitor 
+
+notes:
+need to add a cancel to this!
+*/
 
 if (VAHCO_numericalInputbool) then {
 
@@ -11,6 +22,18 @@ if (VAHCO_numericalInputbool) then {
 	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
 
 	// }"];
+
+/*
+expermiment - instead of calling a new title script for the UI, I am going to try to just include it here - this only runs once, so should work
+*/
+
+	1 cutRsc ["C_L1_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+	_n1 = "...";
+	_display = uiNameSpace getVariable "C_L1_1";
+	_setText = _display displayCtrl 9901;
+	_setText ctrlSetStructuredText (parseText format ["VAHC: %1", _n1]);
+	_setText ctrlSetBackgroundColor [0,0,0,0.5];
 
 	rgg_vahco_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 			

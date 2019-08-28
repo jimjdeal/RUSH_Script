@@ -1,3 +1,18 @@
+/*
+from:		voiceActivatedArty\keyDownMonitor.sqf
+to:			voiceActivatedArty\execute\executeHE.sqf
+to:			voiceActivatedArty\execute\executeSU.sq
+to:			voiceActivatedArty\execute\executeSM.sqf			/ not tested 
+to:			voiceActivatedArty\execute\executeFLARES.sqf		/ not active
+to:			voiceActivatedArty\execute\coordCache.sqf
+
+purpose:
+does some number parsing 
+relays the entered data to player 
+it also sends data to a cache for further functions like - adjust fire 
+
+notes:
+*/
 
 // if (artyType == SURGICAL) then {
 // 	_parsed1Lat = splashCoordsLat joinString "0";
@@ -98,6 +113,6 @@ if (confirmedTypeSM == 1) then {
 // 	sleep 0.2;
 // 	systemChat "stand by...";
 // 	sleep 5;
-// 	[_parsedLat, _parsedLon, _parsedRounds, _parsedRadius] execVM "voiceActivatedArty\executeFLARES.sqf";
+// 	[_parsedLat, _parsedLon, _parsedRounds, _parsedRadius] execVM "voiceActivatedArty\execute\executeFLARES.sqf";
 // 	systemChat "incoming...";
 // };

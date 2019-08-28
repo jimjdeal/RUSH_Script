@@ -1,4 +1,6 @@
 
+// what was I thinking here?
+
 _VACF_heading = _this select 0;
 _VACF_distance = _this select 1;
 

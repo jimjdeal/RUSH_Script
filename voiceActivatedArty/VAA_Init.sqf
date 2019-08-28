@@ -1,3 +1,9 @@
+/*
+from:	??
+to:		voiceActivatedArty\initialiseVAA.sqf
+
+notes:
+*/
 
 sleep 2;
 execVM "voiceActivatedArty\initialiseVAA.sqf";

@@ -1,3 +1,18 @@
+/*
+from: 	voiceActivatedArty\execute\confirmExecute.sqf	
+to:		voiceActivatedArty\clearKeyDowns.sqf
+to:		voiceActivatedArty\initialiseVAA.sqf
+
+purpose:
+fnc that manages all ze smokes
+number parsing 
+marker creation - is this even needed though?
+if so, make the marker the colour of the smoke?
+
+notes:
+numericalInput = false; -- what is this??
+make these vars LOCAL FFS!
+*/
 
 // SM Execute 
 execVM "voiceActivatedArty\clearKeyDowns.sqf";
@@ -42,21 +57,14 @@ deleteMarker "gun1";
 _marker1 = createMarker ["gun1", _pos];
 _marker1 setMarkerShapeLocal "ELLIPSE";
 _marker1 setMarkerColorLocal "ColorRed";
-_marker1 setMarkerSizeLocal [100, 100];
+_marker1 setMarkerSizeLocal [20, 20];
 _marker1 setMarkerAlphaLocal 0.9;
 
 // function
 RGG_callArty1 = {
-	
+
 	numericalInput = false;
-	// sleep 15;
-	// systemChat "HE x 25 inbound, splash in 60 ...";
-	// sleep 30;
-	// // inform user through display or .ogg, but for now just use sysChat 
-	// systemChat "HE x 25, splash in 30 ...";
-	// sleep 15;
-	// systemChat "splash in 15 ...";
-	// sleep 10;
+
 	systemChat ".. 5 ..";
 	sleep 1;
 	systemChat ".. 4 ..";
@@ -80,7 +88,6 @@ RGG_callArty1 = {
 	systemChat 'Call Completed';
 	deleteMarker "gun1";
 	numericalInputBool = false;
-
 
 	execVM 'voiceActivatedArty\clearKeyDowns.sqf'; 
 	

@@ -1,3 +1,15 @@
+/*
+from:	voiceActivatedArty\initialiseVAA.sqf
+to:		voiceActivatedArty\clearKeyDowns.sqf
+to:		voiceActivatedArty\initialiseVAA.sqf	 
+to: 	voiceActivatedArty\execute\confirmExecute.sqf	/ makes booms
+
+purpose:
+loop-listener that validates user input, and changes state at correct times 
+
+notes:
+unsure if the return loop back to initialiseVAA is correct .. should this go further back?
+*/
 
 while {numericalInputbool} do {
 
@@ -30,7 +42,7 @@ while {numericalInputbool} do {
 		if (confirmedTypeHE == 1) then {
 			systemChat "HE confirmed";
 			systemChat "now enter latitude";
-			playSound "dangerClose2";
+			// playSound "dangerClose2";
 			artyTypeBool = false;
 			latCoordInputBool = true;
 		};
@@ -96,7 +108,7 @@ while {numericalInputbool} do {
 				splashCoordsLat pushback 0;
 				systemChat "4 digit latitude received...";
 				systemChat str splashCoordsLat;
-				playSound "dangerClose3";
+				// playSound "dangerClose3";
 				systemChat "now enter longitude";
 				latCoordInputBool = false;
 				lonCoordInputBool = true;
@@ -134,7 +146,7 @@ while {numericalInputbool} do {
 				systemChat "4 digit longitude received...";
 				systemChat str splashCoordsLat;
 				systemChat "now confirm number of rounds";
-				playSound "dangerClose4";
+				// playSound "dangerClose4";
 				lonCoordInputBool = false;
 				roundsInputBool = true;
 			};
@@ -149,7 +161,7 @@ while {numericalInputbool} do {
 			systemChat "rounds received...";
 			systemChat str splashRounds;
 			systemChat "now enter radius";
-			playSound "dangerClose5";
+			// playSound "dangerClose5";
 			roundsInputBool = false;
 			radiusInputBool = true;
 		};
@@ -163,7 +175,7 @@ while {numericalInputbool} do {
 			systemChat "radius confirmed...";
 			systemChat str splashRadius;
 			systemChat "press 1 to confirm fire mission";
-			playSound "dangerClose6";
+			// playSound "dangerClose6";
 			systemChat "press 0 to ABORT";
 			confirmActionBool = true;
 			radiusInputBool = false;
@@ -186,7 +198,7 @@ while {numericalInputbool} do {
 
 				if (confirmedTypeHE == 1) then {
 					execVM "voiceActivatedArty\execute\confirmExecute.sqf";
-					playSound "dangerClose7";
+					// playSound "dangerClose7";
 					confirmActionBool = false;
 				};
 
@@ -204,7 +216,8 @@ while {numericalInputbool} do {
 					execVM "voiceActivatedArty\execute\confirmExecute.sqf";
 					confirmActionBool = false;
 				};
-
+			// ^^ that .. yeah I know .. i know..
+			// I may use diff scripts at some point, but I know  
 			};
 
 			if (_goodToGo == 0) then {
@@ -214,10 +227,9 @@ while {numericalInputbool} do {
 				execVM "voiceActivatedArty\initialiseVAA.sqf";
 				
 			};
-
 		};
 	};
-		
+
 	sleep 0.1;
 };	
 	

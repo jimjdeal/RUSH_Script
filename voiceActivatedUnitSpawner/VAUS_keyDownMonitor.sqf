@@ -1,3 +1,15 @@
+/*
+from:	voiceActivatedUnitSpawner\initialiseVAUS.sqf
+to:		voiceActivatedUnitSpawner\VAUS_createUnits.sqf
+to:		voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf
+to: 	voiceActivatedUnitSpawner\initialiseVAUS.sqf
+
+purpose:
+loop-listener that validates user input, and changes state at correct times 
+when all entries have been made, the script will either progress to spawner, or cancel / reboot 
+
+notes:
+*/
 
 while {VAUS_numericalInputbool} do {
 
@@ -14,13 +26,12 @@ while {VAUS_numericalInputbool} do {
 			_controlType = VAUS_control select 0;
 
 			if (_controlType == 1) then {
-				systemChat "you selected to have them under your direct control";
-				sleep 0.2;
-				systemChat "question 2 - what type of group do you want?";
-				systemChat "1 = fire team x 4, 	2 = full platoon x 20, 	3 = sniper team x 2";
-				systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
-				systemChat "7 = demo team x 2, 	8 = medic team x 4";
-				
+				// systemChat "you selected to have them under your direct control";
+				// sleep 0.2;
+				// systemChat "question 2 - what type of group do you want?";
+				// systemChat "1 = fire team x 4, 	2 = full platoon x 20, 	3 = sniper team x 2";
+				// systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
+				// systemChat "7 = demo team x 2, 	8 = medic team x 4";
 				50 cutRsc ["B18_L3_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_1")};
 				_display = uiNameSpace getVariable "B18_L3_1";
@@ -34,13 +45,13 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_controlType == 2) then {
-				systemChat "you selected to have them as HC units";
-				sleep 0.2;
-				systemChat "question 2 - what type of group do you want?";
-				systemChat "1 = fire team x 4, 	2 = full platoon x 20, 	3 = sniper team x 2";
-				systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
-				systemChat "7 = demo team x 2, 	8 = medic team x 4";
-				
+				// systemChat "you selected to have them as HC units";
+				// sleep 0.2;
+				// systemChat "question 2 - what type of group do you want?";
+				// systemChat "1 = fire team x 4, 	2 = full platoon x 20, 	3 = sniper team x 2";
+				// systemChat "4 = at team x 3, 	5 = aa team x 3, 		6 = eng team x 2";
+				// systemChat "7 = demo team x 2, 	8 = medic team x 4";
+			
 				60 cutRsc ["B18_L4_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_1")};
 				_display = uiNameSpace getVariable "B18_L4_1";
@@ -94,13 +105,12 @@ while {VAUS_numericalInputbool} do {
 		_setText ctrlSetBackgroundColor [0,1,0,0.8];
 		// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-
 		if (VAUS_confirmedGroup == 1) then {
 
 			_groupType = VAUS_group select 0;
 
 			if (_groupType == 1) then {
-				systemChat "you selected fire team";
+				// systemChat "you selected fire team";
 
 				70 cutRsc ["B18_L3_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_2")};
@@ -112,7 +122,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 2) then {
-				systemChat "you selected full platoon";
+				// systemChat "you selected full platoon";
 
 				90 cutRsc ["B18_L3_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_3")};
@@ -124,7 +134,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 3) then {
-				systemChat "you selected sniper team";
+				// systemChat "you selected sniper team";
 
 				110 cutRsc ["B18_L3_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_4")};
@@ -136,7 +146,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 4) then {
-				systemChat "you selected AT team";
+				// systemChat "you selected AT team";
 
 				130 cutRsc ["B18_L3_5","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_5")};
@@ -148,7 +158,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 5) then {
-				systemChat "you selected AA team";
+				// systemChat "you selected AA team";
 
 				80 cutRsc ["B18_L4_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_2")};
@@ -160,7 +170,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 6) then {
-				systemChat "you selected eng team";
+				// systemChat "you selected eng team";
 
 				100 cutRsc ["B18_L4_3","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_3")};
@@ -172,7 +182,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 7) then {
-				systemChat "you selected demo team";
+				// systemChat "you selected demo team";
 
 				120 cutRsc ["B18_L4_4","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_4")};
@@ -184,7 +194,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_groupType == 8) then {
-				systemChat "you selected medic team";
+				// systemChat "you selected medic team";
 
 				140 cutRsc ["B18_L4_5","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_5")};
@@ -197,8 +207,8 @@ while {VAUS_numericalInputbool} do {
 			
 			sleep 0.2;
 
-			systemChat "question 3 - what camo is required?";
-			systemChat "1 = RHS Desert, 3 = Livonia Woodland";
+			// systemChat "question 3 - what camo is required?";
+			// systemChat "1 = RHS Desert, 3 = Livonia Woodland";
 
 			// here i put the 'progression bools' outside of the ifthens, but i also put them in each ifthen .. i wonder if it actually matters?
 			// because if not, just use them once at the end.. DRY!
@@ -218,7 +228,6 @@ while {VAUS_numericalInputbool} do {
 		_setText ctrlSetBackgroundColor [0,1,0,0.8];
 		// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-
 		if (VAUS_confirmedCamo == 1) then {
 
 			_camoType = VAUS_camo select 0;
@@ -226,7 +235,7 @@ while {VAUS_numericalInputbool} do {
 			// and if I can make it so the user can define easily the names of the camo/specialism, as well as the number and configuration of the groups..
 			// you give the player a load of customisation options, which would be useful..
 			if (_camoType == 1) then {
-				systemChat "you selected vanilla camo";
+				// systemChat "you selected vanilla camo";
 
 				150 cutRsc ["B18_L3_6","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L3_6")};
@@ -241,7 +250,7 @@ while {VAUS_numericalInputbool} do {
 			};
 
 			if (_camoType == 2) then {
-				systemChat "you selected RHS Desert";
+				// systemChat "you selected RHS Desert";
 
 				160 cutRsc ["B18_L4_6","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L4_6")};
@@ -269,12 +278,12 @@ while {VAUS_numericalInputbool} do {
 
 			sleep 0.2;
 
-			systemChat "review your selection and confirm / cancel";
-			systemChat "1 = confirm, 2 = cancel";
+			// systemChat "review your selection and confirm / cancel";
+			// systemChat "1 = confirm, 2 = cancel";
 
 		};
 	};
-
+//
 	// confirm choice
 	if (VAUS_confirmBool) then {
 
@@ -297,7 +306,7 @@ while {VAUS_numericalInputbool} do {
 			_testConfirmType = VAUS_confirm select 0; // rename if this works!!!
 
 			if (_testConfirmType == 1) then {
-				systemChat "selection has been completed - thank you";
+				// systemChat "selection has been completed - thank you";
 
 				170 cutRsc ["B18_L5_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L5_1")};
@@ -307,13 +316,13 @@ while {VAUS_numericalInputbool} do {
 				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
-				sleep 1.5;
+				sleep 0.5;
 				VAUS_confirmBool = false;
 				[VAUS_control, VAUS_group, VAUS_camo] execVM "voiceActivatedUnitSpawner\VAUS_createUnits.sqf";
 			};
 
 			if (_testConfirmType == 2) then {
-				systemChat "selection has been cancelled - standing down";
+				// systemChat "selection has been cancelled - standing down";
 
 				180 cutRsc ["B18_L5_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "B18_L5_2")};
@@ -323,7 +332,7 @@ while {VAUS_numericalInputbool} do {
 				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
-				sleep 1.5;
+				sleep 0.5;
 				VAUS_confirmBool = false;
 				execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
 				execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
@@ -332,5 +341,5 @@ while {VAUS_numericalInputbool} do {
 	};
 
 	sleep 0.1;
-	// systemChat "monitor cycle";
+	// systemChat "cycle monitor";
 };

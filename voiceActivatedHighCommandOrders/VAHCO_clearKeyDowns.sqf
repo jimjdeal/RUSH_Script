@@ -1,3 +1,16 @@
+/*
+from:		voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf
+
+purpose:
+clears all currently assigned key down event handlers 
+(will) also clears down all rendered UI 
+lastly, turns VAMP back to 'active (false)'
+
+notes:
+add CANCEL!
+add RSC removals 
+*/
+
 _ehVAHCO_Remove0 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd0];
 _ehVAHCO_Remove2 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd1];
 _ehVAHCO_Remove3 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_vahco_kd2];
@@ -11,10 +24,10 @@ _ehVAHCO_Remove10	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_va
 
 VAHCO_numericalInputbool = false;
 
-sleep 2;
-systemChat "DEBUG VAHCO CLOSED";
+sleep 3; // quick vis validation of accepted order 
+1 cutRsc ["default","PLAIN"];
 
-// note, I need a cancel orders command here!
-
+// sleep 0.5;
+// systemChat "VAHCO RESET";
 
 vamp = false;

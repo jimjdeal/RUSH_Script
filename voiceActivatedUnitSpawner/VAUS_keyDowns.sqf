@@ -1,6 +1,6 @@
 /*
 from:	voiceActivatedUnitSpawner\initialiseVAUS.sqf
-to:		voiceActivatedUnitSpawner\VAUS_initDisplay.sqf 			/ once
+to:		voiceActivatedUnitSpawner\VAUS_initDisplay.sqf 			
 
 purpose:
 listens to numpad keypresses, and sends respective values (numpad nums) into arrays 
