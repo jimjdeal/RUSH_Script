@@ -24,9 +24,9 @@ _parsed_VAHCO_MoveDistance	= VAHCO_distance joinString "";
 _parsed_VAHCO_MoveDirection	= VAHCO_heading joinString "";
 
 parsed_VAHCO_GroupSelect2 	= parseNumber _parsed_VAHCO_GroupSelect;
-parsed_VAHCO_OrderType2	= parseNumber _parsed_VAHCO_OrderType;
+parsed_VAHCO_OrderType2		= parseNumber _parsed_VAHCO_OrderType;
 parsed_VAHCO_MoveDistance2	= parseNumber _parsed_VAHCO_MoveDistance;
-parsed_VAHCO_MoveDirection2= parseNumber _parsed_VAHCO_MoveDirection;
+parsed_VAHCO_MoveDirection2	= parseNumber _parsed_VAHCO_MoveDirection;
 
 execVM "voiceActivatedHighCommandOrders\VAHCO_clearKeyDowns.sqf";
 // systemChat "processing VAHCO data...";
@@ -43,7 +43,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		1 cutRsc ["C_L1_1","PLAIN"];
 		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 9901;
+		_setText = _display displayCtrl 19001;
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 1 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
@@ -57,7 +57,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		1 cutRsc ["C_L1_1","PLAIN"];
 		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 9901;
+		_setText = _display displayCtrl 19001;
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 2 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
@@ -70,7 +70,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		1 cutRsc ["C_L1_1","PLAIN"];
 		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 9901;
+		_setText = _display displayCtrl 19001;
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 3 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 
@@ -84,7 +84,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		1 cutRsc ["C_L1_1","PLAIN"];
 		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 9901;
+		_setText = _display displayCtrl 19001;
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 4 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
@@ -97,10 +97,18 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		1 cutRsc ["C_L1_1","PLAIN"];
 		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 9901;
+		_setText = _display displayCtrl 19001;
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 5 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
+
+/*
+try this:
+sleep 3;
+execVM "voiceActivatedHighCommandOrders\VAHCO_clearKeyDowns.sqf";
+execVM "voiceActivatedHighCommandOrders\initialiseVAHCO.sqf";
+
+*/
 
 };
 [] call RGG_callVAHCO_MOVE_ORDERS;

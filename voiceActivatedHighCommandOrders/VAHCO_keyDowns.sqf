@@ -31,7 +31,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 	waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 	_n1 = "...";
 	_display = uiNameSpace getVariable "C_L1_1";
-	_setText = _display displayCtrl 9901;
+	_setText = _display displayCtrl 19001;
 	_setText ctrlSetStructuredText (parseText format ["VAHC: %1", _n1]);
 	_setText ctrlSetBackgroundColor [0,0,0,0.5];
 

@@ -1759,4 +1759,27 @@ CONFIRMATION TEXT
 		};
 	};
 
+
+// -------------------------------------
+
+// VA - Artillery System UI 
+
+// -------------------------------------
+
+/*
+I need to be able to show:
+
+- that the system is live and awaiting data
+- user selection HE / SU / SM / FL 
+- lat/lon 
+- rounds 
+- radius 
+- confirm 
+- close / repeat / adjust fire 
+
+*/
+
+
+
+
 };

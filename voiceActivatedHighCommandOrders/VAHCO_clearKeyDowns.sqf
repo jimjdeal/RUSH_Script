@@ -24,7 +24,7 @@ _ehVAHCO_Remove10	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_va
 
 VAHCO_numericalInputbool = false;
 
-sleep 3; // quick vis validation of accepted order 
+sleep 3; // quick visual validation of accepted order 
 1 cutRsc ["default","PLAIN"];
 
 // sleep 0.5;
