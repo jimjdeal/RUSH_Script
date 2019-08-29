@@ -1,3 +1,13 @@
+Welcome to the VA Vehicle Spawner
+
+What do you require?
+
+Car / Heli?
+
+if car
+
+Armed / Unarmed
+
 // level Root1 - choose units or vehicles
 // VAUS_type = []; // 1 = units (group) (2A), 2 = vehicles (2B)
 // VAUS_typeBool = false;

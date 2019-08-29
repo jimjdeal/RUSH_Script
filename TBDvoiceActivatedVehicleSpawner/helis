@@ -8,7 +8,7 @@ non-Armed
 
 Ghost Hawk                               (sand / tropic)
 Blackfish      (infantry / vehicle)      (standard / blue / olive)
-Humming Bird   (light / stripped)
+Humming Bird                             (light / stripped)
 
 Ghost Hawk --------------------------------------------------------
 B_CTRG_Heli_Transport_01_sand_F
@@ -21,14 +21,14 @@ BlackFish --------------------------------------------------------
 B_T_VTOL_01_infantry_F
 V-44 X Blackfish (Infantry Transport)
 
-B_T_VTOL_01_vehicle_F
-V-44 X Blackfish (Vehicle Transport)
-
 B_T_VTOL_01_infantry_blue_F
 V-44 X Blackfish (Infantry Transport)
 
 B_T_VTOL_01_infantry_olive_F
 V-44 X Blackfish (Infantry Transport)
+
+B_T_VTOL_01_vehicle_F
+V-44 X Blackfish (Vehicle Transport)
 
 B_T_VTOL_01_vehicle_blue_F
 V-44 X Blackfish (Vehicle Transport)
@@ -56,14 +56,14 @@ UH-80 Ghost Hawk (Camo)
 
 Armed
 
+Ghost Hawk                               (sand / tropic)
+Blackfish                                (standard / blue / olive)
+Humming Bird                             (light / stripped)
 
-
-
+BlackFish --------------------------------------------------------
 
 B_T_VTOL_01_armed_F
 V-44 X Blackfish (Armed)
-
-
 
 B_T_VTOL_01_armed_blue_F
 V-44 X Blackfish (Armed)
@@ -72,6 +72,7 @@ B_T_VTOL_01_armed_olive_F
 V-44 X Blackfish (Armed)
 
 
+Humming Bird --------------------------------------------------------
 
 B_Heli_Light_01_armed_F
 AH-9 Pawnee
@@ -80,12 +81,29 @@ B_Heli_Light_01_dynamicLoadout_F
 AH-9 Pawnee
 
 
+Ghost Hawk --------------------------------------------------------
 
 B_Heli_Attack_01_F
 AH-99 Blackfoot
 
 B_Heli_Attack_01_dynamicLoadout_F
 AH-99 Blackfoot
+
+
+
+////
+
+B_Heli_Transport_03_F
+CH-67 Huron
+
+B_Heli_Transport_03_unarmed_F
+CH-67 Huron (Unarmed)
+
+B_Heli_Transport_03_black_F
+CH-67 Huron (Black)
+
+B_Heli_Transport_03_unarmed_green_F
+CH-67 Huron Unarmed (Green)
 
 
 
