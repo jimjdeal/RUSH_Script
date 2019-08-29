@@ -24,6 +24,8 @@ call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
 execVM "voiceActivatedCoordFinder\VACF_init.sqf";
 execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 execVM "voiceActivatedUnitSpawner\VAUS_init.sqf";
+execVM "voiceActivatedVehicleSpawner\VAVS_init.sqf";
+
 
 
 

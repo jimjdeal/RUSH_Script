@@ -1780,6 +1780,613 @@ I need to be able to show:
 */
 
 
+// -------------------------------------
+
+// VA - Vehicle Spawner System UI - Class D / Range 20xxx
+
+// -------------------------------------
+
+class D_L1_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L1_1";
+		onLoad                      = "with uiNameSpace do { D_L1_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20000;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.615 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L2_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L2_1";
+		onLoad                      = "with uiNameSpace do { D_L2_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20010;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.640 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L3_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L3_1";
+		onLoad                      = "with uiNameSpace do { D_L3_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20020;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.665 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L3_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L3_2";
+		onLoad                      = "with uiNameSpace do { D_L3_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20030;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.665 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L4_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L4_1";
+		onLoad                      = "with uiNameSpace do { D_L4_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20040;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.690 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L4_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L4_2";
+		onLoad                      = "with uiNameSpace do { D_L4_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20050;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.690 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L5_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L5_1";
+		onLoad                      = "with uiNameSpace do { D_L5_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20060;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.715 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L5_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L5_2";
+		onLoad                      = "with uiNameSpace do { D_L5_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20070;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.715 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L6_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L6_1";
+		onLoad                      = "with uiNameSpace do { D_L6_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20080;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.740 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L6_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L6_2";
+		onLoad                      = "with uiNameSpace do { D_L6_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20090;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.740 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L7_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L7_1";
+		onLoad                      = "with uiNameSpace do { D_L7_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20100;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.740 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L7_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L7_2";
+		onLoad                      = "with uiNameSpace do { D_L7_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20110;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.740 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L8_1 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L8_1";
+		onLoad                      = "with uiNameSpace do { D_L8_1 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20120;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.765 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+
+    class D_L8_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0.3;
+        fadeout                     = 2;
+        name                        = "D_L8_2";
+		onLoad                      = "with uiNameSpace do { D_L8_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 20130;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.500 * safezoneW + safezoneX;
+				y                   = 0.765 * safezoneH + safezoneY;
+				w                   = 0.200 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {0,1,0,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
 
 
 };
