@@ -1,6 +1,6 @@
 /*
-from:		voiceActivatedHighCommandOrders\initialiseVAHCO	
-to:			voiceActivatedHighCommandOrders\TBC 		
+from:		voiceactivatedhighcommand\initialiseVAHCO	
+to:			voiceactivatedhighcommand\TBC 		
 
 purpose:
 listens to numpad keypresses, and sends respective values (numpad nums) into arrays 

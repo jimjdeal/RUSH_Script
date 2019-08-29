@@ -8,7 +8,7 @@ waituntil {!isNull findDisplay 46};
 from:		n/a
 to:			voiceActivatedArty\VAA_Init.sqf
 to:			voiceActivatedCoordFinder\VACF_init.sqf
-to:			voiceActivatedHighCommandOrders\VAHCO_init.sqf
+to:			voiceactivatedhighcommand\VAHCO_init.sqf
 to:			voiceActivatedUnitSpawner\VAUS_init.sqf
 
 purpose:
@@ -22,7 +22,7 @@ understand how to better use preprocessFileLineNumbers across whole script!
 
 call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
 execVM "voiceActivatedCoordFinder\VACF_init.sqf";
-execVM "voiceActivatedHighCommandOrders\VAHCO_init.sqf";
+execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 execVM "voiceActivatedUnitSpawner\VAUS_init.sqf";
 
 

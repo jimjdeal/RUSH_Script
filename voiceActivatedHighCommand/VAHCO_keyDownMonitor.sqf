@@ -1,6 +1,6 @@
 /*
-from:		voiceActivatedHighCommandOrders\initialiseVAHCO.sqf 
-to:			voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf
+from:		voiceactivatedhighcommand\initialiseVAHCO.sqf 
+to:			voiceactivatedhighcommand\VAHCO_OscarMike.sqf
 
 purpose:
 loop-listener that validates user input, and changes state at correct times 
@@ -155,7 +155,7 @@ while {VAHCO_numericalInputbool} do {
 	// Oscar Mike
 	if (VAHCO_OscarMikeBool) then {
 
-		execVM "voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf";
+		execVM "voiceactivatedhighcommand\VAHCO_OscarMike.sqf";
 	};
 		
 	sleep 0.1;

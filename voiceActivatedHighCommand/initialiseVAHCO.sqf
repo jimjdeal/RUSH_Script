@@ -1,7 +1,7 @@
 /*
 from:
-to:			voiceActivatedHighCommandOrders\VAHCO_keyDowns.sqf
-to: 		voiceActivatedHighCommandOrders\VAHCO_keyDownMonitor.sqf
+to:			voiceactivatedhighcommand\VAHCO_keyDowns.sqf
+to: 		voiceactivatedhighcommand\VAHCO_keyDownMonitor.sqf
 
 purpose:
 declares arrays and states for the module 
@@ -46,8 +46,8 @@ rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!
 	systemChat 'press 1 for group 1, 2 for group 2, or 9 for all groups';
 	VAHCO_numericalInputbool = true; 
 	VAHCO_groupSelectBool = true;
-	execVM 'voiceActivatedHighCommandOrders\VAHCO_keyDowns.sqf'; 
-	execVM 'voiceActivatedHighCommandOrders\VAHCO_keyDownMonitor.sqf'; 
+	execVM 'voiceactivatedhighcommand\VAHCO_keyDowns.sqf'; 
+	execVM 'voiceactivatedhighcommand\VAHCO_keyDownMonitor.sqf'; 
 
 }"];
 

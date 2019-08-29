@@ -1,13 +1,13 @@
 /*
 from:
-to:			voiceActivatedHighCommandOrders\initialiseVAHCO.sqf
+to:			voiceactivatedhighcommand\initialiseVAHCO.sqf
 
 purpose:
 basic initialiser, in case I need an additional 'staging' step - probably not and should probs remove this 
 
 */
 
-execVM "voiceActivatedHighCommandOrders\initialiseVAHCO.sqf";
+execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
 
 
 

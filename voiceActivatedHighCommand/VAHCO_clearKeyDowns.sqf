@@ -1,5 +1,5 @@
 /*
-from:		voiceActivatedHighCommandOrders\VAHCO_OscarMike.sqf
+from:		voiceactivatedhighcommand\VAHCO_OscarMike.sqf
 
 purpose:
 clears all currently assigned key down event handlers 

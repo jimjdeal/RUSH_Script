@@ -1,7 +1,7 @@
 /*
-from:		voiceActivatedHighCommandOrders\VAHCO_keyDownMonitor.sqf
-to:			voiceActivatedHighCommandOrders\VAHCO_clearKeyDowns.sqf
-to:			voiceActivatedHighCommandOrders\initialiseVAHCO.sqf
+from:		voiceactivatedhighcommand\VAHCO_keyDownMonitor.sqf
+to:			voiceactivatedhighcommand\VAHCO_clearKeyDowns.sqf
+to:			voiceactivatedhighcommand\initialiseVAHCO.sqf
 
 purpose:
 data parsing to enable the script to understand and implement move orders 
@@ -28,7 +28,7 @@ parsed_VAHCO_OrderType2		= parseNumber _parsed_VAHCO_OrderType;
 parsed_VAHCO_MoveDistance2	= parseNumber _parsed_VAHCO_MoveDistance;
 parsed_VAHCO_MoveDirection2	= parseNumber _parsed_VAHCO_MoveDirection;
 
-execVM "voiceActivatedHighCommandOrders\VAHCO_clearKeyDowns.sqf";
+execVM "voiceactivatedhighcommand\VAHCO_clearKeyDowns.sqf";
 // systemChat "processing VAHCO data...";
 // sleep 3;
 
@@ -105,15 +105,15 @@ RGG_callVAHCO_MOVE_ORDERS = {
 /*
 try this:
 sleep 3;
-execVM "voiceActivatedHighCommandOrders\VAHCO_clearKeyDowns.sqf";
-execVM "voiceActivatedHighCommandOrders\initialiseVAHCO.sqf";
+execVM "voiceactivatedhighcommand\VAHCO_clearKeyDowns.sqf";
+execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
 
 */
 
 };
 [] call RGG_callVAHCO_MOVE_ORDERS;
 
-execVM "voiceActivatedHighCommandOrders\initialiseVAHCO.sqf";
+execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
 
 
 
