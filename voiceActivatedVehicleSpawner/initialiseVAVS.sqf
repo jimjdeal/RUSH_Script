@@ -20,8 +20,8 @@ vamp is a universal bool that is used to ensure that only one module can be run 
 // voice spawner initiated  
 VAVS_numericalInputbool		= false; 	
 
-// choose type of vehicle - heli or car
-VAVS_vicType 				= []; // 1 = car, 2 = heli
+// choose type of vehicle - DC or HC
+VAVS_vicType 				= []; // 1 = DC, 2 = HC
 VAVS_vicTypeBool 			= false;
 
 // choose type of car  
@@ -53,15 +53,6 @@ VAVS_Basic_Camo_Bool		= false;
 VAVS_Ext_Camo				= []; // 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG
 VAVS_Ext_Camo_Bool			= false;
 
-/*
-TO BE DONE!
-
-// choose type of heli
-VAVS_heliType 				= []; // 1 = MH6, 2 = AH6, 3 = Blackhawk, 4 = Chinook etc
-VAVS_heliTypeBool 			= false;
-
-*/
-
 // Confirm number of units requested
 VAVS_No_Of_Units			= []; // 1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5
 VAVS_No_Of_Units_Bool		= false;
@@ -70,10 +61,10 @@ VAVS_No_Of_Units_Bool		= false;
 VAVS_confirm 				= []; // 1 = yes, 2 = no
 VAVS_confirmBool			= false;
 
-// ------------------------------------------------------------------ //
+// ------------------------------------------------------------------ // 
 
 // key = "numpad 5 = 76"
-RGG_VAVS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 76) then {
+RGG_VAVS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 76)) then {
 	
 	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAVS_Activate];
@@ -82,7 +73,7 @@ RGG_VAVS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_th
 	execVM 'voiceActivatedVehicleSpawner\VAVS_keyDowns.sqf'; 
 	execVM 'voiceActivatedVehicleSpawner\VAVS_keyDownMonitor.sqf'; 
 	systemChat 'VAVS initialised';
-	systemChat 'please select 1 to generate a car, or select 2 for a heli';
+	systemChat 'please select 1 to generate a DC car, or select 2 for a HC car';
 	
 }"];
 

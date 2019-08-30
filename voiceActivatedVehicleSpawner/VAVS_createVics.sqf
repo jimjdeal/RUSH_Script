@@ -8,11 +8,616 @@ this script actually does the 'creating' of vics
 if you want to add your own group configs (arrays of units), this is the place.
 
 notes:
+createVehicle [type, position, markers, placement, special]
 
 */
 
-// _vicCat			= _this select 0; // car or heli
-// _carType		= _this select 1; // e.g. IFV, MBT etc 
+_vicCat			= VAVS_vicType select 0; // DC or HC
+_carType		= VAVS_carType select 0; // e.g. IFV, MBT etc 
+_ifvType		= VAVS_IFV_Type select 0; // e.g. panther, cheetah
+_mrapType		= VAVS_MRAP_Type select 0; // e.g. hunter
+_lsvType		= VAVS_LSV_Type select 0; // e.g. Prowler
+_mbtType		= VAVS_MBT_Type select 0; // e.g. scorcher
+_hemmtType		= VAVS_HEMTT_Type select 0; // e.g. transport covered
+_otherType		= VAVS_Other_Type select 0; // e.g. quad bike
+_camoType		= VAVS_Basic_Camo select 0; // e.g. altis or tanoa
+_exCamoType		= VAVS_Ext_Camo select 0; // e.g. altis, tanoa black etc 
+_spawnPos		= player getRelPos [10, 0];
+
+// DC
+if (_vicCat == 1) then {
+
+	// IFV
+	if (_carType == 1) then {
+		if (_ifvType == 1) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_APC_Tracked_01_rcws_F", _spawnPos];
+				// [_spawnPos, 180, "B_APC_Tracked_01_rcws_F", WEST] call bis_fnc_spawnvehicle;
+			} else {
+				_vic = createVehicle ["B_T_APC_Tracked_01_rcws_F", _spawnPos];
+			};
+		};
+		if (_ifvType == 2) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_APC_Tracked_01_AA_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_APC_Tracked_01_AA_F", _spawnPos];
+			};
+		};
+		if (_ifvType == 3) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_APC_Tracked_01_CRV_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_APC_Tracked_01_CRV_F", _spawnPos];
+			};
+		};
+		if (_ifvType == 4) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_APC_Wheeled_01_cannon_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_APC_Wheeled_01_cannon_F", _spawnPos];
+			};
+		};
+		if (_ifvType == 5) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_APC_Wheeled_03_cannon_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_APC_Wheeled_03_cannon_F", _spawnPos];
+			};
+		};
+	};
+
+	// MRAP
+	if (_carType == 2) then {
+		if (_mrapType == 1) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MRAP_01_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MRAP_01_F", _spawnPos];
+			};
+		};
+		if (_mrapType == 2) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MRAP_01_gmg_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MRAP_01_gmg_F", _spawnPos];
+			};
+		};
+		if (_mrapType == 3) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MRAP_01_hmg_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MRAP_01_hmg_F", _spawnPos];
+			};
+		};
+	};
+
+	// LSV
+	if (_carType == 3) then {
+		if (_lsvType == 1) then {
+			if (_exCamoType == 1) then {
+				_vic = createVehicle ["B_LSV_01_unarmed_F", _spawnPos];
+			};
+			if (_exCamoType == 2) then {
+				_vic = createVehicle ["B_T_LSV_01_unarmed_F", _spawnPos];
+			};
+			if (_exCamoType == 3) then {
+				_vic = createVehicle ["B_T_LSV_01_unarmed_CTRG_F", _spawnPos];
+			};
+			if (_exCamoType == 4) then {
+				_vic = createVehicle ["B_LSV_01_unarmed_black_F", _spawnPos];
+			};
+			if (_exCamoType == 5) then {
+				_vic = createVehicle ["B_T_LSV_01_unarmed_black_F", _spawnPos];
+			};
+			if (_exCamoType == 6) then {
+				_vic = createVehicle ["B_LSV_01_unarmed_olive_F", _spawnPos];
+			};
+			if (_exCamoType == 7) then {
+				_vic = createVehicle ["B_T_LSV_01_unarmed_olive_F", _spawnPos];
+			};
+			if (_exCamoType == 8) then {
+				_vic = createVehicle ["B_LSV_01_unarmed_sand_F", _spawnPos];
+			};
+			if (_exCamoType == 9) then {
+				_vic = createVehicle ["B_T_LSV_01_unarmed_sand_F", _spawnPos];
+			};
+		};
+		if (_lsvType == 2) then {
+			if (_exCamoType == 1) then {
+				_vic = createVehicle ["B_T_LSV_01_armed_F", _spawnPos];
+			};
+			if (_exCamoType == 2) then {
+				_vic = createVehicle ["B_T_LSV_01_armed_CTRG_F", _spawnPos];
+			};
+			if (_exCamoType == 3) then {
+				_vic = createVehicle ["B_LSV_01_armed_F", _spawnPos];
+			};
+			if (_exCamoType == 4) then {
+				_vic = createVehicle ["B_LSV_01_armed_black_F", _spawnPos];
+			};
+			if (_exCamoType == 5) then {
+				_vic = createVehicle ["B_T_LSV_01_armed_black_F", _spawnPos];
+			};
+			if (_exCamoType == 6) then {
+				_vic = createVehicle ["B_LSV_01_armed_olive_F", _spawnPos];
+			};
+			if (_exCamoType == 7) then {
+				_vic = createVehicle ["B_T_LSV_01_armed_olive_F", _spawnPos];
+			};
+			if (_exCamoType == 8) then {
+				_vic = createVehicle ["B_LSV_01_armed_sand_F", _spawnPos];
+			};
+			if (_exCamoType == 9) then {
+				_vic = createVehicle ["B_T_LSV_01_armed_sand_F", _spawnPos];
+			};
+		};
+		if (_lsvType == 3) then {
+			if (_exCamoType == 1) then {
+				_vic = createVehicle ["B_T_LSV_01_AT_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_LSV_01_AT_F", _spawnPos];
+			};
+		};
+		if (_lsvType == 4) then {
+			if (_exCamoType == 1) then {
+				_vic = createVehicle ["B_CTRG_LSV_01_light_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_CTRG_LSV_01_light_F", _spawnPos];
+			};
+		};
+	};
+
+	// MBT
+	if (_carType == 4) then {
+		if (_mbtType == 1) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MBT_01_cannon_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MBT_01_cannon_F", _spawnPos];
+			};
+		};
+		if (_mbtType == 2) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MBT_01_TUSK_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MBT_01_TUSK_F", _spawnPos];
+			};
+		};
+		if (_mbtType == 3) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MBT_01_arty_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MBT_01_arty_F", _spawnPos];
+			};
+		};
+		if (_mbtType == 4) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_MBT_01_mlrs_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_MBT_01_mlrs_F", _spawnPos];
+			};
+		};
+	};
+
+	// hemmt
+	if (_carType == 5) then {
+		if (_hemmtType == 1) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_mover_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_mover_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 2) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_box_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_box_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 3) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_covered_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_covered_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 4) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_transport_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_transport_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 5) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_Repair_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_Repair_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 6) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_ammo_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_ammo_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 7) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_fuel_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_fuel_F", _spawnPos];
+			};
+		};
+		if (_hemmtType == 8) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Truck_01_medical_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_T_Truck_01_medical_F", _spawnPos];
+			};
+		};
+	};
+
+	// other
+	if (_carType == 6) then {
+		if (_otherType == 1) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_Quadbike_01_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_G_Quadbike_01_F", _spawnPos];
+			};
+		};
+		if (_otherType == 2) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_G_Offroad_01_armed_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_G_Offroad_01_armed_F", _spawnPos];
+			};
+		};
+		if (_otherType == 3) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_G_Offroad_01_AT_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_G_Offroad_01_AT_F", _spawnPos];
+			};
+		};
+		if (_otherType == 4) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_G_Offroad_01_repair_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_G_Offroad_01_repair_F", _spawnPos];
+			};
+		};
+		if (_otherType == 5) then {
+			if (_camoType == 1) then {
+				_vic = createVehicle ["B_G_Offroad_01_F", _spawnPos];
+			} else {
+				_vic = createVehicle ["B_GEN_Offroad_01_gen_F", _spawnPos];
+			};
+		};
+	};
+};
+
+
+
+
+// HC
+if (_vicCat == 2) then {
+
+	if (VAUS_activeGroups < 6) then {
+		// here I am trying to control / limit HC groups to 5 ... this affects both VAUS and VAVS 
+
+		if (VAUS_activeGroups == 0) then {
+			hc_grp = groupBlu1;
+		};
+		if (VAUS_activeGroups == 1) then {
+			hc_grp = groupBlu2;
+		};
+		if (VAUS_activeGroups == 2) then {
+			hc_grp = groupBlu3;
+		};
+		if (VAUS_activeGroups == 3) then {
+			hc_grp = groupBlu4;
+		};
+		if (VAUS_activeGroups == 4) then {
+			hc_grp = groupBlu5;
+		};
+		if (VAUS_activeGroups == 5) then {
+			hint "no more";
+			execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";
+			execVM "voiceActivatedVehicleSpawner\initialiseVAVS.sqf";
+		};
+
+		// below here is the copy from DC 
+		// I need to add group controls here 
+
+		// IFV
+		if (_carType == 1) then {
+			if (_ifvType == 1) then {
+				if (_camoType == 1) then {
+					// _vic = createVehicle ["B_APC_Tracked_01_rcws_F", _spawnPos];
+					[_spawnPos, 180, "B_APC_Tracked_01_rcws_F", hc_grp] call bis_fnc_spawnvehicle;
+					VAUS_activeGroups = VAUS_activeGroups + 1;
+				} else {
+					[_spawnPos, 180, "B_T_APC_Tracked_01_rcws_F", hc_grp] call bis_fnc_spawnvehicle;
+					VAUS_activeGroups = VAUS_activeGroups + 1;
+				};
+			};
+			if (_ifvType == 2) then {
+				if (_camoType == 1) then {
+					// _vic = createVehicle ["B_APC_Tracked_01_AA_F", _spawnPos];
+					[_spawnPos, 180, "B_APC_Tracked_01_AA_F", hc_grp] call bis_fnc_spawnvehicle;
+
+				} else {
+					// _vic = createVehicle ["B_T_APC_Tracked_01_AA_F", _spawnPos];
+					[_spawnPos, 180, "B_T_APC_Tracked_01_AA_F", hc_grp] call bis_fnc_spawnvehicle;
+				};
+			};
+			if (_ifvType == 3) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_APC_Tracked_01_CRV_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_APC_Tracked_01_CRV_F", _spawnPos];
+				};
+			};
+			if (_ifvType == 4) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_APC_Wheeled_01_cannon_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_APC_Wheeled_01_cannon_F", _spawnPos];
+				};
+			};
+			if (_ifvType == 5) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_APC_Wheeled_03_cannon_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_APC_Wheeled_03_cannon_F", _spawnPos];
+				};
+			};
+		};
+
+		// MRAP
+		if (_carType == 2) then {
+			if (_mrapType == 1) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MRAP_01_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MRAP_01_F", _spawnPos];
+				};
+			};
+			if (_mrapType == 2) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MRAP_01_gmg_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MRAP_01_gmg_F", _spawnPos];
+				};
+			};
+			if (_mrapType == 3) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MRAP_01_hmg_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MRAP_01_hmg_F", _spawnPos];
+				};
+			};
+		};
+
+		// LSV
+		if (_carType == 3) then {
+			if (_lsvType == 1) then {
+				if (_exCamoType == 1) then {
+					_vic = createVehicle ["B_LSV_01_unarmed_F", _spawnPos];
+				};
+				if (_exCamoType == 2) then {
+					_vic = createVehicle ["B_T_LSV_01_unarmed_F", _spawnPos];
+				};
+				if (_exCamoType == 3) then {
+					_vic = createVehicle ["B_T_LSV_01_unarmed_CTRG_F", _spawnPos];
+				};
+				if (_exCamoType == 4) then {
+					_vic = createVehicle ["B_LSV_01_unarmed_black_F", _spawnPos];
+				};
+				if (_exCamoType == 5) then {
+					_vic = createVehicle ["B_T_LSV_01_unarmed_black_F", _spawnPos];
+				};
+				if (_exCamoType == 6) then {
+					_vic = createVehicle ["B_LSV_01_unarmed_olive_F", _spawnPos];
+				};
+				if (_exCamoType == 7) then {
+					_vic = createVehicle ["B_T_LSV_01_unarmed_olive_F", _spawnPos];
+				};
+				if (_exCamoType == 8) then {
+					_vic = createVehicle ["B_LSV_01_unarmed_sand_F", _spawnPos];
+				};
+				if (_exCamoType == 9) then {
+					_vic = createVehicle ["B_T_LSV_01_unarmed_sand_F", _spawnPos];
+				};
+			};
+			if (_lsvType == 2) then {
+				if (_exCamoType == 1) then {
+					_vic = createVehicle ["B_T_LSV_01_armed_F", _spawnPos];
+				};
+				if (_exCamoType == 2) then {
+					_vic = createVehicle ["B_T_LSV_01_armed_CTRG_F", _spawnPos];
+				};
+				if (_exCamoType == 3) then {
+					_vic = createVehicle ["B_LSV_01_armed_F", _spawnPos];
+				};
+				if (_exCamoType == 4) then {
+					_vic = createVehicle ["B_LSV_01_armed_black_F", _spawnPos];
+				};
+				if (_exCamoType == 5) then {
+					_vic = createVehicle ["B_T_LSV_01_armed_black_F", _spawnPos];
+				};
+				if (_exCamoType == 6) then {
+					_vic = createVehicle ["B_LSV_01_armed_olive_F", _spawnPos];
+				};
+				if (_exCamoType == 7) then {
+					_vic = createVehicle ["B_T_LSV_01_armed_olive_F", _spawnPos];
+				};
+				if (_exCamoType == 8) then {
+					_vic = createVehicle ["B_LSV_01_armed_sand_F", _spawnPos];
+				};
+				if (_exCamoType == 9) then {
+					_vic = createVehicle ["B_T_LSV_01_armed_sand_F", _spawnPos];
+				};
+			};
+			if (_lsvType == 3) then {
+				if (_exCamoType == 1) then {
+					_vic = createVehicle ["B_T_LSV_01_AT_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_LSV_01_AT_F", _spawnPos];
+				};
+			};
+			if (_lsvType == 4) then {
+				if (_exCamoType == 1) then {
+					_vic = createVehicle ["B_CTRG_LSV_01_light_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_CTRG_LSV_01_light_F", _spawnPos];
+				};
+			};
+		};
+
+		// MBT
+		if (_carType == 4) then {
+			if (_mbtType == 1) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MBT_01_cannon_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MBT_01_cannon_F", _spawnPos];
+				};
+			};
+			if (_mbtType == 2) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MBT_01_TUSK_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MBT_01_TUSK_F", _spawnPos];
+				};
+			};
+			if (_mbtType == 3) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MBT_01_arty_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MBT_01_arty_F", _spawnPos];
+				};
+			};
+			if (_mbtType == 4) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_MBT_01_mlrs_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_MBT_01_mlrs_F", _spawnPos];
+				};
+			};
+		};
+
+		// hemmt
+		if (_carType == 5) then {
+			if (_hemmtType == 1) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_mover_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_mover_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 2) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_box_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_box_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 3) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_covered_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_covered_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 4) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_transport_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_transport_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 5) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_Repair_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_Repair_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 6) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_ammo_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_ammo_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 7) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_fuel_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_fuel_F", _spawnPos];
+				};
+			};
+			if (_hemmtType == 8) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Truck_01_medical_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_T_Truck_01_medical_F", _spawnPos];
+				};
+			};
+		};
+
+		// other
+		if (_carType == 6) then {
+			if (_otherType == 1) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_Quadbike_01_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_G_Quadbike_01_F", _spawnPos];
+				};
+			};
+			if (_otherType == 2) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_G_Offroad_01_armed_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_G_Offroad_01_armed_F", _spawnPos];
+				};
+			};
+			if (_otherType == 3) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_G_Offroad_01_AT_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_G_Offroad_01_AT_F", _spawnPos];
+				};
+			};
+			if (_otherType == 4) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_G_Offroad_01_repair_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_G_Offroad_01_repair_F", _spawnPos];
+				};
+			};
+			if (_otherType == 5) then {
+				if (_camoType == 1) then {
+					_vic = createVehicle ["B_G_Offroad_01_F", _spawnPos];
+				} else {
+					_vic = createVehicle ["B_GEN_Offroad_01_gen_F", _spawnPos];
+				};
+			};
+		};
+	};
+};
+
+
+
+
+
+
+
 // _carVarient		= _this select 2; // Hunter GMG, Box Transport etc
 // _camo			= _this select 3; // altis, tanoa black etc 
 // _number			= _this select 4; // how many u want 
@@ -36,6 +641,25 @@ notes:
 
 // 	 		=  VAUS_confirm;
 sleep 3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 hint "yo";
 execVM "voiceActivatedVehicleSpawner\initialiseVAVS.sqf";

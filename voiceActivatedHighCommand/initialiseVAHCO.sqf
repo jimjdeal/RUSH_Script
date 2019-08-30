@@ -12,7 +12,7 @@ vamp is a universal bool that is used to ensure that only one module can be run 
 
 notes:
 */
-
+//
 sleep 2; 
 // systemChat "VAHCO ACTIVATED!!";
 

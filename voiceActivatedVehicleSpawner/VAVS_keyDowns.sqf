@@ -12,7 +12,31 @@ Build cancel button!
 */
 
 // ------------------------------------------------------------------ //
+// BG 
+09 cutRsc ["B18_BG","PLAIN"]; // bg 
+_display = uiNameSpace getVariable "B18_BG";
+_setText = _display displayCtrl 18020;
+_setText ctrlSetBackgroundColor [0,0,0,0.6]; 
 
+10 cutRsc ["D_L1_1","PLAIN"];
+waitUntil {!isNull (uiNameSpace getVariable "D_L1_1")};
+_display = uiNameSpace getVariable "D_L1_1";
+_setText = _display displayCtrl 20000;
+_setText ctrlSetStructuredText (parseText format ["VOICE ACTIVATED VEHICLE SPAWNER"]);
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
+sleep .5;
+20 cutRsc ["D_L2_1","PLAIN"];
+waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+_display = uiNameSpace getVariable "D_L2_1";
+_setText = _display displayCtrl 20010;
+_setText ctrlSetStructuredText (parseText format ["CONTROL TYPE"]);
+// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+_setText ctrlSetTextColor [0, 1, 0, 1];
+sleep .5;
+
+//
 if (VAVS_numericalInputbool) then {
 
 	// rgg_vaus_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
@@ -254,10 +278,6 @@ if (VAVS_numericalInputbool) then {
 
 	rgg_vavs_kd7 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 71) then {
 			
-		if (VAVS_carTypeBool) then {
-			VAVS_carType pushback 7;
-		};
-
 		if (VAVS_HEMTT_Type_Bool) then {
 			VAVS_HEMTT_Type pushback 7;
 		};
@@ -269,10 +289,6 @@ if (VAVS_numericalInputbool) then {
 
 	rgg_vavs_kd8 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 72) then {
 			
-		if (VAVS_carTypeBool) then {
-			VAVS_carType pushback 8;
-		};
-
 		if (VAVS_HEMTT_Type_Bool) then {
 			VAVS_HEMTT_Type pushback 8;
 		};

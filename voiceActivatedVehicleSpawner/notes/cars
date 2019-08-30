@@ -114,17 +114,17 @@ HEMTT
 B_Truck_01_mover_F
 B_T_Truck_01_mover_F
 
-HEMTT Transport
-B_Truck_01_transport_F
-B_T_Truck_01_transport_F
+HEMTT Box
+B_Truck_01_box_F
+B_T_Truck_01_box_F
 
 HEMTT Transport (Covered)
 B_Truck_01_covered_F
 B_T_Truck_01_covered_F
 
-HEMTT Box
-B_Truck_01_box_F
-B_T_Truck_01_box_F
+HEMTT Transport
+B_Truck_01_transport_F
+B_T_Truck_01_transport_F
 
 HEMTT Repair
 B_Truck_01_Repair_F
@@ -147,6 +147,26 @@ B_T_Truck_01_medical_F
 
 
 Other '''''''''''''''''''''''''''
+
+Quad Bike
+B_Quadbike_01_F
+B_G_Quadbike_01_F
+B_T_Quadbike_01_F
+
+Offroad (HMG)
+B_G_Offroad_01_armed_F
+
+Offroad (AT)
+B_G_Offroad_01_AT_F
+
+Offroad (Repair)
+B_G_Offroad_01_repair_F
+
+Offroad
+B_G_Offroad_01_F
+B_GEN_Offroad_01_gen_F
+
+
 Truck
 B_G_Van_01_transport_F
 
@@ -161,23 +181,14 @@ Van (Cargo)
 B_G_Van_02_vehicle_F
 B_GEN_Van_02_vehicle_F
 
-Offroad (Repair)
-B_G_Offroad_01_repair_F
 
-Offroad
-B_G_Offroad_01_F
-B_GEN_Offroad_01_gen_F
 
-Offroad (HMG)
-B_G_Offroad_01_armed_F
 
-Offroad (AT)
-B_G_Offroad_01_AT_F
 
-Quad Bike
-B_Quadbike_01_F
-B_G_Quadbike_01_F
-B_T_Quadbike_01_F
+
+
+
+
 
 
 

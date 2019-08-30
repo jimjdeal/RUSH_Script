@@ -39,6 +39,22 @@ VAVS_No_Of_Units 		1 = 1, 			2 = 2, 				3 = 3, 				4 = 4, 				5 = 5
 VAVS_confirm 			1 = yes, 		2 = no
 */
 
+sleep 1.5;
+30 cutRsc ["D_L3_1","PLAIN"];
+waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+_display = uiNameSpace getVariable "D_L3_1";
+_setText = _display displayCtrl 20020;
+_setText ctrlSetStructuredText (parseText format ["DIRECT COMMAND"]);
+_setText ctrlSetTextColor [0, 1, 0, 1];
+
+40 cutRsc ["D_L3_2","PLAIN"];
+waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+_display = uiNameSpace getVariable "D_L3_2";
+_setText = _display displayCtrl 20030;
+_setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
+_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
 while {VAVS_numericalInputbool} do {
 
 	val_VAVS_vicType		= count VAVS_vicType;
@@ -55,7 +71,7 @@ while {VAVS_numericalInputbool} do {
 	val_VAVS_confirm 		= count VAVS_confirm;
 
 
-	// VAVS_vicType 1 = car, 2 = heli
+	// VAVS_vicType 1 = car, 2 = heli -------------------------------------------------------------------------------------------------------------
 	if (VAVS_vicTypeBool) then {
 
 		if (val_VAVS_vicType == 1) then {
@@ -63,16 +79,166 @@ while {VAVS_numericalInputbool} do {
 			_content = VAVS_vicType select 0;
 
 			if (_content == 1) then {
-				systemChat "you selected ground vehicles";
-				systemChat "Select: 1 = IFV, 2 = MRAP, 3 = LSV, 4 = MTB, 5 = HEMTT, 6 = Other, 7 = RHS TBD, 8 = Custom TBD";
+				systemChat "you selected DIRECT COMMAND";
+				systemChat "Select: 1 = IFV, 2 = MRAP, 3 = LSV, 4 = MTB, 5 = HEMTT, 6 = Other";
+
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["DIRECT COMMAND"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep .5;
+
+				// 40 cutRsc ["default","PLAIN"];
+
+				// section header
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["IFV"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["MRAP"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["LSV"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["MTB"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				80 cutRsc ["D_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				_display = uiNameSpace getVariable "D_L5_2";
+				_setText = _display displayCtrl 20070;
+				_setText ctrlSetStructuredText (parseText format ["Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
 				VAVS_vicTypeBool = false;
 				VAVS_carTypeBool = true;
 			};
 
 			if (_content == 2) then {
-				systemChat "you selected helis";
+				systemChat "you selected HIGH COMMAND";
+
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["HIGH COMMAND"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep .5;
+
+				// 40 cutRsc ["default","PLAIN"];
+
+				// section header
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["IFV"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["MRAP"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["LSV"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["MTB"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				80 cutRsc ["D_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				_display = uiNameSpace getVariable "D_L5_2";
+				_setText = _display displayCtrl 20070;
+				_setText ctrlSetStructuredText (parseText format ["Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
 				VAVS_vicTypeBool = false;
-				// need to complete heli paths from here
+				VAVS_carTypeBool = true;
+				// need to complete HC paths from here !!!
 			};
 		};
 	};
@@ -87,49 +253,450 @@ while {VAVS_numericalInputbool} do {
 			if (_content == 1) then {
 				systemChat "you selected IFV";
 				systemChat "Select: 1 = Panther, 2 = Cheetah, 3 = Bobcat, 4 = Marshall, 5 = Gorgon";
+
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["IFV"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["IFV VARIANT"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["PANTHER"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["CHEETAH"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["BOBCAT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["MARSHALL"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["GORGON"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 				VAVS_carTypeBool = false;
 				VAVS_IFV_TypeBool = true;
 			};
 			if (_content == 2) then {
 				systemChat "you selected MRAP";
 				systemChat "VAVS_MSelect:RAP_Type 1 = Hunter, 2 = Hunter GMG, 3 = Hunter HMG ";
+
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["MRAP"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["MRAP VARIANT"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER GMG"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER HMG"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 				VAVS_carTypeBool = false;
 				VAVS_MRAP_Type_Bool = true;
 			};
 			if (_content == 3) then {
 				systemChat "you selected LSV";
-				systemChat "Select: 1 = Prowler, 2 = Prowler Light, 3 = Prowler HMG, 4 = Prowler AT ";
+				systemChat "Select: 1 = Prowler, 2 = Prowler HMG, 3 = Prowler AT, 4 = Prowler Light";
+
+				// highlight selection briefly
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["LSV"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["LSV VARIANT"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["PROWLER"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["PROWLER HMG"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["PROWLER AT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["PROWLER LIGHT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 				VAVS_carTypeBool = false;
 				VAVS_LSV_Type_Bool = true;
 			};
 			if (_content == 4) then {
 				systemChat "you selected MBT";
 				systemChat "Select: 1 = Slammer, 2 = Slammer UP, 3 = Scorcher, 4 = Sandstorm ";
+
+				// highlight selection briefly
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["MBT"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["MBT VARIANT"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["SLAMMER"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["SLAMMER UP"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["SCORCHER"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 				VAVS_carTypeBool = false;
 				VAVS_MBT_Type_Bool = true;
 			};
 			if (_content == 5) then {
 				systemChat "you selected HEMTT";
 				systemChat "Select: 1 = Basic, 2 = Box Transport, 3 = Trans Covered, 4 = Trans Open, 5 = Repair, 6 = Ammo, 7 = Fuel, 8 = Medical";
+				
+				// highlight selection briefly
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+				
+				sleep 0.5;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["HEMTT VARIANT"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["BASIC"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["BOX TRANSPORT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["TRANSPORT COVERED"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["TRANSPORT OPEN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["REPAIR"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+				80 cutRsc ["D_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				_display = uiNameSpace getVariable "D_L5_2";
+				_setText = _display displayCtrl 20070;
+				_setText ctrlSetStructuredText (parseText format ["AMMO"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+
+				90 cutRsc ["D_L6_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
+				_display = uiNameSpace getVariable "D_L6_1";
+				_setText = _display displayCtrl 20080;
+				_setText ctrlSetStructuredText (parseText format ["FUEL"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];		
+
+				100 cutRsc ["D_L6_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
+				_display = uiNameSpace getVariable "D_L6_2";
+				_setText = _display displayCtrl 20090;
+				_setText ctrlSetStructuredText (parseText format ["MEDICAL"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];			
+				
 				VAVS_carTypeBool = false;
 				VAVS_HEMTT_Type_Bool = true;
 			};
 			if (_content == 6) then {
 				systemChat "you selected Other";
 				systemChat "Select:	1 = Quad Bike, 2 = Offroad HMG, 3 = Offroad AT, 4 = Offroad Repair, 5 = Offroad";
+				
+				// highlight selection briefly
+				80 cutRsc ["D_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				_display = uiNameSpace getVariable "D_L5_2";
+				_setText = _display displayCtrl 20070;
+				_setText ctrlSetStructuredText (parseText format ["OTHER"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				80 cutRsc ["default","PLAIN"];
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["OTHER VARIANTS"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["QUAD BIKE"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD HMG"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD AT"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD REPAIR"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				
 				VAVS_carTypeBool = false;
 				VAVS_Other_Type_Bool = true;
 			};
-			if (_content == 7) then {
-				systemChat "you selected RHS";
-				VAVS_carTypeBool = false;
-				// needs to be completed!
-			};
-			if (_content == 8) then {
-				systemChat "you selected Custom";
-				VAVS_carTypeBool = false;
-				// needs to be completed!
-			};
+			// if (_content == 7) then {
+			// 	systemChat "you selected RHS";
+			// 	VAVS_carTypeBool = false;
+			// 	// needs to be completed!
+			// };
+			// if (_content == 8) then {
+			// 	systemChat "you selected Custom";
+			// 	VAVS_carTypeBool = false;
+			// 	// needs to be completed!
+			// };
 		};
 	};
 
@@ -142,24 +709,247 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Panther";
+
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["PANTHER"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Cheetah";
+
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["CHEETAH"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 			};
 			if (_content == 3) then {
 				systemChat "you selected Bobcat";
+
+				// highlight selection briefly
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["BOBCAT"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+			
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 			};
 			if (_content == 4) then {
 				systemChat "you selected Marshall";
+
+				// highlight selection briefly
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["MARSHALL"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 			};
 			if (_content == 5) then {
 				systemChat "you selected Gorgon";
+
+				// highlight selection briefly
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["GORGON"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			systemChat "Select:	1 = Altis, 2 = Tanoa";
 
 			VAVS_IFV_TypeBool = false;
-			VAVS_Ext_Camo_Bool = true;
+			VAVS_Basic_Camo_Bool = true;
 		};
 	};
 
@@ -193,7 +983,7 @@ while {VAVS_numericalInputbool} do {
 		};
 	};
 
-	// VAVS_LSV_Type 1 = Prowler, 2 = Prowler Light, 3 = Prowler HMG, 4 = Prowler AT 
+	// VAVS_LSV_Type 1 = Prowler, 2 = Prowler HMG, 3 = Prowler AT, 4 = Prowler Light
 	if (VAVS_LSV_Type_Bool) then {
 
 		if (val_VAVS_LSV_Type == 1) then {
@@ -317,7 +1107,7 @@ while {VAVS_numericalInputbool} do {
 		};
 	};
 
-	// VAVS_Basic_Camo	1 = Altis, 2 = Tanoa 
+	// VAVS_Basic_Camo	1 = Altis, 2 = Tanoa --------------------------------------------------------------------------------------------------------------------------------
 	if (VAVS_Basic_Camo_Bool) then {
 
 		if (val_VAVS_Basic_Camo == 1) then {
@@ -326,19 +1116,114 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Altis Camo";
+
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+				// 30 cutRsc ["default","PLAIN"];
+
+				sleep 0.5;
+
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CONFIRM  /  CANCEL"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["CANCEL"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Tanoa Camo";
+
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+				// 30 cutRsc ["default","PLAIN"];
+
+				sleep 0.5;
+
+				30 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				20 cutRsc ["D_L2_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				_display = uiNameSpace getVariable "D_L2_1";
+				_setText = _display displayCtrl 20010;
+				_setText ctrlSetStructuredText (parseText format ["CONFIRM  /  CANCEL"]);
+				// _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["CANCEL"]);
+				// _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+
+
+
+
 			};
 
-			systemChat "Select: 1 -5 for units to create";
+			systemChat "select 1 to confirm, or 2 to cancel";
 
 			VAVS_Basic_Camo_Bool = false;
-			VAVS_No_Of_Units_Bool = true;
+			VAVS_confirmBool = true;
 		};
 	};
 
-	// VAVS_Ext_Camo 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG
+	// VAVS_Ext_Camo 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG --------------------------------------------------------------------------------------------------------------------------------
 	if (VAVS_Ext_Camo_Bool) then {
 
 		if (val_VAVS_Ext_Camo == 1) then {
@@ -373,44 +1258,44 @@ while {VAVS_numericalInputbool} do {
 				systemChat "you selected CRTG";
 			};
 
-			systemChat "Select: 1 -5 for units to create";
+			systemChat "select 1 to confirm, or 2 to cancel";
 
 			VAVS_Ext_Camo_Bool = false;
-			VAVS_No_Of_Units_Bool = true;
-		};
-	};
-
-	// VAVS_No_Of_Units 		1 = 1, 			2 = 2, 				3 = 3, 				4 = 4, 				5 = 5
-	if (VAVS_No_Of_Units_Bool) then {
-
-		if (val_VAVS_No_Of_Units == 1) then {
-
-			_content = VAVS_No_Of_Units select 0;
-
-			if (_content == 1) then {
-				systemChat "you ordered 1 unit";
-			};
-			if (_content == 2) then {
-				systemChat "you ordered 2 unit";
-			};
-			if (_content == 3) then {
-				systemChat "you ordered 3 unit";
-			};
-			if (_content == 4) then {
-				systemChat "you ordered 4 unit";
-			};
-			if (_content == 5) then {
-				systemChat "you ordered 5 unit";
-			};
-
-			systemChat "select 1 to confirm, or 2 to cancel";
-			
-			VAVS_No_Of_Units_Bool = false;
 			VAVS_confirmBool = true;
 		};
 	};
 
-	// VAVS_confirm 			1 = yes, 		2 = no
+	// VAVS_No_Of_Units 		1 = 1, 			2 = 2, 				3 = 3, 				4 = 4, 				5 = 5
+	// if (VAVS_No_Of_Units_Bool) then {
+
+	// 	if (val_VAVS_No_Of_Units == 1) then {
+
+	// 		_content = VAVS_No_Of_Units select 0;
+
+	// 		if (_content == 1) then {
+	// 			systemChat "you ordered 1 unit";
+	// 		};
+	// 		if (_content == 2) then {
+	// 			systemChat "you ordered 2 unit";
+	// 		};
+	// 		if (_content == 3) then {
+	// 			systemChat "you ordered 3 unit";
+	// 		};
+	// 		if (_content == 4) then {
+	// 			systemChat "you ordered 4 unit";
+	// 		};
+	// 		if (_content == 5) then {
+	// 			systemChat "you ordered 5 unit";
+	// 		};
+
+	// 		systemChat "select 1 to confirm, or 2 to cancel";
+
+	// 		VAVS_No_Of_Units_Bool = false;
+	// 		VAVS_confirmBool = true;
+	// 	};
+	// };
+
+	// VAVS_confirm 1 = yes, 2 = no --------------------------------------------------------------------------------------------------------------------------------
 	if (VAVS_confirmBool) then {
 
 		if (val_VAVS_confirm == 1) then {
@@ -426,16 +1311,108 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "selection has been completed - thank you";
+
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 1.2;
+
+				09 cutRsc ["default","PLAIN"];
+				10 cutRsc ["default","PLAIN"];
+				20 cutRsc ["default","PLAIN"];
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["UNIT CREATED"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+				
+				// sleep 1;
+		
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
+				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["CANCEL"]);
+				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
 				sleep 0.5;
 				VAVS_confirmBool = false;
-
-				
-
 				[] execVM "voiceActivatedVehicleSpawner\VAVS_createVics.sqf";
 			};
 
 			if (_content == 2) then {
 				systemChat "selection has been cancelled - standing down";
+
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["CANCEL"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 0, 0, 1];
+
+				sleep 1.2;
+
+				09 cutRsc ["default","PLAIN"];
+				10 cutRsc ["default","PLAIN"];
+				20 cutRsc ["default","PLAIN"];
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CONFIRM  /  CANCEL"]);
+				// // _setText ctrlSetStructuredText (parseText format ["IFV  MRAP  LSV  MTB  HEMTT  Other"]);
+				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
+				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["CANCEL"]);
+				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
 				sleep 0.5;
 				VAUS_confirmBool = false;
 				execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";

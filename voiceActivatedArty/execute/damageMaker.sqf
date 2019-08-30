@@ -11,7 +11,7 @@ notes:
 _impact = _this select 0;
 
 hint str _impact;
-
+/*
 // createMarker
 deleteMarker "blast1";
 _marker1 = createMarker ["blast1", _pos];
@@ -26,4 +26,4 @@ setDamage 1;
 */
 
 
-deleteMarker "blast1";
+// deleteMarker "blast1";
