@@ -76,8 +76,8 @@ if (VAVS_numericalInputbool) then {
 			VAVS_Ext_Camo pushback 1;
 		};
 
-		if (VAVS_Number_Of_Units_Bool) then {
-			VAVS_Number_Of_Units pushback 1;
+		if (VAVS_No_Of_Units_Bool) then {
+			VAVS_No_Of_Units pushback 1;
 		};
 
 		if (VAVS_confirmBool) then {
@@ -87,7 +87,7 @@ if (VAVS_numericalInputbool) then {
 	}"];
 
 	rgg_vavs_kd2 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 80) then {
-			
+
 		if (VAVS_vicTypeBool) then {
 			VAVS_vicType pushback 2;
 		};
@@ -128,8 +128,8 @@ if (VAVS_numericalInputbool) then {
 			VAVS_Ext_Camo pushback 2;
 		};
 
-		if (VAVS_Number_Of_Units_Bool) then {
-			VAVS_Number_Of_Units pushback 2;
+		if (VAVS_No_Of_Units_Bool) then {
+			VAVS_No_Of_Units pushback 2;
 		};
 
 		if (VAVS_confirmBool) then {
@@ -138,7 +138,7 @@ if (VAVS_numericalInputbool) then {
 	}"];
 
 	rgg_vavs_kd3 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 81) then {
-			
+
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 3;
 		};
@@ -171,13 +171,13 @@ if (VAVS_numericalInputbool) then {
 			VAVS_Ext_Camo pushback 3;
 		};
 
-		if (VAVS_Number_Of_Units_Bool) then {
-			VAVS_Number_Of_Units pushback 3;
+		if (VAVS_No_Of_Units_Bool) then {
+			VAVS_No_Of_Units pushback 3;
 		};
 	}"];
 
 	rgg_vavs_kd4 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 75) then {
-		
+
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 4;
 		};
@@ -206,13 +206,13 @@ if (VAVS_numericalInputbool) then {
 			VAVS_Ext_Camo pushback 4;
 		};
 
-		if (VAVS_Number_Of_Units_Bool) then {
-			VAVS_Number_Of_Units pushback 4;
+		if (VAVS_No_Of_Units_Bool) then {
+			VAVS_No_Of_Units pushback 4;
 		};
 	}"];
 
 	rgg_vavs_kd5 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 76) then {
-			
+
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 5;
 		};
@@ -233,13 +233,13 @@ if (VAVS_numericalInputbool) then {
 			VAVS_Ext_Camo pushback 5;
 		};
 
-		if (VAVS_Number_Of_Units_Bool) then {
-			VAVS_Number_Of_Units pushback 5;
+		if (VAVS_No_Of_Units_Bool) then {
+			VAVS_No_Of_Units pushback 5;
 		};
 	}"];
 
 	rgg_vavs_kd6 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 77) then {
-			
+
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 6;
 		};
@@ -290,5 +290,5 @@ if (VAVS_numericalInputbool) then {
 		};
 	}"];
 };
-		
+
 // ------------------------------------------------------------------ //

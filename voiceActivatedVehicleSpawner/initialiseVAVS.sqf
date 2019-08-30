@@ -51,7 +51,7 @@ VAVS_Basic_Camo				= []; // 1 = Altis, 2 = Tanoa
 VAVS_Basic_Camo_Bool		= false;
 
 VAVS_Ext_Camo				= []; // 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG
-VAVS_Ext_Camo_Bool
+VAVS_Ext_Camo_Bool			= false;
 
 /*
 TO BE DONE!
@@ -63,8 +63,8 @@ VAVS_heliTypeBool 			= false;
 */
 
 // Confirm number of units requested
-VAVS_Number_Of_Units		= []; // 1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5
-VAVS_Number_Of_Units_Bool	= false;
+VAVS_No_Of_Units			= []; // 1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5
+VAVS_No_Of_Units_Bool		= false;
 
 // final confirmation 
 VAVS_confirm 				= []; // 1 = yes, 2 = no
