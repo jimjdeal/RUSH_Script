@@ -1271,31 +1271,6 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// 20 cutRsc ["D_L2_1","PLAIN"];
-				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				// _display = uiNameSpace getVariable "D_L2_1";
-				// _setText = _display displayCtrl 20010;
-				// _setText ctrlSetStructuredText (parseText format ["UNIT CREATED"]);
-				// _setText ctrlSetTextColor [0, 1, 0, 1];
-				
-				// sleep 1;
-		
-				// 30 cutRsc ["D_L3_1","PLAIN"];
-				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				// _display = uiNameSpace getVariable "D_L3_1";
-				// _setText = _display displayCtrl 20020;
-				// _setText ctrlSetStructuredText (parseText format ["CONFIRM"]);
-				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
-				// _setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// 40 cutRsc ["D_L3_2","PLAIN"];
-				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				// _display = uiNameSpace getVariable "D_L3_2";
-				// _setText = _display displayCtrl 20030;
-				// _setText ctrlSetStructuredText (parseText format ["CANCEL"]);
-				// // _setText ctrlSetBackgroundColor [0,0,0,0.5];
-				// _setText ctrlSetTextColor [0, 1, 0, 1];
-
 				sleep 0.5;
 
 				// state progression completed
