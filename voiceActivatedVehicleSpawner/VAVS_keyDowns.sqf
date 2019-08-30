@@ -30,8 +30,7 @@ if (VAVS_numericalInputbool) then {
 	rgg_vavs_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 
 		systemChat 'you pressed tha zeroooo';
-		// is needed or not??
-
+		
 	}"];
 	
 	rgg_vavs_kd1 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {

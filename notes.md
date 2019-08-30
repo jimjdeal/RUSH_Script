@@ -227,3 +227,30 @@ so could you get all unit numbers, push them into an array, on creation?
 Then you have an array of units, that can be grouped/ungrouped automatically as situation dictates
 
 what are options for auto-building searches?
+
+
+// key = "numpad 1 = 79"
+RGG_VAUS_Activate
+
+// key = "numpad 2"
+rgg_vahco_Activate
+
+// key = "numpad 3"
+rgg_vacf_Activate
+
+// key = "4"
+rgg_Activate vaa
+
+should be:
+
+vacf 1
+vaas 2
+vahc 3
+vaar 4
+
+vaus 5
+vavs 6
+vaos 7
+vamg 8
+
+

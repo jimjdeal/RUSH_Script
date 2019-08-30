@@ -41,7 +41,7 @@ rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!
 
 	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_vahco_Activate];
-	// systemChat 'DEBUG VAHCO ACTIVATED';
+	systemChat 'DEBUG VAHCO ACTIVATED';
 	systemChat 'Platoon Channel Open, which team do you need to speak to?';
 	systemChat 'press 1 for group 1, 2 for group 2, or 9 for all groups';
 	VAHCO_numericalInputbool = true; 

@@ -72,16 +72,16 @@ VAVS_confirmBool			= false;
 
 // ------------------------------------------------------------------ //
 
-// key = "numpad 2 = ??"
-RGG_VAVS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == ??) then {
+// key = "numpad 5 = 76"
+RGG_VAVS_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 76) then {
 	
 	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAVS_Activate];
 	VAVS_numericalInputbool = true; 
 	VAVS_vicTypeBool = true;
 	execVM 'voiceActivatedVehicleSpawner\VAVS_keyDowns.sqf'; 
-	execVM 'voiceActivatedVehicleSpawner\VAUS_keyDownMonitor.sqf'; 
-
+	execVM 'voiceActivatedVehicleSpawner\VAVS_keyDownMonitor.sqf'; 
+	systemChat 'VAVS initialised';
 	systemChat 'please select 1 to generate a car, or select 2 for a heli';
 	
 }"];
