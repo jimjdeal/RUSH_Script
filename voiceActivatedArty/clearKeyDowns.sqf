@@ -23,12 +23,9 @@ _ehRemove9 	= (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_kd8];
 _ehRemove10 = (findDisplay 46) displayRemoveEventHandler ["keyDown",rgg_kd9];
 _ehRemove11 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_cnl];
 
-numericalInputBool = false;
+numericalInputBool 	= false;
+vamp 				= false;
 
-sleep 2;
-systemChat "VAA Keydowns closed";
-// sleep 2;
-// execVM "voiceActivatedArty\VAA_Init.sqf";
 
-vamp = false;
+
 

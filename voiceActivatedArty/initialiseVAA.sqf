@@ -13,8 +13,6 @@ vamp is a universal bool that is used to ensure that only one module can be run 
 notes:
 */
 
-// systemChat "INITIALISE VAA ACTIVATED";
-
 // vars and arrays initialisation
 splashArtyTypeHE		= [];
 splashArtyTypeSU		= [];
@@ -50,13 +48,3 @@ rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) 
 
 }"];
 
-/*
-	systemChat 'VAA Activated';						debug 											
-	numericalInput = true; 							bool to open up the numerical keyDown EHs 	 	
-	latCoordInput = true;							initial process bool for latitude 				
-	execVM 'voiceActivatedArty\keyDowns.sqf'; 		opens up the numerical inputs
-	execVM 'voiceActivatedArty\keyDownMonitor.sqf'; opens up the logic manager
-	_ehRemove1 = (findDisplay 46) 					kills the first EH that triggers the mod
-	displayRemoveEventHandler 
-	['keyDown',rgg_Activate];
-*/
