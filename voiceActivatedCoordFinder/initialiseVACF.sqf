@@ -10,7 +10,7 @@ starts off the module-specific listener that determines what happens on each key
 also starts off the monitor to loop-listen for changes and move states at key points in the data entry flow
 vamp is a universal bool that is used to ensure that only one module can be run at any one time  
 */
-//
+
 // vars and arrays initialisation
 VACF_Heading			= [];
 VACF_Distance			= [];

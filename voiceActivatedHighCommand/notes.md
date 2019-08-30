@@ -1,5 +1,6 @@
-to enable the ordering around (move) of HC groupd not under direct command.
+VAHC - to enable the ordering around (move) of HC groups not under direct command.
 
+To do:
 need to determine group leader location
 need to build system of direction and distance
 need to create new marker location to move to

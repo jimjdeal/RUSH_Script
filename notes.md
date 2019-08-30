@@ -1,5 +1,5 @@
 next phase:
-build a way to control your two blu markers, anid then control movement to said markers
+build a way to control your two blu markers, and then control movement to said markers
 I want to have this eventually done using voice attack
 So the goal here is to be able to configure using keyDowns
 
