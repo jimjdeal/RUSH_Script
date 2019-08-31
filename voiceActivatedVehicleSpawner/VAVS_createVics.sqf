@@ -406,8 +406,10 @@ if (_vicCat == 2) then {
 			if (_mrapType == 3) then {
 				if (_camoType == 1) then {
 					[_spawnPos, 180, "B_MRAP_01_hmg_F", hc_grp] call bis_fnc_spawnvehicle;
+					systemChat "hmg altis";
 				} else {
 					[_spawnPos, 180, "B_T_MRAP_01_hmg_F", hc_grp] call bis_fnc_spawnvehicle;
+					systemChat "hmg tanoa";
 				};
 				VAUS_activeGroups = VAUS_activeGroups + 1;
 			};

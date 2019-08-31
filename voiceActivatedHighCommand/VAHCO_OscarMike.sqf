@@ -17,7 +17,6 @@ Also, can we get rid of dees globals man??
 check controls for UI here!
 */
 
-// hint "oscar mike running";
 _parsed_VAHCO_GroupSelect	= VAHCO_groupSelect joinString "";
 _parsed_VAHCO_OrderType		= VAHCO_orderSelect joinString "";
 _parsed_VAHCO_MoveDistance	= VAHCO_distance joinString "";
@@ -29,8 +28,7 @@ parsed_VAHCO_MoveDistance2	= parseNumber _parsed_VAHCO_MoveDistance;
 parsed_VAHCO_MoveDirection2	= parseNumber _parsed_VAHCO_MoveDirection;
 
 execVM "voiceactivatedhighcommand\VAHCO_clearKeyDowns.sqf";
-// systemChat "processing VAHCO data...";
-// sleep 3;
+
 
 RGG_callVAHCO_MOVE_ORDERS = {
 

@@ -923,8 +923,8 @@ while {VAVS_numericalInputbool} do {
 
 
 
-				VAVS_carTypeBool = false;
-				VAVS_IFV_TypeBool = true;
+				// VAVS_carTypeBool = false;
+				// VAVS_IFV_TypeBool = true;
 			};
 			if (_content == 2) then {
 				systemChat "you selected Hunter GMG";
@@ -932,8 +932,8 @@ while {VAVS_numericalInputbool} do {
 
 
 
-				VAVS_carTypeBool = false;
-				VAVS_MRAP_Type_Bool = true;
+				// VAVS_carTypeBool = false;
+				// VAVS_MRAP_Type_Bool = true;
 			};
 			if (_content == 3) then {
 				systemChat "you selected Hunter HMG";
@@ -941,8 +941,8 @@ while {VAVS_numericalInputbool} do {
 
 
 
-				VAVS_carTypeBool = false;
-				VAVS_LSV_Type_Bool = true;
+				// VAVS_carTypeBool = false;
+				// VAVS_LSV_Type_Bool = true;
 			};
 
 			systemChat "Select: 1 = Altis, 2 = Tanoa";
