@@ -132,7 +132,7 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
 				_display = uiNameSpace getVariable "D_L4_2";
 				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["MTB"]);
+				_setText ctrlSetStructuredText (parseText format ["MBT"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				// line 3
@@ -156,7 +156,7 @@ while {VAVS_numericalInputbool} do {
 			};
 
 			if (_content == 2) then {
-				systemChat "you selected HIGH COMMAND";
+				// systemChat "you selected HIGH COMMAND";
 
 				// highlight selection briefly
 				40 cutRsc ["D_L3_2","PLAIN"];
@@ -173,7 +173,7 @@ while {VAVS_numericalInputbool} do {
 				20 cutRsc ["D_L2_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
 				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20020;
+				_setText = _display displayCtrl 20010;
 				_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
@@ -204,7 +204,7 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
 				_display = uiNameSpace getVariable "D_L4_2";
 				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["MTB"]);
+				_setText ctrlSetStructuredText (parseText format ["MBT"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				// line 3
@@ -919,22 +919,35 @@ while {VAVS_numericalInputbool} do {
 			
 			if (_content == 1) then {
 				systemChat "you selected Hunter";
+
+
+
+
 				VAVS_carTypeBool = false;
 				VAVS_IFV_TypeBool = true;
 			};
 			if (_content == 2) then {
 				systemChat "you selected Hunter GMG";
+
+
+
+
 				VAVS_carTypeBool = false;
 				VAVS_MRAP_Type_Bool = true;
 			};
 			if (_content == 3) then {
 				systemChat "you selected Hunter HMG";
+
+
+
+
 				VAVS_carTypeBool = false;
 				VAVS_LSV_Type_Bool = true;
 			};
 
 			systemChat "Select: 1 = Altis, 2 = Tanoa";
 
+			// state progression
 			VAVS_MRAP_Type_Bool = false;
 			VAVS_Basic_Camo_Bool = true;
 		};
