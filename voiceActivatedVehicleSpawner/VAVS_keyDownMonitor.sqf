@@ -1170,44 +1170,44 @@ while {VAVS_numericalInputbool} do {
 
 	// VAVS_Ext_Camo 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG -------------------------------------
 
-		if (val_VAVS_Ext_Camo == 1) then {
+	if (val_VAVS_Ext_Camo == 1) then {
 
-			_content = VAVS_Ext_Camo select 0;
+		_content = VAVS_Ext_Camo select 0;
 
-			if (_content == 1) then {
-				systemChat "you selected Altis Camo";
-			};
-			if (_content == 2) then {
-				systemChat "you selected Tanoa Camo";
-			};
-			if (_content == 3) then {
-				systemChat "you selected Altis Black";
-			};
-			if (_content == 4) then {
-				systemChat "you selected Tanoa Black";
-			};
-			if (_content == 5) then {
-				systemChat "you selected Altis Olive";
-			};
-			if (_content == 6) then {
-				systemChat "you selected Tanoa Olive";
-			};			
-			if (_content == 7) then {
-				systemChat "you selected Altis Sand";
-			};
-			if (_content == 8) then {
-				systemChat "you selected Tanoa Sand";
-			};
-			if (_content == 9) then {
-				systemChat "you selected CRTG";
-			};
-
-			systemChat "select 1 to confirm, or 2 to cancel";
-
-			// state progression 
-			VAVS_Ext_Camo_Bool = false;
-			VAVS_confirmBool = true;
+		if (_content == 1) then {
+			systemChat "you selected Altis Camo";
 		};
+		if (_content == 2) then {
+			systemChat "you selected Tanoa Camo";
+		};
+		if (_content == 3) then {
+			systemChat "you selected Altis Black";
+		};
+		if (_content == 4) then {
+			systemChat "you selected Tanoa Black";
+		};
+		if (_content == 5) then {
+			systemChat "you selected Altis Olive";
+		};
+		if (_content == 6) then {
+			systemChat "you selected Tanoa Olive";
+		};			
+		if (_content == 7) then {
+			systemChat "you selected Altis Sand";
+		};
+		if (_content == 8) then {
+			systemChat "you selected Tanoa Sand";
+		};
+		if (_content == 9) then {
+			systemChat "you selected CRTG";
+		};
+
+		systemChat "select 1 to confirm, or 2 to cancel";
+
+		// state progression 
+		VAVS_Ext_Camo_Bool = false;
+		VAVS_confirmBool = true;
+		
 	};
 
 	// VAVS_No_Of_Units 1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5
