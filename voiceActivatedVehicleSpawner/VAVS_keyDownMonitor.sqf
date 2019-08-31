@@ -921,19 +921,12 @@ while {VAVS_numericalInputbool} do {
 				systemChat "you selected Hunter";
 
 
-
-
-				// VAVS_carTypeBool = false;
-				// VAVS_IFV_TypeBool = true;
 			};
 			if (_content == 2) then {
 				systemChat "you selected Hunter GMG";
 
 
 
-
-				// VAVS_carTypeBool = false;
-				// VAVS_MRAP_Type_Bool = true;
 			};
 			if (_content == 3) then {
 				systemChat "you selected Hunter HMG";
@@ -941,8 +934,6 @@ while {VAVS_numericalInputbool} do {
 
 
 
-				// VAVS_carTypeBool = false;
-				// VAVS_LSV_Type_Bool = true;
 			};
 
 			systemChat "Select: 1 = Altis, 2 = Tanoa";
@@ -962,15 +953,23 @@ while {VAVS_numericalInputbool} do {
 			
 			if (_content == 1) then {
 				systemChat "you selected Prowler";
+
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Prowler Light";
+
+
 			};
 			if (_content == 3) then {
 				systemChat "you selected Prowler HMG";
+
+
 			};
 			if (_content == 4) then {
 				systemChat "you selected Prowler AT";
+
+
 			};
 
 			systemChat "Select: 1 = Altis, 2 = Tanoa, 3 = Altis Black, 4 = Tanoa Black, 5 = Altis Olive, 6 = Tanoa Olive, 7 = Altis Sand, 8 = Tanoa Sand, 9 = CRTG";
@@ -989,15 +988,23 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Slammer";
+
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Slammer UP";
+
+
 			};
 			if (_content == 3) then {
 				systemChat "you selected Scorcher";
+
+
 			};
 			if (_content == 4) then {
 				systemChat "you selected Sandstorm";
+
+
 			};
 
 			systemChat "Select:	1 = Altis, 2 = Tanoa";
@@ -1016,27 +1023,43 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Basic";
+
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Box Transport";
+
+
 			};
 			if (_content == 3) then {
 				systemChat "you selected Transort (Covered)";
+
+
 			};
 			if (_content == 4) then {
 				systemChat "you selected Transport (Open)";
+
+
 			};
 			if (_content == 5) then {
 				systemChat "you selected Repair";
+
+
 			};
 			if (_content == 6) then {
 				systemChat "you selected Ammo";
+
+
 			};
 			if (_content == 7) then {
 				systemChat "you selected Fuel";
+
+
 			};
 			if (_content == 8) then {
 				systemChat "you selected Medical";
+
+				
 			};
 
 			systemChat "Select:	1 = Altis, 2 = Tanoa";
