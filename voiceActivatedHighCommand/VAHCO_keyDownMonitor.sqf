@@ -149,7 +149,7 @@ while {VAHCO_numericalInputbool} do {
 
 			VAHCO_headingBool = false;
 			VAHCO_OscarMikeBool = true;
-		};
+		};//
 	};
 
 	// Oscar Mike

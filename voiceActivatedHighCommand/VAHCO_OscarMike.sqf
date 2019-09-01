@@ -59,6 +59,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 2 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
+
 	if (RGG_Grp_Num == 3) then {
 
 		// systemChat "Bravo 3 on the move..";
@@ -73,7 +74,8 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 
 	};
-		if (RGG_Grp_Num == 4) then {
+
+	if (RGG_Grp_Num == 4) then {
 
 		// systemChat "Bravo 4 on the move..";
 		_destination = leader groupBlu4 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
@@ -86,7 +88,8 @@ RGG_callVAHCO_MOVE_ORDERS = {
 		_setText ctrlSetStructuredText (parseText format ["BRAVO 4 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
 		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
-		if (RGG_Grp_Num == 5) then {
+
+	if (RGG_Grp_Num == 5) then {
 
 		// systemChat "Bravo 5 on the move..";
 		_destination = leader groupBlu5 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
