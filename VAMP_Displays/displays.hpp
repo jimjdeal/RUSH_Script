@@ -35,9 +35,9 @@ class RscTitles {
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.300 * safezoneW + safezoneX;
-				y                   = 0.005 * safezoneH + safezoneY;
+				y                   = 0.000 * safezoneH + safezoneY;
 				w                   = 0.400 * safezoneW;
-				h                   = 0.050 * safezoneH;
+				h                   = 0.025 * safezoneH;
                 size                = 0.020;
                 colorBackground[]   = {0,0,0,0};
                 colorText[]         = {1,1,1,1};
@@ -57,6 +57,217 @@ class RscTitles {
             };
 		};
 	};
+   class DEBUG_2 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "DEBUG_2";
+		onLoad                      = "with uiNameSpace do { DEBUG_2 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 99992;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.025 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {1,1,1,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+   class DEBUG_3 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "DEBUG_3";
+		onLoad                      = "with uiNameSpace do { DEBUG_3 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 99993;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.050 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {1,1,1,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+   class DEBUG_4 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "DEBUG_4";
+		onLoad                      = "with uiNameSpace do { DEBUG_4 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 99994;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.075 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {1,1,1,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+   class DEBUG_5 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "DEBUG_5";
+		onLoad                      = "with uiNameSpace do { DEBUG_5 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 99995;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.100 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {1,1,1,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+   class DEBUG_6 {
+        idd                         = 1000000;
+        movingEnable                = 0;
+        enableSimulation            = 1;
+        enableDisplay               = 1;
+        duration                    = 99999;
+        fadein                      = 0;
+        fadeout                     = 2;
+        name                        = "DEBUG_6";
+		onLoad                      = "with uiNameSpace do { DEBUG_6 = _this select 0 }";
+	
+        class controls {
+
+		    class structuredText {
+                access              = 0;
+                type                = 13;
+                idc                 = 99996;
+                style               = 0x00;
+                lineSpacing         = 1;
+				x                   = 0.300 * safezoneW + safezoneX;
+				y                   = 0.125 * safezoneH + safezoneY;
+				w                   = 0.400 * safezoneW;
+				h                   = 0.025 * safezoneH;
+                size                = 0.020;
+                colorBackground[]   = {0,0,0,0};
+                colorText[]         = {1,1,1,1};
+                text                = "";
+                font                = "PuristaSemiBold";
+					
+                    class Attributes {
+						font        = "PuristaSemiBold";
+						color       = "#FFFFFF";
+						align       = "CENTER";
+						valign      = "CENTER";
+						shadow      = false;
+						shadowColor = "#000000";
+						underline   = false;
+						size        = "2";
+				}; 
+            };
+		};
+	};
+// ---------------------------------------------------------------------------------------------------------
 
     class VACF {
         idd                         = 1000000;
