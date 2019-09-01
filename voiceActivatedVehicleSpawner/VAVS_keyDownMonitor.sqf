@@ -1343,7 +1343,7 @@ while {VAVS_numericalInputbool} do {
 				// sleep 0.5;
 
 				// state progression completed
-				VAUS_confirmBool = false;
+				VAVS_confirmBool = false;
 
 				// clean up and reset 
 				execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";

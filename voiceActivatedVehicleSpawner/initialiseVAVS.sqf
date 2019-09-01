@@ -60,7 +60,7 @@ VAVS_No_Of_Units_Bool		= false;
 // final confirmation 
 VAVS_confirm 				= []; // 1 = yes, 2 = no
 VAVS_confirmBool			= false;
-
+//
 // ------------------------------------------------------------------ // 
 
 // key = "numpad 5 = 76"
