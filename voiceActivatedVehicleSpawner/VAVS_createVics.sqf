@@ -385,7 +385,7 @@ if (_vicCat == 2) then {
 			};
 		};
 
-		// MRAP
+		// MRAP //
 		if (_carType == 2) then {
 			if (_mrapType == 1) then {
 				if (_camoType == 1) then {
