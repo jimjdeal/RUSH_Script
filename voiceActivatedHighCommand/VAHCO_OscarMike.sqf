@@ -31,41 +31,81 @@ execVM "voiceactivatedhighcommand\VAHCO_clearKeyDowns.sqf";
 
 RGG_callVAHCO_MOVE_ORDERS = {
 
-	_RGG_GRP_Num = RGG_GRP_Num select 0;
+	// _RGG_GRP_Num = RGG_GRP_Num select 0;
 
-	if (_RGG_GRP_Num == 1) then {
-		_parsedGrp = groupBlu1
-	};
-	if (_RGG_GRP_Num == 2) then {
-		_parsedGrp = groupBlu2
-	};
-	if (_RGG_GRP_Num == 3) then {
-		_parsedGrp = groupBlu3
-	};
-	if (_RGG_GRP_Num == 4) then {
-		_parsedGrp = groupBlu4
-	};
-	if (_RGG_GRP_Num == 5) then {
-		_parsedGrp = groupBlu5
+	if (RGG_Grp_Num == 1) then {
+
+		// systemChat "Bravo 1 on the move..";
+		_destination = leader groupBlu1 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu1 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 1 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
 	};
 
-	_destination = leader _parsedGrp getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-	_parsedGrp move _destination;
+	if (RGG_Grp_Num == 2) then {
 
-	1 cutRsc ["C_L1_1","PLAIN"];
-	waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-	_display = uiNameSpace getVariable "C_L1_1";
-	_setText = _display displayCtrl 19001;
-	_setText ctrlSetStructuredText (parseText format ["BRAVO %1 moving to: %2, (%3m at %4)", _parsedGrp, _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-	_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	
+		// systemChat "Bravo 2 on the move..";
+		_destination = leader groupBlu2 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu2 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 2 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 3) then {
+
+		// systemChat "Bravo 3 on the move..";
+		_destination = leader groupBlu3 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu3 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 3 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 4) then {
+
+		// systemChat "Bravo 4 on the move..";
+		_destination = leader groupBlu4 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu4 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 4 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 5) then {
+
+		// systemChat "Bravo 5 on the move..";
+		_destination = leader groupBlu5 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu5 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 5 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
 };
 
 [] call RGG_callVAHCO_MOVE_ORDERS;
-execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf"; // reset 
-
-// 02 September, I have attempted to reduce the repeated code by swapping below for the above ... delete if works!
-// shit do i even need an ifThen here???
+execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
 
 
 
@@ -199,7 +239,43 @@ execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf"; // reset
 
 
 
+RGG_callVAHCO_MOVE_ORDERS = {
 
+	RGG_GRP_Num = RGG_GRP_Num select 0;
+
+	if (_RGG_GRP_Num == 1) then {
+		_parsedGrp = groupBlu1;
+	};
+	if (_RGG_GRP_Num == 2) then {
+		_parsedGrp = groupBlu2;
+	};
+	if (_RGG_GRP_Num == 3) then {
+		_parsedGrp = groupBlu3;
+	};
+	if (_RGG_GRP_Num == 4) then {
+		_parsedGrp = groupBlu4;
+	};
+	if (_RGG_GRP_Num == 5) then {
+		_parsedGrp = groupBlu5;
+	};
+
+	_destination = leader _parsedGrp getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+	_parsedGrp move _destination;
+
+	1 cutRsc ["C_L1_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+	_display = uiNameSpace getVariable "C_L1_1";
+	_setText = _display displayCtrl 19001;
+	_setText ctrlSetStructuredText (parseText format ["BRAVO %1 moving to: %2, (%3m at %4)", _parsedGrp, _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+	_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	
+};
+
+[] call RGG_callVAHCO_MOVE_ORDERS;
+execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf"; // reset 
+
+// 02 September, I have attempted to reduce the repeated code by swapping below for the above ... delete if works!
+// shit do i even need an ifThen here???
 
 
 

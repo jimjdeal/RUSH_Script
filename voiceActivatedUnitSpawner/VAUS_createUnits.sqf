@@ -422,7 +422,7 @@ if (_control == 2) then {
 		};
 	};
 
-	execVM "voiceActivatedVehicleSpawner\VAUS_clearKeyDowns.sqf";
-	execVM "voiceActivatedVehicleSpawner\initialiseVAUS.sqf";
+	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
+	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
 
 };
