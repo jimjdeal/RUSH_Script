@@ -647,13 +647,13 @@ if (_vicCat == 2) then {
 		// i.e. there are 6 or more HC groups - so replace this with exitWith?
 		if (VAUS_activeGroups == 5) then {
 			hint "no more allowed";
-			execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";
-			execVM "voiceActivatedVehicleSpawner\initialiseVAVS.sqf";
 		};
 	};
-};
-
-sleep 1;
 
 execVM "voiceActivatedVehicleSpawner\initialiseVAVS.sqf";
 execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";
+
+};
+
+// sleep 1;
+
