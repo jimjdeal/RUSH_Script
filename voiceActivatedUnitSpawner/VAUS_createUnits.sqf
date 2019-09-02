@@ -220,7 +220,7 @@ if (_control == 2) then {
 
 	// _activeGroups = count VAUS_activeGroups; 
 	// this keeps groups to 5 max
-	if (VAUS_activeGroups < 6) then {
+	if (VAUS_activeGroups < 5) then {
 
 		if (VAUS_activeGroups == 0) then {
 			hc_grp = groupBlu1;
@@ -239,24 +239,24 @@ if (_control == 2) then {
 		};
 
 		if (_group == 1) then {
-			VAUS_activeGroups = VAUS_activeGroups +1;
+
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 2) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
 
 			if (_camo == 1) then {
 				for "_i" from 1 to 1 do { 
@@ -292,17 +292,17 @@ if (_control == 2) then {
 					sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 3) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
 
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
@@ -310,17 +310,17 @@ if (_control == 2) then {
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 4) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
 
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
@@ -328,71 +328,71 @@ if (_control == 2) then {
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 5) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
-
+		
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 6) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
-
+		
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
+			
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 7) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
-
+			
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
-			};		
+			};
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
 
 		if (_group == 8) then {
-		VAUS_activeGroups = VAUS_activeGroups +1;
 
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
@@ -400,27 +400,29 @@ if (_control == 2) then {
 				sleep 0.2;
 				};
 			};
-
 			if (_camo == 2) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
-			};		
+			};	
+
+			// VAUS_activeGroups = VAUS_activeGroups +1;
+		};
+
+		// 02 Sept, trying to run this addition ONCE!! See if this works
+		VAUS_activeGroups = VAUS_activeGroups +1;	
+
+	} else {
+
+		// i.e. there are 6 or more HC groups - so replace this with exitWith?
+		if (VAUS_activeGroups == 5) then {
+			hint "no more allowed - 5 max!!";
+
 		};
 	};
+
+	execVM "voiceActivatedVehicleSpawner\VAUS_clearKeyDowns.sqf";
+	execVM "voiceActivatedVehicleSpawner\initialiseVAUS.sqf";
+
 };
-
-// systemChat "all done!!!";
-// 8 cutRsc ["VAUS_THANKS","PLAIN"];
-// waitUntil {!isNull (uiNameSpace getVariable "VAUS_THANKS")};
-// _display = uiNameSpace getVariable "VAUS_THANKS";
-// _setText = _display displayCtrl 10008;
-// _setText ctrlSetStructuredText (parseText format ["THANK YOU FOR USING VOICE ACTIVATED UNIT SPAWNER"]);
-// _setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-sleep 0.5;
-
-// 8 cutRsc ["default","PLAIN"];
-execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
-execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
