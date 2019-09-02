@@ -783,7 +783,6 @@ while {VAVS_numericalInputbool} do {
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
-			
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];

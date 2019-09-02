@@ -1,4 +1,6 @@
-hello, and welcome
+hello, and welcome to VA-MP Voice Attack Mission Packs
+
+Check out the wiki here in Github, probably the best chance of understanding what this weird project is all about ;)
 
 Roadmap
 

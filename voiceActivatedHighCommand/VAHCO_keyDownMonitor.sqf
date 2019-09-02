@@ -6,6 +6,12 @@ purpose:
 loop-listener that validates user input, and changes state at correct times 
 
 notes:
+I use RGG_Grp_Num in my display - do I need this var in the display? If so, can I remove the global?
+
+order type 1 = general move order --- needs stop, fall back and move to me in this bunch 
+order type 2 = objective-based order 
+order type 3 = order multiple units at the same time --- essentially a group order to be executed simultaneously
+
 */
 
 while {VAHCO_numericalInputbool} do {
@@ -19,13 +25,12 @@ while {VAHCO_numericalInputbool} do {
 
 	// confirm what group you want to talk to 
 	if (VAHCO_groupSelectBool) then {
+
 		if (VAHCO_Validate_Group == 1) then {
 
 			RGG_Grp_Num = VAHCO_groupSelect select 0;
-			// at the very least, stop repeating your bools in each 'then' statement 
-			// and there must be a better way to do this .. so much repeat!!
-			if (RGG_Grp_Num == 1) then {
 
+			if (RGG_Grp_Num == 1) then {
 				1 cutRsc ["C_L1_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 				_n1 = "Bravo 1";
@@ -33,9 +38,6 @@ while {VAHCO_numericalInputbool} do {
 				_setText = _display displayCtrl 19001;
 				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-				// VAHCO_groupSelectBool = false;
-				// VAHCO_orderSelectBool = true;
 			};
 			if (RGG_Grp_Num == 2) then {
 				1 cutRsc ["C_L1_1","PLAIN"];
@@ -45,11 +47,7 @@ while {VAHCO_numericalInputbool} do {
 				_setText = _display displayCtrl 19001;
 				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-				// VAHCO_groupSelectBool = false;
-				// VAHCO_orderSelectBool = true;
 			};
-
 			if (RGG_Grp_Num == 3) then {
 				1 cutRsc ["C_L1_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
@@ -58,11 +56,7 @@ while {VAHCO_numericalInputbool} do {
 				_setText = _display displayCtrl 19001;
 				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-				// VAHCO_groupSelectBool = false;
-				// VAHCO_orderSelectBool = true;
 			};
-
 			if (RGG_Grp_Num == 4) then {
 				1 cutRsc ["C_L1_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
@@ -71,11 +65,7 @@ while {VAHCO_numericalInputbool} do {
 				_setText = _display displayCtrl 19001;
 				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-				// VAHCO_groupSelectBool = false;
-				// VAHCO_orderSelectBool = true;
 			};
-
 			if (RGG_Grp_Num == 5) then {
 				1 cutRsc ["C_L1_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
@@ -84,9 +74,6 @@ while {VAHCO_numericalInputbool} do {
 				_setText = _display displayCtrl 19001;
 				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
-
-				// VAHCO_groupSelectBool = false;
-				// VAHCO_orderSelectBool = true;
 			};
 
 			VAHCO_groupSelectBool = false;
@@ -99,20 +86,56 @@ while {VAHCO_numericalInputbool} do {
 	// confirm type of order to issue (currently only one type - move)
 	if (VAHCO_orderSelectBool) then {
 
-		// movement orders 
-		if (VAHCO_Validate_Orders == 1) then {
+		if (VAHCO_Validate_Orders == 1) then { 
 
-			1 cutRsc ["C_L1_1","PLAIN"];
-			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-			_n1 = "Distance";
-			_display = uiNameSpace getVariable "C_L1_1";
-			_setText = _display displayCtrl 19001;
-			_setText ctrlSetStructuredText (parseText format ["Ready to move - Confirm %1", _n1]);
-			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		_orderType = VAHCO_orderSelect select 0;
 
-			// sleep 1;
-			VAHCO_orderSelectBool = false;
-			VAHCO_distanceBool = true;
+			// general movement orders 
+			if (_orderType == 1) then {
+
+				1 cutRsc ["C_L1_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+				_n1 = "Distance";
+				_display = uiNameSpace getVariable "C_L1_1";
+				_setText = _display displayCtrl 19001;
+				_setText ctrlSetStructuredText (parseText format ["Ready to move - Confirm %1", _n1]);
+				_setText ctrlSetBackgroundColor [0,0,0,0.5];
+
+				// sleep 1;
+				VAHCO_orderSelectBool = false;
+				VAHCO_distanceBool = true;
+			};
+
+			// objective-based orders
+			if (_orderType == 2) then {
+				// 02 sept // objective-based orders go here
+				// check whether primary secondry or stagiing objs exist first 
+				systemChat "obj orders here";
+				/*
+					1 = secure primary objective 
+						check does exist?
+						if no - state no can do 
+						if yes - move directly to centre
+					2 = approach primary objective 
+						check does exist?
+						if no - state no can do 
+						if yes - move directly to nearest edge
+					3 = secure secondary objective 
+						check does exist?
+						if no - state no can do 
+						if yes - move directly to centre
+					4 = approach secondary objective 
+						check does exist?
+						if no - state no can do 
+						if yes - move directly to nearest edge
+					5 = move to staging zone 
+						check does exist?
+						if no - state no can do 
+						if yes - move directly to center 
+						if when they get there, there are units already in there, then they stop 20 m short  
+						may need to explain the the staging zone is essentially a line...
+				*/
+			};		
 		};
 	};
 

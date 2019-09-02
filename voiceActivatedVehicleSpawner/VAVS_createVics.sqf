@@ -10,6 +10,8 @@ if you want to add your own group configs (arrays of units), this is the place.
 notes:
 createVehicle [type, position, markers, placement, special]
 Needs a safePos mechanic here!
+Bravo for VAVS units, Delta for VAUS?
+Question at the end of the HC route - add another unit to the group?
 
 02 september 07:16 - in trying to find the HC group disappear bug, I think this may be linked to my added HC group numbers too many times, below, in the HC section.
 Next commit will attempt to clean up this inefficiency.
@@ -38,6 +40,7 @@ if (_vicCat == 1) then {
 
 	// IFV
 	if (_carType == 1) then {
+
 		if (_ifvType == 1) then {
 			if (_camoType == 1) then {
 				_vic = createVehicle ["B_APC_Tracked_01_rcws_F", _spawnPos];
@@ -78,6 +81,7 @@ if (_vicCat == 1) then {
 
 	// MRAP
 	if (_carType == 2) then {
+
 		if (_mrapType == 1) then {
 			if (_camoType == 1) then {
 				_vic = createVehicle ["B_MRAP_01_F", _spawnPos];
@@ -103,6 +107,7 @@ if (_vicCat == 1) then {
 
 	// LSV
 	if (_carType == 3) then {
+
 		if (_lsvType == 1) then {
 			if (_exCamoType == 1) then {
 				_vic = createVehicle ["B_LSV_01_unarmed_F", _spawnPos];
@@ -162,6 +167,7 @@ if (_vicCat == 1) then {
 			};
 		};
 		if (_lsvType == 3) then {
+
 			if (_exCamoType == 1) then {
 				_vic = createVehicle ["B_T_LSV_01_AT_F", _spawnPos];
 			} else {
@@ -179,6 +185,7 @@ if (_vicCat == 1) then {
 
 	// MBT
 	if (_carType == 4) then {
+
 		if (_mbtType == 1) then {
 			if (_camoType == 1) then {
 				_vic = createVehicle ["B_MBT_01_cannon_F", _spawnPos];
@@ -211,6 +218,7 @@ if (_vicCat == 1) then {
 
 	// hemmt
 	if (_carType == 5) then {
+
 		if (_hemmtType == 1) then {
 			if (_camoType == 1) then {
 				_vic = createVehicle ["B_Truck_01_mover_F", _spawnPos];
@@ -271,6 +279,7 @@ if (_vicCat == 1) then {
 
 	// other
 	if (_carType == 6) then {
+		
 		if (_otherType == 1) then {
 			if (_camoType == 1) then {
 				_vic = createVehicle ["B_Quadbike_01_F", _spawnPos];
