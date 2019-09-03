@@ -12,6 +12,14 @@ order type 1 = general move order --- needs stop, fall back and move to me in th
 order type 2 = objective-based order 
 order type 3 = order multiple units at the same time --- essentially a group order to be executed simultaneously
 
+03 Sept:
+I think I need new arrays to hold instructions for objective-based movement 
+I can do it with just one array, so if 'any' content, then we know obj-based task is being given, the content 
+itself determines the actual type of instruction 
+1 = secure obj1, 2 = approach obj1, 3 = secure obj2, 4 = approach obj2, 5 = move to staging area 1, 6 = move to staging area 2
+
+Added new section for order type 2 = objectives - now both lead to oscarMike.sqf 
+
 */
 
 while {VAHCO_numericalInputbool} do {
@@ -20,6 +28,7 @@ while {VAHCO_numericalInputbool} do {
 
 	VAHCO_Validate_Group 	= count VAHCO_groupSelect; 	// should contain 1 value
 	VAHCO_Validate_Orders 	= count VAHCO_orderSelect; 	// should contain 1 value
+	VAHCO_Validate_Obj		= count VAHCO_objectiveType // should contain 1 value 
 	VAHCO_Validate_distance = count VAHCO_distance; 	// should contain 4 value;
 	VAHCO_Validate_heading	= count VAHCO_heading;		// should contain 3 value;
 
@@ -108,9 +117,15 @@ while {VAHCO_numericalInputbool} do {
 
 			// objective-based orders
 			if (_orderType == 2) then {
-				// 02 sept // objective-based orders go here
+				// 02 sept 
+				// objective-based orders go here
 				// check whether primary secondry or stagiing objs exist first 
-				systemChat "obj orders here";
+				systemChat "You have selected ojective orders";
+				systemChat "1 = secure obj1, 2 = approach obj1";
+				systemChat "3 = secure obj2, 4 = approach obj2";
+				systemChat "5 = move to staging area 1, 6 = move to staging area 2";
+				VAHCO_orderSelectBool = false;
+				VAHCO_objectiveTypeBool = true;
 				/*
 					1 = secure primary objective 
 						check does exist?
@@ -139,7 +154,9 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
-	// confirm distance to move
+// -----------------------------------------------------------------------------------------------------
+
+	// order type 1 - confirm distance to move
 	if (VAHCO_distanceBool) then {
 
 		if (VAHCO_Validate_distance == 4) then {
@@ -157,7 +174,7 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
-	// confirm distance to move
+	// order type 1 - confirm distance to move
 	if (VAHCO_headingBool) then {
 
 		if (VAHCO_Validate_heading == 3) then {
@@ -175,12 +192,55 @@ while {VAHCO_numericalInputbool} do {
 		};//
 	};
 
-	// Oscar Mike
+
+// -----------------------------------------------------------------------------------------------------
+
+	// order type 2 - objective management 
+	if (VAHCO_objectiveTypeBool) then {
+
+		_content = VAHCO_objectiveType select 0;
+
+		if (VAHCO_Validate_Obj == 1) then {
+
+			if (_content == 1) then {
+				systemChat "you selected Secure OBJ 1";
+				// UI
+			};
+			if (_content == 2) then {
+				systemChat "you selected Approach OBJ 1";
+				// UI
+			};
+			if (_content == 3) then {
+				systemChat "you selected Secure OBJ 2";
+				// UI
+			};
+			if (_content == 4) then {
+				systemChat "you selected Approach OBJ 2";
+				// UI
+			};
+			if (_content == 5) then {
+				systemChat "you selected Move to Staging 1";
+				// UI
+			};
+			if (_content == 6) then {
+				systemChat "you selected Move to Staging 2";
+				// UI
+			};
+		};
+
+		VAHCO_objectiveTypeBool = false;
+		VAHCO_OscarMikeBool = true;
+	};
+
+// -----------------------------------------------------------------------------------------------------
+
+	// Finalise - Oscar Mike
 	if (VAHCO_OscarMikeBool) then {
 
 		execVM "voiceactivatedhighcommand\VAHCO_OscarMike.sqf";
 	};
-		
+
+
 	sleep 0.1;
 };	
 	

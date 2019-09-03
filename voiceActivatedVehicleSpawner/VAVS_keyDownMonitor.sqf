@@ -9,7 +9,15 @@ loop-listener that validates user input, and changes state at correct times
 when all entries have been made, the script will either progress to spawner, or cancel / reboot 
 
 notes:
+01 Sept: 	
 this is definately the most complex logic script, as it has a few layers, and also renders the UI step by step, which is a new thing for me. 
+03 Sept: 	
+I am tempted to remove all of the camo options for LSVs, and just use altis / tanoan .. for simplicity.
+I will try to manage the repeated code blocks using functions, starting with camo. 
+if this works, I will also apply to the choice of 6 classes at the beginning of the flow, as this is repeated, and so should be addressed.
+6 camo UI blocks under the IFV thread have been replaced with functions.
+Test: does IFV camo appear and work as before? If yes, successful.
+
 
 States:
 VAVS_vicTypeBool
@@ -40,6 +48,43 @@ VAVS_confirm 			1 = yes, 		2 = no
 */
 
 sleep 1.5;
+
+// attempt to manage repeat renders via function 
+/*
+lines: 
+panther selection 
+cheetah selection 
+bobcat selection
+marshall selection  
+gorgon Selection  
+*/
+
+VAVS_showCamo = {
+	// section header 
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+};
+
+
 
 // question A
 30 cutRsc ["D_L3_1","PLAIN"];
@@ -74,7 +119,7 @@ while {VAVS_numericalInputbool} do {
 	val_VAVS_confirm 		= count VAVS_confirm;
 
 
-	// VAVS_vicType 1 = car, 2 = heli -------------------------------------------------------------------------------------------------------------
+	// VAVS_vicType 1 = Direct Control, 2 = High Command -------------------------------------------------------------------------------------------------------------
 	if (VAVS_vicTypeBool) then {
 
 		if (val_VAVS_vicType == 1) then {
@@ -484,7 +529,7 @@ while {VAVS_numericalInputbool} do {
 				60 cutRsc ["D_L4_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
 				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20020;
+				_setText = _display displayCtrl 20050;
 				_setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
@@ -526,7 +571,7 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
 				_display = uiNameSpace getVariable "D_L3_1";
 				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["BASIC"]);
+				_setText ctrlSetStructuredText (parseText format ["BASIC TRANSPORT"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				40 cutRsc ["D_L3_2","PLAIN"];
@@ -541,14 +586,14 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
 				_display = uiNameSpace getVariable "D_L4_1";
 				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["TRANSPORT COVERED"]);
+				_setText ctrlSetStructuredText (parseText format ["COVERED TRANSPORT"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];
 
 				60 cutRsc ["D_L4_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
 				_display = uiNameSpace getVariable "D_L4_2";
 				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["TRANSPORT OPEN"]);
+				_setText ctrlSetStructuredText (parseText format ["OPEN TRANSPORT"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];	
 
 				// line 3
@@ -556,14 +601,14 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
 				_display = uiNameSpace getVariable "D_L5_1";
 				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["REPAIR"]);
+				_setText ctrlSetStructuredText (parseText format ["REPAIR TRUCK"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];	
 
 				80 cutRsc ["D_L5_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
 				_display = uiNameSpace getVariable "D_L5_2";
 				_setText = _display displayCtrl 20070;
-				_setText ctrlSetStructuredText (parseText format ["AMMO"]);
+				_setText ctrlSetStructuredText (parseText format ["AMMO TRUCK"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];	
 
 				// line 4
@@ -571,14 +616,14 @@ while {VAVS_numericalInputbool} do {
 				waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
 				_display = uiNameSpace getVariable "D_L6_1";
 				_setText = _display displayCtrl 20080;
-				_setText ctrlSetStructuredText (parseText format ["FUEL"]);
+				_setText ctrlSetStructuredText (parseText format ["FUEL TRUCK"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];		
 
 				100 cutRsc ["D_L6_2","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
 				_display = uiNameSpace getVariable "D_L6_2";
 				_setText = _display displayCtrl 20090;
-				_setText ctrlSetStructuredText (parseText format ["MEDICAL"]);
+				_setText ctrlSetStructuredText (parseText format ["MEDICAL TRUCK"]);
 				_setText ctrlSetTextColor [0, 1, 0, 1];			
 				
 				// state progress 
@@ -670,8 +715,18 @@ while {VAVS_numericalInputbool} do {
 			// };
 		};
 	};
+	// -----------------------------------------------------------------------------------------------------------------------
+	// END OF LAYER 1
+	// -----------------------------------------------------------------------------------------------------------------------
 
-	// VAVS_IFV_Type 1 = Panther, 2 = Cheetah, 3 = Bobcat, 4 = Marshall, 5 = Gorgon -----------------------------------------------------------------------------------
+
+
+
+	// -----------------------------------------------------------------------------------------------------------------------
+	// START OF LAYER 2
+	// -----------------------------------------------------------------------------------------------------------------------
+
+	// VAVS_IFV_Type 1 = Panther, 2 = Cheetah, 3 = Bobcat, 4 = Marshall, 5 = Gorgon ------------------------------------------
 	if (VAVS_IFV_TypeBool) then {
 
 		if (val_VAVS_IFV_Type == 1) then {
@@ -698,28 +753,31 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// show camo choice 
+				[] call VAVS_showCamo;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_content == 2) then {
@@ -742,28 +800,31 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// show camo choice 
+				[] call VAVS_showCamo;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_content == 3) then {
@@ -787,28 +848,31 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// show camo choice 
+				[] call VAVS_showCamo;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_content == 4) then {
@@ -832,28 +896,31 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// show camo choice 
+				[] call VAVS_showCamo;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			if (_content == 5) then {
@@ -877,28 +944,31 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header 
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// show camo choice 
+				[] call VAVS_showCamo;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["ALTIS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // section header 
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["CAMO TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["TANOAN"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["ALTIS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["TANOAN"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
 			};
 
 			// systemChat "Select:	1 = Altis, 2 = Tanoa";
@@ -1077,18 +1147,28 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Quad Bike";
+
+
 			};
 			if (_content == 2) then {
 				systemChat "you selected Offroad HMG";
+
+
 			};
 			if (_content == 3) then {
 				systemChat "you selected Offroad AT";
+
+
 			};
 			if (_content == 4) then {
 				systemChat "you selected Offroad Repair";
+
+
 			};
 			if (_content == 5) then {
 				systemChat "you selected Offroad";
+
+
 			};
 
 			systemChat "Select:	1 = Altis, 2 = Tanoa";
@@ -1098,8 +1178,17 @@ while {VAVS_numericalInputbool} do {
 
 		};
 	};
+	// -----------------------------------------------------------------------------------------------------------------------
+	// END OF LEVEL 2
+	// -----------------------------------------------------------------------------------------------------------------------
 
-	// VAVS_Basic_Camo	1 = Altis, 2 = Tanoa --------------------------------------------------------------------------------------------------------------------------------
+
+
+	// -----------------------------------------------------------------------------------------------------------------------
+	// START OF LEVEL 3
+	// -----------------------------------------------------------------------------------------------------------------------
+
+	// VAVS_Basic_Camo	1 = Altis, 2 = Tanoa ---------------------------------------------------------------------------------
 	if (VAVS_Basic_Camo_Bool) then {
 
 		if (val_VAVS_Basic_Camo == 1) then {

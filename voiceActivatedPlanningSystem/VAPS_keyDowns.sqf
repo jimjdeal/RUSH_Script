@@ -9,10 +9,13 @@ the array the data is pushed into is dependent on the current state (bool) - thi
 notes:
 need to add a cancel to this!
 
-VAPS_Order_Type				= []; 		// 1 = set primary, 2 = set secondary, 3 = set waypoints. 4 = set battle plan 
+03 September:
+consider having an action based on keypress and mouse pos ... would be easier but still use voice...??
+
+VAPS_Order_Type				= []; 		// 1 = set primary, 2 = set secondary, 3 = staging 1, 4 = staging 2 // 5 = set waypoints. 6 = set battle plan 
 VAPS_Order_Type_Bool		= false;
 
-VAPS_Obj_Type				= [];		// manages both primary and secondary objectives // 1 = primary, 2 = secondary  
+VAPS_Obj_Type				= [];		// manages both primary and secondary objectives // 1 = primary, 2 = secondary, 
 VAPS_Obj_Type_Bool			= false;
 
 VAPS_Lat					= [];		// generic location system // expects 5 digits

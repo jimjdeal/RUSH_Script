@@ -11,8 +11,11 @@ also starts off the monitor to loop-listen for changes and move states at key po
 vamp is a universal bool that is used to ensure that only one module can be run at any one time  
 
 notes:
+03 Sept:
+added new array and bool - VAHCO_objectiveType/Bool - to enable management of different types of objective-based move orders 
+1 = secure obj1, 2 = approach obj1, 3 = secure obj2, 4 = approach obj2, 5 = move to staging area 1, 6 = move to staging area 2
 */
-//
+
 sleep 2; 
 // systemChat "VAHCO ACTIVATED!!";
 
@@ -24,6 +27,9 @@ VAHCO_groupSelect			= [];
 
 VAHCO_orderSelectBool		= false;
 VAHCO_orderSelect			= [];
+
+VAHCO_objectiveTypeBool		= false;
+VAHCO_objectiveType			= [];
 
 VAHCO_distanceBool			= false;
 VAHCO_Distance				= [];

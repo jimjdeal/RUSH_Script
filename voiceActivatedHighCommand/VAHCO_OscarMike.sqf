@@ -15,6 +15,14 @@ for move, urgently need a halt order, and also ability to address all units, and
 Also, can we get rid of dees globals man??
 
 check controls for UI here!
+
+
+03 Sept:
+Need to split instructions based on order type, 1 or 2 (general move, or objective driven)
+Adding split functions for each order type
+
+Also added move orders to secure and approach primary and secondary objectives
+
 */
 
 _parsed_VAHCO_GroupSelect	= VAHCO_groupSelect joinString "";
@@ -104,7 +112,166 @@ RGG_callVAHCO_MOVE_ORDERS = {
 	};
 };
 
-[] call RGG_callVAHCO_MOVE_ORDERS;
+
+// contains copy of the above currently - delete when changed 
+RGG_callVAHCO_MOVE_ORDERS = {
+
+	if (RGG_Grp_Num == 1) then {
+
+		if (VAHCO_objectiveType == 1) then {
+
+			_destination = getMarkerPos "primaryObj";
+			groupBlu1 move _destination;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 SECURING PRIMARY OBJECTIVE 1: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+		if (VAHCO_objectiveType == 2) then {
+
+			_destination = getMarkerPos "primaryObj";
+			_relDir = leader groupBlu1 getRelDir _destination;
+			_distance = leader groupBlu1 distance _destination;
+			_approachDist = _distance - 100;
+			_approachPos = leader groupBlu1 getRelPos [_approachDist, _relDir];
+			groupBlu1 move _approachPos;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 APPROACHING PRIMARY OBJECTIVE 1: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+		if (VAHCO_objectiveType == 3) then {
+
+			_destination = getMarkerPos "secondaryObj";
+			groupBlu1 move _destination;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 SECURING SECONDARY OBJECTIVE 1: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+		if (VAHCO_objectiveType == 4) then {
+
+			_destination = getMarkerPos "primaryObj";
+			_relDir = leader groupBlu1 getRelDir _destination;
+			_distance = leader groupBlu1 distance _destination;
+			_approachDist = _distance - 100;
+			_approachPos = leader groupBlu1 getRelPos [_approachDist, _relDir];
+			groupBlu1 move _approachPos;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 APPROACHING SECONDARY OBJECTIVE 1: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+		if (VAHCO_objectiveType == 5) then {
+
+			_destination = getMarkerPos "primaryStage";
+			groupBlu1 move _destination;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 MOVING TO PRIMARY STAGING POINT: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+		if (VAHCO_objectiveType == 6) then {
+
+			_destination = getMarkerPos "secondaryStage";
+			groupBlu1 move _destination;
+
+			1 cutRsc ["C_L1_1","PLAIN"];
+			waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+			_display = uiNameSpace getVariable "C_L1_1";
+			_setText = _display displayCtrl 19001;
+			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 MOVING TO SECONDARY STAGING POINT: %1", _destination]);
+			_setText ctrlSetBackgroundColor [0,0,0,0.5];
+		};
+	};
+
+	if (RGG_Grp_Num == 2) then {
+
+		// systemChat "Bravo 2 on the move..";
+		_destination = leader groupBlu2 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu2 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 2 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 3) then {
+
+		// systemChat "Bravo 3 on the move..";
+		_destination = leader groupBlu3 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu3 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 3 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 4) then {
+
+		// systemChat "Bravo 4 on the move..";
+		_destination = leader groupBlu4 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu4 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 4 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+
+	if (RGG_Grp_Num == 5) then {
+
+		// systemChat "Bravo 5 on the move..";
+		_destination = leader groupBlu5 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu5 move _destination;
+
+		1 cutRsc ["C_L1_1","PLAIN"];
+		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
+		_display = uiNameSpace getVariable "C_L1_1";
+		_setText = _display displayCtrl 19001;
+		_setText ctrlSetStructuredText (parseText format ["BRAVO 5 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
+		_setText ctrlSetBackgroundColor [0,0,0,0.5];
+	};
+};
+
+
+
+
+
+
+
+
+if (VAHCO_orderSelect == 1) then {
+	[] call RGG_callVAHCO_MOVE_ORDERS;
+};
+
+if (VAHCO_orderSelect == 2) then {
+	[] call RGG_callVAHCO_OBJECTIVE_ORDERS;
+};
+
 execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
 
 

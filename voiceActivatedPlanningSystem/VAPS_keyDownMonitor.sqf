@@ -35,7 +35,7 @@ while {VAPS_numericalInputbool} do {
 	
 		if (_val_VAPS_Order_Type == 1) then {
 
-			_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, // TBD >> 3 = set waypoints. 4 = set battle plan 
+			_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, 3 = stage stage 1, 4 = stage 2 // TBD >> 5 = set waypoints. 6 = set battle plan 
 
 			if (_content == 1) then {
 				systemChat "you are setting the Primary Objective";
@@ -46,18 +46,27 @@ while {VAPS_numericalInputbool} do {
 				systemChat "you are setting the Secondary Objective";
 				// UI goes here
 			};
+			if (_content == 3) then {
+				systemChat "you are setting the Main Staging Zone";
+				// UI goes here
+			};
+
+			if (_content == 4) then {
+				systemChat "you are setting the Secondary Staging Zone";
+				// UI goes here
+			};
 
 			// state progress
 			VAPS_Order_Type_Bool = false;
 			VAPS_Lat_Bool = true;
-			systemChat "Please Enter Latitude (5 digits)";
+			systemChat "Please Enter Latitude (4 digits)";
 
 		};
 	};
 
 	if (VAPS_Lat_Bool) then {
 	
-		if (_val_VAPS_Lat == 5) then {
+		if (_val_VAPS_Lat == 4) then {
 
 			systemChat "Latitude reveived, now confirm Longitude";
 
@@ -70,7 +79,7 @@ while {VAPS_numericalInputbool} do {
 
 	if (VAPS_Lon_Bool) then {
 	
-		if (_val_VAPS_Lon == 5) then {
+		if (_val_VAPS_Lon == 4) then {
 
 			systemChat "Longiture reveived";
 			systemChat "confirm or cancel ojb setting";
@@ -99,6 +108,16 @@ while {VAPS_numericalInputbool} do {
 
 				if (_content2 == 2) then {
 					systemChat "you have set your Secondary Objective";
+					// UI goes here
+				};
+
+				if (_content2 == 3) then {
+					systemChat "you have set your Primary Staging Zone";
+					// UI goes here
+				};
+
+				if (_content2 == 4) then {
+					systemChat "you have set your Secondary Staging Zone";
 					// UI goes here
 				};
 

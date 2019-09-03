@@ -19,7 +19,7 @@ create 15m circle around player?
 use findSafePos...
 ?
 
-if I put clearKeyDowns at the beginning, the UI won't wait on screen while units are spawner, which is nicer - test this!
+03 Sept: if I put clearKeyDowns at the beginning, the UI won't wait on screen while units are spawner, which is nicer - test this!
 */
 
 
@@ -43,6 +43,9 @@ _camo 			= _camoType select 0;
 
 // DC - Direct Control - Group Creation 
 if (_control == 1) then {
+
+	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
+	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
 
 	if (_group == 1) then {
 
@@ -422,7 +425,7 @@ if (_control == 2) then {
 		};
 	};
 
-	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
-	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
+	// execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
+	// execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
 
 };
