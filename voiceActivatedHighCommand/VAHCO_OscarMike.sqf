@@ -25,6 +25,8 @@ Also added move orders to secure and approach primary and secondary objectives
 
 */
 
+HINT "OSCAR MIKE RUNNING";
+
 _parsed_VAHCO_GroupSelect	= VAHCO_groupSelect joinString "";
 _parsed_VAHCO_OrderType		= VAHCO_orderSelect joinString "";
 _parsed_VAHCO_MoveDistance	= VAHCO_distance joinString "";
@@ -114,11 +116,13 @@ RGG_callVAHCO_MOVE_ORDERS = {
 
 
 // contains copy of the above currently - delete when changed 
-RGG_callVAHCO_MOVE_ORDERS = {
+RGG_callVAHCO_OBJECTIVE_ORDERS = {
 
 	if (RGG_Grp_Num == 1) then {
 
-		if (VAHCO_objectiveType == 1) then {
+		_contentB = VAHCO_objectiveType select 0;
+
+		if (_contentB == 1) then {
 
 			_destination = getMarkerPos "primaryObj";
 			groupBlu1 move _destination;
@@ -130,7 +134,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 SECURING PRIMARY OBJECTIVE 1: %1", _destination]);
 			_setText ctrlSetBackgroundColor [0,0,0,0.5];
 		};
-		if (VAHCO_objectiveType == 2) then {
+		if (_contentB == 2) then {
 
 			_destination = getMarkerPos "primaryObj";
 			_relDir = leader groupBlu1 getRelDir _destination;
@@ -146,7 +150,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 APPROACHING PRIMARY OBJECTIVE 1: %1", _destination]);
 			_setText ctrlSetBackgroundColor [0,0,0,0.5];
 		};
-		if (VAHCO_objectiveType == 3) then {
+		if (_contentB == 3) then {
 
 			_destination = getMarkerPos "secondaryObj";
 			groupBlu1 move _destination;
@@ -158,7 +162,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 SECURING SECONDARY OBJECTIVE 1: %1", _destination]);
 			_setText ctrlSetBackgroundColor [0,0,0,0.5];
 		};
-		if (VAHCO_objectiveType == 4) then {
+		if (_contentB == 4) then {
 
 			_destination = getMarkerPos "primaryObj";
 			_relDir = leader groupBlu1 getRelDir _destination;
@@ -174,7 +178,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 APPROACHING SECONDARY OBJECTIVE 1: %1", _destination]);
 			_setText ctrlSetBackgroundColor [0,0,0,0.5];
 		};
-		if (VAHCO_objectiveType == 5) then {
+		if (_contentB == 5) then {
 
 			_destination = getMarkerPos "primaryStage";
 			groupBlu1 move _destination;
@@ -186,7 +190,7 @@ RGG_callVAHCO_MOVE_ORDERS = {
 			_setText ctrlSetStructuredText (parseText format ["BRAVO 1 MOVING TO PRIMARY STAGING POINT: %1", _destination]);
 			_setText ctrlSetBackgroundColor [0,0,0,0.5];
 		};
-		if (VAHCO_objectiveType == 6) then {
+		if (_contentB == 6) then {
 
 			_destination = getMarkerPos "secondaryStage";
 			groupBlu1 move _destination;
@@ -264,11 +268,11 @@ RGG_callVAHCO_MOVE_ORDERS = {
 
 
 
-if (VAHCO_orderSelect == 1) then {
+if (parsed_VAHCO_OrderType2 == 1) then {
 	[] call RGG_callVAHCO_MOVE_ORDERS;
 };
 
-if (VAHCO_orderSelect == 2) then {
+if (parsed_VAHCO_OrderType2 == 2) then {
 	[] call RGG_callVAHCO_OBJECTIVE_ORDERS;
 };
 

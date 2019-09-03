@@ -28,7 +28,7 @@ while {VAHCO_numericalInputbool} do {
 
 	VAHCO_Validate_Group 	= count VAHCO_groupSelect; 	// should contain 1 value
 	VAHCO_Validate_Orders 	= count VAHCO_orderSelect; 	// should contain 1 value
-	VAHCO_Validate_Obj		= count VAHCO_objectiveType // should contain 1 value 
+	VAHCO_Validate_Obj		= count VAHCO_objectiveType; // should contain 1 value 
 	VAHCO_Validate_distance = count VAHCO_distance; 	// should contain 4 value;
 	VAHCO_Validate_heading	= count VAHCO_heading;		// should contain 3 value;
 
@@ -174,7 +174,7 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
-	// order type 1 - confirm distance to move
+	// order type 1 - confirm heading to move
 	if (VAHCO_headingBool) then {
 
 		if (VAHCO_Validate_heading == 3) then {
@@ -198,31 +198,31 @@ while {VAHCO_numericalInputbool} do {
 	// order type 2 - objective management 
 	if (VAHCO_objectiveTypeBool) then {
 
-		_content = VAHCO_objectiveType select 0;
-
 		if (VAHCO_Validate_Obj == 1) then {
 
-			if (_content == 1) then {
+			_contentA = VAHCO_objectiveType select 0;
+
+			if (_contentA == 1) then {
 				systemChat "you selected Secure OBJ 1";
 				// UI
 			};
-			if (_content == 2) then {
+			if (_contentA == 2) then {
 				systemChat "you selected Approach OBJ 1";
 				// UI
 			};
-			if (_content == 3) then {
+			if (_contentA == 3) then {
 				systemChat "you selected Secure OBJ 2";
 				// UI
 			};
-			if (_content == 4) then {
+			if (_contentA == 4) then {
 				systemChat "you selected Approach OBJ 2";
 				// UI
 			};
-			if (_content == 5) then {
+			if (_contentA == 5) then {
 				systemChat "you selected Move to Staging 1";
 				// UI
 			};
-			if (_content == 6) then {
+			if (_contentA == 6) then {
 				systemChat "you selected Move to Staging 2";
 				// UI
 			};

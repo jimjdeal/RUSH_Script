@@ -77,7 +77,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 1;
 		};
 		
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 1;
 		};
 
@@ -104,7 +104,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 2;
 		};
 
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 2;
 		};
 
@@ -130,7 +130,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 3;
 		};
 
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 3;
 		};
 
@@ -156,7 +156,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 4;
 		};
 
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 4;
 		};
 
@@ -182,7 +182,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 5;
 		};
 
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 5;
 		};
 
@@ -208,7 +208,7 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 6;
 		};
 
-		if (VAHCO_objectiveTypeBool then {
+		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 6;
 		};
 

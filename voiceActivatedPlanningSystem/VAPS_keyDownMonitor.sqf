@@ -66,7 +66,7 @@ while {VAPS_numericalInputbool} do {
 
 	if (VAPS_Lat_Bool) then {
 	
-		if (_val_VAPS_Lat == 4) then {
+		if (_val_VAPS_Lat == 5) then {
 
 			systemChat "Latitude reveived, now confirm Longitude";
 
@@ -79,7 +79,7 @@ while {VAPS_numericalInputbool} do {
 
 	if (VAPS_Lon_Bool) then {
 	
-		if (_val_VAPS_Lon == 4) then {
+		if (_val_VAPS_Lon == 5) then {
 
 			systemChat "Longiture reveived";
 			systemChat "confirm or cancel ojb setting";
