@@ -20,6 +20,12 @@ use findSafePos...
 ?
 
 03 Sept: if I put clearKeyDowns at the beginning, the UI won't wait on screen while units are spawner, which is nicer - test this!
+
+04 sept: thinking that camo 2 could be user prefs?
+we also need to store a library of classNames here somewhere
+change demo to hazmat?
+or do I have a complete liviona section?
+I really need to re-do the UI here
 */
 
 
@@ -46,9 +52,9 @@ if (_control == 1) then {
 
 	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
 	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
-
+//
 	if (_group == 1) then {
-
+		// FIRE TEAM (x4)
 		if (_camo == 1) then {
 			"B_W_Soldier_TL_F" createUnit [position player, group player]; 
 			sleep 0.2;
@@ -69,13 +75,13 @@ if (_control == 1) then {
 	};
 
 	if (_group == 2) then {
-
+		// FULL PLATOON (x23)
 		if (_camo == 1) then {
 			for "_i" from 1 to 1 do { 
 				"B_W_Soldier_TL_F" createUnit [position player, group player]; 
 				sleep 0.2;
 			};
-			for "_i" from 1 to 8 do { 
+			for "_i" from 1 to 4 do { 
 				"B_W_Soldier_F" createUnit [position player, group player]; 
 				sleep 0.2;
 			};
@@ -106,6 +112,7 @@ if (_control == 1) then {
 		};
 
 		if (_camo == 2) then {
+			// to be done!
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
 			sleep 0.2;
@@ -114,15 +121,15 @@ if (_control == 1) then {
 	};
 
 	if (_group == 3) then {
-
+		// SNIPER TEAM
 		if (_camo == 1) then {
-
+			// to be done!
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
 			sleep 0.2;
 			};
 		};
-
+			// to be done!
 		if (_camo == 2) then {
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
@@ -132,15 +139,16 @@ if (_control == 1) then {
 	};
 
 	if (_group == 4) then {
-
+		// AT TEAM
 		if (_camo == 1) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			for "_i" from 1 to 3 do { 
+			"B_W_Soldier_AT_F" createUnit [position player, group player]; 
 			sleep 0.2;
 			};
 		};
 
 		if (_camo == 2) then {
+			// to be done
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
 			sleep 0.2;
@@ -149,15 +157,16 @@ if (_control == 1) then {
 	};
 
 	if (_group == 5) then {
-
+		// AA TEAM
 		if (_camo == 1) then {
-			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			for "_i" from 1 to 3 do { 
+			"B_W_Soldier_AA_F" createUnit [position player, group player]; 
 			sleep 0.2;
 			};
 		};
 
 		if (_camo == 2) then {
+			// to be done
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
 			sleep 0.2;
@@ -166,7 +175,7 @@ if (_control == 1) then {
 	};
 
 	if (_group == 6) then {
-
+		// ENG TEAM - to be done
 		if (_camo == 1) then {
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
@@ -183,7 +192,7 @@ if (_control == 1) then {
 	};
 
 	if (_group == 7) then {
-
+		// DEMO TEAM - to be done
 		if (_camo == 1) then {
 			for "_i" from 1 to 4 do { 
 			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
@@ -200,17 +209,18 @@ if (_control == 1) then {
 	};
 
 	if (_group == 8) then {
-
+		// MEDIC TEAM
 		if (_camo == 1) then {
 			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			"B_W_MEDIC_F" createUnit [position player, group player]; 
 			sleep 0.2;
 			};
 		};
 
 		if (_camo == 2) then {
+			// to be done
 			for "_i" from 1 to 4 do { 
-			"B_W_Soldier_CBRN_F" createUnit [position player, group player]; 
+			"B_W_MEDIC_F" createUnit [position player, group player]; 
 			sleep 0.2;
 			};
 		};		
