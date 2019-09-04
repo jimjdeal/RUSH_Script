@@ -17,6 +17,8 @@ I will try to manage the repeated code blocks using functions, starting with cam
 if this works, I will also apply to the choice of 6 classes at the beginning of the flow, as this is repeated, and so should be addressed.
 6 camo UI blocks under the IFV thread have been replaced with functions.
 Test: does IFV camo appear and work as before? If yes, successful.
+04 sept:
+Camo UI function seems to work, so i will try to apply to more elements here 
 
 
 States:
@@ -59,6 +61,11 @@ marshall selection
 gorgon Selection  
 */
 
+
+// --------------------------------------------------------------------------------------------------
+// UI functions 
+// --------------------------------------------------------------------------------------------------
+
 VAVS_showCamo = {
 	// section header 
 	20 cutRsc ["D_L2_1","PLAIN"];
@@ -84,8 +91,352 @@ VAVS_showCamo = {
 	_setText ctrlSetTextColor [0, 1, 0, 1];
 };
 
+VAVS_show_Vic_Classes = {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["IFV"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["MRAP"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["LSV"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20050;
+	_setText ctrlSetStructuredText (parseText format ["MBT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 3
+	70 cutRsc ["D_L5_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+	_display = uiNameSpace getVariable "D_L5_1";
+	_setText = _display displayCtrl 20060;
+	_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	80 cutRsc ["D_L5_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+	_display = uiNameSpace getVariable "D_L5_2";
+	_setText = _display displayCtrl 20070;
+	_setText ctrlSetStructuredText (parseText format ["Other"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+};
+
+VAVS_show_IFV_Classes = {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["IFV VARIANT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["PANTHER"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["CHEETAH"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["BOBCAT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20050;
+	_setText ctrlSetStructuredText (parseText format ["MARSHALL"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 3
+	70 cutRsc ["D_L5_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+	_display = uiNameSpace getVariable "D_L5_1";
+	_setText = _display displayCtrl 20060;
+	_setText ctrlSetStructuredText (parseText format ["GORGON"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+};
+
+VAVS_Show_MRAP_Classes = {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["MRAP VARIANT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["HUNTER"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["HUNTER GMG"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["HUNTER HMG"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+};
+
+VAVS_Show_IFV_Classes = {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["LSV VARIANT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["PROWLER"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["PROWLER HMG"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["PROWLER AT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["PROWLER LIGHT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+};
+
+VAVS_Show_MBT_Classes {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["MBT VARIANT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["SLAMMER"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["SLAMMER UP"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["SCORCHER"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20050;
+	_setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+};
+
+VAVS_Show_HEMTT_Type = {
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["HEMTT VARIANT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["BASIC TRANSPORT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["BOX TRANSPORT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["COVERED TRANSPORT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20050;
+	_setText ctrlSetStructuredText (parseText format ["OPEN TRANSPORT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+	// line 3
+	70 cutRsc ["D_L5_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+	_display = uiNameSpace getVariable "D_L5_1";
+	_setText = _display displayCtrl 20060;
+	_setText ctrlSetStructuredText (parseText format ["REPAIR TRUCK"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+	80 cutRsc ["D_L5_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+	_display = uiNameSpace getVariable "D_L5_2";
+	_setText = _display displayCtrl 20070;
+	_setText ctrlSetStructuredText (parseText format ["AMMO TRUCK"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+	// line 4
+	90 cutRsc ["D_L6_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
+	_display = uiNameSpace getVariable "D_L6_1";
+	_setText = _display displayCtrl 20080;
+	_setText ctrlSetStructuredText (parseText format ["FUEL TRUCK"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];		
+
+	100 cutRsc ["D_L6_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
+	_display = uiNameSpace getVariable "D_L6_2";
+	_setText = _display displayCtrl 20090;
+	_setText ctrlSetStructuredText (parseText format ["MEDICAL TRUCK"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+};
+
+VAVS_Show_Other_Type = {
+
+	// section header
+	20 cutRsc ["D_L2_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+	_display = uiNameSpace getVariable "D_L2_1";
+	_setText = _display displayCtrl 20010;
+	_setText ctrlSetStructuredText (parseText format ["OTHER VARIANTS"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 1
+	30 cutRsc ["D_L3_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+	_display = uiNameSpace getVariable "D_L3_1";
+	_setText = _display displayCtrl 20020;
+	_setText ctrlSetStructuredText (parseText format ["QUAD BIKE"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	40 cutRsc ["D_L3_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+	_display = uiNameSpace getVariable "D_L3_2";
+	_setText = _display displayCtrl 20030;
+	_setText ctrlSetStructuredText (parseText format ["OFFROAD HMG"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	// line 2
+	50 cutRsc ["D_L4_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+	_display = uiNameSpace getVariable "D_L4_1";
+	_setText = _display displayCtrl 20040;
+	_setText ctrlSetStructuredText (parseText format ["OFFROAD AT"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];
+
+	60 cutRsc ["D_L4_2","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+	_display = uiNameSpace getVariable "D_L4_2";
+	_setText = _display displayCtrl 20050;
+	_setText ctrlSetStructuredText (parseText format ["OFFROAD REPAIR"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+
+	// line 3
+	70 cutRsc ["D_L5_1","PLAIN"];
+	waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+	_display = uiNameSpace getVariable "D_L5_1";
+	_setText = _display displayCtrl 20060;
+	_setText ctrlSetStructuredText (parseText format ["OFFROAD"]);
+	_setText ctrlSetTextColor [0, 1, 0, 1];	
+};
+
+// --------------------------------------------------------------------------------------------------
+// end of functions 
+// --------------------------------------------------------------------------------------------------
 
 
+// --------------------------------------------------------------------------------------------------
+// questions flow
+// --------------------------------------------------------------------------------------------------
+
+
+// initial question...
 // question A
 30 cutRsc ["D_L3_1","PLAIN"];
 waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
@@ -139,65 +490,71 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep .5;
+				sleep .2;
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				[] call VAVS_show_Vic_Classes;
 
-
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["IFV"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["MRAP"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["LSV"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["MBT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 3
-				70 cutRsc ["D_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
-				_display = uiNameSpace getVariable "D_L5_1";
-				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				80 cutRsc ["D_L5_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
-				_display = uiNameSpace getVariable "D_L5_2";
-				_setText = _display displayCtrl 20070;
-				_setText ctrlSetStructuredText (parseText format ["Other"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress
 				VAVS_vicTypeBool = false;
 				VAVS_carTypeBool = true;
+
+				// moved to function, delete this block if works
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["IFV"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["MRAP"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["LSV"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["MBT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 3
+				// 70 cutRsc ["D_L5_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				// _display = uiNameSpace getVariable "D_L5_1";
+				// _setText = _display displayCtrl 20060;
+				// _setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 80 cutRsc ["D_L5_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				// _display = uiNameSpace getVariable "D_L5_2";
+				// _setText = _display displayCtrl 20070;
+				// _setText ctrlSetStructuredText (parseText format ["Other"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress
+				// VAVS_vicTypeBool = false;
+				// VAVS_carTypeBool = true;
 			};
 
 			if (_content == 2) then {
@@ -212,69 +569,74 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep .5;
+				sleep .2;
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				[] call VAVS_show_Vic_Classes;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["IFV"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["MRAP"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["LSV"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["MBT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 3
-				70 cutRsc ["D_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
-				_display = uiNameSpace getVariable "D_L5_1";
-				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["HEMTT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				80 cutRsc ["D_L5_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
-				_display = uiNameSpace getVariable "D_L5_2";
-				_setText = _display displayCtrl 20070;
-				_setText ctrlSetStructuredText (parseText format ["Other"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress
 				VAVS_vicTypeBool = false;
 				VAVS_carTypeBool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["VEHICLE TYPE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["IFV"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["MRAP"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["LSV"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["MBT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 3
+				// 70 cutRsc ["D_L5_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				// _display = uiNameSpace getVariable "D_L5_1";
+				// _setText = _display displayCtrl 20060;
+				// _setText ctrlSetStructuredText (parseText format ["HEMTT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 80 cutRsc ["D_L5_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				// _display = uiNameSpace getVariable "D_L5_2";
+				// _setText = _display displayCtrl 20070;
+				// _setText ctrlSetStructuredText (parseText format ["Other"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress
+				// VAVS_vicTypeBool = false;
+				// VAVS_carTypeBool = true;
 			};
 		};
 	};
 
-	// VAVS_carType 1 = IFV, 2 = MRAP, 3 = LSV, 4 = MTB, 5 = HEMTT, 6 = Other, 	7 = RHS, 8 = Custom ----------------------------------------------------------------------------
+	// VAVS_carType 1 = IFV, 2 = MRAP, 3 = LSV, 4 = MTB, 5 = HEMTT, 6 = Other, 	7 = RHS, 8 = Custom ----------------------------------------------
 	if (VAVS_carTypeBool) then {
 
 		if (val_VAVS_carType == 1) then {
@@ -294,63 +656,68 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["IFV VARIANT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				[] call VAVS_show_IFV_Classes;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["PANTHER"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["CHEETAH"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["BOBCAT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["MARSHALL"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 3
-				70 cutRsc ["D_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
-				_display = uiNameSpace getVariable "D_L5_1";
-				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["GORGON"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress
 				VAVS_carTypeBool = false;
 				VAVS_IFV_TypeBool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["IFV VARIANT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["PANTHER"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["CHEETAH"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["BOBCAT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["MARSHALL"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 3
+				// 70 cutRsc ["D_L5_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				// _display = uiNameSpace getVariable "D_L5_1";
+				// _setText = _display displayCtrl 20060;
+				// _setText ctrlSetStructuredText (parseText format ["GORGON"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress
+				// VAVS_carTypeBool = false;
+				// VAVS_IFV_TypeBool = true;
 			};
 
 			if (_content == 2) then {
@@ -366,48 +733,52 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["MRAP VARIANT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				[] call VAVS_Show_MRAP_Classes;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["HUNTER"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["HUNTER GMG"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["HUNTER HMG"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress 
 				VAVS_carTypeBool = false;
 				VAVS_MRAP_Type_Bool = true;
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["MRAP VARIANT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["HUNTER"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["HUNTER GMG"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["HUNTER HMG"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress 
+				// VAVS_carTypeBool = false;
+				// VAVS_MRAP_Type_Bool = true;
 			};
 
 			if (_content == 3) then {
@@ -423,55 +794,60 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["LSV VARIANT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				call VAVS_Show_IFV_Classes;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["PROWLER"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["PROWLER HMG"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["PROWLER AT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["PROWLER LIGHT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress
 				VAVS_carTypeBool = false;
 				VAVS_LSV_Type_Bool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["LSV VARIANT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["PROWLER"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["PROWLER HMG"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["PROWLER AT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["PROWLER LIGHT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress
+				// VAVS_carTypeBool = false;
+				// VAVS_LSV_Type_Bool = true;
 			};
 
 			if (_content == 4) then {
@@ -487,55 +863,60 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["MBT VARIANT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				[] call VAVS_Show_MBT_Classes;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["SLAMMER"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["SLAMMER UP"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["SCORCHER"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// state progress 
 				VAVS_carTypeBool = false;
 				VAVS_MBT_Type_Bool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["MBT VARIANT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["SLAMMER"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["SLAMMER UP"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["SCORCHER"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // state progress 
+				// VAVS_carTypeBool = false;
+				// VAVS_MBT_Type_Bool = true;
 			};
 
 			if (_content == 5) then {
@@ -551,84 +932,90 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 				
-				sleep 0.5;
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["HEMTT VARIANT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
+				call VAVS_Show_HEMTT_Type;
 
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["BASIC TRANSPORT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["BOX TRANSPORT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["COVERED TRANSPORT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["OPEN TRANSPORT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];	
-
-				// line 3
-				70 cutRsc ["D_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
-				_display = uiNameSpace getVariable "D_L5_1";
-				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["REPAIR TRUCK"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];	
-
-				80 cutRsc ["D_L5_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
-				_display = uiNameSpace getVariable "D_L5_2";
-				_setText = _display displayCtrl 20070;
-				_setText ctrlSetStructuredText (parseText format ["AMMO TRUCK"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];	
-
-				// line 4
-				90 cutRsc ["D_L6_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
-				_display = uiNameSpace getVariable "D_L6_1";
-				_setText = _display displayCtrl 20080;
-				_setText ctrlSetStructuredText (parseText format ["FUEL TRUCK"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];		
-
-				100 cutRsc ["D_L6_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
-				_display = uiNameSpace getVariable "D_L6_2";
-				_setText = _display displayCtrl 20090;
-				_setText ctrlSetStructuredText (parseText format ["MEDICAL TRUCK"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];			
-				
-				// state progress 
 				VAVS_carTypeBool = false;
 				VAVS_HEMTT_Type_Bool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["HEMTT VARIANT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["BASIC TRANSPORT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["BOX TRANSPORT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["COVERED TRANSPORT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["OPEN TRANSPORT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];	
+
+				// // line 3
+				// 70 cutRsc ["D_L5_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				// _display = uiNameSpace getVariable "D_L5_1";
+				// _setText = _display displayCtrl 20060;
+				// _setText ctrlSetStructuredText (parseText format ["REPAIR TRUCK"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];	
+
+				// 80 cutRsc ["D_L5_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				// _display = uiNameSpace getVariable "D_L5_2";
+				// _setText = _display displayCtrl 20070;
+				// _setText ctrlSetStructuredText (parseText format ["AMMO TRUCK"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];	
+
+				// // line 4
+				// 90 cutRsc ["D_L6_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
+				// _display = uiNameSpace getVariable "D_L6_1";
+				// _setText = _display displayCtrl 20080;
+				// _setText ctrlSetStructuredText (parseText format ["FUEL TRUCK"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];		
+
+				// 100 cutRsc ["D_L6_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
+				// _display = uiNameSpace getVariable "D_L6_2";
+				// _setText = _display displayCtrl 20090;
+				// _setText ctrlSetStructuredText (parseText format ["MEDICAL TRUCK"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];			
+				
+				// // state progress 
+				// VAVS_carTypeBool = false;
+				// VAVS_HEMTT_Type_Bool = true;
 			};
 
 			if (_content == 6) then {
@@ -644,64 +1031,67 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
-				80 cutRsc ["default","PLAIN"];
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
 
-				// section header
-				20 cutRsc ["D_L2_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
-				_display = uiNameSpace getVariable "D_L2_1";
-				_setText = _display displayCtrl 20010;
-				_setText ctrlSetStructuredText (parseText format ["OTHER VARIANTS"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 1
-				30 cutRsc ["D_L3_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
-				_display = uiNameSpace getVariable "D_L3_1";
-				_setText = _display displayCtrl 20020;
-				_setText ctrlSetStructuredText (parseText format ["QUAD BIKE"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				40 cutRsc ["D_L3_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
-				_display = uiNameSpace getVariable "D_L3_2";
-				_setText = _display displayCtrl 20030;
-				_setText ctrlSetStructuredText (parseText format ["OFFROAD HMG"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				// line 2
-				50 cutRsc ["D_L4_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
-				_display = uiNameSpace getVariable "D_L4_1";
-				_setText = _display displayCtrl 20040;
-				_setText ctrlSetStructuredText (parseText format ["OFFROAD AT"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];
-
-				60 cutRsc ["D_L4_2","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
-				_display = uiNameSpace getVariable "D_L4_2";
-				_setText = _display displayCtrl 20050;
-				_setText ctrlSetStructuredText (parseText format ["OFFROAD REPAIR"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];	
-
-				// line 3
-				70 cutRsc ["D_L5_1","PLAIN"];
-				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
-				_display = uiNameSpace getVariable "D_L5_1";
-				_setText = _display displayCtrl 20060;
-				_setText ctrlSetStructuredText (parseText format ["OFFROAD"]);
-				_setText ctrlSetTextColor [0, 1, 0, 1];	
-				
 				// state progress
 				VAVS_carTypeBool = false;
 				VAVS_Other_Type_Bool = true;
+
+				// // section header
+				// 20 cutRsc ["D_L2_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
+				// _display = uiNameSpace getVariable "D_L2_1";
+				// _setText = _display displayCtrl 20010;
+				// _setText ctrlSetStructuredText (parseText format ["OTHER VARIANTS"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 1
+				// 30 cutRsc ["D_L3_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				// _display = uiNameSpace getVariable "D_L3_1";
+				// _setText = _display displayCtrl 20020;
+				// _setText ctrlSetStructuredText (parseText format ["QUAD BIKE"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 40 cutRsc ["D_L3_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				// _display = uiNameSpace getVariable "D_L3_2";
+				// _setText = _display displayCtrl 20030;
+				// _setText ctrlSetStructuredText (parseText format ["OFFROAD HMG"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// // line 2
+				// 50 cutRsc ["D_L4_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				// _display = uiNameSpace getVariable "D_L4_1";
+				// _setText = _display displayCtrl 20040;
+				// _setText ctrlSetStructuredText (parseText format ["OFFROAD AT"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];
+
+				// 60 cutRsc ["D_L4_2","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				// _display = uiNameSpace getVariable "D_L4_2";
+				// _setText = _display displayCtrl 20050;
+				// _setText ctrlSetStructuredText (parseText format ["OFFROAD REPAIR"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];	
+
+				// // line 3
+				// 70 cutRsc ["D_L5_1","PLAIN"];
+				// waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				// _display = uiNameSpace getVariable "D_L5_1";
+				// _setText = _display displayCtrl 20060;
+				// _setText ctrlSetStructuredText (parseText format ["OFFROAD"]);
+				// _setText ctrlSetTextColor [0, 1, 0, 1];	
+				
+				// // state progress
+				// VAVS_carTypeBool = false;
+				// VAVS_Other_Type_Bool = true;
 			};
 			// if (_content == 7) then {
 			// 	systemChat "you selected RHS";
@@ -745,8 +1135,8 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
@@ -792,13 +1182,12 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
-				80 cutRsc ["default","PLAIN"];
 
 				// show camo choice 
 				[] call VAVS_showCamo;
@@ -839,14 +1228,12 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
-				80 cutRsc ["default","PLAIN"];
 
 				// show camo choice 
 				[] call VAVS_showCamo;
@@ -887,14 +1274,12 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
-				80 cutRsc ["default","PLAIN"];
 
 				// show camo choice 
 				[] call VAVS_showCamo;
@@ -935,17 +1320,19 @@ while {VAVS_numericalInputbool} do {
 				_setText ctrlSetBackgroundColor [0,1,0,1];
 				_setText ctrlSetTextColor [0, 0, 0, 1];
 
-				sleep 0.5;
-
+				sleep 0.2;
 				30 cutRsc ["default","PLAIN"];
 				40 cutRsc ["default","PLAIN"];
 				50 cutRsc ["default","PLAIN"];
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
-				80 cutRsc ["default","PLAIN"];
 
 				// show camo choice 
 				[] call VAVS_showCamo;
+
+				// state progression
+				VAVS_IFV_TypeBool = false;
+				VAVS_Basic_Camo_Bool = true;
 
 				// // section header 
 				// 20 cutRsc ["D_L2_1","PLAIN"];
@@ -973,9 +1360,9 @@ while {VAVS_numericalInputbool} do {
 
 			// systemChat "Select:	1 = Altis, 2 = Tanoa";
 
-			// state progression
-			VAVS_IFV_TypeBool = false;
-			VAVS_Basic_Camo_Bool = true;
+			// // state progression
+			// VAVS_IFV_TypeBool = false;
+			// VAVS_Basic_Camo_Bool = true;
 		};
 	};
 
@@ -989,20 +1376,63 @@ while {VAVS_numericalInputbool} do {
 			if (_content == 1) then {
 				systemChat "you selected Hunter";
 
+				// highlight selection briefly
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 2) then {
 				systemChat "you selected Hunter GMG";
 
+				// highlight selection briefly
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER GMG"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 1, 0, 1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 			if (_content == 3) then {
 				systemChat "you selected Hunter HMG";
 
+				// highlight selection briefly
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["HUNTER HMG"]);
+				_setText ctrlSetBackgroundColor [0,1,0,1];
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
 
-
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 
 			systemChat "Select: 1 = Altis, 2 = Tanoa";
@@ -1054,29 +1484,91 @@ while {VAVS_numericalInputbool} do {
 
 			_content = VAVS_MBT_Type select 0;
 
-
 			if (_content == 1) then {
 				systemChat "you selected Slammer";
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["SLAMMER"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
 
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 2) then {
 				systemChat "you selected Slammer UP";
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["SLAMMER UP"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 			if (_content == 3) then {
 				systemChat "you selected Scorcher";
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["SCORCHER"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 			if (_content == 4) then {
 				systemChat "you selected Sandstorm";
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["SANDSTORM"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 
-			systemChat "Select:	1 = Altis, 2 = Tanoa";
+			// systemChat "Select:	1 = Altis, 2 = Tanoa";
 
 			VAVS_MBT_Type_Bool = false;
 			VAVS_Basic_Camo_Bool = true;
@@ -1086,52 +1578,201 @@ while {VAVS_numericalInputbool} do {
 	// VAVS_HEMTT_Type 1 = Basic, 2 = Box Transport, 3 = Trans Covered, 4 = Trans Open, 5 = Repair, 6 = Ammo, 7 = Fuel, 8 = Medical ---------------------------------
 	if (VAVS_HEMTT_Type_Bool) then {
 
+		// 04 sept note - try adding the default plain just once st the end!
+
 		if (val_VAVS_HEMTT_Type == 1) then {
 
 			_content = VAVS_HEMTT_Type select 0;
 
 			if (_content == 1) then {
 				systemChat "you selected Basic";
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["BASIC TRANSPORT"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
 
+				// show camo choice 
+				[] call VAVS_showCamo;
+				// 04 sept lunch - do i need progression bools in each block or just one at the end?
 			};
 			if (_content == 2) then {
 				systemChat "you selected Box Transport";
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["BOX TRANSPORT"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
 
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 3) then {
 				systemChat "you selected Transort (Covered)";
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["COVERED TRANSPORT"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
 
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 4) then {
 				systemChat "you selected Transport (Open)";
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["OPEN TRANSPORT"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
 
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 5) then {
 				systemChat "you selected Repair";
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["REPAIR TRUCK"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 			if (_content == 6) then {
 				systemChat "you selected Ammo";
+				80 cutRsc ["D_L5_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_2")};
+				_display = uiNameSpace getVariable "D_L5_2";
+				_setText = _display displayCtrl 20070;
+				_setText ctrlSetStructuredText (parseText format ["AMMO TRUCK"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 
 			};
 			if (_content == 7) then {
 				systemChat "you selected Fuel";
+				90 cutRsc ["D_L6_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L6_1")};
+				_display = uiNameSpace getVariable "D_L6_1";
+				_setText = _display displayCtrl 20080;
+				_setText ctrlSetStructuredText (parseText format ["FUEL TRUCK"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];		
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
 
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 			if (_content == 8) then {
 				systemChat "you selected Medical";
+				100 cutRsc ["D_L6_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L6_2")};
+				_display = uiNameSpace getVariable "D_L6_2";
+				_setText = _display displayCtrl 20090;
+				_setText ctrlSetStructuredText (parseText format ["MEDICAL TRUCK"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
-				
+				sleep 0.2;
+				30 cutRsc ["default","PLAIN"];
+				40 cutRsc ["default","PLAIN"];
+				50 cutRsc ["default","PLAIN"];
+				60 cutRsc ["default","PLAIN"];
+				70 cutRsc ["default","PLAIN"];
+				80 cutRsc ["default","PLAIN"];
+				90 cutRsc ["default","PLAIN"];
+				100 cutRsc ["default","PLAIN"];
+
+				// show camo choice 
+				[] call VAVS_showCamo;
 			};
 
-			systemChat "Select:	1 = Altis, 2 = Tanoa";
+			// systemChat "Select:	1 = Altis, 2 = Tanoa";
 
 			VAVS_HEMTT_Type_Bool = false;
 			VAVS_Basic_Camo_Bool = true;
@@ -1147,32 +1788,73 @@ while {VAVS_numericalInputbool} do {
 
 			if (_content == 1) then {
 				systemChat "you selected Quad Bike";
-
+				30 cutRsc ["D_L3_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
+				_display = uiNameSpace getVariable "D_L3_1";
+				_setText = _display displayCtrl 20020;
+				_setText ctrlSetStructuredText (parseText format ["QUAD BIKE"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
 			};
 			if (_content == 2) then {
 				systemChat "you selected Offroad HMG";
-
+				40 cutRsc ["D_L3_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
+				_display = uiNameSpace getVariable "D_L3_2";
+				_setText = _display displayCtrl 20030;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD HMG"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
 			};
 			if (_content == 3) then {
 				systemChat "you selected Offroad AT";
-
+				50 cutRsc ["D_L4_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_1")};
+				_display = uiNameSpace getVariable "D_L4_1";
+				_setText = _display displayCtrl 20040;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD AT"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
 			};
 			if (_content == 4) then {
 				systemChat "you selected Offroad Repair";
+				60 cutRsc ["D_L4_2","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L4_2")};
+				_display = uiNameSpace getVariable "D_L4_2";
+				_setText = _display displayCtrl 20050;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD REPAIR"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
 
 			};
 			if (_content == 5) then {
 				systemChat "you selected Offroad";
-
+				70 cutRsc ["D_L5_1","PLAIN"];
+				waitUntil {!isNull (uiNameSpace getVariable "D_L5_1")};
+				_display = uiNameSpace getVariable "D_L5_1";
+				_setText = _display displayCtrl 20060;
+				_setText ctrlSetStructuredText (parseText format ["OFFROAD"]);
+				_setText ctrlSetTextColor [0, 1, 0, 1];	
+				_setText ctrlSetBackgroundColor [0,1,0,1];
 
 			};
 
-			systemChat "Select:	1 = Altis, 2 = Tanoa";
+			sleep 0.2;
+			30 cutRsc ["default","PLAIN"];
+			40 cutRsc ["default","PLAIN"];
+			50 cutRsc ["default","PLAIN"];
+			60 cutRsc ["default","PLAIN"];
+			70 cutRsc ["default","PLAIN"];
 
+			// show camo choice 
+			[] call VAVS_showCamo;
+
+			systemChat "Select:	1 = Altis, 2 = Tanoa";
+			// note - here, testing both single bool progression and single default plain
 			VAVS_Other_Type_Bool = false;
 			VAVS_Basic_Camo_Bool = true;
 

@@ -228,7 +228,6 @@ Then you have an array of units, that can be grouped/ungrouped automatically as 
 
 what are options for auto-building searches?
 
-
 // key = "numpad 1 = 79"
 RGG_VAUS_Activate
 
@@ -253,4 +252,11 @@ vavs 6
 vaos 7
 vamg 8
 
+04 sept note:
+i need to be able to turn off ui for each pack
+i may want some ui for, say, hc, but not for vavs or vaus
+without ui, say, vaus would be much slicker
+also consider creation of a spawn base vic, where vaus only works when near
 
+another consideration ... if i say 5 in a mission, it may trigger unwanted bahavoiur
+so change inital activators to include a modifier, as security
