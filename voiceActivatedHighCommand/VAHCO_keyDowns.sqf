@@ -20,7 +20,6 @@ if (VAHCO_numericalInputbool) then {
 	// 	VACF_numericalInputbool = false;
 	// 	systemChat 'in-flight / vacf abort clearDowns done .. check can re-open';
 	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
-
 	// }"];
 
 /*

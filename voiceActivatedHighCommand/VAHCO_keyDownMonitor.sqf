@@ -25,7 +25,6 @@ Added new section for order type 2 = objectives - now both lead to oscarMike.sqf
 while {VAHCO_numericalInputbool} do {
 
 	// counts / validates the correct numbers are held in each array
-
 	VAHCO_Validate_Group 	= count VAHCO_groupSelect; 	// should contain 1 value
 	VAHCO_Validate_Orders 	= count VAHCO_orderSelect; 	// should contain 1 value
 	VAHCO_Validate_Obj		= count VAHCO_objectiveType; // should contain 1 value 
@@ -92,7 +91,7 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
-	// confirm type of order to issue (currently only one type - move)
+	// confirm type of order to issue (currently only two types - move and obj)
 	if (VAHCO_orderSelectBool) then {
 
 		if (VAHCO_Validate_Orders == 1) then { 
@@ -101,7 +100,7 @@ while {VAHCO_numericalInputbool} do {
 
 			// general movement orders 
 			if (_orderType == 1) then {
-
+				systemChat "debug ---- 04 Sept ---- _orderType == 1";
 				1 cutRsc ["C_L1_1","PLAIN"];
 				waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
 				_n1 = "Distance";
@@ -117,13 +116,15 @@ while {VAHCO_numericalInputbool} do {
 
 			// objective-based orders
 			if (_orderType == 2) then {
+				systemChat "debug ---- 04 Sept ---- _orderType == 2";
 				// 02 sept 
 				// objective-based orders go here
 				// check whether primary secondry or stagiing objs exist first 
 				systemChat "You have selected ojective orders";
-				systemChat "1 = secure obj1, 2 = approach obj1";
-				systemChat "3 = secure obj2, 4 = approach obj2";
-				systemChat "5 = move to staging area 1, 6 = move to staging area 2";
+				systemChat "1 = secure obj1					2 = approach obj1";
+				systemChat "3 = secure obj2 				4 = approach obj2";
+				systemChat "5 = move to staging area 1		6 = move to staging area 2";
+				
 				VAHCO_orderSelectBool = false;
 				VAHCO_objectiveTypeBool = true;
 				/*
@@ -197,6 +198,8 @@ while {VAHCO_numericalInputbool} do {
 
 	// order type 2 - objective management 
 	if (VAHCO_objectiveTypeBool) then {
+		systemChat "now running VAHCO_objectiveTypeBool";
+		sleep 2;
 
 		if (VAHCO_Validate_Obj == 1) then {
 

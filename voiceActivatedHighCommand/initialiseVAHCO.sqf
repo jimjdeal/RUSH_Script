@@ -54,6 +54,5 @@ rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!
 	VAHCO_groupSelectBool = true;
 	execVM 'voiceactivatedhighcommand\VAHCO_keyDowns.sqf'; 
 	execVM 'voiceactivatedhighcommand\VAHCO_keyDownMonitor.sqf'; 
-
 }"];
 
