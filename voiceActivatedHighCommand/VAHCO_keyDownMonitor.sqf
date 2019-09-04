@@ -125,6 +125,10 @@ while {VAHCO_numericalInputbool} do {
 				systemChat "3 = secure obj2 				4 = approach obj2";
 				systemChat "5 = move to staging area 1		6 = move to staging area 2";
 				
+				// _orderType = VAHCO_objectiveType select 0;
+
+				// if (_orderType == 1)
+
 				VAHCO_orderSelectBool = false;
 				VAHCO_objectiveTypeBool = true;
 				/*
@@ -199,6 +203,7 @@ while {VAHCO_numericalInputbool} do {
 	// order type 2 - objective management 
 	if (VAHCO_objectiveTypeBool) then {
 		systemChat "now running VAHCO_objectiveTypeBool";
+
 		sleep 2;
 
 		if (VAHCO_Validate_Obj == 1) then {
@@ -229,10 +234,12 @@ while {VAHCO_numericalInputbool} do {
 				systemChat "you selected Move to Staging 2";
 				// UI
 			};
-		};
-
 		VAHCO_objectiveTypeBool = false;
 		VAHCO_OscarMikeBool = true;
+
+		};
+
+
 	};
 
 // -----------------------------------------------------------------------------------------------------

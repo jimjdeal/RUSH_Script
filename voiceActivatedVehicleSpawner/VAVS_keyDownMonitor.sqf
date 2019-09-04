@@ -227,7 +227,7 @@ VAVS_Show_MRAP_Classes = {
 	_setText ctrlSetTextColor [0, 1, 0, 1];	
 };
 
-VAVS_Show_IFV_Classes = {
+VAVS_Show_LSV_Classes = {
 	// section header
 	20 cutRsc ["D_L2_1","PLAIN"];
 	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
@@ -267,7 +267,7 @@ VAVS_Show_IFV_Classes = {
 	_setText ctrlSetTextColor [0, 1, 0, 1];
 };
 
-VAVS_Show_MBT_Classes {
+VAVS_Show_MBT_Classes = {
 	// section header
 	20 cutRsc ["D_L2_1","PLAIN"];
 	waitUntil {!isNull (uiNameSpace getVariable "D_L2_1")};
@@ -437,7 +437,7 @@ VAVS_Show_Other_Type = {
 
 
 // initial question...
-// question A
+// option A
 30 cutRsc ["D_L3_1","PLAIN"];
 waitUntil {!isNull (uiNameSpace getVariable "D_L3_1")};
 _display = uiNameSpace getVariable "D_L3_1";
@@ -445,7 +445,7 @@ _setText = _display displayCtrl 20020;
 _setText ctrlSetStructuredText (parseText format ["DIRECT COMMAND"]);
 _setText ctrlSetTextColor [0, 1, 0, 1];
 
-// question B
+// option B
 40 cutRsc ["D_L3_2","PLAIN"];
 waitUntil {!isNull (uiNameSpace getVariable "D_L3_2")};
 _display = uiNameSpace getVariable "D_L3_2";
@@ -802,7 +802,7 @@ while {VAVS_numericalInputbool} do {
 				70 cutRsc ["default","PLAIN"];
 				80 cutRsc ["default","PLAIN"];
 
-				call VAVS_Show_IFV_Classes;
+				call VAVS_Show_LSV_Classes;
 
 				VAVS_carTypeBool = false;
 				VAVS_LSV_Type_Bool = true;
@@ -1330,9 +1330,9 @@ while {VAVS_numericalInputbool} do {
 				// show camo choice 
 				[] call VAVS_showCamo;
 
-				// state progression
-				VAVS_IFV_TypeBool = false;
-				VAVS_Basic_Camo_Bool = true;
+				// // state progression
+				// VAVS_IFV_TypeBool = false;
+				// VAVS_Basic_Camo_Bool = true;
 
 				// // section header 
 				// 20 cutRsc ["D_L2_1","PLAIN"];
@@ -1360,10 +1360,14 @@ while {VAVS_numericalInputbool} do {
 
 			// systemChat "Select:	1 = Altis, 2 = Tanoa";
 
-			// // state progression
-			// VAVS_IFV_TypeBool = false;
-			// VAVS_Basic_Camo_Bool = true;
+			// state progression
+			VAVS_IFV_TypeBool = false;
+			VAVS_Basic_Camo_Bool = true;
 		};
+
+		// state progression
+		// VAVS_IFV_TypeBool = false;
+		// VAVS_Basic_Camo_Bool = true;
 	};
 
 	// VAVS_MRAP_Type 1 = Hunter, 2 = Hunter GMG, 3 = Hunter HMG ----------------------------------------------------------------------------------------
