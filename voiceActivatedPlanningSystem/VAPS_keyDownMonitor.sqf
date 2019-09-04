@@ -58,11 +58,88 @@ while {VAPS_numericalInputbool} do {
 
 			// state progress
 			VAPS_Order_Type_Bool = false;
-			VAPS_Lat_Bool = true;
+			// VAPS_Lat_Bool = true;
+			VAPS_mapClick = true;
 			systemChat "Please Enter Latitude (4 digits)";
 
 		};
 	};
+
+// new 
+	if (VAPS_mapClick) then {
+		// systemChat "mapClick on";
+		_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, 3 = stage stage 1, 4 = stage 2 // TBD >> 5 = set waypoints. 6 = set battle plan 
+		if (_content == 1) then {
+				onMapSingleClick {
+					deleteMarker "primaryObj";
+					_marker1 = createMarker ["primaryObj", _pos];
+					_marker1 setMarkerShapeLocal "ELLIPSE";
+					_marker1 setMarkerColorLocal "ColorRed";
+					_marker1 setMarkerSizeLocal [100, 100];
+					_marker1 setMarkerAlphaLocal 0.9;
+
+					VAPS_mapClick = false;
+					VAPS_numericalInputbool = false;
+					execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
+					execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";
+				};
+			};
+
+			if (_content == 2) then {
+				onMapSingleClick {
+					deleteMarker "secondaryObj";
+					_marker1 = createMarker ["secondaryObj", _pos];
+					_marker1 setMarkerShapeLocal "ELLIPSE";
+					_marker1 setMarkerColorLocal "ColorRed";
+					_marker1 setMarkerSizeLocal [70, 70];
+					_marker1 setMarkerAlphaLocal 0.9;
+
+					VAPS_mapClick = false;
+					VAPS_numericalInputbool = false;
+					execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
+					execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";
+				};
+			};
+			if (_content == 3) then {
+				onMapSingleClick {
+					deleteMarker "primaryStage";
+					_marker1 = createMarker ["primaryStage", _pos];
+					_marker1 setMarkerShapeLocal "ELLIPSE";
+					_marker1 setMarkerColorLocal "ColorBlue";
+					_marker1 setMarkerSizeLocal [50, 50];
+					_marker1 setMarkerAlphaLocal 0.9;
+
+					VAPS_mapClick = false;
+					VAPS_numericalInputbool = false;
+					execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
+					execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";
+				};
+			};
+
+			if (_content == 4) then {
+				onMapSingleClick {
+					deleteMarker "secondaryStage";
+					_marker1 = createMarker ["secondaryStage", _pos];
+					_marker1 setMarkerShapeLocal "ELLIPSE";
+					_marker1 setMarkerColorLocal "ColorGreen";
+					_marker1 setMarkerSizeLocal [50, 50];
+					_marker1 setMarkerAlphaLocal 0.9;
+					VAPS_mapClick = false;
+					VAPS_numericalInputbool = false;
+					execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
+					execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";
+				};
+			};
+
+
+
+	};
+
+// new
+
+
+
+
 
 	if (VAPS_Lat_Bool) then {
 	

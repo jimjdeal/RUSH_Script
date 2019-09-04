@@ -25,6 +25,8 @@ VAPS_Order_Type_Bool		= false;
 // VAPS_Obj_Type				= [];		// manages both primary and secondary objectives  
 // VAPS_Obj_Type_Bool			= false;
 
+VAPS_mapClick				= false;	// exp mapclick solution
+
 VAPS_Lat					= [];		// generic location system
 VAPS_Lat_Bool				= false;
 
