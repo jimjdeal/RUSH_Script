@@ -252,7 +252,7 @@ if (_control == 2) then {
 		};
 
 		if (_group == 1) then {
-
+			// FIRE TEAM
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
@@ -270,13 +270,13 @@ if (_control == 2) then {
 		};
 
 		if (_group == 2) then {
-
+			// FULL PLATOON (x23)
 			if (_camo == 1) then {
 				for "_i" from 1 to 1 do { 
 					"B_W_Soldier_TL_F" createUnit [position player, hc_grp]; 
 					sleep 0.2;
 				};
-				for "_i" from 1 to 8 do { 
+				for "_i" from 1 to 4 do { 
 					"B_W_Soldier_F" createUnit [position player, hc_grp]; 
 					sleep 0.2;
 				};
@@ -306,6 +306,7 @@ if (_control == 2) then {
 				};
 			};
 			if (_camo == 2) then {
+				// to be done
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
@@ -316,7 +317,7 @@ if (_control == 2) then {
 		};
 
 		if (_group == 3) then {
-
+			// SNIPER TEAM - to be done
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
@@ -334,16 +335,17 @@ if (_control == 2) then {
 		};
 
 		if (_group == 4) then {
-
+			// AT TEAM
 			if (_camo == 1) then {
-				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				for "_i" from 1 to 3 do { 
+				"B_W_Soldier_AT_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
 			if (_camo == 2) then {
-				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				// to be done
+				for "_i" from 1 to 3 do { 
+				"B_W_Soldier_AT_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
@@ -352,16 +354,17 @@ if (_control == 2) then {
 		};
 
 		if (_group == 5) then {
-		
+		// AA TEAM
 			if (_camo == 1) then {
-				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				for "_i" from 1 to 3 do { 
+				"B_W_Soldier_AA_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
 			if (_camo == 2) then {
-				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				// to be done
+				for "_i" from 1 to 3 do { 
+				"B_W_Soldier_AA_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};		
@@ -370,7 +373,7 @@ if (_control == 2) then {
 		};
 
 		if (_group == 6) then {
-		
+		// ENG TEAM - to be done
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
@@ -388,7 +391,7 @@ if (_control == 2) then {
 		};
 
 		if (_group == 7) then {
-			
+			// DMEO TEAM - to be done
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
 				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
@@ -406,16 +409,17 @@ if (_control == 2) then {
 		};
 
 		if (_group == 8) then {
-
+			// MEDIC TEAM
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				"B_W_MEDIC_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};
 			if (_camo == 2) then {
+				// to be done
 				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				"B_W_MEDIC_F" createUnit [position player, hc_grp]; 
 				sleep 0.2;
 				};
 			};	
@@ -430,7 +434,7 @@ if (_control == 2) then {
 
 		// i.e. there are 6 or more HC groups - so replace this with exitWith?
 		if (VAUS_activeGroups == 5) then {
-			hint "no more allowed - 5 max!!";
+			hint "sorry no more allowed - 5 max!!";
 
 		};
 	};
