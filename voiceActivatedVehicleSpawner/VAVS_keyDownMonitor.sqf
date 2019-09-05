@@ -595,7 +595,7 @@ while {VAVS_numericalInputbool} do {
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 			};
-			if (_content == 1) then {
+			if (_content == 2) then {
 				systemChat "you selected HC Group 1 - Bravo 1";
 
 				40 cutRsc ["D_L3_2","PLAIN"];
@@ -613,7 +613,7 @@ while {VAVS_numericalInputbool} do {
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 			};
-			if (_content == 1) then {
+			if (_content == 3) then {
 				systemChat "you selected HC Group 1 - Bravo 1";
 
 				50 cutRsc ["D_L4_1","PLAIN"];
@@ -631,7 +631,7 @@ while {VAVS_numericalInputbool} do {
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 			};
-			if (_content == 1) then {
+			if (_content == 4) then {
 				systemChat "you selected HC Group 1 - Bravo 1";
 
 				60 cutRsc ["D_L4_2","PLAIN"];
@@ -649,7 +649,7 @@ while {VAVS_numericalInputbool} do {
 				60 cutRsc ["default","PLAIN"];
 				70 cutRsc ["default","PLAIN"];
 			};
-			if (_content == 1) then {
+			if (_content == 5) then {
 				systemChat "you selected HC Group 1 - Bravo 1";
 
 				70 cutRsc ["D_L5_1","PLAIN"];
