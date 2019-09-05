@@ -1947,7 +1947,7 @@ CONFIRMATION TEXT
                 style               = 0x00;
                 lineSpacing         = 1;
 				x                   = 0.300 * safezoneW + safezoneX;
-				y                   = 0.615 * safezoneH + safezoneY;
+				y                   = 0.815 * safezoneH + safezoneY;
 				w                   = 0.400 * safezoneW;
 				h                   = 0.025 * safezoneH;
                 size                = 0.020;
@@ -1970,6 +1970,7 @@ CONFIRMATION TEXT
 		};
 	};
 
+    // check to confirm of C_L2_1 is used or needed anywhere
     class C_L2_1 {
         idd                         = 1000000;
         movingEnable                = 0;
