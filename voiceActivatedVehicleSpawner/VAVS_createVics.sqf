@@ -325,21 +325,42 @@ if (_vicCat == 2) then {
 	if (VAUS_activeGroups < 5) then {
 		// here I am trying to control / limit HC groups to 5 ... this affects both VAUS and VAVS 
 
-		if (VAUS_activeGroups == 0) then {
+		// new 
+		// trying out allocation system - no need to count HC units, as player can only select 1-5
+		// new 
+
+		if (VAVS_HC_Group == 1) then {
 			hc_grp = groupBlu1;
 		};
-		if (VAUS_activeGroups == 1) then {
+		if (VAVS_HC_Group == 2) then {
 			hc_grp = groupBlu2;
 		};
-		if (VAUS_activeGroups == 2) then {
+		if (VAVS_HC_Group == 3) then {
 			hc_grp = groupBlu3;
 		};
-		if (VAUS_activeGroups == 3) then {
+		if (VAVS_HC_Group == 4) then {
 			hc_grp = groupBlu4;
 		};
-		if (VAUS_activeGroups == 4) then {
+		if (VAVS_HC_Group == 5) then {
 			hc_grp = groupBlu5;
 		};
+
+
+		// if (VAUS_activeGroups == 0) then {
+		// 	hc_grp = groupBlu1;
+		// };
+		// if (VAUS_activeGroups == 1) then {
+		// 	hc_grp = groupBlu2;
+		// };
+		// if (VAUS_activeGroups == 2) then {
+		// 	hc_grp = groupBlu3;
+		// };
+		// if (VAUS_activeGroups == 3) then {
+		// 	hc_grp = groupBlu4;
+		// };
+		// if (VAUS_activeGroups == 4) then {
+		// 	hc_grp = groupBlu5;
+		// };
 		// if (VAUS_activeGroups == 5) then {
 		// 	hint "no more allowed";
 		// 	execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";
@@ -650,19 +671,16 @@ if (_vicCat == 2) then {
 
 		// 02 September 07:38 
 		// as with VAUS, let's try to run this addition only once  
-		VAUS_activeGroups = VAUS_activeGroups + 1;
+		// VAUS_activeGroups = VAUS_activeGroups + 1;
 
 	} else {
 		// i.e. there are 6 or more HC groups - so replace this with exitWith?
 		if (VAUS_activeGroups == 5) then {
 			hint "no more allowed";
-		};
+		}; // leaving this here for now, but can be removed, if the 1-5 selector works
 	};
 
 execVM "voiceActivatedVehicleSpawner\initialiseVAVS.sqf";
 execVM "voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf";
 
 };
-
-// sleep 1;
-

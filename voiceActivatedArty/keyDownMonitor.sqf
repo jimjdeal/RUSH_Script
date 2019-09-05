@@ -81,35 +81,35 @@ while {numericalInputbool} do {
 			_colour = splashOrdColour select 0;
 
 			if (_colour == 1) then {
-			systemChat "white selected";
+				systemChat "white selected";
 
 			};
 			if (_colour == 2) then {
-			systemChat "red selected";
+				systemChat "red selected";
 
 			};
 			if (_colour == 3) then {
-			systemChat "green selected";
+				systemChat "green selected";
 
 			};
 			if (_colour == 4) then {
-			systemChat "blue selected";
+				systemChat "blue selected";
 
 			};
 			if (_colour == 5) then {
-			systemChat "orange selected";
+				systemChat "orange selected";
 
 			};
 			if (_colour == 6) then {
-			systemChat "purple selected";
+				systemChat "purple selected";
 
 			};
 			if (_colour == 7) then {
-			systemChat "yellow selected";
+				systemChat "yellow selected";
 
 			};
 			if (_colour == 8) then {
-			systemChat "IR selected";
+				systemChat "IR selected";
 
 			};
 
@@ -203,7 +203,7 @@ while {numericalInputbool} do {
 	// RADIUS
 	if (radiusInputBool) then {
 
-			if (confirmedRadius == 3) then {
+		if (confirmedRadius == 3) then {
 
 			systemChat "radius confirmed...";
 			systemChat str splashRadius;
@@ -261,7 +261,7 @@ while {numericalInputbool} do {
 			};
 		};
 	};
-
+	
 	sleep 0.1;
 };	
 	

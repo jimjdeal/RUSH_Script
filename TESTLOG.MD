@@ -12,15 +12,28 @@ NOT TESTED
 Confirm that the objective-flow works
 I have added new keyDowns, monitor logic and new functions in oscarMike
 FAILED
+PASSED
 
 Confirm that VAHC orders work in both standard move and also primary and secondary objectives
 FAILED
+PASSED
 
 04 sept:
 6 camo UI blocks under the IFV thread have been replaced with functions.
 Test: does IFV camo appear and work as before? If yes, successful.
+PASSED
 
 Lots of work done on the UI classes for VAVS, now hopefully will complete
 all cyctles properly, excluding LSVs, which needs a little more thinking on the camo side of things
+PARTIAL PASS - still some tidy work to do
 
-07:42 - got up to HEMTT classes ...
+05 sept:
+Test that smoke works in VAAS
+
+Test that you can allocate objective-based orders to all 5 HC groups
+
+Test that VAVS enables allocation HC group during spawner creation
+
+Known Issue - HC groups are disappearing after objective orders are given ... find the pattern here
+
+Test VA instructions are synced with objectives - i.e. test behaviour is correct

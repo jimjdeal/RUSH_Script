@@ -24,6 +24,10 @@ VAVS_numericalInputbool		= false;
 VAVS_vicType 				= []; // 1 = DC, 2 = HC
 VAVS_vicTypeBool 			= false;
 
+// choose which HC group (assuming you chose HC)
+VAVS_HC_Group				= []; // 1 = grp 1, 2 = grp 2, 3 = grp 3, 4 = grp 4, 5 = grp 5
+VAVS_HC_Group_Bool			= false;
+
 // choose type of car  
 VAVS_carType 				= []; // 1 = IFV, 2 = MRAP, 3 = LSV, 4 = MTB, 5 = HEMTT, 6 = Other, 7 = RHS, 8 = Custom
 VAVS_carTypeBool 			= false;

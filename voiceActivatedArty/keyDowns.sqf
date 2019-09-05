@@ -19,7 +19,6 @@ if (numericalInputBool) then {
 		execVM 'voiceActivatedArty\clearKeyDowns.sqf'; 
 		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_cnl];
 		numericalInputBool = false;
-		systemChat 'in-flight / abort clearDowns done .. check can re-open';
 		execVM 'voiceActivatedArty\VAA_Init.sqf';
 
 	}"];

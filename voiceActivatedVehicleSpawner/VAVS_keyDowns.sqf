@@ -63,6 +63,10 @@ if (VAVS_numericalInputbool) then {
 			VAVS_vicType pushback 1;
 		};
 
+		if (VAVS_HC_Group_Bool) then {
+			VAVS_HC_Group pushback 1;
+		};
+
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 1;
 		};
@@ -113,6 +117,10 @@ if (VAVS_numericalInputbool) then {
 
 		if (VAVS_vicTypeBool) then {
 			VAVS_vicType pushback 2;
+		};
+
+		if (VAVS_HC_Group_Bool) then {
+			VAVS_HC_Group pushback 2;
 		};
 
 		if (VAVS_carTypeBool) then {
@@ -166,6 +174,10 @@ if (VAVS_numericalInputbool) then {
 			VAVS_carType pushback 3;
 		};
 
+		if (VAVS_HC_Group_Bool) then {
+			VAVS_HC_Group pushback 3;
+		};
+
 		if (VAVS_IFV_TypeBool) then {
 			VAVS_IFV_Type pushback 3;
 		};
@@ -209,6 +221,10 @@ if (VAVS_numericalInputbool) then {
 			VAVS_IFV_Type pushback 4;
 		};
 
+		if (VAVS_HC_Group_Bool) then {
+			VAVS_HC_Group pushback 4;
+		};
+
 		if (VAVS_LSV_Type_Bool) then {
 			VAVS_LSV_Type pushback 4;
 		};
@@ -238,6 +254,10 @@ if (VAVS_numericalInputbool) then {
 
 		if (VAVS_carTypeBool) then {
 			VAVS_carType pushback 5;
+		};
+
+		if (VAVS_HC_Group_Bool) then {
+			VAVS_HC_Group pushback 5;
 		};
 
 		if (VAVS_IFV_TypeBool) then {
