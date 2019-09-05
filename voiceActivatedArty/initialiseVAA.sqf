@@ -40,7 +40,6 @@ rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) 
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_Activate];
 	systemChat 'VAA Activated - Please confirm type';
 	systemChat '1 = HE, 2 = SURGICAL, 3 = SMOKE, 4 = FLARES';
-	playSound 'dangerClose1';
 	artyTypeBool = true;
 	numericalInputbool = true; 
 	execVM 'voiceActivatedArty\keyDowns.sqf'; 
@@ -48,3 +47,4 @@ rgg_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) 
 
 }"];
 
+// 	playSound 'dangerClose1';

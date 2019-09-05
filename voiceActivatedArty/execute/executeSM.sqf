@@ -11,7 +11,7 @@ if so, make the marker the colour of the smoke?
 
 notes:
 numericalInput = false; -- what is this??
-make these vars LOCAL FFS!
+make these vars LOCAL please!
 */
 
 // SM Execute 
@@ -48,7 +48,7 @@ if (_colourType == 7) then {
 	rggshellColour = "G_40mm_smokeYellow";
 };
 if (_colourType == 8) then {
-	rggshellColour = "G_40mm_smokeOrange";
+	rggshellColour = "B_IR_Grenade"; // I thought there was IR smoke??
 };
 
 
@@ -56,9 +56,9 @@ if (_colourType == 8) then {
 deleteMarker "gun1";
 _marker1 = createMarker ["gun1", _pos];
 _marker1 setMarkerShapeLocal "ELLIPSE";
-_marker1 setMarkerColorLocal "ColorRed";
+_marker1 setMarkerColorLocal "ColorWhite";
 _marker1 setMarkerSizeLocal [20, 20];
-_marker1 setMarkerAlphaLocal 0.9;
+_marker1 setMarkerAlphaLocal 0.3;
 
 // function
 RGG_callArty1 = {
@@ -91,7 +91,7 @@ RGG_callArty1 = {
 
 	execVM 'voiceActivatedArty\clearKeyDowns.sqf'; 
 	
-	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_cnl];
+	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',rgg_cnl]; // is this needed here? what about clearKeys?
 	numericalInputBool = false;
 	execVM "voiceActivatedArty\initialiseVAA.sqf";
 };
@@ -100,3 +100,6 @@ RGG_callArty1 = {
 
 [rggshellColour, _pos, _radi, _rnd] call RGG_callArty1;	
 
+
+/*
+test having the initialise and clearKeys at the front, to enable more arty 'before' this call expires 

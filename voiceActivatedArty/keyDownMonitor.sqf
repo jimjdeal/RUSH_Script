@@ -40,23 +40,23 @@ while {numericalInputbool} do {
 	if (artyTypeBool) then {
 
 		if (confirmedTypeHE == 1) then {
-			systemChat "HE confirmed";
-			systemChat "now enter latitude";
+			systemChat "High Explosive Barrage confirmed";
+			systemChat "Confirm latitude";
 			// playSound "dangerClose2";
 			artyTypeBool = false;
 			latCoordInputBool = true;
 		};
 
 		if (confirmedTypeSU == 1) then {
-			systemChat "SU confirmed";
-			systemChat "now enter latitude";
+			systemChat "GBU Surgical Strike confirmed";
+			systemChat "Confirm latitude";
 			artyTypeBool = false;
 			latCoordInputBool = true;
 		};
 
 		if (confirmedTypeSM == 1)  then {
-			systemChat "SM confirmed";
-			systemChat "now enter colour";
+			systemChat "Smoke confirmed";
+			systemChat "Confirm colour";
 			systemChat '1 = white, 2 = red, 3 = green, 4 = blue';
 			systemChat '5 = orange, 6 = purple, 7 = yellow, 8 = IR';
 			artyTypeBool = false;
@@ -64,8 +64,8 @@ while {numericalInputbool} do {
 		};
 
 		if (confirmedTypeFL == 1)  then {
-			systemChat "FL confirmed";
-			systemChat "now enter colour";
+			systemChat "Flares confirmed";
+			systemChat "Confirm colour";
 			systemChat '1 = white, 2 = red, 3 = green, 4 = blue';
 			systemChat '5 = orange, 6 = purple, 7 = yellow, 8 = IR';
 			artyTypeBool = false;
@@ -77,11 +77,44 @@ while {numericalInputbool} do {
 	if (ordColourBool) then {
 
 		if (confirmedColour == 1) then {
-			// here we need more ifthens to determine and relay chosen colour 
-			// we need to be able to read the value of the array, not just the number of values inside
-			systemChat "colour selected";
-			systemChat str confirmedColour;
+
+			_colour = splashOrdColour select 0;
+
+			if (_colour == 1) then {
+			systemChat "white selected";
+
+			};
+			if (_colour == 2) then {
+			systemChat "red selected";
+
+			};
+			if (_colour == 3) then {
+			systemChat "green selected";
+
+			};
+			if (_colour == 4) then {
+			systemChat "blue selected";
+
+			};
+			if (_colour == 5) then {
+			systemChat "orange selected";
+
+			};
+			if (_colour == 6) then {
+			systemChat "purple selected";
+
+			};
+			if (_colour == 7) then {
+			systemChat "yellow selected";
+
+			};
+			if (_colour == 8) then {
+			systemChat "IR selected";
+
+			};
+
 			systemChat "now enter latitude";
+
 			ordColourBool = false;
 			latCoordInputBool = true;
 		};
@@ -223,9 +256,8 @@ while {numericalInputbool} do {
 			if (_goodToGo == 0) then {
 
 				execVM 'voiceActivatedArty\clearKeyDowns.sqf';
-				systemChat "final zero abort .. clearDowns called .. check can re-open"
+				systemChat "MISSION ABORT"
 				execVM "voiceActivatedArty\initialiseVAA.sqf";
-				
 			};
 		};
 	};
