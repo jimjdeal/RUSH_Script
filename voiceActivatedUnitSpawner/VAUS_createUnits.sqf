@@ -50,10 +50,8 @@ _camo 			= _camoType select 0;
 // DC - Direct Control - Group Creation 
 if (_control == 1) then {
 
-	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
-	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
-//
 	if (_group == 1) then {
+
 		// FIRE TEAM (x4)
 		if (_camo == 1) then {
 			"B_W_Soldier_TL_F" createUnit [position player, group player]; 
@@ -225,6 +223,9 @@ if (_control == 1) then {
 			};
 		};		
 	};
+
+	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
+	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
 };
 
 // HC - High Command - Group Creation 
@@ -426,20 +427,11 @@ if (_control == 2) then {
 
 			// VAUS_activeGroups = VAUS_activeGroups +1;
 		};
-
-		// 02 Sept, trying to run this addition ONCE!! See if this works
-		VAUS_activeGroups = VAUS_activeGroups +1;	
-
-	} else {
-
-		// i.e. there are 6 or more HC groups - so replace this with exitWith?
-		if (VAUS_activeGroups == 5) then {
-			hint "sorry no more allowed - 5 max!!";
-
-		};
 	};
+		// 02 Sept, trying to run this addition ONCE!! See if this works
+		// VAUS_activeGroups = VAUS_activeGroups +1;	
 
-	// execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
-	// execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
+	execVM "voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf";
+	execVM "voiceActivatedUnitSpawner\initialiseVAUS.sqf";
 
 };
