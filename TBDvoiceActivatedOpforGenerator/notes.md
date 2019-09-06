@@ -30,3 +30,5 @@
 // systemChat str \_groupBlu1Count;
 
 will look at this in sept 19
+
+merge with mission gen?
