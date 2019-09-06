@@ -163,7 +163,7 @@ RGG_callVAHCO_OBJECTIVE_ORDERS = {
 		};
 		if (_contentB == 4) then {
 
-			_destination = getMarkerPos "primaryObj";
+			_destination = getMarkerPos "secondaryObj";
 			_relDir = leader groupBlu1 getRelDir _destination;
 			_distance = leader groupBlu1 distance _destination;
 			_approachDist = _distance - 100;
