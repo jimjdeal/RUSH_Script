@@ -6,9 +6,6 @@ PASSED
 Test that all 4 marker types work now, after creating staging zones
 PASSED
 
-Test that units spawn ok after moving the clearKeydowns to the beginning of the block
-NOT TESTED
-
 Confirm that the objective-flow works
 I have added new keyDowns, monitor logic and new functions in oscarMike
 FAILED
@@ -37,8 +34,12 @@ PASSED - PARTIAL - not checked every combo
 Test that VAVS enables allocation HC group during spawner creation
 PASSED
 
-Known Issue - HC groups are disappearing after objective orders are given ... find the pattern here
+Known Issues:
+HC groups are disappearing after objective orders are given ... find the pattern here
 Seems to be linked to staging zone objective?
+Also seen HC groups vanish after certain units are spawned
 
+
+Outstanding Tests:
 Test VA instructions are synced with objectives - i.e. test behaviour is correct
-
+Test that units spawn ok after moving the clearKeydowns to the beginning of the block
