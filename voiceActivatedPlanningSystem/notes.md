@@ -9,3 +9,8 @@ When set, these can be used as location instructions
     etc
 
 Waypoints can be set in the map, but must be executed in display 46
+
+I would like to have some order when units arrive at a staging zone
+
+to do this, you need to send the lead unit away, and then into the center, then set the formation auto to line
+

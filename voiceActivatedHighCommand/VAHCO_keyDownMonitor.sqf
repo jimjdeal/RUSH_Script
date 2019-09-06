@@ -25,11 +25,12 @@ Added new section for order type 2 = objectives - now both lead to oscarMike.sqf
 while {VAHCO_numericalInputbool} do {
 
 	// counts / validates the correct numbers are held in each array
-	VAHCO_Validate_Group 	= count VAHCO_groupSelect; 	// should contain 1 value
-	VAHCO_Validate_Orders 	= count VAHCO_orderSelect; 	// should contain 1 value
-	VAHCO_Validate_Obj		= count VAHCO_objectiveType; // should contain 1 value 
-	VAHCO_Validate_distance = count VAHCO_distance; 	// should contain 4 value;
-	VAHCO_Validate_heading	= count VAHCO_heading;		// should contain 3 value;
+	VAHCO_Validate_Group 		= count VAHCO_groupSelect; 		// should contain 1 value
+	VAHCO_Validate_Orders 		= count VAHCO_orderSelect; 		// should contain 1 value
+	VAHCO_Validate_Obj			= count VAHCO_objectiveType; 	// should contain 1 value 
+	VAHCO_Validate_Formation	= count VAHCO_SetFormation; 		// should contain 1 value
+	VAHCO_Validate_distance 	= count VAHCO_distance; 		// should contain 4 value;
+	VAHCO_Validate_heading		= count VAHCO_heading;			// should contain 3 value;
 
 	// confirm what group you want to talk to 
 	if (VAHCO_groupSelectBool) then {
@@ -156,6 +157,14 @@ while {VAHCO_numericalInputbool} do {
 						may need to explain the the staging zone is essentially a line...
 				*/
 			};		
+
+			if (_orderType == 3) then {
+
+				systemChat "set waypoint";
+				systemChat "1 = Column, 2 = stag column, 3 = wedge, 4 = ech right, 5 = ech left, 6 = vee, 7 = line, 8 = file, 9 = diamond";
+				VAHCO_orderSelectBool = false;
+				VAHCO_setFormationBool = true;
+			};
 		};
 	};
 
@@ -234,20 +243,73 @@ while {VAHCO_numericalInputbool} do {
 				systemChat "you selected Move to Staging 2";
 				// UI
 			};
-		VAHCO_objectiveTypeBool = false;
-		VAHCO_OscarMikeBool = true;
 
+			VAHCO_objectiveTypeBool = false;
+			VAHCO_OscarMikeBool = true;
 		};
-
-
 	};
+
+// -----------------------------------------------------------------------------------------------------
+
+	// order type 3 - set formation 
+	if (VAHCO_setFormationBool) then {
+		systemChat "now running VAHCO_objectiveTypeBool";
+
+		sleep 2;
+
+		if (VAHCO_Validate_Formation == 1) then {
+
+			_contentA = VAHCO_SetFormation select 0;
+
+			if (_contentA == 1) then {
+				systemChat "you selected Column";
+				// UI
+			};
+			if (_contentA == 2) then {
+				systemChat "you selected stag column";
+				// UI
+			};
+			if (_contentA == 3) then {
+				systemChat "you selected wedge";
+				// UI
+			};
+			if (_contentA == 4) then {
+				systemChat "you selected ech right";
+				// UI
+			};
+			if (_contentA == 5) then {
+				systemChat "you selected ech left";
+				// UI
+			};
+			if (_contentA == 6) then {
+				systemChat "you selected vee";
+				// UI
+			};
+			if (_contentA == 7) then {
+				systemChat "you selected line";
+				// UI
+			};
+			if (_contentA == 8) then {
+				systemChat "you selected file";
+				// UI
+			};
+			if (_contentA == 9) then {
+				systemChat "you selected diamond";
+				// UI
+			};
+
+			VAHCO_setFormationBool = false;
+			VAHCO_OscarMikeBool = true; 
+		};
+	};
+
 
 // -----------------------------------------------------------------------------------------------------
 
 	// Finalise - Oscar Mike
 	if (VAHCO_OscarMikeBool) then {
 
-		execVM "voiceactivatedhighcommand\VAHCO_OscarMike.sqf";
+		execVM "voiceActivatedHighCommand\VAHCO_OscarMike.sqf";
 	};
 
 

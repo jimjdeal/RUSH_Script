@@ -80,6 +80,9 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_objectiveType pushback 1;
 		};
 
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 1;
+		};
 		
 	}"];
 
@@ -105,6 +108,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 
 		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 2;
+		};
+
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 2;
 		};
 
 	}"];
@@ -133,6 +140,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_objectiveType pushback 3;
 		};
 
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 3;
+		};
+
 	}"];
 
 	rgg_vahco_kd4 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 75) then {
@@ -157,6 +168,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 
 		if (VAHCO_objectiveTypeBool) then {
 			VAHCO_objectiveType pushback 4;
+		};
+
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 4;
 		};
 
 	}"];
@@ -185,6 +200,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_objectiveType pushback 5;
 		};
 
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 5;
+		};
+
 	}"];
 
 	rgg_vahco_kd6 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 77) then {
@@ -211,6 +230,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_objectiveType pushback 6;
 		};
 
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 6;
+		};
+
 	}"];
 
 	rgg_vahco_kd7 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 71) then {
@@ -233,6 +256,9 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 7;
 		};
 		
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 7;
+		};
 	}"];
 
 	rgg_vahco_kd8 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 72) then {
@@ -255,6 +281,9 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAHCO_heading pushback 8;
 		};
 		
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 8;
+		};
 	}"];
 
 	rgg_vahco_kd9 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 73) then {
@@ -275,6 +304,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 
 		if (VAHCO_headingBool) then {
 			VAHCO_heading pushback 9;
+		};
+
+		if (VAHCO_setFormationBool) then {
+			VAHCO_setFormation pushback 9;
 		};
 
 	}"];

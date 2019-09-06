@@ -26,7 +26,10 @@ VAHCO_groupSelectBool		= false;
 VAHCO_groupSelect			= [];		// value reflects which group you are addressing 
 
 VAHCO_orderSelectBool		= false;
-VAHCO_orderSelect			= [];		// 1 = general move order, 2 = objective-based move order 
+VAHCO_orderSelect			= [];		// 1 = general move order, 2 = objective-based move order, 3 = set formation
+
+VAHCO_setFormationBool		= false;	
+VAHCO_SetFormation			= [];		// 1 = Column, 2 = stag column, 3 = wedge, 4 = ech right, 5 = ech left, 6 = vee, 7 = line, 8 = file, 9 = diamond
 
 VAHCO_objectiveTypeBool		= false;
 VAHCO_objectiveType			= [];		// value reflects type of objective selected

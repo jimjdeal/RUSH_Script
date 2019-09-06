@@ -81,3 +81,16 @@ systemChat "go ahead sir"
 
 the move order would trigger keyDowns of 3 then 9.
 the hard part is writing all of the VA commands for this.
+
+"COLUMN"
+"STAG COLUMN"
+"WEDGE"
+"ECH LEFT"
+"ECH RIGHT"
+"VEE"
+"LINE"
+"FILE" (ArmA)
+"DIAMOND" (ArmA)
+_groupOne setFormation "LINE"
+
+1 = Column, 2 = stag column, 3 = wedge, 4 = ech right, 5 = ech left, 6 = vee, 7 = line, 8 = file, 9 = diamond

@@ -114,7 +114,6 @@ RGG_callVAHCO_MOVE_ORDERS = {
 	};
 };
 
-
 RGG_callVAHCO_OBJECTIVE_ORDERS = {
 
 	// Group 1 
@@ -553,12 +552,182 @@ RGG_callVAHCO_OBJECTIVE_ORDERS = {
 	};
 };
 
+RGG_callVAHCO_FORMATION_ORDERS = {
+
+	// group 1
+	if (RGG_Grp_Num == 1) then {
+
+		_contentB = VAHCO_SetFormation select 0;
+
+		if (_contentB == 1) then {
+			groupBlu1 setFormation "LINE";
+		};
+		if (_contentB == 2) then {
+			groupBlu1 setFormation "STAG COLUMN";
+		};
+		if (_contentB == 3) then {
+			groupBlu1 setFormation "WEDGE";
+		};
+		if (_contentB == 4) then {
+			groupBlu1 setFormation "ECH LEFT";
+		};
+		if (_contentB == 5) then {
+			groupBlu1 setFormation "ECH RIGHT";
+		};
+		if (_contentB == 6) then {
+			groupBlu1 setFormation "VEE";
+		};
+		if (_contentB == 7) then {
+			groupBlu1 setFormation "LINE";
+		};
+		if (_contentB == 8) then {
+			groupBlu1 setFormation "FILE";
+		};
+		if (_contentB == 9) then {
+			groupBlu1 setFormation "DIAMOND";
+		};
+	};
+
+	// group 2
+	if (RGG_Grp_Num == 2) then {
+
+		_contentB = VAHCO_SetFormation select 0;
+
+		if (_contentB == 1) then {
+			groupBlu2 setFormation "COLUMN";
+		};
+		if (_contentB == 2) then {
+			groupBlu2 setFormation "STAG COLUMN";
+		};
+		if (_contentB == 3) then {
+			groupBlu2 setFormation "WEDGE";
+		};
+		if (_contentB == 4) then {
+			groupBlu2 setFormation "ECH LEFT";
+		};
+		if (_contentB == 5) then {
+			groupBlu2 setFormation "ECH RIGHT";
+		};
+		if (_contentB == 6) then {
+			groupBlu2 setFormation "VEE";
+		};
+		if (_contentB == 7) then {
+			groupBlu2 setFormation "LINE";
+		};
+		if (_contentB == 8) then {
+			groupBlu2 setFormation "FILE";
+		};
+		if (_contentB == 9) then {
+			groupBlu2 setFormation "DIAMOND";
+		};
+	};
+
+	// group 3
+	if (RGG_Grp_Num == 3) then {
+
+		_contentB = VAHCO_SetFormation select 0;
+
+		if (_contentB == 1) then {
+			groupBlu3 setFormation "LINE";
+		};
+		if (_contentB == 2) then {
+			groupBlu3 setFormation "STAG COLUMN";
+		};
+		if (_contentB == 3) then {
+			groupBlu3 setFormation "WEDGE";
+		};
+		if (_contentB == 4) then {
+			groupBlu3 setFormation "ECH LEFT";
+		};
+		if (_contentB == 5) then {
+			groupBlu3 setFormation "ECH RIGHT";
+		};
+		if (_contentB == 6) then {
+			groupBlu3 setFormation "VEE";
+		};
+		if (_contentB == 7) then {
+			groupBlu3 setFormation "LINE";
+		};
+		if (_contentB == 8) then {
+			groupBlu3 setFormation "FILE";
+		};
+		if (_contentB == 9) then {
+			groupBlu3 setFormation "DIAMOND";
+		};
+	};
+
+	// group 4
+	if (RGG_Grp_Num == 4) then {
+
+		_contentB = VAHCO_SetFormation select 0;
+
+		if (_contentB == 1) then {
+			groupBlu4 setFormation "LINE";
+		};
+		if (_contentB == 2) then {
+			groupBlu4 setFormation "STAG COLUMN";
+		};
+		if (_contentB == 3) then {
+			groupBlu4 setFormation "WEDGE";
+		};
+		if (_contentB == 4) then {
+			groupBlu4 setFormation "ECH LEFT";
+		};
+		if (_contentB == 5) then {
+			groupBlu4 setFormation "ECH RIGHT";
+		};
+		if (_contentB == 6) then {
+			groupBlu4 setFormation "VEE";
+		};
+		if (_contentB == 7) then {
+			groupBlu4 setFormation "LINE";
+		};
+		if (_contentB == 8) then {
+			groupBlu4 setFormation "FILE";
+		};
+		if (_contentB == 9) then {
+			groupBlu4 setFormation "DIAMOND";
+		};
+	};
+
+	// group 5
+	if (RGG_Grp_Num == 5) then {
+
+		_contentB = VAHCO_SetFormation select 0;
+
+		if (_contentB == 1) then {
+			groupBlu5 setFormation "LINE";
+		};
+		if (_contentB == 2) then {
+			groupBlu5 setFormation "STAG COLUMN";
+		};
+		if (_contentB == 3) then {
+			groupBlu5 setFormation "WEDGE";
+		};
+		if (_contentB == 4) then {
+			groupBlu5 setFormation "ECH LEFT";
+		};
+		if (_contentB == 5) then {
+			groupBlu5 setFormation "ECH RIGHT";
+		};
+		if (_contentB == 6) then {
+			groupBlu5 setFormation "VEE";
+		};
+		if (_contentB == 7) then {
+			groupBlu5 setFormation "LINE";
+		};
+		if (_contentB == 8) then {
+			groupBlu5 setFormation "FILE";
+		};
+		if (_contentB == 9) then {
+			groupBlu5 setFormation "DIAMOND";
+		};
+	};
+};
 
 // --------------------------------------------------------------------------------------------------------------------------------------
 // end of functions
 // --------------------------------------------------------------------------------------------------------------------------------------
-
-
 
 
 
@@ -570,180 +739,8 @@ if (parsed_VAHCO_OrderType2 == 2) then {
 	[] call RGG_callVAHCO_OBJECTIVE_ORDERS;
 };
 
+if (parsed_VAHCO_OrderType2 == 3) then {
+	[] call RGG_callVAHCO_FORMATION_ORDERS;
+};
+
 execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-RGG_callVAHCO_MOVE_ORDERS = {
-
-	_RGG_GRP_Num = RGG_GRP_Num select 0;
-
-	if (RGG_Grp_Num == 1) then {
-
-		// systemChat "Bravo 1 on the move..";
-		_destination = leader groupBlu1 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		groupBlu1 move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO 1 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-
-	if (RGG_Grp_Num == 2) then {
-
-		// systemChat "Bravo 2 on the move..";
-		_destination = leader groupBlu2 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		groupBlu2 move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO 2 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-
-	if (RGG_Grp_Num == 3) then {
-
-		// systemChat "Bravo 3 on the move..";
-		_destination = leader groupBlu3 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		groupBlu3 move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO 3 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-
-	if (RGG_Grp_Num == 4) then {
-
-		// systemChat "Bravo 4 on the move..";
-		_destination = leader groupBlu4 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		groupBlu4 move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO 4 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-
-	if (RGG_Grp_Num == 5) then {
-
-		// systemChat "Bravo 5 on the move..";
-		_destination = leader groupBlu5 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		groupBlu5 move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO 5 moving to: %1, (%2m at %3)", _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-};
-
-[] call RGG_callVAHCO_MOVE_ORDERS;
-execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf";
-
-
-RGG_callVAHCO_MOVE_ORDERS = {
-
-	_RGG_GRP_Num = RGG_GRP_Num select 0;
-
-	if (_RGG_GRP_Num == 1) then {
-		_parsedGrp = groupBlu1
-	};
-	if (_RGG_GRP_Num == 2) then {
-		_parsedGrp = groupBlu2
-	};
-	if (_RGG_GRP_Num == 3) then {
-		_parsedGrp = groupBlu3
-	};
-	if (_RGG_GRP_Num == 4) then {
-		_parsedGrp = groupBlu4
-	};
-	if (_RGG_GRP_Num == 5) then {
-		_parsedGrp = groupBlu5
-	};
-
-	if (RGG_Grp_Num == _RGG_GRP_Num) then {
-
-		_destination = leader _parsedGrp getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-		_parsedGrp move _destination;
-
-		1 cutRsc ["C_L1_1","PLAIN"];
-		waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-		_display = uiNameSpace getVariable "C_L1_1";
-		_setText = _display displayCtrl 19001;
-		_setText ctrlSetStructuredText (parseText format ["BRAVO %1 moving to: %2, (%3m at %4)", _parsedGrp, _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-		_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	};
-};
-
-[] call RGG_callVAHCO_MOVE_ORDERS;
-execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf"; // reset 
-
-
-
-
-
-RGG_callVAHCO_MOVE_ORDERS = {
-
-	RGG_GRP_Num = RGG_GRP_Num select 0;
-
-	if (_RGG_GRP_Num == 1) then {
-		_parsedGrp = groupBlu1;
-	};
-	if (_RGG_GRP_Num == 2) then {
-		_parsedGrp = groupBlu2;
-	};
-	if (_RGG_GRP_Num == 3) then {
-		_parsedGrp = groupBlu3;
-	};
-	if (_RGG_GRP_Num == 4) then {
-		_parsedGrp = groupBlu4;
-	};
-	if (_RGG_GRP_Num == 5) then {
-		_parsedGrp = groupBlu5;
-	};
-
-	_destination = leader _parsedGrp getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
-	_parsedGrp move _destination;
-
-	1 cutRsc ["C_L1_1","PLAIN"];
-	waitUntil {!isNull (uiNameSpace getVariable "C_L1_1")};
-	_display = uiNameSpace getVariable "C_L1_1";
-	_setText = _display displayCtrl 19001;
-	_setText ctrlSetStructuredText (parseText format ["BRAVO %1 moving to: %2, (%3m at %4)", _parsedGrp, _destination, parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2]);
-	_setText ctrlSetBackgroundColor [0,0,0,0.5];
-	
-};
-
-[] call RGG_callVAHCO_MOVE_ORDERS;
-execVM "voiceactivatedhighcommand\initialiseVAHCO.sqf"; // reset 
-
-// 02 September, I have attempted to reduce the repeated code by swapping below for the above ... delete if works!
-// shit do i even need an ifThen here???
-
-
-
-
-
-
