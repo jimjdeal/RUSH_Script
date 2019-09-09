@@ -35,37 +35,56 @@ while {VAPS_numericalInputbool} do {
 	
 		if (_val_VAPS_Order_Type == 1) then {
 
-			_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, 3 = stage stage 1, 4 = stage 2 // TBD >> 5 = set waypoints. 6 = set battle plan 
+			_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, 3 = stage stage 1, 4 = stage 2 // TBD >> 5 = create route, 6 = set battle plan 
 
 			if (_content == 1) then {
 				systemChat "you are setting the Primary Objective";
 				// UI goes here
+				VAPS_Order_Type_Bool = false;
+				// VAPS_Lat_Bool = true;
+				VAPS_mapClick = true;
 			};
 
 			if (_content == 2) then {
 				systemChat "you are setting the Secondary Objective";
 				// UI goes here
+				VAPS_Order_Type_Bool = false;
+				// VAPS_Lat_Bool = true;
+				VAPS_mapClick = true;
 			};
 			if (_content == 3) then {
 				systemChat "you are setting the Main Staging Zone";
 				// UI goes here
+				VAPS_Order_Type_Bool = false;
+				// VAPS_Lat_Bool = true;
+				VAPS_mapClick = true;
 			};
 
 			if (_content == 4) then {
 				systemChat "you are setting the Secondary Staging Zone";
 				// UI goes here
+				VAPS_Order_Type_Bool = false;
+				// VAPS_Lat_Bool = true;
+				VAPS_mapClick = true;
+			};
+
+			if (_content == 5) then {
+				systemChat "you are creating a route";
+				systemChat "which colour? Red, Green, Blue, Orange or white?";
+				// UI goes here
+				VAPS_Order_Type_Bool = false;
+				VAPS_RouteSelect = true;
 			};
 
 			// state progress
-			VAPS_Order_Type_Bool = false;
+			// VAPS_Order_Type_Bool = false;
 			// VAPS_Lat_Bool = true;
-			VAPS_mapClick = true;
-			systemChat "Please Enter Latitude (4 digits)";
+			// VAPS_mapClick = true;
+			// systemChat "Please Enter Latitude (4 digits)";
 
 		};
 	};
 
-// new 
 	if (VAPS_mapClick) then {
 		// systemChat "mapClick on";
 		_content = VAPS_Order_Type select 0; // 1 = set primary, 2 = set secondary, 3 = stage stage 1, 4 = stage 2 // TBD >> 5 = set waypoints. 6 = set battle plan 
@@ -131,6 +150,11 @@ while {VAPS_numericalInputbool} do {
 				};
 			};
 
+			if (_content == 5) then {
+				onMapSingleClick {
+				systemChat "click the map for each point you with to designate";
+				};
+			};
 
 
 	};

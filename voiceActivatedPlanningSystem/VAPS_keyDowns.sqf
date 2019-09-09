@@ -30,11 +30,11 @@ VAPS_Confirm_Bool			= false;
 
 if (VAPS_numericalInputbool) then {
 
-	rgg_vaps_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	rgg_vaps_cnl = (findDisplay 12) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 		
 		systemChat 'VAPS SYSTEM ABORTED';
 		execVM 'voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf'; 
-		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vaps_cnl];
+		_ehRemove1 = (findDisplay 12) displayRemoveEventHandler ['keyDown', rgg_vaps_cnl];
 		VAPS_numericalInputbool = false;
 		execVM 'voiceActivatedPlanningSystem\VAPS_Init.sqf';
 

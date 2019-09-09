@@ -19,7 +19,7 @@ sleep 1;
 // vars and arrays initialisation
 VAPS_numericalInputbool		= false; 
 
-VAPS_Order_Type				= []; 		// 1 = set primary, 2 = set secondary, 3 = set waypoints. 4 = set battle plan 
+VAPS_Order_Type				= []; 		// 1 = set primary, 2 = set secondary, 3 = set route, 4 = set battle plan 
 VAPS_Order_Type_Bool		= false;
 
 // VAPS_Obj_Type				= [];		// manages both primary and secondary objectives  
