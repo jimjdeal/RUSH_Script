@@ -11,16 +11,15 @@ kicks off the main title UI
 
 if (VACF_numericalInputbool) then {
 
-	// rgg_vacf_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	rgg_vacf_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 		
-	// 	systemChat 'VACF SYSTEM ABORTED';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf'; 
-	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vacf_cnl];
-	// 	VACF_numericalInputbool = false;
-	// 	systemChat 'in-flight / vacf abort clearDowns done .. check can re-open';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
+		systemChat 'VACF SYSTEM ABORTED';
+		execVM 'voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf'; 
+		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vacf_cnl];
+		VACF_numericalInputbool = false;
+		execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
 
-	// }"];
+	}"];
 
 	execVM 'voiceActivatedCoordFinder\RSCnums\titleDisplay.sqf';
 

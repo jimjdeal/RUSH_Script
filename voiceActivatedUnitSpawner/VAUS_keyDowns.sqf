@@ -15,15 +15,15 @@ Build cancel button!
 
 if (VAUS_numericalInputbool) then {
 
-	// rgg_vaus_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	rgg_vaus_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 	
-	// 	systemChat 'VAUS ABORTED';
-	// 	execVM 'voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf'; 
-	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vaus_cnl];
-	// 	VAUS_numericalInputbool = false;
-	// 	execVM 'voiceActivatedUnitSpawner\VAUS_Init.sqf';
+		systemChat 'VAUS ABORTED';
+		execVM 'voiceActivatedUnitSpawner\VAUS_clearKeyDowns.sqf'; 
+		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vaus_cnl];
+		VAUS_numericalInputbool = false;
+		execVM 'voiceActivatedUnitSpawner\VAUS_Init.sqf';
 
-	// }"];
+	}"];
 
 	execVM 'voiceActivatedUnitSpawner\VAUS_initDisplay.sqf';
 

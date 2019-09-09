@@ -157,6 +157,8 @@ so change inital activators to include a modifier, as security
 09 september
 drafted roadmap
 
+Decided to build Cancel Functions to all current modules
+
 unstructured / older notes ---------------------------------------------------------------------------
 
 next phase:

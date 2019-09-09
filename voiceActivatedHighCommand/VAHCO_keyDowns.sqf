@@ -12,15 +12,14 @@ need to add a cancel to this!
 
 if (VAHCO_numericalInputbool) then {
 
-	// rgg_vacf_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	rgg_vahco_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 		
-	// 	systemChat 'VACF SYSTEM ABORTED';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf'; 
-	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vacf_cnl];
-	// 	VACF_numericalInputbool = false;
-	// 	systemChat 'in-flight / vacf abort clearDowns done .. check can re-open';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
-	// }"];
+		systemChat 'VAHC SYSTEM ABORTED';
+		execVM 'voiceActivatedHighCommand\VAHCO_clearKeyDowns.sqf'; 
+		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vahco_cnl];
+		VAHCO_numericalInputbool = false;
+		execVM 'voiceActivatedCoordFinder\VAHCO_Init.sqf';
+	}"];
 
 /*
 expermiment - instead of calling a new title script for the UI, I am going to try to just include it here - this only runs once, so should work

@@ -30,16 +30,15 @@ VAPS_Confirm_Bool			= false;
 
 if (VAPS_numericalInputbool) then {
 
-	// rgg_vacf_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
+	rgg_vaps_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 		
-	// 	systemChat 'VACF SYSTEM ABORTED';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_clearKeyDowns.sqf'; 
-	// 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vacf_cnl];
-	// 	VACF_numericalInputbool = false;
-	// 	systemChat 'in-flight / vacf abort clearDowns done .. check can re-open';
-	// 	execVM 'voiceActivatedCoordFinder\VACF_Init.sqf';
+		systemChat 'VAPS SYSTEM ABORTED';
+		execVM 'voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf'; 
+		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vaps_cnl];
+		VAPS_numericalInputbool = false;
+		execVM 'voiceActivatedPlanningSystem\VAPS_Init.sqf';
 
-	// }"];
+	}"];
 
 /*
 expermiment - instead of calling a new title script for the UI, I am going to try to just include it here - this only runs once, so should work
