@@ -1,4 +1,4 @@
-Welcome to the VA Vehicle Spawner
+Welcome to the VA Vehicle Spawner - random thoughts, visitors should not spend too much time here ;)
 
 What do you require?
 
@@ -28,8 +28,6 @@ Armed / Unarmed
 // VAUS_heliType = []; // 1 = MH6, 2 = AH6, 3 = Blackhawk, 4 = Chinook
 // VAUS_heliTypeBool = false;
 
-/\*
-
 cutRsc list options
 
 create something assigned to me "Create Group Element"
@@ -46,7 +44,7 @@ LEVEL 1 LEVEL 2 VAUS_Type LEVEL 3 LEVEL 4 LEVEL 5 LEVEL 6
 Activate VAUS create group element direct control Standard Fire Team (x4) CONFIRM
 high command Woodland Full Platoon (x20)
 Desert Sniper Team (x2)  
- AA Team (x2)
+AA Team (x2)
 AT Team (x3)
 Engineering Team (x3)
 Demolition Team (x3)
@@ -76,10 +74,6 @@ cutRSC list of group options
 create single unit assigned to me  
 create group assigned to me
 create HC group
-
-\*/
-
-/\*
 
     	if (VAUS_typeBool) then {
     		VAUS_type pushback 0;

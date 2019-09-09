@@ -1,3 +1,22 @@
+VA-MP Test Log
+
+I do much of my coding while travelling, and mort often that not cannot check success/failure of new code until much later in the day.
+This log helps me keep track of the changes I have made, as well as what the expected behaviour is.
+
+---
+
+Known Issues:
+HC groups are disappearing after objective orders are given ... find the pattern here
+Seems to be linked to staging zone objective?
+
+Also seen HC groups vanish after certain units are spawned?
+
+Outstanding Tests:
+Test VA instructions are synced with objectives - i.e. test behaviour is correct
+Test that units spawn ok after moving the clearKeydowns to the beginning of the block
+
+---
+
 03 Sept:
 Confirm that functions work when rendering repeated UI VAVS elements
 (as I now use functions for repeated code)
@@ -33,13 +52,3 @@ PASSED - PARTIAL - not checked every combo
 
 Test that VAVS enables allocation HC group during spawner creation
 PASSED
-
-Known Issues:
-HC groups are disappearing after objective orders are given ... find the pattern here
-Seems to be linked to staging zone objective?
-Also seen HC groups vanish after certain units are spawned
-
-
-Outstanding Tests:
-Test VA instructions are synced with objectives - i.e. test behaviour is correct
-Test that units spawn ok after moving the clearKeydowns to the beginning of the block
