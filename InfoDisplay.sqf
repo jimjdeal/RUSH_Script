@@ -1,4 +1,5 @@
 //to debug variables, and also to enable HUD display 
+// this is temporary!
 
 sleep 2;
 

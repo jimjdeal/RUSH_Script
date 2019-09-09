@@ -1,6 +1,6 @@
 VA-MP Test Log
 
-I do much of my coding while travelling, and mort often that not cannot check success/failure of new code until much later in the day.
+I do much of my coding while travelling, and more often than not cannot check success/failure of new code until much later in the day.
 This log helps me keep track of the changes I have made, as well as what the expected behaviour is.
 
 ---
@@ -55,3 +55,4 @@ PASSED
 
 09 sept:
 Check that cancel function works in all live packs
+PASSED
