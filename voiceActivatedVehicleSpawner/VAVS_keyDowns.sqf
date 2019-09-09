@@ -46,7 +46,6 @@ if (VAVS_numericalInputbool) then {
 		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vavs_cnl];
 		VAVS_numericalInputbool = false;
 		execVM 'voiceActivatedVehicleSpawner\VAUS_Init.sqf';
-
 	}"];
 
 	execVM 'voiceActivatedVehicleSpawner\VAVS_initDisplay.sqf';
@@ -54,7 +53,6 @@ if (VAVS_numericalInputbool) then {
 	rgg_vavs_kd0 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 
 		systemChat 'you pressed tha zeroooo';
-		
 	}"];
 	
 	rgg_vavs_kd1 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
@@ -110,7 +108,6 @@ if (VAVS_numericalInputbool) then {
 		if (VAVS_confirmBool) then {
 			VAVS_confirm pushback 1;
 		};
-
 	}"];
 
 	rgg_vavs_kd2 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 80) then {

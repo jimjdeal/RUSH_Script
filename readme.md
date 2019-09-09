@@ -100,8 +100,8 @@ Technically you do not need VA software, and could operate the menu system with 
 
 Roadmap (not in order) ---------------------------------------------------------------------------
 
-- implement inheritance in classes to save space
-- implement cancel buttons in each pack
+- implement inheritance in classes to save space (delivery September week 2)
+- implement cancel buttons in each pack (currently in test)
 - implement group selection in unit VAUS - refactor UI
 - fix issue where groups are deleted
 - understand paradrop rules

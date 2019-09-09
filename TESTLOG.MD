@@ -52,3 +52,6 @@ PASSED - PARTIAL - not checked every combo
 
 Test that VAVS enables allocation HC group during spawner creation
 PASSED
+
+09 sept:
+Check that cancel function works in all live packs
