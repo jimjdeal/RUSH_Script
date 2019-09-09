@@ -17,7 +17,7 @@ VAOC – Objective Creator
 
 Some packs are best used pre-mission, some are best used during the mission.
 
-Pre-Mission
+Pre-Mission //
 
 VAUS / Voice Activated Unit Spawner
 · Create DC or HC Groups

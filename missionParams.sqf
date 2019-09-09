@@ -71,7 +71,7 @@ VAA_FLR_Reup_Active = false;
 // for now, do not change the above bool, and allow these from mission start
 
 
-// ------------------------------------------ // VA Coord Finder 
+// ------------------------------------------ // VA Coord Finder //
 VACF_Activate = true;
 
 
