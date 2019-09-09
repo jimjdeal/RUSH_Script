@@ -42,6 +42,10 @@ VAUS_numericalInputbool = false;
 170 cutRsc ["default","PLAIN"];
 180 cutRsc ["default","PLAIN"];
 200 cutRsc ["default","PLAIN"]; 
-213 cutRsc ["default","PLAIN"]; // remove last prompt
+210 cutRsc ["default","PLAIN"]; 
+211 cutRsc ["default","PLAIN"]; 
+212 cutRsc ["default","PLAIN"]; 
+213 cutRsc ["default","PLAIN"]; // remove last prompt //
 
 vamp = false;
+

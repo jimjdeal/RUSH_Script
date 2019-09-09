@@ -42,10 +42,10 @@ if (VAVS_numericalInputbool) then {
 	rgg_vavs_cnl = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 181) then {
 	
 		systemChat 'VAVS ABORTED';
-		execVM 'voiceActivatedVehicleSpawner\VAUS_clearKeyDowns.sqf'; 
+		execVM 'voiceActivatedVehicleSpawner\VAVS_clearKeyDowns.sqf'; 
 		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vavs_cnl];
 		VAVS_numericalInputbool = false;
-		execVM 'voiceActivatedVehicleSpawner\VAUS_Init.sqf';
+		execVM 'voiceActivatedVehicleSpawner\VAVS_Init.sqf';
 	}"];
 
 	execVM 'voiceActivatedVehicleSpawner\VAVS_initDisplay.sqf';

@@ -18,7 +18,7 @@ if (VAHCO_numericalInputbool) then {
 		execVM 'voiceActivatedHighCommand\VAHCO_clearKeyDowns.sqf'; 
 		_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown', rgg_vahco_cnl];
 		VAHCO_numericalInputbool = false;
-		execVM 'voiceActivatedCoordFinder\VAHCO_Init.sqf';
+		execVM 'voiceActivatedHighCommand\VAHCO_Init.sqf';
 	}"];
 
 /*
