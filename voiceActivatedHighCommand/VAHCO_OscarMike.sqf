@@ -725,6 +725,26 @@ RGG_callVAHCO_FORMATION_ORDERS = {
 	};
 };
 
+RGG_callVAHCO_ROUTE_ORDERS = {
+
+	/*
+		this function should receive group and route
+	*/
+
+	_group 		= _this select 0; // RGG_Grp_Num
+	_route 		= _this select 1; // VAHCO_chooseRoute
+	_nextPos 	= _this select 2; // VAPS_RedWP
+
+
+	if ((RGG_Grp_Num == 1) && (VAHCO_chooseRoute ==1)) then {
+
+		// systemChat "Bravo 1 taking route RED";
+		_destination = leader groupBlu1 getPos [parsed_VAHCO_MoveDistance2, parsed_VAHCO_MoveDirection2];
+		groupBlu1 move _destination;
+
+	};
+};
+
 // --------------------------------------------------------------------------------------------------------------------------------------
 // end of functions
 // --------------------------------------------------------------------------------------------------------------------------------------

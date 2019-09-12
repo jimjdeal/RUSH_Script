@@ -56,3 +56,12 @@ PASSED
 09 sept:
 Check that cancel function works in all live packs
 PASSED
+
+10 sept:
+Check that the route system works
+Must be able to create multiple markers, each marker with a unique name
+each marker name needs to be moved to an array
+All clearKeyDowns must work, including abort
+
+test that locals work for validation in VAPS
+(if passed, replace all globals wherever possible)

@@ -20,30 +20,41 @@ sleep 2;
 // systemChat "VAHCO ACTIVATED!!";
 
 // vars and arrays initialisation
+
 VAHCO_numericalInputbool	= false; 
 
 VAHCO_groupSelectBool		= false;
 VAHCO_groupSelect			= [];		// value reflects which group you are addressing 
 
 VAHCO_orderSelectBool		= false;
-VAHCO_orderSelect			= [];		// 1 = general move order, 2 = objective-based move order, 3 = set formation
+VAHCO_orderSelect			= [];		// 1 = general move order, 2 = objective-based move order, 3 = set formation, 4 = route-based move order
 
+// formation order
 VAHCO_setFormationBool		= false;	
 VAHCO_SetFormation			= [];		// 1 = Column, 2 = stag column, 3 = wedge, 4 = ech right, 5 = ech left, 6 = vee, 7 = line, 8 = file, 9 = diamond
 
+// objective-based move order
 VAHCO_objectiveTypeBool		= false;
 VAHCO_objectiveType			= [];		// value reflects type of objective selected
 
+// general move order
 VAHCO_distanceBool			= false;
 VAHCO_Distance				= [];		// general move order - distance
 
 VAHCO_headingBool			= false;
 VAHCO_Heading				= [];		// general move order - heading 
 
+
+VAHCO_chooseRouteBool		= false;	// 1 red, 2 green etc 
+VAHCO_chooseRoute			= [];
+
+VAHCO_followRouteBool		= false;
+
+// confirmation
 VAHCO_OscarMikeBool			= false;	
 VAHCO_OscarMike				= [];		// completion script 
 
-
+// -----------------------------------------------------------------------------------------------------------------------------------
 
 // key = "numpad 2"
 rgg_vahco_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 80)) then {

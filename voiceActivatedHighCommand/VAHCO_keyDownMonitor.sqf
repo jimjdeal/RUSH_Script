@@ -11,6 +11,7 @@ I use RGG_Grp_Num in my display - do I need this var in the display? If so, can 
 order type 1 = general move order --- needs stop, fall back and move to me in this bunch 
 order type 2 = objective-based order 
 order type 3 = order multiple units at the same time --- essentially a group order to be executed simultaneously
+order type 4 = route order
 
 03 Sept:
 I think I need new arrays to hold instructions for objective-based movement 
@@ -20,6 +21,9 @@ itself determines the actual type of instruction
 
 Added new section for order type 2 = objectives - now both lead to oscarMike.sqf 
 
+10 Sept:
+Attempting to add route mechanism
+
 */
 
 while {VAHCO_numericalInputbool} do {
@@ -28,9 +32,10 @@ while {VAHCO_numericalInputbool} do {
 	VAHCO_Validate_Group 		= count VAHCO_groupSelect; 		// should contain 1 value
 	VAHCO_Validate_Orders 		= count VAHCO_orderSelect; 		// should contain 1 value
 	VAHCO_Validate_Obj			= count VAHCO_objectiveType; 	// should contain 1 value 
-	VAHCO_Validate_Formation	= count VAHCO_SetFormation; 		// should contain 1 value
-	VAHCO_Validate_distance 	= count VAHCO_distance; 		// should contain 4 value;
-	VAHCO_Validate_heading		= count VAHCO_heading;			// should contain 3 value;
+	VAHCO_Validate_Formation	= count VAHCO_SetFormation; 	// should contain 1 value
+	VAHCO_Validate_distance 	= count VAHCO_distance; 		// should contain 4 value
+	VAHCO_Validate_heading		= count VAHCO_heading;			// should contain 3 value
+	VAHCO_Validate_routeSel		= count VAHCO_chooseRoute;		// should contain 1 value
 
 	// confirm what group you want to talk to 
 	if (VAHCO_groupSelectBool) then {
@@ -45,7 +50,7 @@ while {VAHCO_numericalInputbool} do {
 				_n1 = "Bravo 1";
 				_display = uiNameSpace getVariable "C_L1_1";
 				_setText = _display displayCtrl 19001;
-				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
+				_setText ctrlSetStructuredText (parseText format ["%1 Receiving", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
 			};
 			if (RGG_Grp_Num == 2) then {
@@ -54,7 +59,7 @@ while {VAHCO_numericalInputbool} do {
 				_n1 = "Bravo 2";
 				_display = uiNameSpace getVariable "C_L1_1";
 				_setText = _display displayCtrl 19001;
-				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
+				_setText ctrlSetStructuredText (parseText format ["%1 Receiving", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
 			};
 			if (RGG_Grp_Num == 3) then {
@@ -63,7 +68,7 @@ while {VAHCO_numericalInputbool} do {
 				_n1 = "Bravo 3";
 				_display = uiNameSpace getVariable "C_L1_1";
 				_setText = _display displayCtrl 19001;
-				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
+				_setText ctrlSetStructuredText (parseText format ["%1 Receiving", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
 			};
 			if (RGG_Grp_Num == 4) then {
@@ -72,7 +77,7 @@ while {VAHCO_numericalInputbool} do {
 				_n1 = "Bravo 4";
 				_display = uiNameSpace getVariable "C_L1_1";
 				_setText = _display displayCtrl 19001;
-				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
+				_setText ctrlSetStructuredText (parseText format ["%1 Receiving", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
 			};
 			if (RGG_Grp_Num == 5) then {
@@ -81,7 +86,7 @@ while {VAHCO_numericalInputbool} do {
 				_n1 = "Bravo 5";
 				_display = uiNameSpace getVariable "C_L1_1";
 				_setText = _display displayCtrl 19001;
-				_setText ctrlSetStructuredText (parseText format ["%1 Receiving .. Confirm Distance..", _n1]);
+				_setText ctrlSetStructuredText (parseText format ["%1 Receiving", _n1]);
 				_setText ctrlSetBackgroundColor [0,0,0,0.5];
 			};
 
@@ -158,13 +163,30 @@ while {VAHCO_numericalInputbool} do {
 				*/
 			};		
 
+			// formation orders 
 			if (_orderType == 3) then {
 
-				systemChat "set waypoint";
+				systemChat "set formation";
 				systemChat "1 = Column, 2 = stag column, 3 = wedge, 4 = ech right, 5 = ech left, 6 = vee, 7 = line, 8 = file, 9 = diamond";
 				VAHCO_orderSelectBool = false;
 				VAHCO_setFormationBool = true;
 			};
+
+			// route orders
+			if (_orderType == 4) then {
+
+				systemChat "what route?";
+
+				// choose route colour here ? no.
+
+
+
+				VAHCO_orderSelectBool = false;
+				// VAHCO_followRouteBool = true;
+				VAHCO_chooseRouteBool = true;
+
+			};
+
 		};
 	};
 
@@ -303,6 +325,51 @@ while {VAHCO_numericalInputbool} do {
 		};
 	};
 
+// -----------------------------------------------------------------------------------------------------
+
+	// order type 4 - follow route
+
+	// 1 = red, 2 = green, 3 = blue, 4 = yellow, 5 = white 
+
+	if (VAHCO_chooseRouteBool) then {
+
+		if (VAHCO_Validate_routeSel = 1) then {
+
+			_routeData = VAHCO_chooseRoute select 0;
+
+			if (_routeData == 1) then {
+				systemChat "you selected red";
+			};
+			if (_routeData == 2) then {
+				systemChat "you selected green";
+
+			};
+			if (_routeData == 3) then {
+				systemChat "you selected blue";
+
+			};
+			if (_routeData == 4) then {
+				systemChat "you selected yellow";
+
+			};
+			if (_routeData == 5) then {
+				systemChat "you selected white";
+
+			};
+
+			VAHCO_chooseRouteBool = false;
+			VAHCO_followRouteBool = true; // or is this simply oscar mike?
+
+		};
+	};
+
+
+
+
+	// if (VAHCO_followRouteBool) then {
+
+	// 	if (VAPS_RedWP)
+	// };
 
 // -----------------------------------------------------------------------------------------------------
 

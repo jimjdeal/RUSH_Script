@@ -329,3 +329,17 @@ vaus 5
 vavs 6
 vaos 7
 vamg 8
+
+HUD:
+
+Bravo HC units
+type, number, health, ammo, fuel etc, also direction and distance, also behaviour
+
+number of routes active
+
+number of objectives active
+
+//
+mission type - generate a zone, to push through, then generate type of opfor - RPG battle, tank wrfare, info only, etc..
+
+add a random element here - so if you select VAMG, you get ported somewhere randonly, with the type of challenge, you then spawn to suit.

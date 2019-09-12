@@ -26,6 +26,17 @@ VAPS_Lon_Bool				= false;
 
 VAPS_Confirm				= [];		// generic confirm system // 1 = confirm, 2 = cancel
 VAPS_Confirm_Bool			= false;
+
+10 sept:
+
+Now has cancel - untested 
+
+Removed rgg_vaps_kd0, as not in use - test for breaks 
+
+added route functionality - test 
+
+removed lat and lon as not in use - test 
+
 */
 
 if (VAPS_numericalInputbool) then {
@@ -52,19 +63,19 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 	// _setText ctrlSetStructuredText (parseText format ["VAHC: %1", _n1]);
 	// _setText ctrlSetBackgroundColor [0,0,0,0.5];
 
-	rgg_vaps_kd0 = (findDisplay 12) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
+	// rgg_vaps_kd0 = (findDisplay 12) displayAddEventHandler ["KeyDown", "if (_this select 1 == 82) then {
 			
-		systemChat 'VAPS - 0';
+	// 	systemChat 'VAPS - 0';
 
-		if (VAPS_Lat_Bool) then {
-			VAPS_Lat pushback 0;
-		};
+	// 	if (VAPS_Lat_Bool) then {
+	// 		VAPS_Lat pushback 0;
+	// 	};
 
-		if (VAPS_Lon_Bool) then {
-			VAPS_Lon pushback 0;
-		};
+	// 	if (VAPS_Lon_Bool) then {
+	// 		VAPS_Lon pushback 0;
+	// 	};
 
-	}"];
+	// }"];
 
 	rgg_vaps_kd1 = (findDisplay 12) displayAddEventHandler ["KeyDown", "if (_this select 1 == 79) then {
 
@@ -74,12 +85,8 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAPS_Order_Type pushback 1;
 		};
 
-		if (VAPS_Lat_Bool) then {
-			VAPS_Lat pushback 1;
-		};
-
-		if (VAPS_Lon_Bool) then {
-			VAPS_Lon pushback 1;
+		if (VAPS_RouteSelect_Bool) then {
+			VAPS_RouteSelect pushback 1;
 		};
 
 		if (VAPS_Confirm_Bool) then {
@@ -94,6 +101,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 
 		if (VAPS_Order_Type_Bool) then {
 			VAPS_Order_Type pushback 2;
+		};
+
+		if (VAPS_RouteSelect_Bool) then {
+			VAPS_RouteSelect pushback 2;
 		};
 
 		if (VAPS_Lat_Bool) then {
@@ -118,6 +129,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAPS_Order_Type pushback 3;
 		};
 
+		if (VAPS_RouteSelect_Bool) then {
+			VAPS_RouteSelect pushback 3;
+		};
+
 		if (VAPS_Lat_Bool) then {
 			VAPS_Lat pushback 3;
 		};
@@ -136,6 +151,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 			VAPS_Order_Type pushback 4;
 		};
 
+		if (VAPS_RouteSelect_Bool) then {
+			VAPS_RouteSelect pushback 4;
+		};
+
 		if (VAPS_Lat_Bool) then {
 			VAPS_Lat pushback 4;
 		};
@@ -152,6 +171,10 @@ expermiment - instead of calling a new title script for the UI, I am going to tr
 
 		if (VAPS_Order_Type_Bool) then {
 			VAPS_Order_Type pushback 5;
+		};
+
+		if (VAPS_RouteSelect_Bool) then {
+			VAPS_RouteSelect pushback 5;
 		};
 
 		if (VAPS_Lat_Bool) then {

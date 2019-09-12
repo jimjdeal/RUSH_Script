@@ -120,3 +120,7 @@ blu_RF = 5;
 RGG_Grp_Num = 0;
 
 
+// used in VAMG - to manage whether units should be placed randomly
+	randomPlacement = false;
+
+

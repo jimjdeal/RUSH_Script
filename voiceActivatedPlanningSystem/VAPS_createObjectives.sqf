@@ -63,5 +63,7 @@ if (_orderType == 4) then {
 };
 
 // clean up and reset 
-execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
-execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";
+
+// 10 Sept: commented these out and moved them the the step prior, in keyDownMon
+// execVM "voiceActivatedPlanningSystem\VAPS_clearKeyDowns.sqf";
+// execVM "voiceActivatedPlanningSystem\initialiseVAPS.sqf";

@@ -22,19 +22,36 @@ VAPS_numericalInputbool		= false;
 VAPS_Order_Type				= []; 		// 1 = set primary, 2 = set secondary, 3 = set route, 4 = set battle plan 
 VAPS_Order_Type_Bool		= false;
 
-// VAPS_Obj_Type				= [];		// manages both primary and secondary objectives  
-// VAPS_Obj_Type_Bool			= false;
+VAPS_RouteSelect			= [];		// 1 = red, 2 = green, 3 = blue, 4 = yellow, 5 = white
+VAPS_RouteSelect_Bool		= false;
+
+VAPS_redRoute				= [];
+VAPS_greenRoute				= [];
+VAPS_blueRoute				= [];
+VAPS_yellowRoute			= [];
+VAPS_whiteRoute				= [];
+
+VAPS_redWP					= [];
+VAPS_greenWP				= [];
+VAPS_blueWP					= [];
+VAPS_yellowWP				= [];
+VAPS_whiteWP				= [];
 
 VAPS_mapClick				= false;	// exp mapclick solution
 
-VAPS_Lat					= [];		// generic location system
-VAPS_Lat_Bool				= false;
-
-VAPS_Lon					= [];		// generic location system
-VAPS_Lon_Bool				= false;
-
 VAPS_Confirm				= [];		// generic confirm system
 VAPS_Confirm_Bool			= false;
+
+// VAPS_Obj_Type			= [];		// manages both primary and secondary objectives  
+// VAPS_Obj_Type_Bool		= false;
+
+// VAPS_Lat					= [];		// generic location system
+// VAPS_Lat_Bool			= false;
+
+// VAPS_Lon					= [];		// generic location system
+// VAPS_Lon_Bool			= false;
+
+// ----------------------------------------------------------------------------------------------------------------------------
 
 // key = "numpad 2"
 rgg_vaps_Activate = (findDisplay 12) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 80)) then {
@@ -48,6 +65,4 @@ rgg_vaps_Activate = (findDisplay 12) displayAddEventHandler ["KeyDown", "if ((!V
 	VAPS_Order_Type_Bool = true;
 	execVM 'voiceactivatedPlanningSystem\VAPS_keyDowns.sqf'; 
 	execVM 'voiceactivatedPlanningSystem\VAPS_keyDownMonitor.sqf'; 
-
 }"];
-
