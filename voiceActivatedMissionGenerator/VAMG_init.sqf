@@ -107,14 +107,14 @@ systemChat "4 = Create Mixed-Element Conflict";
 
 // ------------------------------------------------------------------ //
 
-// key = "numpad ? = ??"
-RGG_VAMG_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == ??)) then {
+// key = "numpad 7 = 71"
+RGG_VAMG_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 71)) then {
 	vamp = true;
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAMG_Activate];
 	VAMG_numericalInputBool = true; 
 	VAMG_conflictTypeBool = true;
-	execVM 'voiceActivatedUnitSpawner\VAMG_keyDowns.sqf'; 
-	execVM 'voiceActivatedUnitSpawner\VAMG_keyDownMonitor.sqf'; 	
+	execVM 'voiceActivatedMissionGenerator\VAMG_keyDowns.sqf'; 
+	execVM 'voiceActivatedMissionGenerator\VAMG_keyDownMonitor.sqf'; 	
 }"];
 
 // ------------------------------------------------------------------ //

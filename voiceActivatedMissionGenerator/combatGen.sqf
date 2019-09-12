@@ -51,56 +51,6 @@ also note - need to create movement in units created...
 
 
 
-
-// area gen 
-// this FNC generates an area around the player 
-// this is the AO for which all other calcs are based on
-generateAO = {
-
-	// configs start
-	_area = VAMG_areaSize select 0;
-	_startPosition = position player;
-	// configs end 
-	// AO Marker Start
-	if (_area == 1) then {
-		_num = 500;
-	};
-	if (_area == 2) then {
-		_num = 1500;
-	};
-	if (_area == 3) then {
-		_num = 3000;
-	};
-	if (_area == 4) then {
-		_num = 5000;
-	};
-	deleteMarkerlocal "BattleArea"; 
-	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
-	_battleArea setMarkerShapeLocal "ELLIPSE";
-	_battleArea setMarkerColorLocal "ColorBlack";
-	_battleArea setMarkerSizeLocal [_num, _num];
-	_battleArea setMarkerAlphaLocal 0.1;
-	// AO Marker End
-	// Spawn Marker Start
-	_placement = VAMG_enemyPlacement select 0;
-	if (_placement == 1) then {
-		_spawnPointOPFOR = [_startPosition, 500, 700] call BIS_fnc_findSafePos; 
-			deleteMarkerlocal "SpawnArea"; 
-			_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
-			_spawnArea setMarkerShapeLocal "ELLIPSE";
-			_spawnArea setMarkerColorLocal "ColorBlack";
-			_spawnArea setMarkerSizeLocal [_num, _num];
-			_spawnArea setMarkerAlphaLocal 0.1;
-		[_spawnPointOPFOR] spawn generateOpfor;
-	} else {
-		// _randomDir = selectRandom 360;
-		// _randomDist = selectRandom [300, 350, 400, 450, 500];
-		// some randomisation is needed here
-		[] spawn generateOpfor;
-	};
-	// Spawn Marker End
-};
-
 generateOpfor = {
 	// this function generates relevant enemies as per mission request 
 	_opforFactionCSAT = [O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F];
@@ -305,3 +255,52 @@ fightNow = {
 	// give UI instructions
 	};
 };
+
+// area gen 
+// this FNC generates an area around the player 
+// this is the AO for which all other calcs are based on
+generateAO = {
+
+	// configs start
+	_area = VAMG_areaSize select 0;
+	_startPosition = position player;
+	// configs end 
+	// AO Marker Start
+	if (_area == 1) then {
+		_num = 500;
+	};
+	if (_area == 2) then {
+		_num = 1500;
+	};
+	if (_area == 3) then {
+		_num = 3000;
+	};
+	if (_area == 4) then {
+		_num = 5000;
+	};
+	deleteMarkerlocal "BattleArea"; 
+	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
+	_battleArea setMarkerShapeLocal "ELLIPSE";
+	_battleArea setMarkerColorLocal "ColorBlack";
+	_battleArea setMarkerSizeLocal [500, 500];
+	_battleArea setMarkerAlphaLocal 0.1;
+	// AO Marker End
+	// Spawn Marker Start
+	_placement = VAMG_enemyPlacement select 0;
+	if (_placement == 1) then {
+		_spawnPointOPFOR = [_startPosition, 500, 700] call BIS_fnc_findSafePos; 
+			deleteMarkerlocal "SpawnArea"; 
+			_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
+			_spawnArea setMarkerShapeLocal "ELLIPSE";
+			_spawnArea setMarkerColorLocal "ColorBlack";
+			_spawnArea setMarkerSizeLocal [500, 500];
+			_spawnArea setMarkerAlphaLocal 0.1;
+		[_spawnPointOPFOR] spawn generateOpfor;
+	} else {
+		// _randomDir = selectRandom 360;
+		// _randomDist = selectRandom [300, 350, 400, 450, 500];
+		// some randomisation is needed here
+		[] spawn generateOpfor;
+	};
+	// Spawn Marker End
+}; call generateAO;

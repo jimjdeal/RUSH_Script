@@ -26,6 +26,7 @@ execVM "voiceactivatedhighcommand\VAHCO_init.sqf";
 execVM "voiceActivatedUnitSpawner\VAUS_init.sqf";
 execVM "voiceActivatedVehicleSpawner\VAVS_init.sqf";
 execVM "voiceActivatedPlanningSystem\VAPS_init.sqf";
+execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
 execVM "InfoDisplay.sqf";
 
 
