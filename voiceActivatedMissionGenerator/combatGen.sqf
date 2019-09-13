@@ -58,7 +58,9 @@ private ["_num"];
 generateOpfor = {
 	systemChat "generateOpfor called";
 	// this function generates relevant enemies as per mission request 
-	_opforFactionCSAT = [O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F];
+	_opforFactionCSAT 	= [O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F];
+	_opforFactionFIA 	= [O_G_Soldier_F, O_G_Soldier_lite_F, O_G_Soldier_SL_F, O_G_Soldier_AR_F, O_G_medic_F,O_G_engineer_F, O_G_Soldier_exp_F, O_G_Soldier_GL_F, O_G_Soldier_M_F, O_G_Soldier_LAT_F, O_G_Soldier_A_F, O_G_Sharpshooter_F];
+
 	// more arrays to go here ^^ to maintain different faction classes
 	_groupRed1 = createGroup east;
 	_groupRed2 = createGroup east;
