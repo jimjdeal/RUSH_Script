@@ -51,6 +51,11 @@ O_G_Sharpshooter_F
 
 
 
+O_Soldier_F, O_officer_F, O_Soldier_lite_F, O_Soldier_GL_F, O_Soldier_AR_F, O_Soldier_SL_F, O_Soldier_TL_F, O_soldier_M_F, O_Soldier_LAT_F, O_medic_F, O_soldier_repair_F, O_soldier_exp_F, O_Soldier_A_F, O_Soldier_AT_F, O_Soldier_AA_F, O_engineer_F, O_Soldier_AAR_F, O_Soldier_AAT_F, O_Soldier_AAA_F, O_support_MG_F, O_support_GMG_F. O_support_Mort_F, O_Sharpshooter_F, O_HeavyGunner_F
+
+O_recon_F, O_recon_M_F, O_recon_LAT_F, O_recon_medic_F, O_recon_exp_F, O_recon_JTAC_F, O_recon_TL_F, O_ghillie_lsh_F, O_ghillie_sard_F, O_ghillie_ard_F, O_Pathfinder_F 
+
+
 
 
 
@@ -183,58 +188,7 @@ O_HeavyGunner_F
 CSAT URBAN
 
 Autorifleman
-O_soldierU_AR_F
 
-Asst. Autorifleman
-O_soldierU_AAR_F
-
-Rifleman (AT)
-O_soldierU_LAT_F
-
-Missile Specialist (AT)
-O_soldierU_AT_F
-
-Asst. Missile Specialist (AT)
-O_soldierU_AAT_F
-
-Missile Specialist (AA)
-O_soldierU_AA_F
-
-Asst. Missile Specialist (AA)
-O_soldierU_AAA_F
-
-Team Leader
-O_soldierU_TL_F
-
-Squad Leader
-O_SoldierU_SL_F
-
-Combat Life Saver
-O_soldierU_medic_F
-
-Repair Specialist
-O_soldierU_repair_F
-
-Explosive Specialist
-O_soldierU_exp_F
-
-Engineer
-O_engineer_U_F
-
-Marksman
-O_soldierU_M_F
-
-Ammo Bearer
-O_soldierU_A_F
-
-Grenadier
-O_SoldierU_GL_F
-
-Sharpshooter
-O_Urban_Sharpshooter_F
-
-Heavy Gunner
-O_Urban_HeavyGunner_F
 
 
 
