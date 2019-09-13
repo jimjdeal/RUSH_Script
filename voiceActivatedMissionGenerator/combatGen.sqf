@@ -88,10 +88,12 @@ generateOpfor = {
 			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
+
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed1 Move _endPoint1;
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
+
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed2 Move _endPoint1;
 		};
