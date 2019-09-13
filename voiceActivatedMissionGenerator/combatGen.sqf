@@ -49,9 +49,10 @@ also note - need to create movement in units created...
 */
 
 
-
+private ["_num"];
 
 generateOpfor = {
+	systemChat "generateOpfor called";
 	// this function generates relevant enemies as per mission request 
 	_opforFactionCSAT = [O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F];
 	// more arrays to go here, to maintain different faction classes
@@ -73,10 +74,10 @@ generateOpfor = {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
 				sleep 1;
 			};
-			_randomDir = selectRandom 360;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed1 doMove _endPoint1;
+			_groupRed1 Move _endPoint1;
 		};
 		if (_genSize == 2) then {
 			for "_i" from 1 to _genNumber do {
@@ -85,14 +86,14 @@ generateOpfor = {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
 			};
-			_randomDir = selectRandom 360;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed1 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed1 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed2 doMove _endPoint1;
+			_groupRed2 Move _endPoint1;
 		};
 		if (_genSize == 3) then {
 			for "_i" from 1 to _genNumber do {
@@ -104,18 +105,18 @@ generateOpfor = {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed3]; 
 			};
-			_randomDir = selectRandom 360;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed1 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed1 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed2 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed2 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed3 doMove _endPoint1;
+			_groupRed3 Move _endPoint1;
 		};
 		if (_genSize == 4) then {
 			for "_i" from 1 to _genNumber do {
@@ -130,22 +131,22 @@ generateOpfor = {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed4]; 
 			};
-			_randomDir = selectRandom 360;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed1 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed1 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed2 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed2 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed3 doMove _endPoint1;
-			_randomDir = selectRandom 360;
+			_groupRed3 Move _endPoint1;
+			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed4 doMove _endPoint1;
+			_groupRed4 Move _endPoint1;
 		};
 
 	};
@@ -209,6 +210,8 @@ generateOpfor = {
 };
 
 fightNow = {
+		systemChat "fightNow called";
+
 	// what is the mission order? Make necessary controls and instructions happen now
 	// activate RF listener 
 	/*
@@ -249,7 +252,7 @@ fightNow = {
 	// create safezone 
 	// give UI instructions
 	};
-	if (MISSION_ESCAPE) then {
+	if (MISSION_RUN) then {
 	// create enemy safezone 
 	// move enemy to enemy safezone 
 	// give UI instructions
@@ -260,6 +263,7 @@ fightNow = {
 // this FNC generates an area around the player 
 // this is the AO for which all other calcs are based on
 generateAO = {
+	systemChat "generateMarkers called";
 
 	// configs start
 	_area = VAMG_areaSize select 0;
@@ -267,13 +271,13 @@ generateAO = {
 	// configs end 
 	// AO Marker Start
 	if (_area == 1) then {
-		_num = 500;
+		_num = 1000;
 	};
 	if (_area == 2) then {
-		_num = 1500;
+		_num = 2000;
 	};
 	if (_area == 3) then {
-		_num = 3000;
+		_num = 3500;
 	};
 	if (_area == 4) then {
 		_num = 5000;
@@ -282,8 +286,8 @@ generateAO = {
 	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
 	_battleArea setMarkerShapeLocal "ELLIPSE";
 	_battleArea setMarkerColorLocal "ColorBlack";
-	_battleArea setMarkerSizeLocal [500, 500];
-	_battleArea setMarkerAlphaLocal 0.1;
+	_battleArea setMarkerSizeLocal [_num, _num];
+	_battleArea setMarkerAlphaLocal 0.5;
 	// AO Marker End
 	// Spawn Marker Start
 	_placement = VAMG_enemyPlacement select 0;
@@ -293,8 +297,8 @@ generateAO = {
 			_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
 			_spawnArea setMarkerShapeLocal "ELLIPSE";
 			_spawnArea setMarkerColorLocal "ColorBlack";
-			_spawnArea setMarkerSizeLocal [500, 500];
-			_spawnArea setMarkerAlphaLocal 0.1;
+			_spawnArea setMarkerSizeLocal [_num, _num];
+			_spawnArea setMarkerAlphaLocal 0.9;
 		[_spawnPointOPFOR] spawn generateOpfor;
 	} else {
 		// _randomDir = selectRandom 360;

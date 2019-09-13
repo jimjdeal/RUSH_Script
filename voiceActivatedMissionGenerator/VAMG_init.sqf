@@ -93,23 +93,29 @@ VAMG_confirm			= [];		// 2 options - create or cancel
 VAMG_confirmBool		= false;
 
 
-systemChat "Welcome to VAMG - Voice Activated Mission Generator";
-sleep 0.2;
-systemChat "Confirm Misison Type";
-sleep 0.2;
-systemChat "1 = Create Infantry-Based Conflict";
-sleep 0.2;
-systemChat "2 = Create Vehicle-Based Conflict";
-sleep 0.2;
-systemChat "3 = Create Airbourne-Based Conflict (TBD)";
-sleep 0.2;
-systemChat "4 = Create Mixed-Element Conflict";
+// systemChat "Welcome to VAMG - Voice Activated Mission Generator";
+// sleep 0.2;
+// systemChat "Confirm Misison Type";
+// sleep 0.2;
+// systemChat "1 = Create Infantry-Based Conflict";
+// sleep 0.2;
+// systemChat "2 = Create Vehicle-Based Conflict";
+// sleep 0.2;
+// systemChat "3 = Create Airbourne-Based Conflict (TBD)";
+// sleep 0.2;
+// systemChat "4 = Create Mixed-Element Conflict";
 
 // ------------------------------------------------------------------ //
 
 // key = "numpad 7 = 71"
 RGG_VAMG_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 71)) then {
 	vamp = true;
+	systemChat 'Welcome to VAMG - Voice Activated Mission Generator';
+	systemChat 'Confirm Misison Type';
+	systemChat '1 = Create Infantry-Based Conflict';
+	systemChat '2 = Create Vehicle-Based Conflict';
+	systemChat '3 = Create Airbourne-Based Conflict (TBD)';
+	systemChat '4 = Create Mixed-Element Conflict';
 	_ehRemove1 = (findDisplay 46) displayRemoveEventHandler ['keyDown',RGG_VAMG_Activate];
 	VAMG_numericalInputBool = true; 
 	VAMG_conflictTypeBool = true;
