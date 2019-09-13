@@ -333,7 +333,7 @@ while {VAHCO_numericalInputbool} do {
 
 	if (VAHCO_chooseRouteBool) then {
 
-		if (VAHCO_Validate_routeSel = 1) then {
+		if (VAHCO_Validate_routeSel == 1) then {
 
 			_routeData = VAHCO_chooseRoute select 0;
 

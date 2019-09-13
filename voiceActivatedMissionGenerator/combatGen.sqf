@@ -48,14 +48,18 @@ for "_i" from 1 to 4 do {
 also note - need to create movement in units created...
 */
 
+systemChat "combatGen activated";
 
 private ["_num"];
+
+
+
 
 generateOpfor = {
 	systemChat "generateOpfor called";
 	// this function generates relevant enemies as per mission request 
 	_opforFactionCSAT = [O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F, O_V_Soldier_TL_ghex_F];
-	// more arrays to go here, to maintain different faction classes
+	// more arrays to go here ^^ to maintain different faction classes
 	_groupRed1 = createGroup east;
 	_groupRed2 = createGroup east;
 	_groupRed3 = createGroup east;
@@ -207,13 +211,52 @@ generateOpfor = {
 		};
 	};
 	// note, right now, all numbers are the same regardless of infi, vic, air or mixed ... MVP yo!
-	MISSION_ATTACK = true;
-	call fightNow;
+	
+	_gameType = VAMG_conflictObj select 0;
+
+	// you attack them
+	if (_gameType == 1) then {
+		MISSION_ATTACK = true;
+		call fightNow;
+	};
+	// they attack you
+	if (_gameType == 2) then {
+		systemChat "checking mission defend - true now";
+		MISSION_DEFEND = true;
+		
+		// if (side _x == east) then {
+		// 	_x doMove (position player);
+		// } forEach allUnits;
+
+	_units = allUnits inAreaArray "BattleArea";
+	_unitCount = count _units;
+	{
+		switch ((side _x)) do
+		{
+			case EAST: {	_x doMove (position player)};
+			case WEST: {};
+		};
+	} forEach _units;
+
+
+		call fightNow;
+	};
+	// you hunt them
+	if (_gameType == 3) then {
+		MISSION_HUNT = true;
+		call fightNow;
+	};
+	// they hunt you
+	if (_gameType == 4) then {
+		MISSION_RUN = true;
+		call fightNow;
+	};
 };
 
 fightNow = {
-		systemChat "fightNow called";
-
+	systemChat "fightNow called";
+	execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
+	execVM "voiceActivatedMissionGenerator\VAMG_clearKeyDowns.sqf";
 	// what is the mission order? Make necessary controls and instructions happen now
 	// activate RF listener 
 	/*
@@ -240,26 +283,46 @@ fightNow = {
 			// check here for RF settings 
 			systemChat "MISSION COMPLETE .. !!!";
 			MISSION_ATTACK = false;
-			execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
-			execVM "voiceActivatedMissionGenerator\VAMG_clearKeyDowns.sqf";
 		};
 		sleep 10;
 	};
-	if (MISSION_DEFEND) then {
+
+	while {MISSION_DEFEND} do {
 	// move enemy to player pos
 	// give UI instructions
+		_units = allUnits inAreaArray "BattleArea";
+		_opforCount1 = 0;
+		_blueforCount1 = 0;
+		// _unitCount1 = count _units;
+		{
+			switch ((side _x)) do {
+				case EAST: {_opforCount1 = _opforCount1 + 1};
+				case WEST: {_blueforCount1 = _blueforCount1 + 1};
+			};
+		} forEach _units;
+
+		if ((_opforCount1) <= 2)  then {
+			// check here for RF settings 
+			systemChat "MISSION COMPLETE .. !!!";
+			MISSION_DEFEND = false;
+		};
+		sleep 10;
 	};
-	if (MISSION_HUNT) then {
+	while {MISSION_HUNT} do {
 	// move enemy to player pos on cycle
 	// create safezone 
 	// give UI instructions
+		sleep 10;
 	};
-	if (MISSION_RUN) then {
+	while {MISSION_RUN} do {
 	// create enemy safezone 
 	// move enemy to enemy safezone 
 	// give UI instructions
+		sleep 10;
 	};
+
 };
+
 
 // area gen 
 // this FNC generates an area around the player 
