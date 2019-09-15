@@ -27,8 +27,11 @@ VAMG_enemyPlacementBool	= false;
 VAMG_intel				= [];		// 4 options - how much assistance player has in finding the enemy
 VAMG_intelBool			= false;
 
-VAMG_enemyFaction		= [];		// 9 options - CSAT, VANILLA REBELS, RHS, PROJECT OPFOR
+VAMG_enemyFaction		= [];		// 9 options - CSAT, FIA, RHS  
 VAMG_enemyFactionBool	= false;
+
+VAMG_enemyClass			= [];		// CSAT [1 CSAT Pacific, 2 CSAT Urban, 3 CSAT Recon, 4 CSAT Pacific Recon, 5 CSAT Viper, 6 CSAT Viper Pacific], FIA [??] RHS [??] 
+VAMG_enemyClassBool		= false;
 
 VAMG_enemyRF			= []; 		// 4 options - none, light once only, medium repeated twice, heavy repeated three times
 VAMG_enemyRFBool		= false;
@@ -41,10 +44,10 @@ VAMG_confirmBool		= false;
 */
 
 // mission states 
-MISSION_ATTACK = false;
-MISSION_DEFEND = false;
-MISSION_HUNT = false;
-MISSION_RUN = false;
+MISSION_ATTACK 	= false;
+MISSION_DEFEND 	= false;
+MISSION_HUNT 	= false;
+MISSION_RUN 	= false;
 
 
 while {VAMG_numericalInputbool} do {
@@ -56,6 +59,7 @@ while {VAMG_numericalInputbool} do {
 	_VAMG_val_enemyPlacement 	= count VAMG_enemyPlacement;	
 	_VAMG_val_intel 			= count VAMG_intel;			
 	_VAMG_val_enemyFaction 		= count VAMG_enemyFaction;	
+	_VAMG_val_enemyClass 		= count VAMG_enemyClass;	
 	_VAMG_val_enemyRF 			= count VAMG_enemyRF;	
 	_VAMG_val_conflictObj 		= count VAMG_conflictObj;
 	_VAMG_val_confirm 			= count VAMG_confirm;		
@@ -220,41 +224,69 @@ while {VAMG_numericalInputbool} do {
 			_VAMG_data = VAMG_enemyFaction select 0;
 			if (_VAMG_data == 1) then {
 				systemChat "you selected CSAT";
+				systemChat "now confirm class of faction:";
+				systemChat "1 CSAT Standard, 2 CSAT Pacific, 3 CSAT Urban, 4 CSAT Recon, 5 CSAT Pacific Recon, 6 CSAT Viper, 7 CSAT Viper Pacific";
 			};
 			if (_VAMG_data == 2) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected FIA";
 
 			};
 			if (_VAMG_data == 3) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected RHS Russia";
 
 			};
 			if (_VAMG_data == 4) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected TBC";
 
 			};
 			if (_VAMG_data == 5) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected TBC";
 
 			};
 			if (_VAMG_data == 6) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected TBC";
 
 			};
 			if (_VAMG_data == 7) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected TBC";
 
 			};
 			if (_VAMG_data == 8) then {
-				systemChat "you selected CSAT";
+				systemChat "you selected TBC";
 
 			};
-			systemChat "now confirm levels of enemy reinforcements";
-			systemChat "1 = no RF, 2 = single once, 3 = medium twice, 4 = heavy three times";
 			VAMG_enemyFactionBool = false;
-			VAMG_enemyRFBool = true;	
+			VAMG_enemyClassBool = true;
+			// systemChat "now confirm levels of enemy reinforcements";
+			// systemChat "1 = no RF, 2 = single once, 3 = medium twice, 4 = heavy three times";
+			// VAMG_enemyFactionBool = false;
+			// VAMG_enemyRFBool = true;	
 		};
 	};
+
+	// exp!
+	if (VAMG_enemyClassBool) then {
+		if (_VAMG_val_enemyClass == 1) then {
+			_faction = VAMG_enemyFaction select 0;
+			_class = VAMG_enemyClass select 0;
+			if (_faction == 1) then {
+				switch (_class) do {
+					case 1: { hint "You selected CSAT Standard"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 2: { hint "You selected CSAT Pacific"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 3: { hint "You selected CSAT Urban"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 4: { hint "You selected CSAT Recon"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 5: { hint "You selected CSAT Pacific Recon"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 6: { hint "You selected CSAT Viper"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					case 7: { hint "You selected CSAT Pacific Viper"; systemChat "now confirm levels of enemy reinforcements"; VAMG_enemyClassBool = false, VAMG_enemyRFBool = true };
+					default { hint "default" };
+				};	
+			};
+		};
+	};
+
+
+
+
 
 	if (VAMG_enemyRFBool) then {
 		if (_VAMG_val_enemyRF == 1) then {

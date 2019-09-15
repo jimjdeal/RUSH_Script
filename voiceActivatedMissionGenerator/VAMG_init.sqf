@@ -57,7 +57,6 @@ here, the player and any units have to reach a certain point, where blu RF are w
 BluRF cannot come to your aid for political reasons, but they can hold their grouns and cover your escape 
 Opfor will spawn both around you (light) and behind you (heavy) and always move to your position 
 Can you escape back to the safety of the border?
-
 */
 
 VAMG_numericalInputBool	= false;
@@ -83,6 +82,9 @@ VAMG_intelBool			= false;
 VAMG_enemyFaction		= [];		// 9 options - CSAT, VANILLA REBELS, RHS, PROJECT OPFOR
 VAMG_enemyFactionBool	= false;
 
+VAMG_enemyClass			= [];		// CSAT [1 CSAT Pacific, 2 CSAT Urban, 3 CSAT Recon, 4 CSAT Pacific Recon, 5 CSAT Viper, 6 CSAT Viper Pacific], FIA [??] RHS [??] 
+VAMG_enemyClassBool		= false;
+
 VAMG_enemyRF			= []; 		// 4 options - none, light once only, medium repeated twice, heavy repeated three times
 VAMG_enemyRFBool		= false;
 
@@ -92,21 +94,7 @@ VAMG_conflictObjBool	= false;
 VAMG_confirm			= [];		// 2 options - create or cancel
 VAMG_confirmBool		= false;
 
-
-// systemChat "Welcome to VAMG - Voice Activated Mission Generator";
-// sleep 0.2;
-// systemChat "Confirm Misison Type";
-// sleep 0.2;
-// systemChat "1 = Create Infantry-Based Conflict";
-// sleep 0.2;
-// systemChat "2 = Create Vehicle-Based Conflict";
-// sleep 0.2;
-// systemChat "3 = Create Airbourne-Based Conflict (TBD)";
-// sleep 0.2;
-// systemChat "4 = Create Mixed-Element Conflict";
-
 // ------------------------------------------------------------------ //
-
 // key = "numpad 7 = 71"
 RGG_VAMG_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!VAMP) && (_this select 1 == 71)) then {
 	vamp = true;
@@ -122,6 +110,5 @@ RGG_VAMG_Activate = (findDisplay 46) displayAddEventHandler ["KeyDown", "if ((!V
 	execVM 'voiceActivatedMissionGenerator\VAMG_keyDowns.sqf'; 
 	execVM 'voiceActivatedMissionGenerator\VAMG_keyDownMonitor.sqf'; 	
 }"];
-
 // ------------------------------------------------------------------ //
 

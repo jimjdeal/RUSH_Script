@@ -86,6 +86,9 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 1;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 1;
+		};
 		if (VAMG_enemyRFBool) then {
 			VAMG_enemyRF pushback 1;
 		};
@@ -120,6 +123,9 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 2;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 2;
+		};
 		if (VAMG_enemyRFBool) then {
 			VAMG_enemyRF pushback 2;
 		};
@@ -151,6 +157,9 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 3;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 3;
+		};
 		if (VAMG_enemyRFBool) then {
 			VAMG_enemyRF pushback 3;
 		};
@@ -176,6 +185,9 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 4;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 4;
+		};
 		if (VAMG_enemyRFBool) then {
 			VAMG_enemyRF pushback 4;
 		};
@@ -189,12 +201,18 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 5;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 5;
+		};
 	}"];
 
 	rgg_vamg_kd6 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 77) then {
 			
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 6;
+		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 6;
 		};
 	}"];
 
@@ -203,6 +221,9 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 7;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 7;
+		};
 	}"];
 
 	rgg_vamg_kd8 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 72) then {
@@ -210,12 +231,18 @@ if (VAMG_numericalInputbool) then {
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 8;
 		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 8;
+		};
 	}"];
 
 	rgg_vamg_kd9 = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 73) then {
 			
 		if (VAMG_enemyFactionBool) then {
 			VAMG_enemyFaction pushback 9;
+		};
+		if (VAMG_enemyClassBool) then {
+			VAMG_enemyClass pushback 9;
 		};
 	}"];
 };
