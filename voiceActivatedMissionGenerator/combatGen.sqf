@@ -58,7 +58,7 @@ private ["_num"];
 generateOpfor = {
 	// This function generates relevant enemies as per mission request 
 	// CSAT - Standard:
-	_opforCSAT = [O_Soldier_F, O_officer_F, O_Soldier_lite_F, O_Soldier_GL_F, O_Soldier_AR_F, O_Soldier_SL_F, O_Soldier_TL_F, O_soldier_M_F, O_Soldier_LAT_F, O_medic_F, O_soldier_repair_F, O_soldier_exp_F, O_Soldier_A_F, O_Soldier_AT_F, O_Soldier_AA_F, O_engineer_F, O_Soldier_AAR_F, O_Soldier_AAT_F, O_Soldier_AAA_F, O_support_MG_F, O_support_GMG_F, O_support_Mort_F, O_Sharpshooter_F, O_HeavyGunner_F];
+	_opforCSAT = ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
 	// CSAT - Pacific:
 	_opforCSATpacific = [O_T_Soldier_A_F, O_T_Soldier_AAR_F, O_T_Support_AMG_F, O_T_Support_AMort_F, O_T_Soldier_AAA_F, O_T_Soldier_AAT_F, O_T_Soldier_AR_F, O_T_Medic_F, O_T_Crew_F, O_T_Engineer_F, O_T_Soldier_Exp_F, O_T_Soldier_GL_F, O_T_Support_GMG_F, O_T_Support_MG_F, O_T_Support_Mort_F, O_T_Soldier_M_F, O_T_Soldier_AA_F, O_T_Soldier_AT_F, O_T_Officer_F, O_T_Soldier_Repair_F, O_T_Soldier_F, O_T_Soldier_LAT_F, O_T_Soldier_SL_F,  O_T_Soldier_TL_F];
 	// CSAT - Urban:
@@ -93,7 +93,8 @@ generateOpfor = {
 		_genNumber = 10; // hardcoded integer for number of units per group - 10 is simple 
 		if (_genSize == 1) then {
 			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
+				_unit = selectRandom _opforCSAT;
+				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
 				sleep 1;
 			};
 			_randomDir = random 360;
