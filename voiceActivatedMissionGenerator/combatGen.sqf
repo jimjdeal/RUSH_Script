@@ -50,29 +50,28 @@ also note - need to create movement in units created...
 
 systemChat "combatGen activated";
 
-private ["_num"];
+private ["_num", "_facClass"];
 
 
 
-
+// This function generates relevant enemies as per mission request
 generateOpfor = {
-	// This function generates relevant enemies as per mission request 
 	// CSAT - Standard:
-	_opforCSAT = ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
+	_opforCSAT 				= ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
 	// CSAT - Pacific:
-	_opforCSATpacific = [O_T_Soldier_A_F, O_T_Soldier_AAR_F, O_T_Support_AMG_F, O_T_Support_AMort_F, O_T_Soldier_AAA_F, O_T_Soldier_AAT_F, O_T_Soldier_AR_F, O_T_Medic_F, O_T_Crew_F, O_T_Engineer_F, O_T_Soldier_Exp_F, O_T_Soldier_GL_F, O_T_Support_GMG_F, O_T_Support_MG_F, O_T_Support_Mort_F, O_T_Soldier_M_F, O_T_Soldier_AA_F, O_T_Soldier_AT_F, O_T_Officer_F, O_T_Soldier_Repair_F, O_T_Soldier_F, O_T_Soldier_LAT_F, O_T_Soldier_SL_F,  O_T_Soldier_TL_F];
+	_opforCSATpacific 		= ["O_T_Soldier_A_F", "O_T_Soldier_AAR_F", "O_T_Support_AMG_F", "O_T_Support_AMort_F", "O_T_Soldier_AAA_F", "O_T_Soldier_AAT_F", "O_T_Soldier_AR_F", "O_T_Medic_F", "O_T_Crew_F", "O_T_Engineer_F", "O_T_Soldier_Exp_F", "O_T_Soldier_GL_F", "O_T_Support_GMG_F", "O_T_Support_MG_F", "O_T_Support_Mort_F", "O_T_Soldier_M_F", "O_T_Soldier_AA_F", "O_T_Soldier_AT_F", "O_T_Officer_F", "O_T_Soldier_Repair_F", "O_T_Soldier_F", "O_T_Soldier_LAT_F", "O_T_Soldier_SL_F",  "O_T_Soldier_TL_F"];
 	// CSAT - Urban:
-	_opforCSATurban	= [O_soldierU_F, O_soldierU_AR_F, O_soldierU_AAR_F, O_soldierU_LAT_F, O_soldierU_AT_F, O_soldierU_AAT_F, O_soldierU_AA_F, O_soldierU_AAA_F, O_soldierU_TL_F, O_SoldierU_SL_F, O_soldierU_medic_F, O_soldierU_repair_F, O_soldierU_exp_F, O_engineer_U_F, O_soldierU_M_F, O_soldierU_A_F, O_SoldierU_GL_F];
+	_opforCSATurban			= ["O_soldierU_F", "O_soldierU_AR_F", "O_soldierU_AAR_F", "O_soldierU_LAT_F", "O_soldierU_AT_F", "O_soldierU_AAT_F", "O_soldierU_AA_F", "O_soldierU_AAA_F", "O_soldierU_TL_F", "O_SoldierU_SL_F", "O_soldierU_medic_F", "O_soldierU_repair_F", "O_soldierU_exp_F", "O_engineer_U_F", "O_soldierU_M_F", "O_soldierU_A_F", "O_SoldierU_GL_F"];
 	// CSAT - Recon:
-	_opforCSATrecon	= [O_recon_F, O_recon_M_F, O_recon_LAT_F, O_recon_medic_F, O_recon_exp_F, O_recon_JTAC_F, O_recon_TL_F, O_ghillie_lsh_F, O_ghillie_sard_F, O_ghillie_ard_F, O_Pathfinder_F];
+	_opforCSATrecon			= ["O_recon_F", "O_recon_M_F", "O_recon_LAT_F", "O_recon_medic_F", "O_recon_exp_F, O_recon_JTAC_F", "O_recon_TL_F", "O_ghillie_lsh_F", "O_ghillie_sard_F", "O_ghillie_ard_F", "O_Pathfinder_F"];
 	// CSAT - Pacific Recon:
-	_opforCSATpacificRecon = [O_T_Recon_Exp_F, O_T_Recon_JTAC_F, O_T_Recon_M_F, O_T_Recon_Medic_F, O_T_Recon_F, O_T_Recon_LAT_F, O_T_Recon_TL_F, O_T_Sniper_F, O_T_Spotter_F, O_T_ghillie_tna_F];
+	_opforCSATpacificRecon 	= ["O_T_Recon_Exp_F", "O_T_Recon_JTAC_F", "O_T_Recon_M_F", "O_T_Recon_Medic_F, O_T_Recon_F", "O_T_Recon_LAT_F", "O_T_Recon_TL_F", "O_T_Sniper_F", "O_T_Spotter_F", "O_T_ghillie_tna_F"];
 	// CSAT - Viper:
-	_opforCSATviper	= [O_V_Soldier_hex_F, O_V_Soldier_TL_hex_F, O_V_Soldier_Exp_hex_F, O_V_Soldier_Medic_hex_F, O_V_Soldier_M_hex_F, O_V_Soldier_LAT_hex_F, O_V_Soldier_JTAC_hex_F];
+	_opforCSATviper			= ["O_V_Soldier_hex_F", "O_V_Soldier_TL_hex_F", "O_V_Soldier_Exp_hex_F", "O_V_Soldier_Medic_hex_F", "O_V_Soldier_M_hex_F", "O_V_Soldier_LAT_hex_F", "O_V_Soldier_JTAC_hex_F"];
 	// CSAT - Viper Pacific:
-	_opforCSATviper	= [O_V_Soldier_TL_ghex_F, O_V_Soldier_ghex_F, O_V_Soldier_Exp_ghex_F, O_V_Soldier_Medic_ghex_F, O_V_Soldier_M_ghex_F, O_V_Soldier_LAT_ghex_F, O_V_Soldier_JTAC_ghex_F];
-	// FIA:
-	_opforFactionFIA = [O_G_Soldier_F, O_G_Soldier_lite_F, O_G_Soldier_SL_F, O_G_Soldier_AR_F, O_G_medic_F,O_G_engineer_F, O_G_Soldier_exp_F, O_G_Soldier_GL_F, O_G_Soldier_M_F, O_G_Soldier_LAT_F, O_G_Soldier_A_F, O_G_Sharpshooter_F];
+	_opforCSATviper			= ["O_V_Soldier_TL_ghex_F", "O_V_Soldier_ghex_F", "O_V_Soldier_Exp_ghex_F", "O_V_Soldier_Medic_ghex_F", "O_V_Soldier_M_ghex_F", "O_V_Soldier_LAT_ghex_F", "O_V_Soldier_JTAC_ghex_F"];
+	// FIA - Standard:
+	_opforFactionFIA 		= ["O_G_Soldier_F", "O_G_Soldier_lite_F", "O_G_Soldier_SL_F", "O_G_Soldier_AR_F", "O_G_medic_F", "O_G_engineer_F", "O_G_Soldier_exp_F", "O_G_Soldier_GL_F", "O_G_Soldier_M_F", "O_G_Soldier_LAT_F", "O_G_Soldier_A_F", "O_G_Sharpshooter_F"];
 	
 	// hard-coded opfor groupings:
 	_groupRed1 = createGroup east;
@@ -87,10 +86,37 @@ generateOpfor = {
 	// gen-config:
 	_genType = VAMG_conflictType select 0; // infi, vic, air or mixed
 	_genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category, not a pure integer 
+	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy
+	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like pacific, or urban
 	
+	// assign local var to determine which faction class should be used
+	if (_genFaction == 1) then {
+		switch (_genFactionClass) do {
+			case 1: { _facClass = _opforCSAT };
+			case 2: { _facClass = _opforCSATpacific };
+			case 3: { _facClass = _opforCSATurban };
+			case 4: { _facClass = _opforCSATrecon };
+			case 5: { _facClass = _opforCSATpacificRecon };
+			case 6: { _facClass = _opforCSATviper };
+			case 7: { _facClass = _opforCSATviper };
+			default { hint "default" };
+		};
+	};
+	if (_genFaction == 2) then {
+		switch (_genFactionClass) do {
+			case 1: { _facClass = _opforFactionFIA };
+			default { hint "default" };
+		};
+	};
+
+	
+		
+	
+
 	// genType == infi only:
 	if (_genType == 1) then {
 		_genNumber = 10; // hardcoded integer for number of units per group - 10 is simple 
+
 		if (_genSize == 1) then {
 			for "_i" from 1 to _genNumber do {
 				_unit = selectRandom _opforCSAT;
