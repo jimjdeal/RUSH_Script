@@ -102,8 +102,8 @@ while {VAMG_numericalInputbool} do {
 			// 	systemChat "you selected mixed-element conflict (air TBD)";
 			// 	systemChat "now confirm size of conflict";
 			// 	systemChat "1 = Small, 2 = Medium, 3 = Large, 4 = X Large";
-			// 	VAMG_conflictTypeBool = false;
-			// 	VAMG_conflictSizeBool = true;
+				VAMG_conflictTypeBool = false;
+				VAMG_conflictSizeBool = true;
 			// };
 		};
 	};
@@ -470,6 +470,7 @@ while {VAMG_numericalInputbool} do {
 			// 	execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
 			// 	execVM "voiceActivatedMissionGenerator\VAMG_clearKeyDowns.sqf";
 			// };
+			};
 		};
 	};
 };

@@ -48,8 +48,33 @@ for "_i" from 1 to 4 do {
 also note - need to create movement in units created...
 */
 
+	_genType = VAMG_conflictType select 0; // infi, vic, air or mixed
+	_genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category (1-5), not a pure integer 
+	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy, like CSAT
+	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
+
+	if (_genFaction == 1) then {
+		switch (_genFactionClass) do {
+			case 1: { _facClass = _opforCSAT };
+			case 2: { _facClass = _opforCSATpacific };
+			case 3: { _facClass = _opforCSATurban };
+			case 4: { _facClass = _opforCSATrecon };
+			case 5: { _facClass = _opforCSATpacificRecon };
+			case 6: { _facClass = _opforCSATviper };
+			case 7: { _facClass = _opforCSATviperPacific };
+			default { hint "default" };
+		};
+	};
+	if (_genFaction == 2) then {
+		switch (_genFactionClass) do {
+			case 1: { _facClass = _opforFactionFIA };
+			default { hint "default" };
+		};
+	};
+
+
 // systemChat "combatGen activated";
-private ["_num", "_facClass"];
+private ["_num", "_facClass", "_safeExtent"];
 
 // This function generates relevant enemies as per mission request
 generateOpfor = {
@@ -87,24 +112,24 @@ generateOpfor = {
 	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
 	
 	// assign local var to determine which faction class should be used
-	if (_genFaction == 1) then {
-		switch (_genFactionClass) do {
-			case 1: { _facClass = _opforCSAT };
-			case 2: { _facClass = _opforCSATpacific };
-			case 3: { _facClass = _opforCSATurban };
-			case 4: { _facClass = _opforCSATrecon };
-			case 5: { _facClass = _opforCSATpacificRecon };
-			case 6: { _facClass = _opforCSATviper };
-			case 7: { _facClass = _opforCSATviperPacific };
-			default { hint "default" };
-		};
-	};
-	if (_genFaction == 2) then {
-		switch (_genFactionClass) do {
-			case 1: { _facClass = _opforFactionFIA };
-			default { hint "default" };
-		};
-	};
+	// if (_genFaction == 1) then {
+	// 	switch (_genFactionClass) do {
+	// 		case 1: { _facClass = _opforCSAT };
+	// 		case 2: { _facClass = _opforCSATpacific };
+	// 		case 3: { _facClass = _opforCSATurban };
+	// 		case 4: { _facClass = _opforCSATrecon };
+	// 		case 5: { _facClass = _opforCSATpacificRecon };
+	// 		case 6: { _facClass = _opforCSATviper };
+	// 		case 7: { _facClass = _opforCSATviperPacific };
+	// 		default { hint "default" };
+	// 	};
+	// };
+	// if (_genFaction == 2) then {
+	// 	switch (_genFactionClass) do {
+	// 		case 1: { _facClass = _opforFactionFIA };
+	// 		default { hint "default" };
+	// 	};
+	// };
 
 	
 		
@@ -386,24 +411,25 @@ generateAO = {
 	_startPosition = position player;
 	// configs end 
 	// AO Marker Start
-	switch (_area) do {
-		case: 1 { _num = 1000; };
-		case: 2 { _num = 2000; };
-		case: 3 { _num = 3500; };
-		case: 4 { _num = 5000; };
+	// switch (_area) do {
+	// 	case: 1 { _num = 1000 };
+	// 	case: 2 { _num = 2000 };
+	// 	case: 3 { _num = 3500 };
+	// 	case: 4 { _num = 5000 };
+	// 	default { systemChat "default" };
+	// };
+	if (_area == 1) then {
+		_num = 1000;
 	};
-	// if (_area == 1) then {
-	// 	_num = 1000;
-	// };
-	// if (_area == 2) then {
-	// 	_num = 2000;
-	// };
-	// if (_area == 3) then {
-	// 	_num = 3500;
-	// };
-	// if (_area == 4) then {
-	// 	_num = 5000;
-	// };
+	if (_area == 2) then {
+		_num = 2000;
+	};
+	if (_area == 3) then {
+		_num = 3500;
+	};
+	if (_area == 4) then {
+		_num = 5000;
+	};
 	deleteMarkerlocal "BattleArea"; 
 	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
 	_battleArea setMarkerShapeLocal "ELLIPSE";
@@ -420,14 +446,28 @@ generateAO = {
 	// spawner area  
 	//
 	// this switch helps to determine the outer extend of the enemy safezone
-	switch (_area) do {
-		case 1: { _safeExtent = 600 };
-		case 2: { _safeExtent = 1200 };
-		case 3: { _safeExtent = 1850 };
-		case 4: { _safeExtent = 2500 };
-		default { systemChat "default" };
+	// switch (_area) do {
+	// 	case 1: { _safeExtent = 600 };
+	// 	case 2: { _safeExtent = 1200 };
+	// 	case 3: { _safeExtent = 1850 };
+	// 	case 4: { _safeExtent = 2500 };
+	// 	default { systemChat "default" };
+	// };
+	// //
+
+	if (_area == 1) then {
+		_safeExtent = 600;
 	};
-	//
+	if (_area == 2) then {
+		_safeExtent = 1200;
+	};
+	if (_area == 3) then {
+		_safeExtent = 1850;
+	};
+	if (_area == 4) then {
+		_safeExtent = 1500;
+	};
+
 	// placement 1 = all opfor elements are clustered together as one badassmass
 	if (_placement == 1) then {
 		_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
