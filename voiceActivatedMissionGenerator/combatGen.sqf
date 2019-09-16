@@ -7,8 +7,10 @@ Q4 – area – small med large xl
 Q5 – placement – clustered or everywhere
 Q6 – intel – show once, show periodically, never
 Q7 – faction
-Q8 – type of RF – none, light, medium twice, heavy three times
-Q9 – mission type – you attack, they attack, you escape, they escape?
+Q8 - facion class
+Q9 – type of RF – none, light, medium twice, heavy three times
+Q10 – mission type – you attack, they attack, you escape, they escape?
+Q11 - confirm or cancel
 
 Create AO
 Q4 – area – small med large xl
@@ -43,35 +45,30 @@ for "_i" from 1 to 4 do {
 	"O_V_Soldier_TL_ghex_F" createUnit [getMarkerPos "opLeftWP", groupRed3]; 
 };
 
-
-
 also note - need to create movement in units created...
 */
 
-systemChat "combatGen activated";
-
+// systemChat "combatGen activated";
 private ["_num", "_facClass"];
-
-
 
 // This function generates relevant enemies as per mission request
 generateOpfor = {
 	// CSAT - Standard:
-	_opforCSAT 				= ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
+	_opforCSAT = ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
 	// CSAT - Pacific:
-	_opforCSATpacific 		= ["O_T_Soldier_A_F", "O_T_Soldier_AAR_F", "O_T_Support_AMG_F", "O_T_Support_AMort_F", "O_T_Soldier_AAA_F", "O_T_Soldier_AAT_F", "O_T_Soldier_AR_F", "O_T_Medic_F", "O_T_Crew_F", "O_T_Engineer_F", "O_T_Soldier_Exp_F", "O_T_Soldier_GL_F", "O_T_Support_GMG_F", "O_T_Support_MG_F", "O_T_Support_Mort_F", "O_T_Soldier_M_F", "O_T_Soldier_AA_F", "O_T_Soldier_AT_F", "O_T_Officer_F", "O_T_Soldier_Repair_F", "O_T_Soldier_F", "O_T_Soldier_LAT_F", "O_T_Soldier_SL_F",  "O_T_Soldier_TL_F"];
+	_opforCSATpacific = ["O_T_Soldier_A_F", "O_T_Soldier_AAR_F", "O_T_Support_AMG_F", "O_T_Support_AMort_F", "O_T_Soldier_AAA_F", "O_T_Soldier_AAT_F", "O_T_Soldier_AR_F", "O_T_Medic_F", "O_T_Crew_F", "O_T_Engineer_F", "O_T_Soldier_Exp_F", "O_T_Soldier_GL_F", "O_T_Support_GMG_F", "O_T_Support_MG_F", "O_T_Support_Mort_F", "O_T_Soldier_M_F", "O_T_Soldier_AA_F", "O_T_Soldier_AT_F", "O_T_Officer_F", "O_T_Soldier_Repair_F", "O_T_Soldier_F", "O_T_Soldier_LAT_F", "O_T_Soldier_SL_F",  "O_T_Soldier_TL_F"];
 	// CSAT - Urban:
-	_opforCSATurban			= ["O_soldierU_F", "O_soldierU_AR_F", "O_soldierU_AAR_F", "O_soldierU_LAT_F", "O_soldierU_AT_F", "O_soldierU_AAT_F", "O_soldierU_AA_F", "O_soldierU_AAA_F", "O_soldierU_TL_F", "O_SoldierU_SL_F", "O_soldierU_medic_F", "O_soldierU_repair_F", "O_soldierU_exp_F", "O_engineer_U_F", "O_soldierU_M_F", "O_soldierU_A_F", "O_SoldierU_GL_F"];
+	_opforCSATurban = ["O_soldierU_F", "O_soldierU_AR_F", "O_soldierU_AAR_F", "O_soldierU_LAT_F", "O_soldierU_AT_F", "O_soldierU_AAT_F", "O_soldierU_AA_F", "O_soldierU_AAA_F", "O_soldierU_TL_F", "O_SoldierU_SL_F", "O_soldierU_medic_F", "O_soldierU_repair_F", "O_soldierU_exp_F", "O_engineer_U_F", "O_soldierU_M_F", "O_soldierU_A_F", "O_SoldierU_GL_F"];
 	// CSAT - Recon:
-	_opforCSATrecon			= ["O_recon_F", "O_recon_M_F", "O_recon_LAT_F", "O_recon_medic_F", "O_recon_exp_F, O_recon_JTAC_F", "O_recon_TL_F", "O_ghillie_lsh_F", "O_ghillie_sard_F", "O_ghillie_ard_F", "O_Pathfinder_F"];
+	_opforCSATrecon	= ["O_recon_F", "O_recon_M_F", "O_recon_LAT_F", "O_recon_medic_F", "O_recon_exp_F, O_recon_JTAC_F", "O_recon_TL_F", "O_ghillie_lsh_F", "O_ghillie_sard_F", "O_ghillie_ard_F", "O_Pathfinder_F"];
 	// CSAT - Pacific Recon:
-	_opforCSATpacificRecon 	= ["O_T_Recon_Exp_F", "O_T_Recon_JTAC_F", "O_T_Recon_M_F", "O_T_Recon_Medic_F, O_T_Recon_F", "O_T_Recon_LAT_F", "O_T_Recon_TL_F", "O_T_Sniper_F", "O_T_Spotter_F", "O_T_ghillie_tna_F"];
+	_opforCSATpacificRecon = ["O_T_Recon_Exp_F", "O_T_Recon_JTAC_F", "O_T_Recon_M_F", "O_T_Recon_Medic_F, O_T_Recon_F", "O_T_Recon_LAT_F", "O_T_Recon_TL_F", "O_T_Sniper_F", "O_T_Spotter_F", "O_T_ghillie_tna_F"];
 	// CSAT - Viper:
-	_opforCSATviper			= ["O_V_Soldier_hex_F", "O_V_Soldier_TL_hex_F", "O_V_Soldier_Exp_hex_F", "O_V_Soldier_Medic_hex_F", "O_V_Soldier_M_hex_F", "O_V_Soldier_LAT_hex_F", "O_V_Soldier_JTAC_hex_F"];
+	_opforCSATviper	= ["O_V_Soldier_hex_F", "O_V_Soldier_TL_hex_F", "O_V_Soldier_Exp_hex_F", "O_V_Soldier_Medic_hex_F", "O_V_Soldier_M_hex_F", "O_V_Soldier_LAT_hex_F", "O_V_Soldier_JTAC_hex_F"];
 	// CSAT - Viper Pacific:
-	_opforCSATviper			= ["O_V_Soldier_TL_ghex_F", "O_V_Soldier_ghex_F", "O_V_Soldier_Exp_ghex_F", "O_V_Soldier_Medic_ghex_F", "O_V_Soldier_M_ghex_F", "O_V_Soldier_LAT_ghex_F", "O_V_Soldier_JTAC_ghex_F"];
+	_opforCSATviperPacific = ["O_V_Soldier_TL_ghex_F", "O_V_Soldier_ghex_F", "O_V_Soldier_Exp_ghex_F", "O_V_Soldier_Medic_ghex_F", "O_V_Soldier_M_ghex_F", "O_V_Soldier_LAT_ghex_F", "O_V_Soldier_JTAC_ghex_F"];
 	// FIA - Standard:
-	_opforFactionFIA 		= ["O_G_Soldier_F", "O_G_Soldier_lite_F", "O_G_Soldier_SL_F", "O_G_Soldier_AR_F", "O_G_medic_F", "O_G_engineer_F", "O_G_Soldier_exp_F", "O_G_Soldier_GL_F", "O_G_Soldier_M_F", "O_G_Soldier_LAT_F", "O_G_Soldier_A_F", "O_G_Sharpshooter_F"];
+	_opforFactionFIA = ["O_G_Soldier_F", "O_G_Soldier_lite_F", "O_G_Soldier_SL_F", "O_G_Soldier_AR_F", "O_G_medic_F", "O_G_engineer_F", "O_G_Soldier_exp_F", "O_G_Soldier_GL_F", "O_G_Soldier_M_F", "O_G_Soldier_LAT_F", "O_G_Soldier_A_F", "O_G_Sharpshooter_F"];
 	
 	// hard-coded opfor groupings:
 	_groupRed1 = createGroup east;
@@ -85,9 +82,9 @@ generateOpfor = {
 	
 	// gen-config:
 	_genType = VAMG_conflictType select 0; // infi, vic, air or mixed
-	_genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category, not a pure integer 
-	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy
-	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like pacific, or urban
+	_genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category (1-5), not a pure integer 
+	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy, like CSAT
+	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
 	
 	// assign local var to determine which faction class should be used
 	if (_genFaction == 1) then {
@@ -98,7 +95,7 @@ generateOpfor = {
 			case 4: { _facClass = _opforCSATrecon };
 			case 5: { _facClass = _opforCSATpacificRecon };
 			case 6: { _facClass = _opforCSATviper };
-			case 7: { _facClass = _opforCSATviper };
+			case 7: { _facClass = _opforCSATviperPacific };
 			default { hint "default" };
 		};
 	};
@@ -113,13 +110,14 @@ generateOpfor = {
 		
 	
 
-	// genType == infi only:
+	// genType 1 == infi only:
 	if (_genType == 1) then {
 		_genNumber = 10; // hardcoded integer for number of units per group - 10 is simple 
 
 		if (_genSize == 1) then {
 			for "_i" from 1 to _genNumber do {
-				_unit = selectRandom _opforCSAT;
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; // - 16 September - TEST 
 				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
 				sleep 1;
 			};
@@ -128,6 +126,7 @@ generateOpfor = {
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed1 Move _endPoint1;
 		};
+
 		if (_genSize == 2) then {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
@@ -144,6 +143,7 @@ generateOpfor = {
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed2 Move _endPoint1;
 		};
+
 		if (_genSize == 3) then {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
@@ -167,6 +167,7 @@ generateOpfor = {
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed3 Move _endPoint1;
 		};
+
 		if (_genSize == 4) then {
 			for "_i" from 1 to _genNumber do {
 				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
@@ -253,7 +254,6 @@ generateOpfor = {
 			"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
 		};
 	};
-	// note, right now, all numbers are the same regardless of infi, vic, air or mixed ... MVP yo!
 	
 	_gameType = VAMG_conflictObj select 0;
 
@@ -264,7 +264,7 @@ generateOpfor = {
 	};
 	// they attack you
 	if (_gameType == 2) then {
-		systemChat "checking mission defend - true now";
+		// systemChat "checking mission defend - true now";
 		MISSION_DEFEND = true;
 		
 		// if (side _x == east) then {
@@ -276,7 +276,7 @@ generateOpfor = {
 	{
 		switch ((side _x)) do
 		{
-			case EAST: {	_x doMove (position player)};
+			case EAST: { _x doMove (position player) };
 			case WEST: {};
 		};
 	} forEach _units;
@@ -297,7 +297,7 @@ generateOpfor = {
 };
 
 fightNow = {
-	systemChat "fightNow called";
+	// systemChat "fightNow called";
 	execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
 	execVM "voiceActivatedMissionGenerator\VAMG_clearKeyDowns.sqf";
 	// what is the mission order? Make necessary controls and instructions happen now
@@ -339,8 +339,8 @@ fightNow = {
 		// _unitCount1 = count _units;
 		{
 			switch ((side _x)) do {
-				case EAST: {_opforCount1 = _opforCount1 + 1};
-				case WEST: {_blueforCount1 = _blueforCount1 + 1};
+				case EAST: { _opforCount1 = _opforCount1 + 1 };
+				case WEST: { _blueforCount1 = _blueforCount1 + 1 };
 			};
 		} forEach _units;
 
@@ -349,6 +349,17 @@ fightNow = {
 			systemChat "MISSION COMPLETE .. !!!";
 			MISSION_DEFEND = false;
 		};
+
+		_units = allUnits inAreaArray "BattleArea";
+		_unitCount = count _units;
+		{
+			switch ((side _x)) do
+			{
+				case EAST: { _x doMove (position player) };
+				case WEST: {};
+			};
+		} forEach _units;
+
 		sleep 10;
 	};
 	while {MISSION_HUNT} do {
@@ -363,33 +374,36 @@ fightNow = {
 	// give UI instructions
 		sleep 10;
 	};
-
 };
 
 
-// area gen 
-// this FNC generates an area around the player 
-// this is the AO for which all other calcs are based on
+// AREA GENERATOR
+// this FNC generates an area around the player and is the AO for which all other calcs are based on
 generateAO = {
-	systemChat "generateMarkers called";
-
+	// systemChat "generateMarkers called";
 	// configs start
 	_area = VAMG_areaSize select 0;
 	_startPosition = position player;
 	// configs end 
 	// AO Marker Start
-	if (_area == 1) then {
-		_num = 1000;
+	switch (_area) do {
+		case: 1 { _num = 1000; };
+		case: 2 { _num = 2000; };
+		case: 3 { _num = 3500; };
+		case: 4 { _num = 5000; };
 	};
-	if (_area == 2) then {
-		_num = 2000;
-	};
-	if (_area == 3) then {
-		_num = 3500;
-	};
-	if (_area == 4) then {
-		_num = 5000;
-	};
+	// if (_area == 1) then {
+	// 	_num = 1000;
+	// };
+	// if (_area == 2) then {
+	// 	_num = 2000;
+	// };
+	// if (_area == 3) then {
+	// 	_num = 3500;
+	// };
+	// if (_area == 4) then {
+	// 	_num = 5000;
+	// };
 	deleteMarkerlocal "BattleArea"; 
 	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
 	_battleArea setMarkerShapeLocal "ELLIPSE";
@@ -399,20 +413,44 @@ generateAO = {
 	// AO Marker End
 	// Spawn Marker Start
 	_placement = VAMG_enemyPlacement select 0;
+	// placement in this context means how many different spawn points  should be created 
+	// if only one opfor group, this actually does not matter 
+	// however if multi-groups then this setting determines whether all opfor
+	// groups spawn roughly in the same area, or whther each group is a random
+	// spawner area  
+	//
+	// this switch helps to determine the outer extend of the enemy safezone
+	switch (_area) do {
+		case 1: { _safeExtent = 600 };
+		case 2: { _safeExtent = 1200 };
+		case 3: { _safeExtent = 1850 };
+		case 4: { _safeExtent = 2500 };
+		default { systemChat "default" };
+	};
+	//
+	// placement 1 = all opfor elements are clustered together as one badassmass
 	if (_placement == 1) then {
-		_spawnPointOPFOR = [_startPosition, 500, 700] call BIS_fnc_findSafePos; 
+		_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
 			deleteMarkerlocal "SpawnArea"; 
 			_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
 			_spawnArea setMarkerShapeLocal "ELLIPSE";
-			_spawnArea setMarkerColorLocal "ColorBlack";
-			_spawnArea setMarkerSizeLocal [_num, _num];
+			_spawnArea setMarkerColorLocal "ColorRed";
+			_spawnArea setMarkerSizeLocal [50, 50];
 			_spawnArea setMarkerAlphaLocal 0.9;
 		[_spawnPointOPFOR] spawn generateOpfor;
 	} else {
-		// _randomDir = selectRandom 360;
-		// _randomDist = selectRandom [300, 350, 400, 450, 500];
-		// some randomisation is needed here
-		[] spawn generateOpfor;
+		// here, 'else' means random placement of spawn point per created opfor group
+		for "_i" from 1 to _genSize do {
+			_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
+				deleteMarkerlocal "SpawnArea"; 
+				_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
+				_spawnArea setMarkerShapeLocal "ELLIPSE";
+				_spawnArea setMarkerColorLocal "ColorRed";
+				_spawnArea setMarkerSizeLocal [50, 50];
+				_spawnArea setMarkerAlphaLocal 0.9;
+			[_spawnPointOPFOR] spawn generateOpfor;
+			sleep 1;
+		};
 	};
 	// Spawn Marker End
 }; call generateAO;

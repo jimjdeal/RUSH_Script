@@ -65,3 +65,7 @@ All clearKeyDowns must work, including abort
 
 test that locals work for validation in VAPS
 (if passed, replace all globals wherever possible)
+
+16 sept
+reduced code in VAMG_KDM - check this works ok
+multiple places

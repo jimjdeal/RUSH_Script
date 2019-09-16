@@ -64,7 +64,7 @@ VAMG_numericalInputBool	= false;
 VAMG_conflictType 		= [];		// 4 options - infi, vic, air, mixed
 VAMG_conflictTypeBool	= false;
 
-VAMG_conflictSize		= [];		// 4 options -  M L XL
+VAMG_conflictSize		= [];		// 4 options -  S M L XL
 VAMG_conflictSizeBool	= false;
 
 VAMG_vicTypes			= []; 		// 5 options - confirmes types of spawned enemy vehicles
