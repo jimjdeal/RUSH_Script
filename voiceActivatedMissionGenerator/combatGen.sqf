@@ -48,29 +48,29 @@ for "_i" from 1 to 4 do {
 also note - need to create movement in units created...
 */
 
-	_genType = VAMG_conflictType select 0; // infi, vic, air or mixed
-	_genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category (1-5), not a pure integer 
-	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy, like CSAT
-	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
+	// _genType = VAMG_conflictType select 0; // infi, vic, air or mixed
+	// _genSize = VAMG_conflictSize select 0; // indicates number of units to create - as a category (1-5), not a pure integer 
+	// _genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy, like CSAT
+	// _genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
 
-	if (_genFaction == 1) then {
-		switch (_genFactionClass) do {
-			case 1: { _facClass = _opforCSAT };
-			case 2: { _facClass = _opforCSATpacific };
-			case 3: { _facClass = _opforCSATurban };
-			case 4: { _facClass = _opforCSATrecon };
-			case 5: { _facClass = _opforCSATpacificRecon };
-			case 6: { _facClass = _opforCSATviper };
-			case 7: { _facClass = _opforCSATviperPacific };
-			default { hint "default" };
-		};
-	};
-	if (_genFaction == 2) then {
-		switch (_genFactionClass) do {
-			case 1: { _facClass = _opforFactionFIA };
-			default { hint "default" };
-		};
-	};
+	// if (_genFaction == 1) then {
+	// 	switch (_genFactionClass) do {
+	// 		case 1: { _facClass = _opforCSAT };
+	// 		case 2: { _facClass = _opforCSATpacific };
+	// 		case 3: { _facClass = _opforCSATurban };
+	// 		case 4: { _facClass = _opforCSATrecon };
+	// 		case 5: { _facClass = _opforCSATpacificRecon };
+	// 		case 6: { _facClass = _opforCSATviper };
+	// 		case 7: { _facClass = _opforCSATviperPacific };
+	// 		default { hint "default" };
+	// 	};
+	// };
+	// if (_genFaction == 2) then {
+	// 	switch (_genFactionClass) do {
+	// 		case 1: { _facClass = _opforFactionFIA };
+	// 		default { hint "default" };
+	// 	};
+	// };
 
 
 // systemChat "combatGen activated";
@@ -78,8 +78,9 @@ private ["_num", "_facClass", "_safeExtent"];
 
 // This function generates relevant enemies as per mission request
 generateOpfor = {
+	private ["_num", "_facClass", "_safeExtent"];
 	// CSAT - Standard:
-	_opforCSAT = ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "2O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
+	_opforCSAT = ["O_Soldier_F", "O_officer_F", "O_Soldier_lite_F", "O_Soldier_GL_F", "O_Soldier_AR_F", "O_Soldier_SL_F", "O_Soldier_TL_F", "O_soldier_M_F", "O_Soldier_LAT_F", "O_medic_F", "O_soldier_repair_F", "O_soldier_exp_F", "O_Soldier_A_F", "O_Soldier_AT_F", "O_Soldier_AA_F", "O_engineer_F", "O_Soldier_AAR_F", "O_Soldier_AAT_F", "O_Soldier_AAA_F", "O_support_MG_F", "O_support_GMG_F", "O_support_Mort_F", "O_Sharpshooter_F", "O_HeavyGunner_F"];
 	// CSAT - Pacific:
 	_opforCSATpacific = ["O_T_Soldier_A_F", "O_T_Soldier_AAR_F", "O_T_Support_AMG_F", "O_T_Support_AMort_F", "O_T_Soldier_AAA_F", "O_T_Soldier_AAT_F", "O_T_Soldier_AR_F", "O_T_Medic_F", "O_T_Crew_F", "O_T_Engineer_F", "O_T_Soldier_Exp_F", "O_T_Soldier_GL_F", "O_T_Support_GMG_F", "O_T_Support_MG_F", "O_T_Support_Mort_F", "O_T_Soldier_M_F", "O_T_Soldier_AA_F", "O_T_Soldier_AT_F", "O_T_Officer_F", "O_T_Soldier_Repair_F", "O_T_Soldier_F", "O_T_Soldier_LAT_F", "O_T_Soldier_SL_F",  "O_T_Soldier_TL_F"];
 	// CSAT - Urban:
@@ -111,6 +112,30 @@ generateOpfor = {
 	_genFaction = VAMG_enemyFaction select 0; // indicates faction of enemy, like CSAT
 	_genFactionClass = VAMG_enemyClass select 0; // indicates class-type, like Pacific, or Urban
 	
+	if (_genFaction == 1) then {
+		if (_genFactionClass == 1) then {
+			_facClass = _opforCSAT;
+		};
+		if (_genFactionClass == 2) then {
+			_facClass = _opforCSATpacific;
+		};
+		if (_genFactionClass == 3) then {
+			_facClass = _opforCSATurban;
+		};
+		if (_genFactionClass == 4) then {
+			_facClass = _opforCSATrecon;
+		};
+		if (_genFactionClass == 5) then {
+			_facClass = _opforCSATpacificRecon;
+		};
+		if (_genFactionClass == 6) then {
+			_facClass = _opforCSATviper;
+		};
+		if (_genFactionClass == 7) then {
+			_facClass = _opforCSATviperPacific;
+		};
+	};
+
 	// assign local var to determine which faction class should be used
 	// if (_genFaction == 1) then {
 	// 	switch (_genFactionClass) do {
@@ -480,7 +505,7 @@ generateAO = {
 		[_spawnPointOPFOR] spawn generateOpfor;
 	} else {
 		// here, 'else' means random placement of spawn point per created opfor group
-		for "_i" from 1 to _genSize do {
+		for "_i" from 1 to _area do {
 			_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
 				deleteMarkerlocal "SpawnArea"; 
 				_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
