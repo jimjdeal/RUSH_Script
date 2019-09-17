@@ -169,6 +169,7 @@ generateOpfor = {
 				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; // - 16 September - TEST 
 				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				systemChat "opfor red 1";
 				sleep 1;
 			};
 			_randomDir = random 360;
@@ -178,75 +179,179 @@ generateOpfor = {
 		};
 
 		if (_genSize == 2) then {
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
+			for "_i" from 1 to 10 do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				systemChat "opfor red 1";
+				sleep 1;
 			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed1 Move _endPoint1;
+
+			for "_i" from 1 to 10 do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
+				systemChat "opfor red 2";
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed2 Move _endPoint1;
+
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
+			// };
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed1 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed2 Move _endPoint1;
 		};
 
 		if (_genSize == 3) then {
+
 			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed3]; 
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				sleep 1;
 			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed1 Move _endPoint1;
+
+			for "_i" from 1 to _genNumber do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed2 Move _endPoint1;
+
+			for "_i" from 1 to _genNumber do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed3]; 
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed3 Move _endPoint1;
+
+
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed3]; 
+			// };
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed1 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed2 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed3 Move _endPoint1;
 		};
 
 		if (_genSize == 4) then {
+
 			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed3]; 
-			};
-			for "_i" from 1 to _genNumber do {
-				"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed4]; 
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				sleep 1;
 			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed1 Move _endPoint1;
+
+			for "_i" from 1 to _genNumber do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed2 Move _endPoint1;
+
+			for "_i" from 1 to _genNumber do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed3]; 
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed3 Move _endPoint1;
+
+			for "_i" from 1 to _genNumber do {
+				// _unit = selectRandom _opforCSAT;
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_spawnPointOPFOR, _groupRed4]; 
+				sleep 1;
+			};
 			_randomDir = random 360;
 			_randomDist = selectRandom [20, 40, 60, 80, 100];
 			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
 			_groupRed4 Move _endPoint1;
+
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed1]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed2]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed3]; 
+			// };
+			// for "_i" from 1 to _genNumber do {
+			// 	"O_V_Soldier_TL_ghex_F" createUnit [_spawnPointOPFOR, _groupRed4]; 
+			// };
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed1 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed2 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed3 Move _endPoint1;
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// _groupRed4 Move _endPoint1;
 		};
 
 	};
@@ -344,11 +449,16 @@ generateOpfor = {
 		MISSION_RUN = true;
 		call fightNow;
 	};
+
+	// i moved this here, as it was triggering before all 40 units could be created (resulting in only partial opfor spawning)
+	// i still dont know if this fully works however - to be tested
+	execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
+
 };
 
 fightNow = {
 	// systemChat "fightNow called";
-	execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
+	// execVM "voiceActivatedMissionGenerator\VAMG_init.sqf";
 	execVM "voiceActivatedMissionGenerator\VAMG_clearKeyDowns.sqf";
 	// what is the mission order? Make necessary controls and instructions happen now
 	// activate RF listener 
@@ -505,17 +615,27 @@ generateAO = {
 		[_spawnPointOPFOR] spawn generateOpfor;
 	} else {
 		// here, 'else' means random placement of spawn point per created opfor group
-		for "_i" from 1 to _area do {
+		_genSize = VAMG_conflictSize select 0;
+		for "_i" from 1 to _genSize do {
 			_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
-				deleteMarkerlocal "SpawnArea"; 
-				_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
+				_marker = "spawnpoint" + (str _i);
+				deleteMarkerlocal _marker; 
+				_spawnArea = createMarkerLocal [_marker, _spawnPointOPFOR];
 				_spawnArea setMarkerShapeLocal "ELLIPSE";
 				_spawnArea setMarkerColorLocal "ColorRed";
 				_spawnArea setMarkerSizeLocal [50, 50];
 				_spawnArea setMarkerAlphaLocal 0.9;
 			[_spawnPointOPFOR] spawn generateOpfor;
-			sleep 1;
+			sleep 2;
 		};
 	};
 	// Spawn Marker End
 }; call generateAO;
+
+
+// _pos = position AAF_HQ;
+// _marker = "Markername" + (str _pos);
+// createMarker [_marker,_pos];
+
+// _marker setmarkerpos (getpos leader _grp1);
+// VAMG_conflictSize
