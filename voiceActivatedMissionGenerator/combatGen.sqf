@@ -74,7 +74,7 @@ also note - need to create movement in units created...
 
 
 // systemChat "combatGen activated";
-private ["_num", "_facClass", "_safeExtent"];
+private ["_num", "_facClass", "_safeExtent", "_mpos1", "_mpos2"];
 
 // This function generates relevant enemies as per mission request
 generateOpfor = {
@@ -88,7 +88,7 @@ generateOpfor = {
 	// CSAT - Recon:
 	_opforCSATrecon	= ["O_recon_F", "O_recon_M_F", "O_recon_LAT_F", "O_recon_medic_F", "O_recon_exp_F", "O_recon_JTAC_F", "O_recon_TL_F", "O_ghillie_lsh_F", "O_ghillie_sard_F", "O_ghillie_ard_F", "O_Pathfinder_F"];
 	// CSAT - Pacific Recon:
-	_opforCSATpacificRecon = ["O_T_Recon_Exp_F", "O_T_Recon_JTAC_F", "O_T_Recon_M_F", "O_T_Recon_Medic_F, O_T_Recon_F", "O_T_Recon_LAT_F", "O_T_Recon_TL_F", "O_T_Sniper_F", "O_T_Spotter_F", "O_T_ghillie_tna_F"];
+	_opforCSATpacificRecon = ["O_T_Recon_Exp_F", "O_T_Recon_JTAC_F", "O_T_Recon_M_F", "O_T_Recon_Medic_F", "O_T_Recon_F", "O_T_Recon_LAT_F", "O_T_Recon_TL_F", "O_T_Sniper_F", "O_T_Spotter_F", "O_T_ghillie_tna_F"];
 	// CSAT - Viper:
 	_opforCSATviper	= ["O_V_Soldier_hex_F", "O_V_Soldier_TL_hex_F", "O_V_Soldier_Exp_hex_F", "O_V_Soldier_Medic_hex_F", "O_V_Soldier_M_hex_F", "O_V_Soldier_LAT_hex_F", "O_V_Soldier_JTAC_hex_F"];
 	// CSAT - Viper Pacific:
@@ -162,157 +162,151 @@ generateOpfor = {
 
 	// genType 1 == infi only:
 	if (_genType == 1) then {
-
+		_mPos1 = getMarkerPos "spawnpoint1";
+		_mPos2 = getMarkerPos "spawnpoint2";
+		_mPos3 = getMarkerPos "spawnpoint3";
+		_mPos4 = getMarkerPos "spawnpoint4";
 		_genNumber = 10; // hardcoded integer for number of units per group - 10 is simple 
 
 		if (_genSize == 1) then {
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
-				_unit = selectRandom _facClass; // - 16 September - TEST 
-				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
-				systemChat "opfor red 1";
+				// _mPos1 = getMarkerPos "spawnpoint1";
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_mPos1, _groupRed1]; 
 				sleep 1;
 			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			_groupRed1 Move _endPoint1;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint1 = _mPos1 getPos [_randomDist, _randomDir];
+			_groupRed1 move _endPoint1;
 		};
 
 		if (_genSize == 2) then {
 			for "_i" from 1 to 10 do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				_unit createUnit [_mPos1 , _groupRed1]; 
 				systemChat "opfor red 1";
 				sleep 1;
 			};
-			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed1 Move _endPoint1;
-			_mPos1 = getMarkerPos "spawnpoint1";
-			_groupRed1 Move _mPos1;
-			// in time, mix these two methods to have opfor always be slightly away from marker area 
-
 			for "_i" from 1 to 10 do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
-				systemChat "opfor red 2";
+				_unit createUnit [_mPos2, _groupRed2]; 
 				sleep 1;
 			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed2 Move _endPoint1;
-			_mPos2 = getMarkerPos "spawnpoint2";
-			_groupRed2 Move _mPos2;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint1 = _mPos1 getPos [_randomDist, _randomDir];
+			_groupRed1 move _endPoint1;
 
+			_randomDir = random 360;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint2 = _mPos2 getPos [_randomDist, _randomDir];
+			_groupRed2 move _endPoint2;
 		};
 
 		if (_genSize == 3) then {
-
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
+				_unit createUnit [_mPos1, _groupRed1]; 
+				sleep 1;
+			};
+			for "_i" from 1 to _genNumber do {
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_mPos2, _groupRed2]; 
+				sleep 1;
+			};
+			for "_i" from 1 to _genNumber do {
+				_unit = selectRandom _facClass; 
+				_unit createUnit [_mPos3, _groupRed3]; 
 				sleep 1;
 			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed1 Move _endPoint1;
-			_mPos1 = getMarkerPos "spawnpoint1";
-			_groupRed1 Move _mPos1;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint1 = _mPos1 getPos [_randomDist,_randomDir];
+			_groupRed1 move _endPoint1;
 
-			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
-				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
-				sleep 1;
-			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed2 Move _endPoint1;
-			_mPos2 = getMarkerPos "spawnpoint2";
-			_groupRed2 Move _mPos2;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint2 = _mPos2 getPos [_randomDist,_randomDir];
+			_groupRed2 move _endPoint2;
 
-			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
-				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed3]; 
-				sleep 1;
-			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed3 Move _endPoint1;
-			_mPos3 = getMarkerPos "spawnpoint3";
-			_groupRed3 Move _mPos3;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint3 = _mPos3 getPos [_randomDist,_randomDir];
+			_groupRed3 move _endPoint3;
 
 		};
 
 		if (_genSize == 4) then {
 
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed1]; 
-				systemChat "opfor gr1 created";
+				_unit createUnit [_mPos1, _groupRed1]; 
 				sleep 1;
 			};
-			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed1 Move _endPoint1;
-			_mPos1 = getMarkerPos "spawnpoint1";
-			_groupRed1 Move _mPos1;
-
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed2]; 
-				systemChat "opfor gr2 created";
-
+				_unit createUnit [_mPos2, _groupRed2]; 
 				sleep 1;
 			};
-			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed2 Move _endPoint1;
-			_mPos2 = getMarkerPos "spawnpoint2";
-			_groupRed2 Move _mPos2;
-
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed3]; 
-				systemChat "opfor gr3 created";
-
+				_unit createUnit [_mPos3, _groupRed3]; 
 				sleep 1;
 			};
-			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed3 Move _endPoint1;
-			_mPos3 = getMarkerPos "spawnpoint3";
-			_groupRed3 Move _mPos3;
-
 			for "_i" from 1 to _genNumber do {
-				// _unit = selectRandom _opforCSAT;
 				_unit = selectRandom _facClass; 
-				_unit createUnit [_spawnPointOPFOR, _groupRed4]; 
-				systemChat "opfor gr4 created";
+				_unit createUnit [_mPos4, _groupRed4]; 
 				sleep 1;
 			};
 			_randomDir = random 360;
-			_randomDist = selectRandom [20, 40, 60, 80, 100];
-			_endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
-			// _groupRed4 Move _endPoint1;
-			_mPos4 = getMarkerPos "spawnpoint4";
-			_groupRed4 Move _mPos4;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint1 = _mPos1 getPos [_randomDist,_randomDir];
+			_groupRed1 move _endPoint1;
+
+			_randomDir = random 360;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint2 = _mPos2 getPos [_randomDist,_randomDir];
+			_groupRed2 move _endPoint2;
+
+			_randomDir = random 360;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint3 = _mPos3 getPos [_randomDist,_randomDir];
+			_groupRed3 move _endPoint3;
+
+			_randomDir = random 360;
+			_randomDist = selectRandom [50, 100, 150, 200];
+			_endPoint4 = _mPos4 getPos [_randomDist,_randomDir];
+			_groupRed4 move _endPoint4;
+
+			// this method below could be an 'intercept' mission 
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// // _groupRed1 Move _endPoint1;
+			// _mPos1 = getMarkerPos "spawnpoint1";
+			// _groupRed1 Move _mPos1;
+
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// // _groupRed2 Move _endPoint1;
+			// _mPos2 = getMarkerPos "spawnpoint2";
+			// _groupRed2 Move _mPos2;
+
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// // _groupRed3 Move _endPoint1;
+			// _mPos3 = getMarkerPos "spawnpoint3";
+			// _groupRed3 Move _mPos3;
+
+			// _randomDir = random 360;
+			// _randomDist = selectRandom [20, 40, 60, 80, 100];
+			// _endPoint1 = _spawnPointOPFOR getPos [_randomDist,_randomDir];
+			// // _groupRed4 Move _endPoint1;
+			// _mPos4 = getMarkerPos "spawnpoint4";
+			// _groupRed4 Move _mPos4;
 
 		};
 
