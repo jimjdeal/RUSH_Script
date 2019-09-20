@@ -74,7 +74,7 @@ also note - need to create movement in units created...
 
 
 // systemChat "combatGen activated";
-private ["_num", "_facClass", "_safeExtent", "_mpos1", "_mpos2"];
+private ["_num", "_facClass", "_safeExtent", "_safeExtentMin", "_safeExtentMax", "_mpos1", "_mpos2"];
 
 // This function generates relevant enemies as per mission request
 generateOpfor = {
@@ -427,8 +427,268 @@ fightNow = {
 	// _gameType = VAMG_conflictObj select 0;
 	// give UI instructions
 	// give initial direction of enemy
+
+	if (_genSize == 1) then {
+		M1MISSION = true;
+	};
+
+	if (_genSize == 2) then {
+		M1MISSION = true;
+		M2MISSION = true;
+	};
+	if (_genSize == 3) then {
+		M1MISSION = true;
+		M2MISSION = true;
+		M3MISSION = true;
+	};
+	if (_genSize == 4) then {
+		M1MISSION = true;
+		M2MISSION = true;
+		M3MISSION = true;
+		M4MISSION = true;
+	};
+
 	while {MISSION_ATTACK} do {
-		_units = allUnits inAreaArray "BattleArea";
+		_allUnits = allUnits inAreaArray "BattleArea";
+		_genSize = VAMG_conflictSize select 0;
+		
+		_m1Units = allUnits inAreaArray "spawnpoint1";
+		_m2Units = allUnits inAreaArray "spawnpoint2";
+		_m3Units = allUnits inAreaArray "spawnpoint3";
+		_m4Units = allUnits inAreaArray "spawnpoint4";
+
+		if (M1MISSION) then {
+			sleep 10;
+			_opforCount1 = 0;
+			_blueforCount1 = 0;
+			{
+				switch ((side _x)) do {
+					case EAST: {_opforCount1 = _opforCount1 + 1};
+					case WEST: {_blueforCount1 = _blueforCount1 + 1};
+				};
+			} forEach _m1Units;
+			if ((_opforCount1) <= 2)  then {
+				systemChat "M1 MISSION COMPLETE .. !!!";
+				M1MISSION = false;
+				deleteMarkerlocal "spawnpoint1"; 
+			};
+		};
+
+		if (M2MISSION) then {
+			sleep 10;
+			_opforCount2 = 0;
+			_blueforCount2 = 0;
+			{
+				switch ((side _x)) do {
+					case EAST: {_opforCount2 = _opforCount2 + 1};
+					case WEST: {_blueforCount2 = _blueforCount2 + 1};
+				};
+			} forEach _m2Units;
+			if ((_opforCount2) <= 2)  then {
+				systemChat "M2 MISSION COMPLETE .. !!!";
+				M2MISSION = false;
+				deleteMarkerlocal "spawnpoint2"; 
+			};
+		};
+
+		if (M3MISSION) then {
+			sleep 10;
+			_opforCount3 = 0;
+			_blueforCount3 = 0;
+			{
+				switch ((side _x)) do {
+					case EAST: {_opforCount3 = _opforCount3 + 1};
+					case WEST: {_blueforCount3 = _blueforCount3 + 1};
+				};
+			} forEach _m3Units;
+			if ((_opforCount3) <= 2)  then {
+				// check here for RF settings 
+				systemChat "M3 MISSION COMPLETE .. !!!";
+				M3MISSION = false;
+				deleteMarkerlocal "spawnpoint3"; 
+			};
+		};
+
+		if (M4MISSION) then {
+			sleep 10;
+			_opforCount4 = 0;
+			_blueforCount4 = 0;
+			{
+				switch ((side _x)) do {
+					case EAST: {_opforCount4 = _opforCount4 + 1};
+					case WEST: {_blueforCount4 = _blueforCount4 + 1};
+				};
+			} forEach _m4Units;
+			if ((_opforCount4) <= 2)  then {
+				// check here for RF settings 
+				systemChat "M4 MISSION COMPLETE .. !!!";
+				M4MISSION = false;
+				deleteMarkerlocal "spawnpoint4"; 
+			};
+		};
+		// if (_genSize == 1) then {
+		// 	sleep 10;
+		// 	_opforCount1 = 0;
+		// 	_blueforCount1 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount1 = _opforCount1 + 1};
+		// 			case WEST: {_blueforCount1 = _blueforCount1 + 1};
+		// 		};
+		// 	} forEach _m1Units;
+		// 	if ((_opforCount1) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M1 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint1"; 
+		// 	};
+		// };
+
+		// if (_genSize == 2) then {
+		// 	sleep 10;
+		// 	_opforCount1 = 0;
+		// 	_blueforCount1 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount1 = _opforCount1 + 1};
+		// 			case WEST: {_blueforCount1 = _blueforCount1 + 1};
+		// 		};
+		// 	} forEach _m1Units;
+		// 	if ((_opforCount1) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M1 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint1"; 
+		// 	};
+
+		// 	_opforCount2 = 0;
+		// 	_blueforCount2 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount2 = _opforCount2 + 1};
+		// 			case WEST: {_blueforCount2 = _blueforCount2 + 1};
+		// 		};
+		// 	} forEach _m2Units;
+		// 	if ((_opforCount2) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M2 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint2"; 
+		// 	};
+		// };
+
+		// if (_genSize == 3) then {
+		// 	sleep 10;
+		// 	_opforCount1 = 0;
+		// 	_blueforCount1 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount1 = _opforCount1 + 1};
+		// 			case WEST: {_blueforCount1 = _blueforCount1 + 1};
+		// 		};
+		// 	} forEach _m1Units;
+		// 	if ((_opforCount1) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M1 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint1"; 
+		// 	};
+
+		// 	_opforCount2 = 0;
+		// 	_blueforCount2 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount2 = _opforCount2 + 1};
+		// 			case WEST: {_blueforCount2 = _blueforCount2 + 1};
+		// 		};
+		// 	} forEach _m2Units;
+		// 	if ((_opforCount2) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M2 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint2"; 
+		// 	};
+
+		// 	_opforCount3 = 0;
+		// 	_blueforCount3 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount3 = _opforCount3 + 1};
+		// 			case WEST: {_blueforCount3 = _blueforCount3 + 1};
+		// 		};
+		// 	} forEach _m3Units;
+		// 	if ((_opforCount3) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M3 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint3"; 
+		// 	};
+		// };
+
+		// if (_genSize == 4) then {
+		// 	sleep 10;
+		// 	_opforCount1 = 0;
+		// 	_blueforCount1 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount1 = _opforCount1 + 1};
+		// 			case WEST: {_blueforCount1 = _blueforCount1 + 1};
+		// 		};
+		// 	} forEach _m1Units;
+		// 	if ((_opforCount1) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M1 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint1"; 
+		// 	};
+
+		// 	_opforCount2 = 0;
+		// 	_blueforCount2 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount2 = _opforCount2 + 1};
+		// 			case WEST: {_blueforCount2 = _blueforCount2 + 1};
+		// 		};
+		// 	} forEach _m2Units;
+		// 	if ((_opforCount2) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M2 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint2"; 
+		// 	};
+
+		// 	_opforCount3 = 0;
+		// 	_blueforCount3 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount3 = _opforCount3 + 1};
+		// 			case WEST: {_blueforCount3 = _blueforCount3 + 1};
+		// 		};
+		// 	} forEach _m3Units;
+		// 	if ((_opforCount3) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M3 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint3"; 
+		// 	};
+
+		// 	_opforCount4 = 0;
+		// 	_blueforCount4 = 0;
+		// 	{
+		// 		switch ((side _x)) do {
+		// 			case EAST: {_opforCount4 = _opforCount4 + 1};
+		// 			case WEST: {_blueforCount4 = _blueforCount4 + 1};
+		// 		};
+		// 	} forEach _m4Units;
+		// 	if ((_opforCount4) <= 2)  then {
+		// 		// check here for RF settings 
+		// 		systemChat "M4 MISSION COMPLETE .. !!!";
+		// 		// MISSION_ATTACK = false;
+		// 		deleteMarkerlocal "spawnpoint4"; 
+		// 	};
+		// };
+
+
 		_opforCount1 = 0;
 		_blueforCount1 = 0;
 		// _unitCount1 = count _units;
@@ -437,10 +697,11 @@ fightNow = {
 				case EAST: {_opforCount1 = _opforCount1 + 1};
 				case WEST: {_blueforCount1 = _blueforCount1 + 1};
 			};
-		} forEach _units;
+		} forEach _allUnits;
 		if ((_opforCount1) <= 2)  then {
 			// check here for RF settings 
-			systemChat "MISSION COMPLETE .. !!!";
+			sleep 2;
+			systemChat "--------------------------- ALL MISSIONS COMPLETE .. !!!";
 			MISSION_ATTACK = false;
 		};
 		sleep 10;
@@ -449,7 +710,7 @@ fightNow = {
 	while {MISSION_DEFEND} do {
 	// move enemy to player pos
 	// give UI instructions
-		_units = allUnits inAreaArray "BattleArea";
+		_allUnits = allUnits inAreaArray "BattleArea";
 		_opforCount1 = 0;
 		_blueforCount1 = 0;
 		// _unitCount1 = count _units;
@@ -458,7 +719,7 @@ fightNow = {
 				case EAST: { _opforCount1 = _opforCount1 + 1 };
 				case WEST: { _blueforCount1 = _blueforCount1 + 1 };
 			};
-		} forEach _units;
+		} forEach _allUnits;
 
 		if ((_opforCount1) <= 2)  then {
 			// check here for RF settings 
@@ -466,15 +727,15 @@ fightNow = {
 			MISSION_DEFEND = false;
 		};
 
-		_units = allUnits inAreaArray "BattleArea";
-		_unitCount = count _units;
+		_allUnits = allUnits inAreaArray "BattleArea";
+		_unitCount = count _allUnits;
 		{
 			switch ((side _x)) do
 			{
 				case EAST: { _x doMove (position player) };
 				case WEST: {};
 			};
-		} forEach _units;
+		} forEach _allUnits;
 
 		sleep 10;
 	};
@@ -516,10 +777,10 @@ generateAO = {
 		_num = 2000;
 	};
 	if (_area == 3) then {
-		_num = 3500;
+		_num = 3000;
 	};
 	if (_area == 4) then {
-		_num = 5000;
+		_num = 4000;
 	};
 	deleteMarkerlocal "BattleArea"; 
 	_battleArea = createMarkerLocal ["BattleArea", _startPosition];
@@ -547,45 +808,49 @@ generateAO = {
 	// //
 
 	if (_area == 1) then {
-		_safeExtent = 600;
+		_safeExtentMin = 600;
+		_safeExtentMax = 1000,
 	};
 	if (_area == 2) then {
-		_safeExtent = 1200;
+		_safeExtentMin = 800;
+		_safeExtentMax = 2000,
 	};
 	if (_area == 3) then {
-		_safeExtent = 1850;
+		_safeExtentMin = 1000;
+		_safeExtentMax = 3000,
 	};
 	if (_area == 4) then {
-		_safeExtent = 1500;
+		_safeExtentMin = 1200;
+		_safeExtentMax = 4000,
 	};
 
 	private ["_spawnPointOPFOR"];
 
 	// placement 1 = all opfor elements are clustered together as one badassmass
 	if (_placement == 1) then {
-		_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
-			deleteMarkerlocal "SpawnArea"; 
-			_spawnArea = createMarkerLocal ["SpawnArea", _spawnPointOPFOR];
+		_spawnPointOPFOR = [_startPosition, _safeExtentMin, _safeExtentMax] call BIS_fnc_findSafePos; 
+			deleteMarkerlocal "spawnpoint1"; 
+			_spawnArea = createMarkerLocal ["spawnpoint1", _spawnPointOPFOR];
 			_spawnArea setMarkerShapeLocal "ELLIPSE";
 			_spawnArea setMarkerColorLocal "ColorRed";
-			_spawnArea setMarkerSizeLocal [50, 50];
+			_spawnArea setMarkerSizeLocal [300, 300];
 			_spawnArea setMarkerAlphaLocal 0.9;
 		[_spawnPointOPFOR] spawn generateOpfor;
 	} else {
 		// here, 'else' means random placement of spawn point per created opfor group
 		_genSize = VAMG_conflictSize select 0;
 		for "_i" from 1 to _genSize do {
-			_spawnPointOPFOR = [_startPosition, 500, _safeExtent] call BIS_fnc_findSafePos; 
+			_spawnPointOPFOR = [_startPosition, _safeExtentMin, _safeExtentMax] call BIS_fnc_findSafePos; 
 				_marker = "spawnpoint" + (str _i);
 				deleteMarkerlocal _marker; 
 				_spawnArea = createMarkerLocal [_marker, _spawnPointOPFOR];
 				_spawnArea setMarkerShapeLocal "ELLIPSE";
 				_spawnArea setMarkerColorLocal "ColorRed";
-				_spawnArea setMarkerSizeLocal [50, 50];
+				_spawnArea setMarkerSizeLocal [300, 300];
 				_spawnArea setMarkerAlphaLocal 0.9;
 			// [_spawnPointOPFOR] spawn generateOpfor;
 			sleep 3;
-			SYSTEMcHAT "spawner cycle";
+			systemChat "spawner cycle";
 		};
 		[_spawnPointOPFOR] spawn generateOpfor;
 
