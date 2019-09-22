@@ -20,6 +20,12 @@ need to trigger config params from here too dont forget
 understand how to better use preprocessFileLineNumbers across whole script!
 */
 
+		M1MISSION = false;
+		M2MISSION = false;
+		M3MISSION = false;
+		M4MISSION = false;
+
+
 call compile preprocessFileLineNumbers "voiceActivatedArty\VAA_Init.sqf";
 execVM "voiceActivatedCoordFinder\VACF_init.sqf";
 execVM "voiceactivatedhighcommand\VAHCO_init.sqf";

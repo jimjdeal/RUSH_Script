@@ -256,7 +256,11 @@ if (_control == 2) then {
 			// FIRE TEAM
 			if (_camo == 1) then {
 				for "_i" from 1 to 4 do { 
-				"B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				// "B_W_Soldier_CBRN_F" createUnit [position player, hc_grp]; 
+				_unit = hc_grp createUnit ["B_W_Soldier_CBRN_F", position player, [], 0, "FORM"];
+				[_unit] call AIS_System_fnc_loadAIS;
+				_unit setVariable ["AIS_noBleedOut", true];
+				// [_unit] call AIS_System_fnc_setUnconscious;
 				sleep 0.2;
 				};
 			};

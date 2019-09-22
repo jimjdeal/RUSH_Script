@@ -21,7 +21,7 @@ vamp is a universal bool that is used to ensure that only one module can be run 
 VAVS_numericalInputbool		= false; 	
 
 // choose type of vehicle - DC or HC
-VAVS_vicType 				= []; // 1 = DC, 2 = HC
+VAVS_vicType 				= []; // 1 = DC, 2 = HC 
 VAVS_vicTypeBool 			= false;
 
 // choose which HC group (assuming you chose HC)

@@ -1,5 +1,15 @@
 #include "VAMP_displays\displays.hpp"
 
+//--------------------------------------------------------------
+//------------------------AIS INJURY----------------------------
+//--------------------------------------------------------------
+class CfgFunctions {
+	#include "AIS\cfgFunctions.hpp"
+};
+#include "AIS\Effects\BarDlg.hpp"
+//--------------------------------------------------------------
+
+
 // below is a placeholder for some audio shit...
 
 /*
