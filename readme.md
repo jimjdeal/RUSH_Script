@@ -6,14 +6,17 @@ VAMP – Voice Activated Mission Packs
 
 Each pack enables a particular mission enhancement, and can be used in isolation, or combined with any other others:
 
-VAUS – Unit Spawner
-VAAS – Asset Spawner
-VACF – Coord Finder
-VAAS – Artillery
-VAAR – Airborne Reinforcements
-VAHC – High Command
-VAOG – OPFOR Generator
-VAOC – Objective Creator
+VAUS – Unit Spawner             press 1
+VAHC – High Command             press 2
+VACF – Coord Finder             press 3
+VAAS – Artillery                press 4
+VAVS – Vehicle Spawner          press 5
+VAMG – Mission Generator        press 7
+VAAR – Airborne Reinforcements  press
+
+VAPS - Planning System          press 2 (in map)
+
+
 
 Some packs are best used pre-mission, some are best used during the mission.
 
