@@ -1,0 +1,291 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, test1">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"start",0,250,-113.108276,-397.747314,-23.108276,-347.747314,0.000000,"start"};
+item1[] = {"low_damage",4,218,-116.089813,-263.373352,-26.089813,-213.373398,0.000000,"low damage"};
+item2[] = {"end",1,250,-221.863281,303.641083,-131.863220,353.641052,0.000000,"end"};
+item3[] = {"check_for_medics",3,250,-140.490845,-158.863037,1.065613,-85.294388,0.000000,"check for medics" \n "" \n ""};
+item4[] = {"to_player",4,218,-228.780640,-56.445992,-138.780640,-6.445992,10.000000,"to player"};
+item5[] = {"noone_near",4,218,-4.130554,-48.159515,85.869446,1.840485,0.000000,"noone near"};
+item6[] = {"wait",4,218,114.607910,-259.529663,204.607910,-209.529602,0.000000,"wait"};
+item7[] = {"wait",3,250,114.749451,-153.618118,204.749451,-103.618118,0.000000,"wait"};
+item8[] = {"Medic_near_player",3,250,-429.982971,154.688782,-308.064941,206.623199,0.000000,"Medic near player?"};
+item9[] = {"is_near",4,218,-614.584595,161.957184,-524.584534,211.957184,10.000000,"is near"};
+item10[] = {"is_not_near",4,218,-221.844574,160.344208,-131.844574,210.344208,0.000000,"is not near"};
+item11[] = {"wait_",4,218,-419.312775,51.228928,-329.312744,101.228928,10.000000,"wait" \n ""};
+item12[] = {"wait_1",3,250,-417.145508,-49.283913,-327.145508,0.716087,0.000000,"wait"};
+item13[] = {"wait_2",3,250,-230.494629,40.145782,-140.494629,90.145782,0.000000,"wait"};
+item14[] = {"wait_3",3,250,-611.387695,-55.332123,-521.387695,-5.332123,0.000000,"wait"};
+item15[] = {"wait_",4,218,-601.601196,-387.623352,-511.601196,-337.623352,0.000000,"wait" \n ""};
+item16[] = {"deadMed_",4,4314,-421.416321,-144.405930,-331.416321,-94.405930,0.000000,"deadMed" \n ""};
+link0[] = {0,1};
+link1[] = {1,3};
+link2[] = {3,4};
+link3[] = {3,5};
+link4[] = {4,12};
+link5[] = {5,7};
+link6[] = {6,0};
+link7[] = {7,6};
+link8[] = {8,9};
+link9[] = {8,10};
+link10[] = {9,14};
+link11[] = {10,13};
+link12[] = {11,8};
+link13[] = {12,11};
+link14[] = {12,16};
+link15[] = {13,4};
+link16[] = {14,15};
+link17[] = {15,0};
+link18[] = {16,0};
+globals[] = {0.000000,0,0,0,0,640,480,1,28,6316128,1,-1037.352905,438.323120,408.098511,-521.693054,1162,884,1};
+window[] = {2,-1,-1,-1,-1,861,186,1626,102,3,1180};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "test1";
+        class States
+        {
+                /*%FSM<STATE "start">*/
+                class start
+                {
+                        name = "start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"systemChat ""starting fsm"";" \n
+                         "_t = time;" \n
+                         "medicare = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "low_damage">*/
+                                class low_damage
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="check_for_medics";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_playerDamage = damage player;" \n
+                                         "_playerDamage > 0.5;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"systemChat ""player is damaged"";" \n
+                                         "deleteMarker ""healMe"";" \n
+                                         "_marker1 = createMarker [""healMe"", position player];" \n
+                                         "_marker1 setMarkerShapeLocal ""ELLIPSE"";" \n
+                                         "_marker1 setMarkerColorLocal ""ColorRed"";" \n
+                                         "_marker1 setMarkerSizeLocal [1000, 1000];" \n
+                                         "_marker1 setMarkerAlphaLocal 0.5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "end">*/
+                class end
+                {
+                        name = "end";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"hint ""damage test completed!"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_for_medics">*/
+                class check_for_medics
+                {
+                        name = "check_for_medics";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"_units = allUnits inAreaArray ""healMe"";" \n
+                         "private ""_medicDude"";" \n
+                         "{" \n
+                         "	if (typeOf _x == ""B_medic_F"") then {" \n
+                         "		medicare = true;" \n
+                         "		_medicDude = _x;" \n
+                         "		_meters = player distance _medicDude;" \n
+                         "		systemChat format [""Medic located %1m away"", _meters];" \n
+                         "	};" \n
+                         "} forEach _units;	"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "to_player">*/
+                                class to_player
+                                {
+                                        itemno = 4;
+                                        priority = 10.000000;
+                                        to="wait_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"medicare;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_medicDude doMove position player;" \n
+                                         "_medicDude setUnitPos ""auto"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "noone_near">*/
+                                class noone_near
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="wait";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!medicare;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait">*/
+                class wait
+                {
+                        name = "wait";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="start";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"systemChat ""1 sec recheck yo"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Medic_near_player">*/
+                class Medic_near_player
+                {
+                        name = "Medic_near_player";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"_meters = player distance _medicDude;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "is_near">*/
+                                class is_near
+                                {
+                                        itemno = 9;
+                                        priority = 10.000000;
+                                        to="wait_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_meters <= 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"systemChat ""get ready for-a healin.."";" \n
+                                         "//_medicDude disableAI ""MOVE"";" \n
+                                         "_medicDude setUnitPos ""middle"";" \n
+                                         "_medicDude action [""HealSoldier"", player];" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "is_not_near">*/
+                                class is_not_near
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="wait_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_meters > 3"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_medicDude doMove position player;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_1">*/
+                class wait_1
+                {
+                        name = "wait_1";
+                        itemno = 12;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 11;
+                                        priority = 10.000000;
+                                        to="Medic_near_player";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 7 && alive _medicDude;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_meters = player distance _medicDude;" \n
+                                         "_meters = floor _meters;" \n
+                                         "_azimuth = player getDir _medicDude;" \n
+                                         "_azimuth = floor _azimuth;" \n
+                                         "systemChat format [""medic is inbound, %1m away, %2 degrees"", _meters, _azimuth];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "deadMed_">*/
+                                class deadMed_
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="start";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 7 && !alive _medicDude;" \n
+                                         "systemChat ""bad news, your medical care has been invalidated"";"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"systemChat ""7 secs"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_2">*/
+                class wait_2
+                {
+                        name = "wait_2";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "to_player">*/
+                                class to_player
+                                {
+                                        itemno = 4;
+                                        priority = 10.000000;
+                                        to="wait_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"medicare;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_medicDude doMove position player;" \n
+                                         "_medicDude setUnitPos ""auto"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_3">*/
+                class wait_3
+                {
+                        name = "wait_3";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"_t = time;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_">*/
+                                class wait_
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="start";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _t + 20;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"systemChat ""delete marker"";" \n
+                                         "deleteMarker ""healMe"";"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="start";
+        finalStates[] =
+        {
+                "end",
+        };
+};
+/*%FSM</COMPILE>*/

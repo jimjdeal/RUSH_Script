@@ -39,7 +39,9 @@ execVM "voiceActivatedHeliOps\VAHO.init.sqf";
 //
 
 
+sleep 2;
 
+execFSM "fsm\test1.fsm";
 
 
 
